@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title>GeoreferencingMumbai</title>
+
+	<link rel="stylesheet"  href="css/leaflet.css"/>
+
+	<script src="js/leaflet.js"></script>
+
+	<script src="js/jquery-3.2.1.min.js">  </script>
+
+	<style>
+	#map{position:absolute; top:0; bottom:0; left:0; width: 100%;}
+	</style>
+
+
+</head>
+<body>
+	<div id="map"></div>
+
+	<script>
+//initializing the map
+//	var map = L.map('map').setView([18.966, 72.831], 12);
+
+//add background tile layers
+//	L.tileLayer('http://tile.stamen.com/toner-lite/{z}/{x}/{y}.png',
+//		{
+//			attribution: 'Tiles from <a href="http://www.openstreetmap.org/">OSM by Stamen Design</a>',
+//		maxZoom: 19,
+//		minZoom: 1
+//		}).addTo(map);
+
+//link to the URL of the georeferenced historical map image
+//	var imageUrl = 'data/mumbai.png';
+
+//define the area that image covers
+//	var imageBounds = [[19.1016526225, 72.7697292161], [18.8740881517, 72.9318489121]];
+
+
+
+
+//add georeferenced map to the basemap
+//	L.imageOverlay(imageUrl, imageBounds, {opacity: 0.8}).addTo(map);
+
+//define new marker
+//var myIcon = L.icon({
+//iconUrl: 'css/images/maps-mark.png',
+//  iconSize: [20, 20],
+//  popupAnchor: [0, -28]
+//});
+
+
+//load GeoJSON file containing sites, and style points
+//  	$.getJSON('data/plaguetimeline.geojson',function(plagueData){
+//	    	L.geoJson(plagueData, {
+//	    	pointToLayer: function(feature, latlng) {
+//		return L.marker(latlng, {
+//		icon: myIcon});
+//	},
+//	    	onEachFeature: onEachFeature,
+//	    	}).addTo(map);
+//	    });
+
+
+
+//define popup content for site annotations
+
+//function onEachFeature(feature, layer) {
+    // does this feature have a property named popupContent?
+//    if (feature.properties && feature.properties.Event) {
+//        layer.bindPopup(feature.properties.Year + '<br/>' + feature.properties.Event);
+//    }
+//}
+
+//L.geoJSON(geojsonFeature, {
+
+//	onEachFeature: onEachFeature
+//}).addTo(map);
+
+	</script>
+</body>
+</html>

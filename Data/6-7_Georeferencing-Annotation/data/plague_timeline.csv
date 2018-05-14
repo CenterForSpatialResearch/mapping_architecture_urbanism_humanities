@@ -1,0 +1,28 @@
+ID,Year,Date,Event,Actors,Latitude,Longitude,Importance,Image
+1,1871,1871-01-01,Crawford plan for Bombay Development,British,18.941782,72.793843,An early plan to improve sanitation throughout the city was lost to a change of leadership,
+2,1875,1875-02-01,Millworkers' Association Established,Indian,18.949331,72.830202,Organization of millworkers to fight against British taxes and tariffs,
+3,1885,1885-01-01,Formation of Indian National Congress,Indian,18.959203,72.815407,First large and national group to be formed to oppose colonial rule,
+4,1885,1885-12-28,First meeting of Indian National Congress,Indian,18.959203,72.815407,Representative from every region came to discuss how to end colonialism,https://en.wikipedia.org/wiki/History_of_the_Indian_National_Congress#/media/File:1st_INC1885.jpg
+5,1888,1888-01-01,Bombay Municipal Act,British,18.941782,72.793843,British now have more power of city affairs,
+6,1896,1896-01-01,Plague breaks out,NA,18.960488,72.837707,Health crisis,
+7,1896,1896-09-23,First case of bulbonic plague identified by Dr. Acacio Gabriel Viegas,Indian,18.955921,72.838542,22 per 1000 people died because of the plague (TB+cholera caused 26 per 1000 deaths),https://en.wikipedia.org/wiki/Acacio_Gabriel_Viegas#/media/File:Acacio_Gabriel_Viegas_statue.jpg
+8,1896,1896-10-6,Executive order to isolate all persons suspected of having the disease,British,18.941782,72.793843,"Top-down decree stating that government has control over the people for their own ""good""",
+9,1896,1896-10-11,Plague Committee of doctors established,British,18.942208,72.832326,Take a culturally and socially disconnected view of how to proceed,
+10,1896,1896-10-12,Sanitation blamed for spread of the plague,NA,18.933725,72.8346,Plague committee of British and Indian doctors determined that sanitation issues in the city are at the root of the problem.,
+11,1896,1896-10-13,"People leave at a rate of 1,900 a week",Indian,18.957807,72.847732,"Initially, this is a good thing because it alleviates over crowding",
+12,1896,1896-10-14,The health department begins police searches to find infected individuals and control the plague,British,18.933725,72.8346,Government enacts their power over the people to protect the public and themselves,
+13,1896,1896-10-15,Millworkers in particular live in cramped and congested housing and are leaving the city,Indian,18.955023,72.830653,"Millworkers were disproportionately affected, and disproportionately tried to leave the city",
+14,1896,1896-10-16,Plague disproporitonately affects millworkers,NA,18.949331,72.830202,Factories cannot find people to work in them,
+15,1897,1897-03-01,"Epidemic Diseases Act gives authorities right to inspect, disinfect and demolish private homes",British,18.951111,72.830206,Top-down use of force for a health concern,
+16,1897,1897-04-06,Strike at Cotton Green protesting forced police searches,Indian,18.992196,72.846544,Public pushes back on government tactics,http://dighist.fas.harvard.edu/courses/2015/HUM54/files/fullsize/663d695f423254bc7af1716714d03995.jpg
+17,1897,1897-10-2,Commissioner Snow's report identifies sanitation as a primary cause of the plague,British,18.941782,72.793843,Confirmation that sanitation is the usse,
+18,1897,1897-11-01,"Scavengers, sanitation workers and other service workers barred from leaving the city",British,18.957807,72.847732,Lower classes are trapped in the city to continue to do sanitation work,
+19,1898,1898-03-01,Second Plague committee established to address sanitatoin,British,18.941782,72.793843,"This committee was government oriented, not health",
+20,1898,1898-03-09,Riots in response to government's strategy for dealing with the plague,Indian,18.933725,72.8346,"Government officials were forcibly removing people from their homes, destroying neighborhoods in order to ""Sanitize"" areas",
+21,1898,1898-11-08,Bombay City Improvement Trust established,British,18.941782,72.793843,"Established to ""improve"" sanitation and quality of life in Bombay, a government body, they are given control over development projects and the right to destroy insanitary housing",https://favelaissues.files.wordpress.com/2014/04/streets-bit-2.jpg
+22,1899,1899-01-01,The Dadar-Matunga-Wadala-Sion scheme proposed,British,19.026923,72.839102,Organized housing plan by colonial powers in a top-down decree.,
+23,1899,1899-03-01,"Neighborhoods destroyed in the name of ""sanitation""",British,18.933725,72.8346,"Mostly poor and working class areas, further contributing to the housing crisis",
+24,1899,1899-12-01,Many people move to Dharavi and other informal settlements in the city,Indian,19.044082,72.855241,,
+25,1900,1900,Mills and railways seriously impacted by loss of workers,NA,18.949331,72.830202,,
+26,1901,1901,"Over 500,000 people left the city (approximately 25% of all millworkers)",Indian,18.957807,72.847732,,
+27,1905,1905,"Most people have returned to find work, and the plague has subsided",Indian,18.998467,72.842722,,
