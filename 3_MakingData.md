@@ -1,5 +1,5 @@
 ## Tutorial 02 - Data Types and 311 Data
-*Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the [Mapping for Architecture, Urbanism and the Humanities](https://github.com/juanfrans-courses/mapping_arch_hum) class at Columbia University. Edited by Michelle McSweeney for [Fall 2017](https://github.com/michellejm/mapping_arch_urban_hums).*
+*Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the [Mapping for Architecture, Urbanism and the Humanities](https://github.com/juanfrans-courses/mapping_arch_hum) class at Columbia University. Edited by Michelle McSweeney for [Fall 2017](https://github.com/michellejm/mapping_arch_urban_hums), and Brian House for [Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)*
 
 In this tutorial, you will:
 * download 311 data for New York City
