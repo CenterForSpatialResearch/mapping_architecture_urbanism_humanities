@@ -331,8 +331,7 @@ Finally use one of the export options circled in blue above to save the map comp
 
 ### Deliverables: 
 
-**due Thursday, September 14, 2017**
-For Thursday, email your finished map composition (as a pdf or jpeg) to Michelle at mam2518@columbia.edu
+Email your finished map composition (as a pdf or jpeg) to both Brian (bjh18@columbia.edu) and Buck (brw2103@columbia.edu)
 
 Include your answer to the following question you answered on your own:
 * How many countries contain cities with greater than 7 million inhabitants?
