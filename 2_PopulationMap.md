@@ -24,7 +24,7 @@ We are interested in creating a map of world countries and cities (and at the sa
 
 **Launch** QGIS. Your new blank map project will look like this:
 
-![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/MappingData01_01.png)
+![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata01_01.png)
 
 Begin to familiarize yourself with the interface. You can also refer to this [brief description](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Resources/QGIS_InterfaceDescription.md) of the elements of the interface for more information.
 
