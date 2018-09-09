@@ -53,8 +53,6 @@ The cities layer is represented by points and the countries layer is represented
 
 **Click** and drag the admin_0_countries layer on top of the populated_places layer. The cities points are no longer visible because they are behind the countries polygons (or only visible at the borders of the countries and the oceans).
 
-![order](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/03_Adding_Layers.png)
-
 We can change this by removing the fill color of the country polygons, leaving only the outline of their boundaries. To do this, we must change the style of the data layer. That is, we will change the way the data is styled or symbolized on the map. The simplest style for any dataset is to apply a single symbol to every feature within the layer.
 
 We will display the countries as just borders. To access the `Style Menu` **double-click** on the layer name in the Layers panel, or **right-click** on the layer name and select `Properties.`  There are many different ways to symbolize data on a map through QGIS. For now, we will just use one style for all of the features in the layer.
@@ -97,25 +95,25 @@ It should still contain the countries polygons and populated places points we ad
 
 **Select** the `Add raster layer` button in order to add the CEISIN’s Gridded Population of the World raster layer.
 
-![add](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/09_Adding_Layers_Raster.png)
+![add](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_01.png)
 
-Then in the dialog box which opens browse to the MappingData\Raster folder and select gpw_v4_2010.tif. We will speak about the qualities of raster datasets a bit more later but for now let’s just add it to the map. After you’ve added this layer you can **un-click** the box next to the layer name in int Layers menu in order to toggle the visibility of the layer off.
+Then in the dialog box which opens browse to the MappingData/Raster folder and select gpw_v4_2010.tif. We will speak about the qualities of raster datasets a bit more later but for now let’s just add it to the map. After you’ve added this layer you can **un-click** the box next to the layer name in int Layers menu in order to toggle the visibility of the layer off.
 
 Now we will add the table that describes population by country which we will join to the country polygons in order to be able to examine country level population values spatially.
 
 **Select** the `add delimited layer` button.
 
-![CSV](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/09_Adding_Layers_Delimited.png)
+![CSV](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_02.png)
 
 Then in the dialog box which opens browse to the MappingData\Tabular folder and **select** TotalPopulation_Countries.csv.
 **Select** `CSV` as the File Format. And **select** `no geometry (attribute table only)` as the Geometry Definition. **Click** OK.
 
-![CSV](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities_2017/blob/master/Tutorials/Images/MappingData01/08_AddCSV.png)
+![CSV](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_03.png)
 
 
-You'll notice TotalPopulation_Countries has been added to the Layers menu. Because it is just a table and does not have any geometry it does not show up in our map view. Lets open up its attribute table to see the fields that it contains before we embark on joining it to our country polygons. It contains three columns (or fields): `Country_Code`, `Name`, and `Pop_2010`.
+You'll notice TotalPopulation_Countries has been added to the Layers menu. Because it is just a table and does not have any geometry it does not show up in our map view. Let's open up its attribute table to see the fields that it contains before we embark on joining it to our country polygons. It contains three columns (or fields): `Country_Code`, `Name`, and `Pop_2010`.
 
-![CSV](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/09_Attributexls.png)
+![CSV](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_05.png)
 
 #### Performing a Table Join
 In order to answer questions about world population by country we will join tabular data published by the United Nations to the country polygons we have already mapped. A table join allows GIS users to combine tabular data with vector data based on an identical field in their attribute tables.  
@@ -123,8 +121,6 @@ In order to answer questions about world population by country we will join tabu
 We have already cleaned the TotalPopulation_Countries.csv file and removed additional rows included in the original dataset that we will not need for our purposes here. In addition, we have abbreviated the column names and reformatted them so that they can be read by QGIS. In future exercises we will cover in depth how to clean, format, and save data so that it can be read by QGIS.  
 
 **Right-click** admin_0_countries in the layer menu and select `Open Attribute Table`. The layer’s attribute table will appear. This describes the data associated with each feature in the feature class.
-
-![Attribute](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/10_AttributeTable.png)
 
 In order to join attributes from a table to a shapefile the two data sets must share a common attribute field.
 Let's review the fields in the attribute table for the admin_0_countries layer:
@@ -147,7 +143,7 @@ Note that the Country_Code is identical to the Cnt_Code for each country, and ea
 
 We always start the join on the file that we are joining to. Here, we are joining the population estimates table to the country boundary shapefile. Thus, Open the Properties for admin_0_countries, and navigate to “Joins” in the left hand menu. Click the “+” icon. Make the following selections in the dialogue box which appears.
 
-![Attribute](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/12_JoinDialogue.png)
+![Attribute](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_09.png)
 
 **Select** TotalPopulation_Countries as the “join layer”, Country_Code is the “join field”, and Cnt_Code is the “target field” which matches the join field in the admin_0_countries layer. Select the box next to “Custom field name prefix” and delete the contents of that field (note this is a helpful field if we are joining data from many different tables to one shapefile as it allows you to distinguish the source table). **Click** `OK` to close the join dialogue. Then **Click** `OK` to close the layer properties menu.
 
@@ -155,7 +151,7 @@ Open the attribute table for the countries shapefile. You’ll notice two new fi
 
 Note: the population estimates data that is joined to the country boundaries is not permanently associated with its attribute table. Instead the relationship only exists within this QGIS project. If we added the admin_0_countries layer to another QGIS project the fields we have joined from the population estimates would not be there.
 
-In order to permanently incorporate the population estimates into a shapefile of world countries we must save a new version of the shapefile. **Right-click** on admin_0_countries in the layers menu and select `Save.` Select `ESRI Shapefile` as the format, and save your file in the MappingData\Shape folder as admin_0_countries_UNPop.shp.
+In order to permanently incorporate the population estimates into a shapefile of world countries we must save a new version of the shapefile. **Right-click** on admin_0_countries in the layers menu and select `Save.` Select `ESRI Shapefile` as the format, and save your file in the MappingData/Shape folder as admin_0_countries_UNPop.shp.
 
 This new layer will then be added to the map and will contain the population estimates that we joined from the UN tabular data.
 
@@ -174,11 +170,11 @@ There are multiple routes to select features within a dataset, either we can ope
 
 Option 1:
 
-![Attribute](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/13_SelectByExpres.png)
+![Attribute](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_10.png)
 
 Option 2:
 
-![Attribute](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/13_SelectByExpression.png)
+![Attribute](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_11.png)
 
 Either route will open the `Select by Expression` tool. We can be sure we are selecting features from the correct layer from the header of this dialogue box. We see that the header reads “Select by expression - populated_places” and because we will select the cities first we know we are selecting features from the correct layer.
 
@@ -199,15 +195,17 @@ To do this we will expand `Fields and Values` and select `max_pop`.
 
 You should notice that some of the populated_places points will turn yellow. In addition at the bottom left corner of your QGIS project the footer will tell you how many features were selected: we see that 215 cities were selected.
 
-![Attribute](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/17_SelectOutcome.png)
+![Attribute](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_01.png)
 
 We will now save those 215 cities as a separate shapefile, just like we did for the admin_0_countries layer after we joined the UN population estimates to it.
 
 * **Right-Click** populated_places in the Layers menu, **select** `Save As`.
-* Then in the dialogue box which opens select `Save only selected features`, and save the shapefile in MappingData\Shape as populated_places_2mil.shp.
+* Then in the dialogue box which opens select `Save only selected features`, and save the shapefile in MappingData/Shape as populated_places_2mil.shp.  
+![save as](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_13.png)
+
 * This will then be added to our map as a new layer. In order to see the new layer clear your selection by clicking the `Deselect features from all layers button.`
 
-![Attribute](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/18_Deselect.png)
+![Attribute](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_14.png)
 
 #### Select by location
 
