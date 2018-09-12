@@ -120,7 +120,7 @@ In order to answer questions about world population by country we will join tabu
 
 We have already cleaned the `TotalPopulation_Countries.csv` file and removed additional rows included in the original dataset that we will not need for our purposes here. In addition, we have abbreviated the column names and reformatted them so that they can be read by QGIS. In future exercises we will cover in depth how to clean, format, and save data so that it can be read by QGIS.  
 
-**Right-click** admin_0_countries in the layer menu and select `Open Attribute Table`. The layer’s attribute table will appear. This describes the data associated with each feature in the feature class.
+**Right-click / Control-click** admin_0_countries in the layer menu and select `Open Attribute Table`. The layer’s attribute table will appear. This describes the data associated with each feature in the feature class.
 
 In order to join attributes from a table to a shapefile the two data sets must share a common attribute field.
 Let's review the fields in the attribute table for the admin_0_countries layer:
@@ -151,7 +151,7 @@ Open the attribute table for the countries shapefile. You’ll notice two new fi
 
 Note: the population estimates data that is joined to the country boundaries is not permanently associated with its attribute table. Instead the relationship only exists within this QGIS project. If we added the admin_0_countries layer to another QGIS project the fields we have joined from the population estimates would not be there.
 
-In order to permanently incorporate the population estimates into a shapefile of world countries we must save a new version of the shapefile. **Right-click** on admin_0_countries in the layers menu and select `Save.` Select `ESRI Shapefile` as the format, and save your file in the `Data/1_MappingData/Shape` folder as `admin_0_countries_UNPop.shp`.
+In order to permanently incorporate the population estimates into a shapefile of world countries we must save a new version of the shapefile. **Right-click / Control-click** on admin_0_countries in the layers menu and select `Save.` Select `ESRI Shapefile` as the format, and save your file in the `Data/1_MappingData/Shape` folder as `admin_0_countries_UNPop.shp`.
 
 This new layer will then be added to the map and will contain the population estimates that we joined from the UN tabular data.
 
@@ -199,7 +199,7 @@ You should notice that some of the populated_places points will turn yellow. In 
 
 We will now save those 215 cities as a separate shapefile, just like we did for the admin_0_countries layer after we joined the UN population estimates to it.
 
-* **Right-Click** populated_places in the Layers menu, **select** `Save As`.
+* **Right-click / Control-click** populated_places in the Layers menu, **select** `Save As`.
 * Then in the dialogue box which opens select `Save only selected features`, and save the shapefile in MappingData/Shape as populated_places_2mil.shp.  
 ![save as](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_13.png)
 
