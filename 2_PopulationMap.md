@@ -164,7 +164,7 @@ We will answer a few questions:
 * How many countries have populations of less than seven million people?
 * How many cities with more than two million residents are within countries where the total population is less than seven million?
 
-In order to answer these questions we’ll first select just those cities which have populations of more than two million. Then we will export that as a separate layer. Then we will do the same for countries which have populations of greater than seven million people, and also less than seven million.
+In order to answer these questions we’ll first select just those cities from the `populated_places` layer which have populations of more than two million. Then we will export that as a separate layer. Then we will do the same for countries which have populations of greater than seven million people, and also less than seven million.
 
 There are multiple routes to select features within a dataset, either we can open its attribute table and select `select features using an expression` or we can highlight the layer in the layers menu and select the `select features using an expression` button in the main toolbar.
 
@@ -184,8 +184,8 @@ If we click on any of the terms in the central box (highlighted in magenta) a de
 
 We want to select just those cities with a maximum estimated population of greater than two million.
 
-To do this we will expand `Fields and Values` and select `max_pop`.
-* **Double-click**  on `max_pop` and it will appear in the expression box on the right.
+To do this we will expand `Fields and Values` and select `pop_max`.
+* **Double-click**  on `pop_max` and it will appear in the expression box on the left.
 * Next we will open `Operators` and double-click on the greater than symbol (>).
 * Then type in 2,000,000. Your expression should now look like the following.
 
@@ -200,7 +200,7 @@ You should notice that some of the populated_places points will turn yellow. In 
 We will now save those 215 cities as a separate shapefile, just like we did for the admin_0_countries layer after we joined the UN population estimates to it.
 
 * **Right-click / Control-click** populated_places in the Layers menu, **select** `Save As`.
-* Then in the dialogue box which opens select `Save only selected features`, and save the shapefile in MappingData/Shape as populated_places_2mil.shp.  
+* Then in the dialogue box which opens select `Save only selected features`, and save the shapefile in `Data/1_MappingData/Shape` as `populated_places_2mil.shp`.  
 ![save as](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_13.png)
 
 * This will then be added to our map as a new layer. In order to see the new layer clear your selection by clicking the `Deselect features from all layers button.`
