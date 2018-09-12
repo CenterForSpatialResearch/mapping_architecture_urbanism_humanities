@@ -239,23 +239,21 @@ Now that we have these three different layers we can begin to create maps that h
 **Proportional  symbols**
 
 We will symbolize the cities layer with symbols that are sized proportionally to their population -- a city with a larger population will have a larger circle and visa versa.
-To do this open the layer properties menu for the populated_places layer and navigate to the Style tab.
+To do this open the layer properties menu for the `populated_places` layer and navigate to the Style tab.
 
-Choose Graduated Symbols. Select `pop_max` as the column, and `Natural Breaks (Jenks)` as the mode. Click `Classify` and then click `Apply`. The populated places will now be colored according to their population. Now we’ll adjust them by size.
+Choose Graduated Symbols. Select `pop_max` as the column, `Size` for the method, and `Natural Breaks (Jenks)` as the mode. Click `Classify` and then click `Apply`. The populated places will now be sized according to their population.
 
 ![Attribute](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_17.png)
 
-**VERSION ISSUE** If the option below doesn't exist, go to the next version's directions
-**Click** on the Advanced dropdown menu in the bottom right and navigate to the `Size scale field` option. Select `pop_max`. **Click** `Apply`. You’ll notice that the circles are huge and fill up the entire screen. Return to the `Size scale field` and now select `expression`. In the expression builder window that opens write the following `“pop_max” / 1000000`. Click `Okay` in the expression builder then click `Apply`. Click Okay to close the Properties window.
+Now switch the method to `Color` and observe the results.
 
-**VERSION 2**
-**Click** on 'Simple Marker' and then next to the size option, there is a small icon. If you hover over it, it will show that the 'data defined override is off' click the icon to turn it on, then select 'Size Assistant'
+**Bonus**: What if you want both color _and_ size? Once you've symbolized based on color, click on Symbol 'Change' and then on 'Simple Marker.' Next to the size option, there is a small icon. Select 'Size Assistant'.
 
-![blank](https://github.com/michellejm/mapping_arch_urban_hums/blob/master/Images/georef3-11.png)
+![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef3-11.png)
 
 In the pop up box, select the pop_max filed and Flannery classification
 
-![blank](https://github.com/michellejm/mapping_arch_urban_hums/blob/master/Images/georef3-12.png)
+![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef3-12.png)
 
 The outcome of your selections should look something like this:
 
