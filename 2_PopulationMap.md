@@ -34,7 +34,7 @@ In order to construct our map within QGIS we will need to add our data layers to
 
 ![vector](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata01_02.png)
 
-**Navigate** to the `1_MappingData/Shape` folder. You'll notice a number of different file extensions that are likely unfamiliar. The files outlined in blue are all components of the admin_0_countries shapefile, and the ones outlined in magenta are all elements of the populated_places shapefile. It is very important that all of these files stay together in the same folder otherwise QGIS will not be able to load the layer.
+**Navigate** to the `Data/1_MappingData/Shape` folder. You'll notice a number of different file extensions that are likely unfamiliar. The files outlined in blue are all components of the admin_0_countries shapefile, and the ones outlined in magenta are all elements of the populated_places shapefile. It is very important that all of these files stay together in the same folder otherwise QGIS will not be able to load the layer.
 
 * .shp - The main file that stores the feature geometry (required).
 * .shx - The index file that stores the index of the feature geometry (required).
@@ -67,7 +67,7 @@ When your style settings are finished, **click** `OK` to exit the properties men
 
 ![style](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata01_11.png)
 
-**Save** your QGIS project by selecting `Project` > `Save`. Name your project MappingData_Population.qgs and save it in the Tutorials/Exercises folder. QGIS projects are saved as .qgs files. It is important to note that the data layers are not saved with it the map project but are rather linked to the project.
+**Save** your QGIS project by selecting `Project` > `Save`. Name your project MappingData_Population.qgs. QGIS projects are saved as .qgs files. It is important to note that the data layers are not saved with it the map project but are rather linked to the project.
 
 
 ### Part 02: Mapping World Population(s) to understand the difference between multiple methods of measuring world population
@@ -87,7 +87,7 @@ The data we are using about populated places is aggregated by [Natural Earth v. 
 Country-level population data was published by the [United Nations Population Division](http://esa.un.org/unpd/wpp/Download/Standard/Population/) in 2010. All figures are reported in thousands, i.e., if the population field says 7,000 in the dataset this equals 7,000,000 inhabitants. We have provided a cleaned version of this dataset but the original can be downloaded [here](http://esa.un.org/unpd/wpp/Download/Standard/Population/).
 
 #### Downloads
-In addition to the data files you have downloaded already you will need to download the Gridded Population of the World raster dataset [here](https://drive.google.com/file/d/0B5KywkNXsT4JYlZGd1lReUVyYVk/view?usp=sharing). Please create a new folder in your Class_Data\MappingData directory called Raster and save the GriddedPop.zip file there. Once it has downloaded unzip the file so that we can use its contents.
+In addition to the data files you have downloaded already you will need to download the Gridded Population of the World raster dataset [here](https://drive.google.com/file/d/0B5KywkNXsT4JYlZGd1lReUVyYVk/view?usp=sharing). Please create a new folder in your `Data/1_MappingData` directory called `Raster` and save the `GriddedPop.zip` file there. Once it has downloaded unzip the file so that we can use its contents.
 
 #### Setting up QGIS
 Open your MappingData_Population.qgs file.
@@ -97,7 +97,7 @@ It should still contain the countries polygons and populated places points we ad
 
 ![add](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_01.png)
 
-Then in the dialog box which opens browse to the MappingData/Raster folder and select gpw_v4_2010.tif. We will speak about the qualities of raster datasets a bit more later but for now let’s just add it to the map. After you’ve added this layer you can **un-click** the box next to the layer name in int Layers menu in order to toggle the visibility of the layer off.
+Then in the dialog box which opens browse to the `Data/1_MappingData/Raster` folder and select `gpw_v4_2010.tif`. We will speak about the qualities of raster datasets a bit more later but for now let’s just add it to the map. After you’ve added this layer you can **un-click** the box next to the layer name in int Layers menu in order to toggle the visibility of the layer off.
 
 Now we will add the table that describes population by country which we will join to the country polygons in order to be able to examine country level population values spatially.
 
@@ -105,7 +105,7 @@ Now we will add the table that describes population by country which we will joi
 
 ![CSV](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_02.png)
 
-Then in the dialog box which opens browse to the MappingData\Tabular folder and **select** TotalPopulation_Countries.csv.
+Then in the dialog box which opens browse to the `Data/1_MappingData/Tabular` folder and **select** `TotalPopulation_Countries.csv`.
 **Select** `CSV` as the File Format. And **select** `no geometry (attribute table only)` as the Geometry Definition. **Click** OK.
 
 ![CSV](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_03.png)
@@ -118,7 +118,7 @@ You'll notice TotalPopulation_Countries has been added to the Layers menu. Becau
 #### Performing a Table Join
 In order to answer questions about world population by country we will join tabular data published by the United Nations to the country polygons we have already mapped. A table join allows GIS users to combine tabular data with vector data based on an identical field in their attribute tables.  
 
-We have already cleaned the TotalPopulation_Countries.csv file and removed additional rows included in the original dataset that we will not need for our purposes here. In addition, we have abbreviated the column names and reformatted them so that they can be read by QGIS. In future exercises we will cover in depth how to clean, format, and save data so that it can be read by QGIS.  
+We have already cleaned the `TotalPopulation_Countries.csv` file and removed additional rows included in the original dataset that we will not need for our purposes here. In addition, we have abbreviated the column names and reformatted them so that they can be read by QGIS. In future exercises we will cover in depth how to clean, format, and save data so that it can be read by QGIS.  
 
 **Right-click** admin_0_countries in the layer menu and select `Open Attribute Table`. The layer’s attribute table will appear. This describes the data associated with each feature in the feature class.
 
@@ -151,7 +151,7 @@ Open the attribute table for the countries shapefile. You’ll notice two new fi
 
 Note: the population estimates data that is joined to the country boundaries is not permanently associated with its attribute table. Instead the relationship only exists within this QGIS project. If we added the admin_0_countries layer to another QGIS project the fields we have joined from the population estimates would not be there.
 
-In order to permanently incorporate the population estimates into a shapefile of world countries we must save a new version of the shapefile. **Right-click** on admin_0_countries in the layers menu and select `Save.` Select `ESRI Shapefile` as the format, and save your file in the MappingData/Shape folder as admin_0_countries_UNPop.shp.
+In order to permanently incorporate the population estimates into a shapefile of world countries we must save a new version of the shapefile. **Right-click** on admin_0_countries in the layers menu and select `Save.` Select `ESRI Shapefile` as the format, and save your file in the `Data/1_MappingData/Shape` folder as `admin_0_countries_UNPop.shp`.
 
 This new layer will then be added to the map and will contain the population estimates that we joined from the UN tabular data.
 
@@ -331,7 +331,7 @@ Finally use one of the export options circled in blue above to save the map comp
 
 ### Deliverables:
 
-Email your finished map composition (as a pdf or jpeg) to both Brian (bjh18@columbia.edu) and Buck (brw2103@columbia.edu)
+Post your finished map composition (as a pdf or jpeg) to canvas under the QGIS Tutorial 2 assignment.
 
 Include your answer to the following question you answered on your own:
 * How many countries contain cities with greater than 7 million inhabitants?
