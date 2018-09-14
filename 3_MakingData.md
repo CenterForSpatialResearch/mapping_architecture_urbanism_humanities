@@ -7,7 +7,7 @@ In this tutorial, you will:
 
 There are three basic steps in this process:
 1. select, filter and download 311 data
-2. add the 311 data to a map in qGIS
+2. add the 311 data to a map in QGIS
 3. classify the data so that it is correctly displayed on the map.
 
 
@@ -36,7 +36,7 @@ The dataset is a great resource for anyone studying New York. **Nevertheless, a 
 
 Other datasets we will be using are:
 
-**Most** Are available in the [Data/2-MakingData folder](https://github.com/michellejm/mapping_arch_urban_hums/tree/master/Data/2_MakingData). You can download the [entire repository](https://github.com/michellejm/mapping_arch_urban_hums) and navigate to the folder, or  with the command line, [download the folder](https://stackoverflow.com/questions/9159894/download-specific-files-from-github-in-command-line-not-clone-the-entire-repo).
+**Most** Are available in the [Data/3_MakingData folder](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/tree/master/Data/3_MakingData). If you don't have it already from the last tutorial, you can download the [entire repository](https://github.com/brianhouse/mapping-architecture-urbanism-humanities) and navigate to the folder, or  with the command line, [download the folder](https://stackoverflow.com/questions/9159894/download-specific-files-from-github-in-command-line-not-clone-the-entire-repo).
 
 This contains: 
 * nybb - New York City boroughs. [here](http://www.nyc.gov/html/dcp/html/bytes/districts_download_metadata.shtml).
@@ -51,7 +51,7 @@ You **MUST** Download the roadbeds data from the site, it is too big to host on 
 ### Creating Noise Maps of 311 Data in New York City
 #### Downloading 311 Data
 The first step in this tutorial is to select, filter and download the 311 data. The [NYC Open Data portal](https://nycopendata.socrata.com/) is a great resource for data related to New York City and it provides an easy way of accessing 311 data. In it's search bar type "311" and it should take you to a list of datasets related to 311 data. The one we are looking for is called **"311 Service Requests from 2010 to Present"**. You may have to select 'View Dataset' 
-![311](https://github.com/michellejm/mapping_arch_urban_hums/blob/master/Images/georef4-1.png)
+![311](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-1.png)
 
 Once you've accessed the dataset you will see something like this:
 
@@ -87,7 +87,7 @@ You should now see the data only for 'Noise' complaints created between the star
 * Once you click `OK` you might get a warning that says that x number of records were discarded because they didn't have geometry definitions. Click `Close`. There might be some records in the dataset that we downloaded that for some reason didn't include location data.
 * Next, qGIS might ask you to select a coordinate reference system (map projection) for this layer. Since we are adding this data based on the latitude and longitude information (decimal degrees, as opposed to feet) we need to select the `WGS 84`, which is the coordinate system that will correctly interpret this data <!--see note at line 106-->. You will find it under `Geographic Coordinate Systems`. You will find more information on this coordinate system [here](https://en.wikipedia.org/wiki/World_Geodetic_System). Once you select the correct coordinate system, your points will appear on the map.
 * *If  you are not prompted, you can double check by double clicking on the layer and navigating to General, and EPSG 4326, WGS 84) should appear*
-![layer](https://github.com/michellejm/mapping_arch_urban_hums/blob/master/Images/georef4-2.png)
+![layer](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-2.png)
 
 * Even though your points are already on the map, this is just a temporary layer. If you remove the layer, you will need to go through the whole importing process to add them again. To avoid this, we need to export the layer as a shapefile.
 * However before you export it, you need to select only the records that have actual coordinate data. If you open the attribute table and look at the `Latitude` or `Longitude` fields you will notice that some entries don't have any geographic data (they are `Null`). We need, therefore, to select only the features that have geographic information and export only those:
@@ -105,7 +105,7 @@ You should now see the data only for 'Noise' complaints created between the star
   * Once you've selected the `Null` records, close the 'Select by expression' window (click the `Close` button). At the top of the attribute table you should read that there are around 161 features selected.
   * Now, switch the selection, so that we only select the records that have correct geographic data. To do this press the `Invert Selection` button at the top:
 
-  ![Invert Selection](https://github.com/michellejm/mapping_arch_urban_hums/blob/master/Images/georef4-3.png)
+  ![Invert Selection](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-3.png)
 
   * Now you should have all the records that have latitude and longitude selected and we can proceed to export them as a shapefile.
   * Close the attribute table, right-click on the 311 layer and select `Save As...`
@@ -182,7 +182,7 @@ Lastly, we need to hide the census block groups that fall outside of the New Yor
 There are a couple of ways of doing this: one option would be to clip the block group layer using the borough layer, in order to get rid of the census block groups that fall outside the boroughs. However, this option would permanently modify the block group layer and, if at any point the borough boundaries don't align perfectly with the block groups (which is entirely possible), the geometry of those block groups would be changed too. The best option then is to hide the block groups that fall inside the water and conveniently enough there is a field in the block group attribute table that has a specific value for these features.
 * First, open the attribute table of the 311_BlkGroup layer. You will notice that there is a field called 'ALAND' and another called 'AWATER'. 'ALAND' one has a unique identifier for each of the block groups that has some land area; 'AWATER' has an identifier for those block groups that have some water. There problem is that some block groups have both water and land. So we will only show those block groups where the 'ALAND' field does not equal 0, meaning that they have some land.
 * To do this we will create a 'Feature subset'. Open the layer properties and go to the `General` tab. At the bottom of this tab you will see the 'Provider Feature filter' panel. Go to the bottom of this panel and click on the `Query Builder` button. This query builder will work in a similar way as the 'Selection by attributes' query builder.
-![querybuilder](https://github.com/michellejm/mapping_arch_urban_hums/blob/master/Images/georef4-5.png)
+![querybuilder](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-5.png)
 * In the 'Fields' panel you will see the 'ALAND' field. Double-click on this to make it appear in the bottom panel ('Provider specific filter expression').
 * Now add '!= 0' to the expression. ('!=' means 'does not equal').
 * Your expression should look something like this:
@@ -193,11 +193,11 @@ There are a couple of ways of doing this: one option would be to clip the block 
 
 You may wish to change the projection of the whole project at this point. It should be in NAD83/New York Long Island EPSG 2263. Click on the project projection in the bottom right hand corner to open the project projection options.
 
-![Invert Selection](https://github.com/michellejm/mapping_arch_urban_hums/blob/master/Images/georef4-6.png)
+![Invert Selection](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-6.png)
 
 Be sure to enable 'On the fly' transformations
 
-![Invert Selection](https://github.com/michellejm/mapping_arch_urban_hums/blob/master/Images/georef4-7.png)
+![Invert Selection](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-7.png)
 
 At this point, you can adjust colors, strokes and layer order. The water-related layers should be light grey with transparent boundaries, the classified 311 block group on top, and the boundaries should be transparent. Adjust the scale so there is a 0-0 scale that is white. The only other visible layers should be the water layers. You can, of course, style it as you wish, however.
 
@@ -211,4 +211,4 @@ Upload your two (PDF) 311 data maps to Courseworks. Your map should include prop
 
 ______________________________________________________________________________________________________________
 
-Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the [Mapping for Architecture, Urbanism and the Humanities](https://github.com/juanfrans-courses/mapping_arch_hum) class at Columbia University. Edited by Michelle McSweeney for [Fall 2017](https://github.com/michellejm/mapping_arch_urban_hums), and Brian House for [Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)*.
+Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the [Mapping for Architecture, Urbanism and the Humanities](https://github.com/juanfrans-courses/mapping_arch_hum) class at Columbia University. Edited by Michelle McSweeney for [Fall 2017](https://github.com/brianhouse/mapping-architecture-urbanism-humanities), and Brian House for [Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)*.
