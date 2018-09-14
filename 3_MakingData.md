@@ -72,7 +72,7 @@ You should now see the data only for 'Noise' complaints created between the star
   * Roadbed
   * Hydrography
   * hydropol (inside folder named "hydrolin", but use "hydropol.shp")
-* Organize your layers so that you have the roads on top, then water for New York, then boroughs and last the water for the country. _Note: if you are having problems with the layers not lining up, not showing, or looking skewed, you may have an issue with the projection. In the lower-right corner of the interface, there is a button which takes you to an interface where you can choose a coordinate system -- try one of the "User Defined Coordinate Systems."
+* Organize your layers so that you have the roads on top, then water for New York, then boroughs and last the water for the country. _Note: if you are having problems with the layers not lining up, not showing, or looking skewed, you may have an issue with the projection. In the lower-right corner of the interface, there is a button which takes you to an interface where you can choose a coordinate system -- try one of the "User Defined Coordinate Systems."_
 * Now, to add the CSV file we downloaded, click on the `Add Delimited Text Layer` button on the top toolbar.
 
 ![Add CSV](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/03_Add_CSV.png)
