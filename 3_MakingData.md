@@ -41,7 +41,7 @@ Other datasets we will be using are:
 This contains: 
 * nybb - New York City boroughs ([original](http://www.nyc.gov/html/dcp/html/bytes/districts_download_metadata.shtml))
 * HYDRO - New York hydrography ([original](https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd))
-* hydropol - U.S. Hydrographic features ([original](http://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2014/polygon))
+<!-- * hydropol - U.S. Hydrographic features ([original](http://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2014/polygon)) -->
 * tl_2015_36_bg - New York State census block groups ([original](https://www.census.gov/cgi-bin/geo/shapefiles/index.php), census block groups for New York state for 2015)
 <!--* state - U.S. State Boundaries. Originally downloaded from [here](http://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2014/polygon)-->
 
@@ -57,27 +57,27 @@ Once you've accessed the dataset you will see something like this:
 
 ![311 Dataset](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/01_311_Dataset.png)
 Here, we need to filter the database to download only the records regarding noise complaints for the first 6 months of 2018. You could attempt to download records for a longer period of time, but the files might get too large. To filter the data do the following:
-* On the right-hand panel, where it says "Filter", create a small query with the drop-down menus. Where it says `Unique Key`, change it to `Complaint Type`. Change the `is` to `contains` to make sure we get all values, and then type in "Noise" in the space below (The query should read 'Complaint type is Noise'. Make sure there is a check-mark next to the word 'Noise'. You will see how the dataset is filtered and you only get the complaints of type 'Noise'.
+* On the right-hand panel, where it says "Filter", create a small query with the drop-down menus. Where it says `Unique Key`, change it to `Complaint Type`. Keep the `is`, and then type in "Noise" in the space below (The query should read 'Complaint type is Noise'. Make sure there is a check-mark next to the word 'Noise'. You will see how the dataset is filtered and you only get the complaints of type 'Noise'.
 * Next, click on `Add a New Filter Condition` and create another query that reads `Created Date` `is between` "01/1/2018 12:00:00 AM" and "07/1/2018 12:00:00 AM".
 You should now see the data only for 'Noise' complaints created between the start of 2018 and the end of June 2018.
 * Your filters should look something like this:
 
 ![311 Filters](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/02_Filters.png)
 * Finally, click on the 'Export' button at the top right-hand corner of the site and choose the 'CSV' format. Your file should start downloading then.
-* If you open your .csv file in Excel you will see that there are about 215,657 records and that they have both X and Y coordinates and Latitude and Longitude. In the next steps we will use these fields to add the 311 data to a qGIS map.
+* If you open your .csv file in Excel you will see that there are about 215,657 records and that they have both X and Y coordinates and Latitude and Longitude. In the next steps we will use these fields to add the 311 data to a QGIS map.
 
-#### Adding CSV data to qGIS
-* First, open qGIS and add the following layers (as vector layers):
+#### Adding CSV data to QGIS
+* First, open QGIS and add the following layers (as vector layers):
   * nybb
   * Roadbed
   * Hydrography
-  * hydropol (inside folder named "hydrolin", but use "hydropol.shp")
+  <!-- * hydropol (inside folder named "hydrolin", but use "hydropol.shp") -->
 * Organize your layers so that you have the roads on top, then water for New York, then boroughs and last the water for the country.
-  * Note: if you are having problems with the layers not lining up, not showing, or looking skewed, you may have an issue with the projection. In the lower-right corner of the interface, there is a button which takes you to an interface where you can choose a coordinate system -- try one of the "User Defined Coordinate Systems."
+  * Note: if you are having problems with the layers not lining up, not showing, or looking skewed, you may have an issue with the projection. In the lower-right corner of the interface, there is a button which takes you to an interface where you can choose a coordinate system for the project -- try one of the "User Defined Coordinate Systems."
 * Now, to add the CSV file we downloaded, click on the `Add Delimited Text Layer` button on the top toolbar.
 
 ![Add CSV](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/03_Add_CSV.png)
-* In the menu that comes up, look for your .csv (311 data) file. Once you've selected your file qGIS will automatically select some presets. You should have the following options selected:
+* In the menu that comes up, look for your .csv (311 data) file. Once you've selected your file QGIS will automatically select some presets. You should have the following options selected:
   * File format: `CSV (comma separated values)` - (this is the format our data is in: each value is separated by a comma)
   * Record options: `First record has field names` - (the first row of our file contains the field names)
   * Geometry definition: `Point coordinates` - (our data has latitude and longitude data)
@@ -86,7 +86,7 @@ You should now see the data only for 'Noise' complaints created between the star
 
 ![CSV Menu](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/04_CSV_Menu.png)
 * Once you click `OK` you might get a warning that says that x number of records were discarded because they didn't have geometry definitions. Click `Close`. There might be some records in the dataset that we downloaded that for some reason didn't include location data.
-* Next, qGIS might ask you to select a coordinate reference system (map projection) for this layer. Since we are adding this data based on the latitude and longitude information (decimal degrees, as opposed to feet) we need to select the `WGS 84`, which is the coordinate system that will correctly interpret this data <!--see note at line 106-->. You will find it under `Geographic Coordinate Systems`. You will find more information on this coordinate system [here](https://en.wikipedia.org/wiki/World_Geodetic_System). Once you select the correct coordinate system, your points will appear on the map.
+* Next, QGIS might ask you to select a coordinate reference system (map projection) for this layer. Since we are adding this data based on the latitude and longitude information (decimal degrees, as opposed to feet) we need to select the `WGS 84`, which is the coordinate system that will correctly interpret this data <!--see note at line 106-->. You will find it under `Geographic Coordinate Systems`. You will find more information on this coordinate system [here](https://en.wikipedia.org/wiki/World_Geodetic_System). Once you select the correct coordinate system, your points will appear on the map.
 * *If  you are not prompted, you can double check by double clicking on the layer and navigating to General, and EPSG 4326, WGS 84) should appear*
 ![layer](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-2.png)
 
@@ -109,21 +109,21 @@ You should now see the data only for 'Noise' complaints created between the star
   ![Invert Selection](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-3.png)
 
   * Now you should have all the records that have latitude and longitude selected and we can proceed to export them as a shapefile.
-  * Close the attribute table, right-click on the 311 layer and select `Save As...`
+  * Close the attribute table, control-click / right-click on the 311 layer and select `Save As...`
   * In the menu choose the following:
     * Format: `ESRI Shapefile` - (this is the same format of our other layers)
     * Save as: choose the right location and name your file '311_Data'
     * Make sure you are checking the option that says `Save only selected features`, otherwise you will get an error.
     * Uncheck `Skip attribute creation` - (you still want to retain the attributes associated with each point)
     * Check `Add saved file to map` - (so that once you export the layer, the layer is added to your map)
-  * Once you export your layer (and it's automatically added to your map) you can remove the original one by right-clicking and choosing `Remove`.
+  * Once you export your layer (and it's automatically added to your map) you can remove the original one by control-click / right-clicking and choosing `Remove`.
 
 #### Symbolizing the Data
 The last step in creating a qualitative map of the 311 data is a simple one: we need to symbolize each complaint using its subcategory. This is very similar to what we did in the previous tutorial when we were classifying the PLUTO dataset by land use.
 * Right-click on the 311_Data layer and choose `Properties`.
 * In the `Style` tab, change the drop-down menu that says `Single Symbol` to `Categorized` and then in the `Column` menu select `Descriptor` (this is the field we will symbolize).
 * Now click on the `Classify` button at the bottom and you will get all the different sub-categories.
-* Lastly, you should change the appearance of the dots: adjust their size (make them smaller), stroke and fill color (if you wish, we will discuss this more in Tutorial 9)<!--maybe find link to describe this-->.
+* Lastly, you should change the appearance of the dots: adjust their size (make them smaller), stroke and fill color (if you wish).
 * Once it is to your liking, click 'OK'.
 * Finally, change the appearance of the other layers (nybb should be an outline, the water should be blue or removed, the background of the roads should be grey or transparent).
 * Create a print composer, add a scale bar, legend, title, source and brief description, and export your map as a PDF file (Save this to upload it to Canvas) 
@@ -133,7 +133,7 @@ Let's say you want to identify which census block group has the highest number o
 * First, add the census block group shapefile (tl_2015_36_bg) you downloaded from the census website.
 * Move this layer so that it's located below the HYDRO layer.
 * If you zoom out, you will notice that this layer includes the census block groups for the whole State. However, we only need the ones for New York City. To select just these block groups we will use the 'select by attributes' method, which means selecting based on data in one of the fields of the layer. The census block group layer contains a field listing the specific county each block group is located in; we will use this field to select only the census block groups located in any of the 5 counties that make up New York City:
-  * First, right-click on the census block group layer and select `Open Attribute Table`. Here you will see the data associated with each of the census block groups. The second column, the one called 'COUNTYFP', contains the county identifiers, and this is the one we will use to select only the New York City block group.
+  * First, control-click / right-click on the census block group layer and select `Open Attribute Table`. Here you will see the data associated with each of the census block groups. The second column, the one called 'COUNTYFP', contains the county identifiers, and this is the one we will use to select only the New York City block group.
   * Now we need to select all the census block groups that have as their 'COUNTYFP' '005' (Bronx), '061' (Manhattan), '047' (Brooklyn), '081' (Queens) or '085' (Staten Island). To do this click on the `Select features using and expression` button. In this menu we will construct a query selecting only the features that have any of these numbers for their 'COUNTYFP' value.
 
   ![Attribute Table](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/05_Attribute_Table.png)
@@ -148,7 +148,7 @@ Let's say you want to identify which census block group has the highest number o
 
   ![Selected Block Groups](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/07_Selected_Block_Groups.png)
 
-  * Finally, to create a shapefile with only the selected features, right-click on the census block group layer and select `Save As...`. In the next menu choose the following settings:
+  * Finally, to create a shapefile with only the selected features, control-click / right-click on the census block group layer and select `Save As...`. In the next menu choose the following settings:
     * Format: `ESRI Shapefile`
     * Save as: choose the right location and name your file 'NYC_BlkGrp'
     * Check `Save only selected features` - (this one is very important; if you don't check it you will just export a copy of your original layer with all the features, selected or not)
@@ -168,10 +168,10 @@ Let's say you want to identify which census block group has the highest number o
   * Output shapefile: '311_BlkGrp'
   * Check `Add result to canvas` so the new shapefile is added to the map.
 * Once you have all your settings ready, click `OK` and let it run. Once it's done, click `Close`. You will see your new layer on the map.
-* If you right-click on the new layer (311_BlkGrp) and choose 'Open Attribute Table' you will see that the last field is called '311_Count' and it contains the number of points joined to each block group. We will use this field to symbolize the block groups.
-* To actually symbolize the layer, right-click on it and choose `Properties`, and in the Style tab change the 'Single Symbol' drop-down menu to 'Graduated'.
+* If you control-click / right-click on the new layer (311_BlkGrp) and choose 'Open Attribute Table' you will see that the last field is called '311_Count' and it contains the number of points joined to each block group. We will use this field to symbolize the block groups.
+* To actually symbolize the layer, control-click / right-click on it and choose `Properties`, and in the Style tab change the 'Single Symbol' drop-down menu to 'Graduated'.
 * Next, in the 'Column' drop-down menu select the '311_Count' field to symbolize and click on the `Classify` button to load the values.
-* You will notice that qGIS automatically classifies the values into 5 categories. Also, if you look at the settings on the top right-hand side you will see that the software uses an 'Equal Interval' method for this classification. However, if you click `OK` and look at the resulting map you will notice that most block groups fall within the first group, the one that goes from 0 - 145.8 and that very few are fall in the other ones. In fact, it seems like there is one single block group with more than 400 complaints (located in Queens), which is skewing the whole classification method upwards. This is clearly an outlier and the classification method should not be based on this particular block group.
+* You will notice that QGIS automatically classifies the values into 5 categories. Also, if you look at the settings on the top right-hand side you will see that the software uses an 'Equal Interval' method for this classification. However, if you click `OK` and look at the resulting map you will notice that most block groups fall within the first group, the one that goes from 0 - 145.8 and that very few are fall in the other ones. In fact, it seems like there is one single block group with more than 400 complaints (located in Queens), which is skewing the whole classification method upwards. This is clearly an outlier and the classification method should not be based on this particular block group.
 * Instead, go back to the properties and change the classification method to 'Natural Breaks (Jenks)' which deals better with datasets that are not normally distributed. You can find out more about this classification method [here](https://en.wikipedia.org/wiki/Jenks_natural_breaks_optimization).
 * You can change your color ramp or the individual colors or strokes of each of the classes. You can also change the number of classes the data is divided into but note that normally, we can only really differentiate between 5 or 6 classes.
 * Once you are done with the classification, click `OK` to apply it to the layer and see your results on the map.
