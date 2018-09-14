@@ -42,11 +42,11 @@ This contains:
 * nybb - New York City boroughs ([original](http://www.nyc.gov/html/dcp/html/bytes/districts_download_metadata.shtml))
 * HYDRO - New York hydrography ([original](https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd))
 * hydropol - U.S. Hydrographic features ([original](http://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2014/polygon))
-* tl_2015_36_bg - New York State census block groups ([original](https://www.census.gov/cgi-bin/geo/shapefiles/index.php), (census block groups for New York state for 2015))
+* tl_2015_36_bg - New York State census block groups ([original](https://www.census.gov/cgi-bin/geo/shapefiles/index.php), census block groups for New York state for 2015)
 <!--* state - U.S. State Boundaries. Originally downloaded from [here](http://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2014/polygon)-->
 
 In addition, you **must** download the roadbeds data (it is too big to host on GitHub)
-* [Roadbed - New York roadbed](https://data.cityofnewyork.us/City-Government/Roadbed/xgwd-7vhd)
+* [Roadbed - New York roadbed](https://data.cityofnewyork.us/api/geospatial/xgwd-7vhd?method=export&format=Shapefile)
 
 ### Creating Noise Maps of 311 Data in New York City
 #### Downloading 311 Data
@@ -56,23 +56,23 @@ The first step in this tutorial is to select, filter and download the 311 data. 
 Once you've accessed the dataset you will see something like this:
 
 ![311 Dataset](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/01_311_Dataset.png)
-Here, we need to filter the database to download only the records regarding noise complaints for the first 6 months of 2017. You could attempt to download records for a longer period of time, but the files might get too large. To filter the data do the following:
-* On the right-hand panel, where it says "Filter", create a small query with the drop-down menus. Where it says `Unique Key`, change it to `Complaint Type`. Keep the `is` and then type in "Noise" in the space below (The query should read 'Complaint type is noise'. Make sure there is a check-mark next to the word 'Noise'. You will see how the dataset is filtered and you only get the complaints of type 'Noise'.
-* Next, click on `Add a New Filter Condition` and create another query that reads `Created Date` `is between` "01/1/2017 12:00:00 AM" and "07/1/2016 12:00:00 AM".
-You should now see the data only for 'Noise' complaints created between the start of 2017 and the end of June 2017.
+Here, we need to filter the database to download only the records regarding noise complaints for the first 6 months of 2018. You could attempt to download records for a longer period of time, but the files might get too large. To filter the data do the following:
+* On the right-hand panel, where it says "Filter", create a small query with the drop-down menus. Where it says `Unique Key`, change it to `Complaint Type`. Change the `is` to `contains` to make sure we get all values, and then type in "Noise" in the space below (The query should read 'Complaint type is Noise'. Make sure there is a check-mark next to the word 'Noise'. You will see how the dataset is filtered and you only get the complaints of type 'Noise'.
+* Next, click on `Add a New Filter Condition` and create another query that reads `Created Date` `is between` "01/1/2018 12:00:00 AM" and "07/1/2018 12:00:00 AM".
+You should now see the data only for 'Noise' complaints created between the start of 2018 and the end of June 2018.
 * Your filters should look something like this:
 
 ![311 Filters](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/02_Filters.png)
 * Finally, click on the 'Export' button at the top right-hand corner of the site and choose the 'CSV' format. Your file should start downloading then.
-* If you open your .csv file in Excel you will see that there are about 31,060 records and that they have both X and Y coordinates and Latitude and Longitude. In the next steps we will use these fields to add the 311 data to a qGIS map.
+* If you open your .csv file in Excel you will see that there are about 215,657 records and that they have both X and Y coordinates and Latitude and Longitude. In the next steps we will use these fields to add the 311 data to a qGIS map.
 
 #### Adding CSV data to qGIS
 * First, open qGIS and add the following layers (as vector layers):
   * nybb
   * Roadbed
-  * HYDRO (file may read as "Hydrography")
+  * Hydrography
   * hydropol (inside folder named "hydrolin", but use "hydropol.shp")
-* Organize your layers so that you have the roads on top, then water for New York, then boroughs and the last the water for the country.
+* Organize your layers so that you have the roads on top, then water for New York, then boroughs and last the water for the country.
 * Now, to add the CSV file we downloaded, click on the `Add Delimited Text Layer` button on the top toolbar.
 
 ![Add CSV](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/03_Add_CSV.png)
