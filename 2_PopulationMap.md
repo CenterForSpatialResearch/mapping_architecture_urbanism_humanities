@@ -1,4 +1,4 @@
-## Mapping Data
+## Tutorial 2: Mapping Data
 
 With this exercise, you will learn introductory skills involved in using QGIS to map existing spatial datasets. After the completion of this set of three Mapping Data exercises, you should have…
 
@@ -11,12 +11,12 @@ With this exercise, you will learn introductory skills involved in using QGIS to
 7. queried a GIS dataset, using both tabular queries and spatial queries
 8. worked with projections and examined the impacts of projection transformations on spatial analysis
 
-### Part 00
+### Part 0
 Download the GitHub repository for this course. Using the green button [here](https://github.com/brianhouse/mapping-architecture-urbanism-humanities), select `Download ZIP`. The Data folder will then have all of the datasets needed for tutorials.
 
 Find instructions for installing QGIS [here](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/1_QGIS.md).
 
-### Part 01: Mapping World Population(s)
+### Part 1: Mapping World Population(s)
 #### Premise
 We are interested in creating a map of world countries and cities (and at the same time exploring the QGIS interface). We have a point file for the locations of populated places around the world as well as a polygon file for country boundaries. This map will serve as a basemap to which we can add additional information and layers in order to examine multiple measures of population and the differences between them.
 
@@ -34,7 +34,7 @@ In order to construct our map within QGIS we will need to add our data layers to
 
 ![vector](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata01_02.png)
 
-**Navigate** to the `Data/1_MappingData/Shape` folder. You'll notice a number of different file extensions that are likely unfamiliar. The files outlined in blue are all components of the admin_0_countries shapefile, and the ones outlined in magenta are all elements of the populated_places shapefile. It is very important that all of these files stay together in the same folder otherwise QGIS will not be able to load the layer.
+**Navigate** to the `Data/2_MappingData/Shape` folder. You'll notice a number of different file extensions that are likely unfamiliar. The files outlined in blue are all components of the admin_0_countries shapefile, and the ones outlined in magenta are all elements of the populated_places shapefile. It is very important that all of these files stay together in the same folder otherwise QGIS will not be able to load the layer.
 
 * .shp - The main file that stores the feature geometry (required).
 * .shx - The index file that stores the index of the feature geometry (required).
@@ -70,7 +70,7 @@ When your style settings are finished, **click** `OK` to exit the properties men
 **Save** your QGIS project by selecting `Project` > `Save`. Name your project MappingData_Population.qgs. QGIS projects are saved as .qgs files. It is important to note that the data layers are not saved with it the map project but are rather linked to the project.
 
 
-### Part 02: Mapping World Population(s) to understand the difference between multiple methods of measuring world population
+### Part 2: Mapping World Population(s) to understand the difference between multiple methods of measuring world population
 
 #### Premise
 
@@ -87,7 +87,7 @@ The data we are using about populated places is aggregated by [Natural Earth v. 
 Country-level population data was published by the [United Nations Population Division](http://esa.un.org/unpd/wpp/Download/Standard/Population/) in 2010. All figures are reported in thousands, i.e., if the population field says 7,000 in the dataset this equals 7,000,000 inhabitants. We have provided a cleaned version of this dataset but the original can be downloaded [here](http://esa.un.org/unpd/wpp/Download/Standard/Population/).
 
 #### Downloads
-In addition to the data files you have downloaded already you will need to download the Gridded Population of the World raster dataset [here](https://drive.google.com/file/d/0B5KywkNXsT4JYlZGd1lReUVyYVk/view?usp=sharing). Please create a new folder in your `Data/1_MappingData` directory called `Raster` and save the `GriddedPop.zip` file there. Once it has downloaded unzip the file so that we can use its contents.
+In addition to the data files you have downloaded already you will need to download the Gridded Population of the World raster dataset [here](https://drive.google.com/file/d/0B5KywkNXsT4JYlZGd1lReUVyYVk/view?usp=sharing). Please create a new folder in your `Data/2_MappingData` directory called `Raster` and save the `GriddedPop.zip` file there. Once it has downloaded unzip the file so that we can use its contents.
 
 #### Setting up QGIS
 Open your MappingData_Population.qgs file.
@@ -97,7 +97,7 @@ It should still contain the countries polygons and populated places points we ad
 
 ![add](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_01.png)
 
-Then in the dialog box which opens browse to the `Data/1_MappingData/Raster` folder and select `gpw_v4_2010.tif`. We will speak about the qualities of raster datasets a bit more later but for now let’s just add it to the map. After you’ve added this layer you can **un-click** the box next to the layer name in int Layers menu in order to toggle the visibility of the layer off.
+Then in the dialog box which opens browse to the `Data/2_MappingData/Raster` folder and select `gpw_v4_2010.tif`. We will speak about the qualities of raster datasets a bit more later but for now let’s just add it to the map. After you’ve added this layer you can **un-click** the box next to the layer name in int Layers menu in order to toggle the visibility of the layer off.
 
 Now we will add the table that describes population by country which we will join to the country polygons in order to be able to examine country level population values spatially.
 
@@ -105,7 +105,7 @@ Now we will add the table that describes population by country which we will joi
 
 ![CSV](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_02.png)
 
-Then in the dialog box which opens browse to the `Data/1_MappingData/Tabular` folder and **select** `TotalPopulation_Countries.csv`.
+Then in the dialog box which opens browse to the `Data/2_MappingData/Tabular` folder and **select** `TotalPopulation_Countries.csv`.
 **Select** `CSV` as the File Format. And **select** `no geometry (attribute table only)` as the Geometry Definition. **Click** OK.
 
 ![CSV](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_03.png)
@@ -151,7 +151,7 @@ Open the attribute table for the countries shapefile. You’ll notice two new fi
 
 Note: the population estimates data that is joined to the country boundaries is not permanently associated with its attribute table. Instead the relationship only exists within this QGIS project. If we added the admin_0_countries layer to another QGIS project the fields we have joined from the population estimates would not be there.
 
-In order to permanently incorporate the population estimates into a shapefile of world countries we must save a new version of the shapefile. **Right-click / Control-click** on admin_0_countries in the layers menu and select `Save.` Select `ESRI Shapefile` as the format, and save your file in the `Data/1_MappingData/Shape` folder as `admin_0_countries_UNPop.shp`.
+In order to permanently incorporate the population estimates into a shapefile of world countries we must save a new version of the shapefile. **Right-click / Control-click** on admin_0_countries in the layers menu and select `Save.` Select `ESRI Shapefile` as the format, and save your file in the `Data/2_MappingData/Shape` folder as `admin_0_countries_UNPop.shp`.
 
 This new layer will then be added to the map and will contain the population estimates that we joined from the UN tabular data.
 
@@ -200,7 +200,7 @@ You should notice that some of the populated_places points will turn yellow. In 
 We will now save those 215 cities as a separate shapefile, just like we did for the admin_0_countries layer after we joined the UN population estimates to it.
 
 * **Right-click / Control-click** populated_places in the Layers menu, **select** `Save As`.
-* Then in the dialogue box which opens select `Save only selected features`, and save the shapefile in `Data/1_MappingData/Shape` as `populated_places_2mil.shp`.  
+* Then in the dialogue box which opens select `Save only selected features`, and save the shapefile in `Data/2_MappingData/Shape` as `populated_places_2mil.shp`.  
 ![save as](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata02_13.png)
 
 * This will then be added to our map as a new layer. In order to see the new layer clear your selection by clicking the `Deselect features from all layers button.`
