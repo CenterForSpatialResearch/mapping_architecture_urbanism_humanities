@@ -39,14 +39,14 @@ Other datasets we will be using are:
 **Most** Are available in the [Data/3_MakingData folder](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/tree/master/Data/3_MakingData). If you don't have it already from the last tutorial, you can download the [entire repository](https://github.com/brianhouse/mapping-architecture-urbanism-humanities) and navigate to the folder, or  with the command line, [download the folder](https://stackoverflow.com/questions/9159894/download-specific-files-from-github-in-command-line-not-clone-the-entire-repo).
 
 This contains: 
-* nybb - New York City boroughs. [here](http://www.nyc.gov/html/dcp/html/bytes/districts_download_metadata.shtml).
-* HYDRO - New York hydrography.  [here](https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd).
-* hydropol - U.S. Hydrographic features.  [here](http://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2014/polygon).
-* tl_2015_36_bg - New York State census block groups. [here](https://www.census.gov/cgi-bin/geo/shapefiles/index.php). Here you should download the census block groups for New York state for 2015.
+* nybb - New York City boroughs ([original](http://www.nyc.gov/html/dcp/html/bytes/districts_download_metadata.shtml))
+* HYDRO - New York hydrography ([original](https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd))
+* hydropol - U.S. Hydrographic features ([original](http://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2014/polygon))
+* tl_2015_36_bg - New York State census block groups ([original](https://www.census.gov/cgi-bin/geo/shapefiles/index.php), (census block groups for New York state for 2015))
 <!--* state - U.S. State Boundaries. Originally downloaded from [here](http://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2014/polygon)-->
 
-You **MUST** Download the roadbeds data from the site, it is too big to host on GitHub
-* Roadbed - New York roadbed. Download [here](https://data.cityofnewyork.us/City-Government/Roadbed/xgwd-7vhd).
+In addition, you **must** download the roadbeds data (it is too big to host on GitHub)
+* [Roadbed - New York roadbed](https://data.cityofnewyork.us/City-Government/Roadbed/xgwd-7vhd)
 
 ### Creating Noise Maps of 311 Data in New York City
 #### Downloading 311 Data
@@ -211,4 +211,4 @@ Upload your two (PDF) 311 data maps to Courseworks. Your map should include prop
 
 ______________________________________________________________________________________________________________
 
-Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the [Mapping for Architecture, Urbanism and the Humanities](https://github.com/juanfrans-courses/mapping_arch_hum) class at Columbia University. Edited by Michelle McSweeney for [Fall 2017](https://github.com/brianhouse/mapping-architecture-urbanism-humanities), and Brian House for [Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)*.
+Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the [Mapping for Architecture, Urbanism and the Humanities](https://github.com/juanfrans-courses/mapping_arch_hum) class at Columbia University. Edited by Michelle McSweeney for [Fall 2017](https://github.com/brianhouse/mapping-architecture-urbanism-humanities), and Brian House for [Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities).
