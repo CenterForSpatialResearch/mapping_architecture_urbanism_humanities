@@ -38,7 +38,7 @@ Other datasets we will be using are:
 
 **Most** Are available in the [Data/3_MakingData folder](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/tree/master/Data/3_MakingData). If you don't have it already from the last tutorial, you can download the [entire repository](https://github.com/brianhouse/mapping-architecture-urbanism-humanities) and navigate to the folder, or  with the command line, [download the folder](https://stackoverflow.com/questions/9159894/download-specific-files-from-github-in-command-line-not-clone-the-entire-repo).
 
-This contains: 
+This contains:
 * nybb - New York City boroughs ([original](http://www.nyc.gov/html/dcp/html/bytes/districts_download_metadata.shtml))
 * HYDRO - New York hydrography ([original](https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd))
 <!-- * hydropol - U.S. Hydrographic features ([original](http://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2014/polygon)) -->
@@ -50,7 +50,7 @@ In addition, you **must** download the roadbeds data (it is too big to host on G
 
 ### Creating Noise Maps of 311 Data in New York City
 #### Downloading 311 Data
-The first step in this tutorial is to select, filter and download the 311 data. The [NYC Open Data portal](https://nycopendata.socrata.com/) is a great resource for data related to New York City and it provides an easy way of accessing 311 data. In it's search bar type "311" and it should take you to a list of datasets related to 311 data. The one we are looking for is called **"311 Service Requests from 2010 to Present"**. You may have to select 'View Dataset' 
+The first step in this tutorial is to select, filter and download the 311 data. The [NYC Open Data portal](https://nycopendata.socrata.com/) is a great resource for data related to New York City and it provides an easy way of accessing 311 data. In it's search bar type "311" and it should take you to a list of datasets related to 311 data. The one we are looking for is called **"311 Service Requests from 2010 to Present"**. You may have to select 'View Dataset'
 ![311](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-1.png)
 
 Once you've accessed the dataset you will see something like this:
@@ -126,7 +126,7 @@ The last step in creating a qualitative map of the 311 data is a simple one: we 
 * Lastly, you should change the appearance of the dots: adjust their size (make them smaller), stroke and fill color (if you wish).
 * Once it is to your liking, click 'OK'.
 * Finally, change the appearance of the other layers (nybb should be an outline, the water should be blue or removed, the background of the roads should be grey or transparent).
-* Create a print composer, add a scale bar, legend, title, source and brief description, and export your map as a PDF file (Save this to upload it to Canvas) 
+* Create a print composer, add a scale bar, legend, title, source and brief description, and export your map as a PDF file (Save this to upload it to Canvas)
 
 ## Creating a Quantitative Map of 311 Data
 Let's say you want to identify which census block group has the highest number of 311 noise complaints. To do this, you first have to join your 311 data to a layer containing the boundaries of New York City's census block groups.
@@ -156,18 +156,21 @@ Let's say you want to identify which census block group has the highest number o
     * Check `Add saved file to map` - (so that once you export the layer, the layer is added to your map)
   * Click `OK` and you should see a new layer with only New York City block groups.
   * You can remove or hide the New York State blockgroups.
-* Now we need to join the 311 data to the census block groups and get a count of how many complaints are in each block group. To do this, click on `Vector` `Analysis Tools` `Points in Polygon...`
+* Now we need to join the 311 data to the census block groups and get a count of how many complaints are in each block group. To do this, click on `Vector` `Analysis Tools` `Count Points in Polygon...`
 
-![Points in Polygon](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/08_Points_in_Polygon.png)
+![Points in Polygon](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/points_in_polygon.png)
 
-* In the 'Points in Polygon' menu choose the following settings:
-  * Input polygon vector layer: 'NYC_BlkGrp' - (this is the polygon layer we will join the points to)
-  * Input point vector layer: '311_Data' - (this is the layer containing the points that will be joined)
-  * Input point later attribute to aggregate: Incident Z
+* In the 'Count Points in Polygon' menu choose the following settings:
+  * Polygon layer: 'NYC_BlkGrp' - (this is the polygon layer we will join the points to)
+  * Point vector layer: '311_Data' - (this is the layer containing the points that will be joined)
+  <!--* Input point later attribute to aggregate: Incident Z-->
   * Output count field name: '311_Count' - (this is a new field that will be created and will contain the count of points that were joined to each block group)
-  * Output shapefile: '311_BlkGrp'
-  * Check `Add result to canvas` so the new shapefile is added to the map.
-* Once you have all your settings ready, click `OK` and let it run. Once it's done, click `Close`. You will see your new layer on the map.
+  * Output shapefile: Click the ellipsis and select `Save to file`, name it '311_BlkGrp'
+  <!--* Check `Add result to canvas` so the new shapefile is added to the map.-->
+
+![Couting Points in Polygon](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/points_count.png)
+
+* Once you have all your settings ready, click `Run` and let it run. Once it's done, click `Close`. You will see your new layer on the map.
 * If you control-click / right-click on the new layer (311_BlkGrp) and choose 'Open Attribute Table' you will see that the last field is called '311_Count' and it contains the number of points joined to each block group. We will use this field to symbolize the block groups.
 * To actually symbolize the layer, control-click / right-click on it and choose `Properties`, and in the Style tab change the 'Single Symbol' drop-down menu to 'Graduated'.
 * Next, in the 'Column' drop-down menu select the '311_Count' field to symbolize and click on the `Classify` button to load the values.
