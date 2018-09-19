@@ -42,7 +42,7 @@ This contains:
 * nybb - New York City boroughs ([original](http://www.nyc.gov/html/dcp/html/bytes/districts_download_metadata.shtml))
 * HYDRO - New York hydrography ([original](https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd))
 <!-- * hydropol - U.S. Hydrographic features ([original](http://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2014/polygon)) -->
-* tl_2015_36_bg - New York State census block groups ([original](https://www.census.gov/cgi-bin/geo/shapefiles/index.php), census block groups for New York state for 2015)
+* tl_2017_36_bg - New York State census block groups ([original](https://www.census.gov/cgi-bin/geo/shapefiles/index.php), census block groups for New York state for 2017)
 <!--* state - U.S. State Boundaries. Originally downloaded from [here](http://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2014/polygon)-->
 
 In addition, you **must** download the roadbeds data (it is too big to host on GitHub)
@@ -130,7 +130,7 @@ The last step in creating a qualitative map of the 311 data is a simple one: we 
 
 ## Creating a Quantitative Map of 311 Data
 Let's say you want to identify which census block group has the highest number of 311 noise complaints. To do this, you first have to join your 311 data to a layer containing the boundaries of New York City's census block groups.
-* First, add the census block group shapefile (tl_2015_36_bg) you downloaded from the census website.
+* First, add the census block group shapefile (tl_2017_36_bg)
 * Move this layer so that it's located below the HYDRO layer.
 * If you zoom out, you will notice that this layer includes the census block groups for the whole State. However, we only need the ones for New York City. To select just these block groups we will use the 'select by attributes' method, which means selecting based on data in one of the fields of the layer. The census block group layer contains a field listing the specific county each block group is located in; we will use this field to select only the census block groups located in any of the 5 counties that make up New York City:
   * First, control-click / right-click on the census block group layer and select `Open Attribute Table`. Here you will see the data associated with each of the census block groups. The second column, the one called 'COUNTYFP', contains the county identifiers, and this is the one we will use to select only the New York City block group.
@@ -210,7 +210,7 @@ And finally, create a print composer, add a legend, title, explanation, source a
 ![Final Map](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/11_Final_Map.png)
 
 #### Deliverables
-Upload your two (PDF) 311 data maps to Courseworks. Your map should include proper legends, scale bars, titles, explanations and sources.
+Upload your two (PDF) 311 data maps to canvas. Your map should include proper legends, scale bars, titles, explanations and sources.
 
 
 ______________________________________________________________________________________________________________
