@@ -1,6 +1,4 @@
-## Tutorial 03 - Joining Tables and Census Data
-
-*Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the [Mapping for Architecture, Urbanism and the Humanities](https://github.com/juanfrans-courses/mapping_arch_hum) class at Columbia University. Edited by Michelle McSweeney for [Fall 2017](https://github.com/michellejm/mapping_arch_urban_hums).*
+## Tutorial 4: Census Data
 
 Census data is often one of the most mapped datasets, and there are good reasons for this: not only does it provide insights about our current living conditions in the US, like income, race, age, employment or commuting patterns, but it also serves as the backdrop for many other kinds of data. Without population data, for example, we wouldn't be able to 'normalize' cellphone usage or crimes, and without median household income or race patterns we wouldn't be able to identify social justice problems, like concentrations of environmental hazards in poor and or minority neighborhoods.
 
@@ -281,15 +279,12 @@ Finally, to create the last version of our map we need to normalize our data by 
 * Once you've classified correctly your data, click `OK` and make sure your map makes sense.
 
 
-***************NEW as of 9/29***********************
-
-In the original directions, this step was missing. It is taken directly from [Tutorial 2](https://github.com/michellejm/mapping_arch_urban_hums/blob/master/Tutorials/02_MakingData.md)
 Lastly, we need to hide the census block groups that fall outside of the New York City borough boundaries. If you look closely at the census block group layer, you will see that there are some block groups that fall inside the Hudson River and that shouldn't be included in our map.
 
 There are a couple of ways of doing this: one option would be to clip the block group layer using the borough layer, in order to get rid of the census block groups that fall outside the boroughs. However, this option would permanently modify the block group layer and, if at any point the borough boundaries don't align perfectly with the block groups (which is entirely possible), the geometry of those block groups would be changed too. The best option then is to hide the block groups that fall inside the water and conveniently enough there is a field in the block group attribute table that has a specific value for these features.
 * First, open the attribute table of the CensusData layer. You will notice that there is a field called 'ALAND' and another called 'AWATER'. 'ALAND' one has a unique identifier for each of the block groups that has some land area; 'AWATER' has an identifier for those block groups that have some water. There problem is that some block groups have both water and land. So we will only show those block groups where the 'ALAND' field does not equal 0, meaning that they have some land.
 * To do this we will create a 'Feature subset'. Open the layer properties and go to the `General` tab. At the bottom of this tab you will see the 'Provider Feature filter' panel. Go to the bottom of this panel and click on the `Query Builder` button. This query builder will work in a similar way as the 'Selection by attributes' query builder.
-![querybuilder](https://github.com/michellejm/mapping_arch_urban_hums/blob/master/Images/georef4-5.png)
+![querybuilder](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-5.png)
 * In the 'Fields' panel you will see the 'ALAND' field. Double-click on this to make it appear in the bottom panel ('Provider specific filter expression').
 * Now add '!= 0' to the expression. ('!=' means 'does not equal').
 * Your expression should look something like this:
@@ -300,14 +295,12 @@ There are a couple of ways of doing this: one option would be to clip the block 
 
 You may wish to change the projection of the whole project at this point. It should be in NAD83/New York Long Island EPSG 2263. Click on the project projection in the bottom right hand corner to open the project projection options.
 
-![Invert Selection](https://github.com/michellejm/mapping_arch_urban_hums/blob/master/Images/georef4-6.png)
+![Invert Selection](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-6.png)
 
 Be sure to enable 'On the fly' transformations
 
-![Invert Selection](https://github.com/michellejm/mapping_arch_urban_hums/blob/master/Images/georef4-7.png)
+![Invert Selection](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-7.png)
 
-
-*************END NEW*****************
 
 Once you are finished with this go ahead and adjust colors, strokes and layer order. And finally, create a print composer, add a legend, title, explanation, source and a scale bar, and export your map as a PDF file. Your final map should look something like this:
 
@@ -315,3 +308,8 @@ Once you are finished with this go ahead and adjust colors, strokes and layer or
 
 #### Deliverables
 Upload your (PDF) map to Canvas. Your map should include a legend, scale bar, title, explanation and source.
+
+
+______________________________________________________________________________________________________________
+
+Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the [Mapping for Architecture, Urbanism and the Humanities](https://github.com/juanfrans-courses/mapping_arch_hum) class at Columbia University. Edited by Michelle McSweeney for [Fall 2017](https://github.com/brianhouse/mapping-architecture-urbanism-humanities), and Brian House for [Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities).

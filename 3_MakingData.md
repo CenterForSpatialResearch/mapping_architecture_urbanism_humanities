@@ -161,11 +161,11 @@ Let's say you want to identify which census block group has the highest number o
 ![Points in Polygon](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/points_in_polygon.png)
 
 * In the 'Count Points in Polygon' menu choose the following settings:
-  * Polygon layer: 'NYC_BlkGrp' - (this is the polygon layer we will join the points to)
-  * Point vector layer: '311_Data' - (this is the layer containing the points that will be joined)
+  * Polygons layer: 'NYC_BlkGrp' - (this is the polygon layer we will join the points to)
+  * Points layer: '311_Data' - (this is the layer containing the points that will be joined)
   <!--* Input point later attribute to aggregate: Incident Z-->
-  * Output count field name: '311_Count' - (this is a new field that will be created and will contain the count of points that were joined to each block group)
-  * Output shapefile: Click the ellipsis and select `Save to file`, name it '311_BlkGrp'
+  * Count field name: '311_Count' - (this is a new field that will be created and will contain the count of points that were joined to each block group)
+  * Count: Click the ellipsis and select `Save to file`, name it '311_BlkGrp'
   <!--* Check `Add result to canvas` so the new shapefile is added to the map.-->
 
 ![Couting Points in Polygon](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/points_count.png)
