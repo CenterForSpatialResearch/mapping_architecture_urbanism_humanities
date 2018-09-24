@@ -15,10 +15,10 @@ Through this exercise you will learn key tools of analysis using QGIS. After com
 #### Premise
 We are interested in looking at libraries in the Bronx as a public resource. We will use proximity based measures to the zones of impact (and potential impact) of libraries on Bronx residents from a number of different perspectives. First we want to evaluate which library branches are located within areas that have a high number of Spanish speaking residents. Then we will evaluate which libraries serve the greatest number of school children.  
 
-#### Research questions:
+#### Research questions
 * Where are Bronx Library branches?
 * Which Library branch locations are within areas with a high number of Spanish speaking residents?
-* How many public schools are located within 1/4 mile of a library?
+* How many public schools are located within ¼ mile of a library?
 * Which five Libraries serve the most students?
 * What is the nearest library to each school?
 * How many people do these libraries serve?
@@ -44,7 +44,7 @@ Select the `add vector data` button and navigate to the `5_AnalyzingData/Shape` 
 First **open** the attribute tables of each data layer and inspect its contents.
 
 The field names for `Bronx_Tracts_2014` are:
-* `STATEFP’: the State FIPS code
+* `STATEFP`: the State FIPS code
 * `COUNTYFP`: the county FIPS code
 * `TRACTCE`: the FIPS code for the census tract
 * `GEOID`: the unique FIPS code that combines the state, county, and tract code for each tract.
@@ -52,13 +52,12 @@ The field names for `Bronx_Tracts_2014` are:
 * `ALAND`: the area of the census tract that is land
 * `AWATER`: the area of the census tract that is water
 * `INTPTLAT`: the latitude coordinate of the locator of the census tract
-* ‘INTPTLON`: the longitude coordinate of the locators of the census tract
+* `INTPTLON`: the longitude coordinate of the locators of the census tract
 * `Pop2014`: the population of the census tract in 2014 according to the [American Community Survey 2014 5 Year Estimates]( http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_14_5YR_B01003&prodType=table)
 * `PopOver5`: Population over 5 Years old
 * `Pct_OnlyEn`: the percent of the population over 5 years old within the census tract that speaks only English
 * `Pct_Other`: the percent of the population over 5 years old within the census tract that speaks another language in addition to (or instead of) English
-* `Pct_Spanis`=h`: the percent of the percent of the population over 5 years old within the census tract that speaks Spanish
-
+* `Pct_Spanis=h`: the percent of the percent of the population over 5 years old within the census tract that speaks Spanish
 The field names for `Bronx_Libraries` are:
 * `facname`: the name of the facility
 * `borough`: the borough of the library – in this case they are all in the Bronx
@@ -66,7 +65,6 @@ The field names for `Bronx_Libraries` are:
 * `facaddress`: the address of the library
 * `zipcode`: the zipcode of the library
 * `ForRaster`: ignore this for now – it was created for an operation we will perform on the dataset in a later exercise.
-
 The field names for `Bronx_Schools` are:
 * `BORO`: a code for the name of the borough the school is within
 * `BORONUM`: a numeric code for the borough the school is within
@@ -77,19 +75,17 @@ The field names for `Bronx_Schools` are:
 * `GRADES`: the grades within the school
 * `Emrollment`: the number of students enrolled in the school
 * `Raster`: again ignore this field for now
-**Save** your map project as `AnalyzingData01` within the MappingfortheUrbanHumanities\Tutorials section.
+
 
 #### Finding libraries near concentrations of Spanish speakers
 
-****THERE IS A BUG in versions 2.14 & 2.18, if you get the error, "missing parameter value geometric predicate", skip to the next section (Schools and Libraries)****
-
-Now, we want to determine which libraries are located within census tracts where more than 65% of the population speaks Spanish. We are interested in determining which libraries might be well suited to receive additional resources to go towards multilingual programs.
+We want to determine which libraries are located within census tracts where more than 65% of the population speaks Spanish. We are interested in determining which libraries might be well suited to receive additional resources to go towards multilingual programs.
 
 * **Open** the attribute table of the Bronx_Tracts layer and choose the `select using an expression` tool. Select census tracts where more than 65 percent of the population over 5 years old speaks Spanish. Your expression should look like this. Click `Select`. You should see that 56 features were selected. Close the attribute table.
 
 ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_02_SelectExpression.png)
 
-* Now we will determine which libraries lie within these census tracts by using the select by location tool. **navigate** to the `Vector` > `Research Tools`>`Select by Location’ in the menu bar. Then make the following selections:
+* Now we will determine which libraries lie within these census tracts by using the select by location tool. **navigate** to the `Vector` > `Research Tools` > `Select by Location` in the menu bar. Then make the following selections:
 
 ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_03_SelectByLocation.png)
 
@@ -99,33 +95,30 @@ Now, we want to determine which libraries are located within census tracts where
 
 This analysis give us a very rough sense of which libraries might already serve a large number of Spanish speakers however we have only selected libraries which are located exactly within census tracts with a large proportion of Spanish speakers. What if there is a library in an adjacent census tract? Our analysis will not have picked up on this.
 
-**Save** your map project
-
 #### Schools and Libraries
 Now we will depart from questions about language and instead ask a series of questions about the relationship between schools and libraries in the Bronx. Specifically we will ask:
-* How many schools are within 1/4 mile of Bronx libraries?
+* How many schools are within ¼ mile of Bronx libraries?
 * How many students are enrolled in schools that are within ¼ mile of a Bronx library?
 * What is the nearest library to each school?
 
-To answer the first question, we will create a 1/4 mile buffer around the libraries.
+To answer the first question, we will create a ¼ mile buffer around the libraries.
 
-We will be creating a number of new layers during this portion of the exercise so in order to save all of these layers produced in the process of our analysis lets first create a new folder within the MappingfortheUrbanHumanities/Class_Data/3_AnalyzingData folder and name it `Process`. Save all new layers created during this exercise in this folder.
 
 ##### Creating Buffers
-* On your menu bar navigate to `Vector`>`Geoprocessing Tools` > `Buffer(s)`.
+* On your menu bar navigate to `Vector`>`Geoprocessing Tools` > `Fixed distance buffer`.
 ![buffer](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_05_Buffer.png)
 
   * Choose Bronx_Libraries as your input vector layer – this sets which layer the buffers are drawn around.
 
-  * Set the buffer distance to 1320. The values in this field have the same units as the projection of your input datalayer and map project. Our map is projected in the NAD83 New York State Plane (Long Island) projection system whose units are in feet. To confirm this you can open the layer properties and inspect the coordinate reference system for the layer. Thus we choose 1320 feet because this is equivalent to 1/4 mile.
+  * Set the buffer distance to 1320. The values in this field have the same units as the projection of your input datalayer and map project. Our map is projected in the NAD83 New York State Plane (Long Island) projection system whose units are in feet. To confirm this you can open the layer properties and inspect the coordinate reference system for the layer. Thus we choose 1320 feet because this is equivalent to ¼ mile.
 
-  * Note: If you are using QGIS 2.14 or 2.18, there is a bug that might cause the *project* datum to revert back to the default (or actually to Clarke 1866). This means that it cannot be measured in feet, and must be measured in degrees. (If you were doing this for a project that you intended to publish widely, you may have to downgrade your software to version 2.8, which is the last version I know of without the bug.)
-      - If when you use 1320 (feet), you don't get the circles (pictured below), you'll have to use a different measurement. To get around this, use the conversion of .01 degree/km, so for 1/4 mile, we will make our input distance `0.00402336` you'll have to use a different measurement. To get around this, use the conversion of .01 degree/km, so for 1/4 mile, we will make our input distance `0.00402336`
-     <!-- * Save your new shapefile as buffers/2k_mine_buffers.shp-->  
+<!--   * Note: If you are using QGIS 2.14 or 2.18, there is a bug that might cause the *project* datum to revert back to the default (or actually to Clarke 1866). This means that it cannot be measured in feet, and must be measured in degrees. (If you were doing this for a project that you intended to publish widely, you may have to downgrade your software to version 2.8, which is the last version I know of without the bug.)
+      - If when you use 1320 (feet), you don't get the circles (pictured below), you'll have to use a different measurement. To get around this, use the conversion of .01 degree/km, so for ¼ mile, we will make our input distance `0.00402336` you'll have to use a different measurement. To get around this, use the conversion of .01 degree/km, so for ¼ mile, we will make our input distance `0.00402336`
+ -->     <!-- * Save your new shapefile as buffers/2k_mine_buffers.shp-->  
 
-  * Browse in order to save the Output shapefile as ‘BX_Library_QuarterMiBuffer` within your 3_AnalyzingData\Process folder.
+  * Save the output layer as `BX_Library_QuarterMiBuffer`.
 
-  * Click `OK`. Then Click `Close`. Your map should look something like the following:
+  * Your map should look something like the following:
 
 ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_06_Buffer.png)
 
@@ -140,7 +133,7 @@ We will be creating a number of new layers during this portion of the exercise s
 
   * A spatial join is a new tool for us which allows us to summarize the attributes from one layer within the attribute table of another based on the spatial relationship between them.
 
-  * On your menu navigate to `Vector`>`Data Management`>`Join attributes by location`.
+  * Navigate to `Vector`>`Data Management Tools`>`Join attributes by location`.
 
 ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_07_SpatialJoin.png)
 
@@ -150,7 +143,7 @@ We will be creating a number of new layers during this portion of the exercise s
 
   * We want to know the total number of students enrolled in the schools which are within our ¼ mile buffers and thus we will **select** `Take summary of intersecting features`, and choose `sum`.
 
-  * Save the output shapefile within Class_Data/3_AnalyzingData/Process as ‘Library_QuartMiBuffer_SchoolsJoin`
+  * Save the output shapefile as `Library_QuartMiBuffer_SchoolsJoin`
 
   * In the Output table options select Keep all records (including non-matching target records), this will ensure that the buffers for which there are no schools are kept in our dataset.
 
@@ -162,29 +155,26 @@ We will be creating a number of new layers during this portion of the exercise s
 
   * **Open** the attribute table for this layer. Notice the new field `SUMEnrollment` that has been added on. This field contains the sum of the enrollments for all of the schools within the buffer.
 
-  * Which five libraries serve the greatest number of enrolled school children. Sort the attribute table by SUMEnrollment and identify the top five libraries.
+  * Which five libraries serve the greatest number of enrolled school children? Sort the attribute table by SUMEnrollment and identify the top five libraries.
 
 ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_08_Enrollment.png)
 
-**Save** your map project
 
 ##### Using a Distance Matrix
 
 *  Now we will move on to answer our third question: which is the nearest library to each public school?
-  *  To answer this question we will again introduce a new tool of analysis, `DistanceMatrix` tool. This tool takes two point layers and computes the linear distance between each feature in both layers.
-  *  Navigate on your menu bar to `Vector`>`Analysis Tools`>`DistanceMatrix`
+  * To answer this question we will again introduce a new tool of analysis, `DistanceMatrix` tool. This tool takes two point layers and computes the linear distance between each feature in both layers.
+  * Make sure you do not have any features still selected
+  * Navigate on your menu bar to `Vector`>`Analysis Tools`>`DistanceMatrix`
 ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_08_DistanceMatrix.png)
+
 
   * Select `Bronx_Schools` as the `Input point layer`. Set `SCHOOLNAME` as the `Input unique ID field`. The input point layer is the layer that the distance of the target point layer will be measured in relation to.
   * Select `Bronx_Libraries` as the `Target point layer` and `facname` as the `Target unique ID field`.
 
-  * For the output matrix type select `Linear (N*kx3) distance matrix`, and select `Use only the nearest (k) target points` and leave this at 1.
+  * For the output matrix type select `Linear (N*kx3) distance matrix`, and select `Use only the nearest (k) target points` and set this to 1.
 
-  * Browse to save your output distance matrix as `BX_SchoolsNearestLibraries` in the 3_AnalyzingData\Process folder.  
-
-  * Select `Okay`. Then select `Close`
-
-  * In a finder window navigate to the BX_SchoolsNearestLibraries.csv file within your 3_AnalyzingData\Process folder and open it. It should open in Excel.
+  * Run the process, and then open the Attribute Table of the resulting layer
 
   * You will see that we have generated a table where each school is matched with its nearest library and QGIS has computed the distance between them in feet.
 
@@ -199,7 +189,7 @@ For our first approximation we will ask: how many people live in the census trac
 
 * We will use the select by location tool to select all of the census tracts that intersect one of our ¼ mile buffers around the libraries.
 
-* Navigate to `Vector`>`Research`>`Select by location`. And make the following selections:
+* Navigate to `Vector`>`Research Tools`>`Select by location`. And make the following selections:
 
 ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_10_SelectLocation.png)
 
@@ -209,7 +199,7 @@ For our first approximation we will ask: how many people live in the census trac
 
 * We can already tell that this will be a very coarse way to estimate the population served by each of the Bronx libraries because some census tracts which intersect our buffers are very large and portions of the tract are very far away from any library.
 
-* Despite this we now want to add up the total population within these selected census tracts.  To determine the total population of all of the census tracts that intersect a ¼ mile buffer of a Bronx library. To do this we will use the `Basic statistics` tool. Navigate to  `Vector`>`Analysis`>`Basic Statistics`. Make the following selections and click `OK`.
+* Despite this we now want to add up the total population within these selected census tracts.  To determine the total population of all of the census tracts that intersect a ¼ mile buffer of a Bronx library. To do this we will use the `Basic statistics` tool. Navigate to  `Vector`>`Analysis Tools`>`Basic statistics for numeric fields`. Make the following selections and click `OK`.
 
 ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_12_Statistics.png)
 
@@ -222,9 +212,8 @@ Now we will refine our estimate of the population near libraries. We will estima
 3. Calculate the area of the polygons after clipping them to the study area
 4. Divide the area of the polygons within the study area by their original area to determine the proportion of the original area that falls within the study area
 5. Multiply the attributes (for us, population in 2014) we wish to estimate by the proportion in order to estimate the proportion of the attribute that falls within the study area.
-Note: that proportional split estimation assumes that the attribute you are estimating is evenly distributed through out the polygon. In reality the population within each census tract is not evenly distributed nevertheless thus this is an estimate.
+Note: that proportional split estimation assumes that the attribute you are estimating is evenly distributed through out the polygon. In reality, the population within each census tract is not evenly distributed nevertheless thus this is an estimate.
 
-**Let’s begin**  
 **Calculating the area of the census tracts**
 * Open the attribute table for the Bronx census tracts layer and select the field calculator – this will turn on editing mode, you are now altering the Bronx_tracts_2014 shapefile.
 ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_13_Area.png)
@@ -241,7 +230,7 @@ Note: that proportional split estimation assumes that the attribute you are esti
 
 * The input vector layer is the layer you will clip (in our case the Bronx census tracts)
 * The Clip layer is the layer you will use to clip the input layer (in our case the ¼ mile buffers around the libraries).
-* Save the Output shapefile within the 3_AnalyzingData/Process folder as `BXTracts_LibraryQuartMiClip`.
+* Save the Output shapefile as `BXTracts_LibraryQuartMiClip`.
 * Click `OK` and then `Close`
 * A new layer containing the census tracts clipped to the ¼ mile buffers around the libraries was added to your map.
 * Toggle the visibility of all of of the layers on your map off except for `BXTracts_LibraryQuartMiClip`.
@@ -275,7 +264,7 @@ Note: that proportional split estimation assumes that the attribute you are esti
 
 Now we will compare the total estimated population within the buffers to the original rough population estimate we made at the beginning of this exercise using the select by location tool.
 
-* Navigate to `Vector`>`Analysis`>`Basic Statistics`.
+* Navigate to `Vector`>`Analysis Tools`>`Basic statistics for numeric fields`.
 * Select Pop2014_es as the Target field and note the Sum
 * Repeat for the population field for the entire census tract Pop2014 and note the difference 
 
