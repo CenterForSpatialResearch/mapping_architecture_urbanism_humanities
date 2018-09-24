@@ -98,7 +98,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
 
   * We need to do two things: One, to rename the field names (header) and get rid of the second row (also a kind of header). And two, delete all the margin of error fields since we are not going to use them.
   * QGIS has certain requirements for field names: maximum 10 characters, no spaces, no punctuation (except - and _ ) and they must start with a letter, not a number.
-  * First, delete the margin of error columns. Just right-click on the column and select `Delete`.
+  * First, delete the margin of error columns. Just right-click / control-click on the column and select `Delete`.
   * Now, rename the fields in the following way:
     * GeoID
     * GeoID2
@@ -196,10 +196,10 @@ Another great advantage of using Excel is that if you need to delete multiple fi
 
 ![Import options .txt file](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/13_Import_Options_Txt.png)
 
-* Click `OK` to import the table, and once you do it you should have it listed on your 'Layers Panel'. If you right-click on the table and open the attribute table you should see all your values there.
+* Click `OK` to import the table, and once you do it you should have it listed on your 'Layers Panel'. If you right-click / control-click on the table and open the attribute table you should see all your values there.
 
 #### Joining tables to shapefiles
-* To join the census table to the shapefile with the geographic boundaries right-click on the census boundaries and go to the properties panel. There, choose the `Joins` tab.
+* To join the census table to the shapefile with the geographic boundaries right-click / control-click on the census boundaries and go to the properties panel. There, choose the `Joins` tab.
 * In the `Joins` tab, click on the button with the plus sign to create a new join with the following settings:
   * Join layer: B05002 (the census table)
   * Join field: GeoID2 (the field that contains the unique identifier for each census tract)
@@ -241,7 +241,7 @@ First, just so you can see the difference between the different classification m
   * With this classification method we see the effect an extreme value can have on the graphic representation of data: the census tract in the Bronx that represents Co-Op City is skewing the data towards the top so that there are too few census tracts in the intermediate classes.
 
 * Quantile (Equal Count)
-  * Now return to the classification option in the properties of the dataset.
+  * Now return to the classification option in the style properties of the dataset.
   * Choose `Quantile (Equal Count)` as the classification mode.
   * This classification method gets the total number of features and divides it by the number of classes, so that each class has an equal number of features. The problem with this method is that features that might be very far apart in terms of their values might end up in the same class.
   * Go to the `Histogram` option and click on `Load values` to see how this classification method splits the data.
