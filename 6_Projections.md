@@ -3,10 +3,10 @@
 Projections enable us to represent the earth on a flat surface. The WGS84 Geographic Coordinate System is the default projection in QGIS. This tutorial will walk through the process of creating a U.S. population density map in the Albers equal-area conic projection, a standard way of representing the United States with minimal distortion.
 
 ### Datasets
-This tutorial will incorporate three datasets: one provided by Natural Earth, and two provided by the U.S. Census. First, download the current state administrative boundaries from Natural Earth, as well as 2016 state territories (both land and water) from the U.S. Census, listed below:
+This tutorial will incorporate three datasets: one provided by Natural Earth, and two provided by the U.S. Census. First, download the current state administrative boundaries from Natural Earth, as well as 2017 state territories (both land and water) from the U.S. Census, listed below:
 
-* ne_10m_admin_1_states_provinces (Admin 1 – States, Provinces) - Internal administrative boundaries. Originally downloaded [here](http://www.naturalearthdata.com/downloads/10m-cultural-vectors/).
-* tl_2016_us_state (States (and equivalent)) - Originally downloaded [here](https://www.census.gov/cgi-bin/geo/shapefiles/index.php).
+* [ne_10m_admin_1_states_provinces](http://www.naturalearthdata.com/downloads/10m-cultural-vectors/) (Admin 1 – States, Provinces)
+* [tl_2017_us_state](https://www.census.gov/cgi-bin/geo/shapefiles/index.php) (States (and equivalent))
 
 Before we start, a brief overview of some terminology.
 
@@ -30,35 +30,35 @@ The Natural Earth state boundaries will serve as the 'empty' geography files for
 To download the data for this project, we will be returning again to the [American Fact Finder](http://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) data portal. Navigate to the portal and click the `Advanced Search` option. Here we will select the following parameters within the `Topics` and `Geographies` levels:
 
 * `Geography` > `State - 040` > `All States within United States and Puerto Rico`
-* `Topics` > `Dataset` > `2015 Population Estimates`
+* `Topics` > `Dataset` > `2017 Population Estimates`
 * `Topics` > `People` > `Basic Count/Estimate` > `Population Total`
 
-On the left side of the `Advanced Search` window, and open up the `Topics` tab. Click the `Dataset` section, and select `2015 Population Estimates`. 
+On the left side of the `Advanced Search` window, and open up the `Topics` tab. Click the `Dataset` section, and select `2017 Population Estimates`. 
 
-![U.S. Census Data 2015 Population Estimates](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_02_Dataset_2015_Population_Estimates.png)
+![U.S. Census Data 2017 Population Estimates](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_02_Dataset_2015_Population_Estimates.png)
 
 Next, open up the `Geographies` tab, and select `State - 040` from the dropdown menu. Select `All States within United States and Puerto Rico` from the window that pops up below, then click `ADD TO YOUR SELECTIONS`.
 
 ![U.S. Census Data State Geography](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_03_Geography_US_States.png)
 
-Finally, open up the `Topics` tab again. Click on the `People` section, open `Basic Count/Estimate`, and select `Population Total`. Select the dataset listed as `PEPANNRES` in the search results window, entitled `Annual Estimates of the Resident Population: April 1, 2010 to July 1, 2015.`
+Finally, open up the `Topics` tab again. Click on the `People` section, open `Basic Count/Estimate`, and select `Population Total`. Select the dataset listed as `PEPANNRES` in the search results window, entitled `Annual Estimates of the Resident Population: April 1, 2012 to July 1, 2017.`
 
 ![U.S. Census Data Population Estimates Table](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_04_Population_Estimates_Table_Results.png)
 
-Click the link to navigate to the table. This view should include a column listing the full name of every U.S. state, as well as subsequent columns containing population estimates for 2010, 2011, 2012, 2013, 2014, and 2015. To download the data in CSV format, click the `Download` button in the `Actions` bar. 
+Click the link to navigate to the table. This view should include a column listing the full name of every U.S. state, as well as subsequent columns containing population estimates for 2012, 2013, 2014, 2015, 2016, and 2017. To download the data in CSV format, click the `Download` button in the `Actions` bar. 
 
 ![U.S. Census Data Population Estimates Download](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_05_Population_Estimates_Table_Full.png)
 
-Click `OK` when prompted to download the data, and then click the `Download` button once the popup window says the file is complete. The downloaded file will be named `PEP_2015_PEPANNRES`.
+Click `OK` when prompted to download the data, and then click the `Download` button once the popup window says the file is complete. The downloaded file will be named `PEP_2017_PEPANNRES`.
 
 #### Transforming Census state population data
 As always, there are many possible ways to transform data to fit the needs of your project. For this tutorial we will be working in Excel, or Google Sheets, to make the original file more manageable. We will reduce the dataset down to only the values we need, and then create a new column that will enable us to join the data to the Natural Earth shapefile.
-* Unzip the `PEP_2015_PEPANNRES` file, and open up the CSV called `PEP_2015_PEPANNRES_with_ann.csv`. The file should look something like this:
+* Unzip the `PEP_2017_PEPANNRES` file, and open up the CSV called `PEP_2017_PEPANNRES_with_ann.csv`. The file should look something like this:
 
 ![U.S. Census Data Population Estimates Excel](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_06_Population_Data_Excel.png)
 
 * In order to create our map, the only data we need is state name, state ID, and population count. 
-	* To narrow the dataset down to only these values, delete every column *except* for `GEO.id`, `GEO.display-label`, and the last column on the right, `respop72015`.
+	* To narrow the dataset down to only these values, delete every column *except* for `GEO.id`, `GEO.display-label`, and the last column on the right, `respop72017`.
 	* Next, delete the second row of the spreadsheet, which contains descriptions for the columns. 
 
 	![Editing Population Estimates](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_07_Population_Data_Editing.png)
@@ -156,14 +156,14 @@ Now, we need to create a new column in the attribute table of this layer to prep
 * Before closing the attribute table, deselect the pencil icon in the top left corner to stop editing the shapefile. Click `Save` when prompted to save your changes.
 
 #### Joining the TIGER shapefile to the U.S. Albers layer
-Natural Earth data does not contain official state area measurements, but the TIGER state boundaries do. On top of your newly projected `US_States_Albers` layer, add the `tl_2016_us_state` TIGER shapefile as a new vector layer. It should automatically adopt the Albers projection. If you open up the attribute table for the TIGER boundaries, you will see the columns `ALAND` and `AWATER`, which are the land and water areas in square meters for each polygon. These are the values that the Natural Earth dataset lacks. The attribute table should also include a column labeled `STATEFP`, which is the one to which we will join our reformatted FIPS column. We are now ready to connect the TIGER shapefile to the `US_States_Albers` layer. 
+Natural Earth data does not contain official state area measurements, but the TIGER state boundaries do. On top of your newly projected `US_States_Albers` layer, add the `tl_2017_us_state` TIGER shapefile as a new vector layer. It should automatically adopt the Albers projection. If you open up the attribute table for the TIGER boundaries, you will see the columns `ALAND` and `AWATER`, which are the land and water areas in square meters for each polygon. These are the values that the Natural Earth dataset lacks. The attribute table should also include a column labeled `STATEFP`, which is the one to which we will join our reformatted FIPS column. We are now ready to connect the TIGER shapefile to the `US_States_Albers` layer. 
 
 ![Join TIGER shapefile and U.S. Albers layer](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_21_Join_TIGER.png)
 
 * Open up the `Properties` panel for the `US_States_Albers` layer. 
 * In the left menu, select `Joins`.
 * Click the green `+` at the bottom of the window.
-* Under `Join layer`, select `tl_2016_us_state`.
+* Under `Join layer`, select `tl_2017_us_state`.
 * Under `Join field`, select `STATEFP`.
 * Under `Target field`, select `Join_FIPS`, our reformatted FIPS column.
 * Check `Custom field name prefix`, and enter `J_`. 
@@ -225,7 +225,7 @@ Once you are finished with this step, adjust colors and strokes as needed. Final
 ![Final Map Example](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_27_Final_Map.png)
 
 #### Deliverables
-Upload your final (PDF) map to Courseworks.
+Upload your final (PDF) map to Canvas.
 
 #### Additional notes
 [Here](https://medium.com/@joshuatauberer/how-that-map-you-saw-on-538-under-represents-minorities-by-half-and-other-reasons-to-consider-a-4a98f89cbbb1#.ih16rv26m) is an excellent piece on how choropleth maps underrepresent minorities.
