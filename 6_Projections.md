@@ -41,7 +41,7 @@ Next, open up the `Geographies` tab, and select `State - 040` from the dropdown 
 
 ![U.S. Census Data State Geography](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_03_Geography_US_States.png)
 
-Finally, open up the `Topics` tab again. Click on the `People` section, open `Basic Count/Estimate`, and select `Population Total`. Select the dataset listed as `PEPANNRES` in the search results window, entitled `Annual Estimates of the Resident Population: April 1, 2012 to July 1, 2017.`
+Finally, open up the `Topics` tab again. Click on the `People` section, open `Basic Count/Estimate`, and select `Population Total`. Select the dataset listed as `PEPANNRES` in the search results window, entitled `Annual Estimates of the Resident Population: April 1, 2010 to July 1, 2017.`
 
 ![U.S. Census Data Population Estimates Table](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_04_Population_Estimates_Table_Results.png)
 
@@ -119,6 +119,8 @@ We will begin by importing the Natural Earth boundary data into a new QGIS proje
 * Go ahead and close this QGIS project and open a brand new one that contains only the re-projected Albers layer. This will prevent unexpected re-projection behavior from QGIS as you continue to create your map. 
 
 #### Preparing the U.S. Albers layer for joins
+
+<!-- 
 Earlier, we transformed the Census population data in Excel to prepare it to be joined to the Natural Earth vector boundaries. Now, we have to make one more quick adjustment to the `US_States_Albers` layer, which contains an ambiguous FIPS reference for Minnesota. Once we fix this, we will derive a column that will enable us to join the Albers layer to the TIGER layer, to which we can then finally join our population CSV. 
 
 ![FIPS Alt Value for Minnesota](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_18_MN_FIPS_Alt.png)
@@ -139,9 +141,9 @@ _**Note:** this is only required for Minnesota, despite the fact that other stat
 
 * Click `OK`. The `fips` value for Minnesota should now be `US27`, the same as its `fips_alt` value.
 
-_**Note:** This change may cause your project to re-project the `US_States_Albers` layer back to WGS84. To undo this, select the `ne_10m_admin_1_states_provinces` layer in the left panel, navigate to the top `Project` menu, go to `Project Properties...`, and check then un-check `Enable 'on the fly' CRS transformation`. Right-click the `US_States_Albers` layer and select `Zoom to Layer` in order to return to your previous view._
+_**Note:** This change may cause your project to re-project the `US_States_Albers` layer back to WGS84. To undo this, select the `ne_10m_admin_1_states_provinces` layer in the left panel, navigate to the top `Project` menu, go to `Project Properties...`, and check then un-check `Enable 'on the fly' CRS transformation`. Right-click the `US_States_Albers` layer and select `Zoom to Layer` in order to return to your previous view._ -->
 
-Now, we need to create a new column in the attribute table of this layer to prepare it to be joined to the TIGER layer. Though we are using the aforementioned FIPS codes for each of these joins, sometimes the codes are represented in different forms. In both the `US_States_Albers` layer and our downloaded CSV, the FIPS code is formatted in the following way: `US##`. In the TIGER shapefile, however, the FIPS code is located in a column labeled `STATEFP`, and is formatted without `US` in the front of the value: `##`. To facilitate our upcoming join, we will create a new column in the `US_States_Albers` layer with only the `##` part of the `US##` value. 
+We need to create a new column in the attribute table of this layer to prepare it to be joined to the TIGER layer. Though we are using the aforementioned FIPS codes for each of these joins, sometimes the codes are represented in different forms. In both the `US_States_Albers` layer and our downloaded CSV, the FIPS code is formatted in the following way: `US##`. In the TIGER shapefile, however, the FIPS code is located in a column labeled `STATEFP`, and is formatted without `US` in the front of the value: `##`. To facilitate our upcoming join, we will create a new column in the `US_States_Albers` layer with only the `##` part of the `US##` value. 
 
 ![Create a reformatted FIPS column](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_20_New_Column_Right.png)
 
@@ -204,9 +206,9 @@ For our final print export, we will be creating a choropleth map that represents
 * Check `Create new field`.
 * For `Output field name`, enter `PopDensity`.
 * For `Output field type`, select `Decimal number (real)`.
-* For `Output field width`, select `10`, and set `Precision` to `10` as well.
+* For `Output field length`, select `10`, and set `Precision` to `10` as well.
 * In the `Expression` field, we want to calculate the number of people per km<sup>2</sup>. Navigate to `Fields and values` in the center panel, and double click the joined population value, which should be at the very end of the list. Because I chose `J2` as my join prefix, this value is `J2_Populat` for me.
-* Double click the `/` operator.
+* Click the `/` operator.
 * Navigate again to the `Fields and values` section in the center panel, and double click the land area value. For me, this is `J_ALAND`, since I chose `J` as my join prefix.
 * Since `J_ALAND` is in m<sup>2</sup>, but I want to calculate population density based on km<sup>2</sup>, I need to divide this value by 1000000. Enclose `J_ALAND` in parenthesis and add `/ 1000000`.
 * Your final expression should read `"J2_Populat" / ( "J_ALAND" / 1000000 )`.
