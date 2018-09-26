@@ -130,7 +130,7 @@ To complete Part I, upload the GeoTiff to Canvas.
 
 ![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize1.png)
 
-Click on the add raster button ![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize2.png) and navigate to the georeferenced image you made in the [Georeferencing](https://github.com/michellejm/ConflictUrbanism-InfraPolitics/blob/master/Tutorials/02_Georeferencing.md) exercise.  Since you verified its accuracy already, you will not need any basemap data for this exercise:
+Start a new QGIS project and click on the add raster button ![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize2.png) and navigate to the georeferenced image you made in the previous part of the exercise.  Since you verified its accuracy already, you will not need any basemap data for this exercise:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef25.png)
 
 This map is from the years after the plague had subsided and the population of the city was back up to nearly 1 million people (977,822). Every structure, road, and rail line is mapped.  In this exercise, you will create new vector datasets, and hand-digitize some residences, transit stations, and hospitals. You will then annotate the map with significant social and political events leading up to and folliwng the plague. 
