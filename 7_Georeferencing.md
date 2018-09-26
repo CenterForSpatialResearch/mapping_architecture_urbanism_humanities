@@ -12,7 +12,7 @@ The map you will be using for this exercise is Mumbai from 1909 (then Bombay). T
 You are going to use [OpenStreetMap](https://www.openstreetmap.org/about) (OSM)  as reference data for the georeferencing process.  OSM provides a free, open-source map of the world from public domain and volunteered data.
 
 ### Before you begin
-If you haven't already, download the GitHub repository for this course. Using the green button [here](https://github.com/michellejm/ConflictUrbanism-InfraPolitics), select `Download ZIP`. The Data folder will then have all of the datasets needed for tutorials. 
+If you haven't already, download the GitHub repository for this course. Using the green button [here](https://github.com/brianhouse/mapping-architecture-urbanism-humanities), select `Download ZIP`. The Data folder will then have all of the datasets needed for tutorials. 
 
 ### Setting up QGIS
 
@@ -41,10 +41,12 @@ Now you will access the georeferencing tools and match the scanned map to the OS
 Under the Raster menu, select Georeferencer>Georeferencer:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef24.png)
 
+(If the Georeferencer menu is missing, you may need to activate the plugin. Go to Plugins>Manage and install plugins and click on the "Installed" tab. Make sure Georeferencer GDAL is checked.)
+
 The Georeferencer screen will open:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef9_.png)
 
-Click on the Add Raster button ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef10a_.png) and navigate to the JPEG image "bombay-india-historical-map-1909.jpg" from the class files in the directory ConflictUrbanism-InfraPolitics/Data.  
+Click on the Add Raster button ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef10a_.png) and navigate to the JPEG image "bombay-india-historical-map-1909.jpg" from 7_Georeferencing/img.  
 
 It will appear in the georeferencer window:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef10.png)
@@ -125,17 +127,6 @@ To complete Part I, upload the GeoTiff to Canvas.
 
 ## Part II - Making Vector Data from Raster Data
 
-#### Premise
-
-In this part of the exercise, you will explore some of the on-screen hand digitizing tools available in QGIS and use them to digitize houses, hospitals and other features from a georeferenced map.  You will convert raster spatial data into vector based features.
-
-#### Notes on the data: 
-
-The map you will be using for this exercise is the 1909 "Island of Bombay" map that you georeferenced in the previous exercise. If you have not already done so please complete the [Georeferencing](https://github.com/michellejm/ConflictUrbanism-InfraPolitics/blob/master/Tutorials/02_Georeferencing.md) exercise. 
-
-### Digitizing Exercise
-
-Open QGIS:
 
 ![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize1.png)
 
