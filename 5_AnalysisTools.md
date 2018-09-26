@@ -132,7 +132,7 @@ To answer the first question, we will create a ¼ mile buffer around the librari
       - This menu can look different in various installations of QGIS. If your menu looks like the following, use the following selections:
 ![newmenu](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_08-1.png)
 
-  * Select OK, and then close.
+  * Select Run, and then close.
 
   * Open the attribute table of `Bronx_Schools` and notice that 90 schools were selected. Thus there are 90 schools in the Bronx that are within ¼ mile of a library.
 
@@ -164,7 +164,7 @@ To answer the first question, we will create a ¼ mile buffer around the librari
 
   * Which five libraries serve the greatest number of enrolled school children? Sort the attribute table by SUMEnrollment and identify the top five libraries.
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_08_Enrollment.png)
+![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_10.png)
 
 
 ##### Using a Distance Matrix
@@ -173,14 +173,11 @@ To answer the first question, we will create a ¼ mile buffer around the librari
   * To answer this question we will again introduce a new tool of analysis, `DistanceMatrix` tool. This tool takes two point layers and computes the linear distance between each feature in both layers.
   * Make sure you do not have any features still selected
   * Navigate on your menu bar to `Vector`>`Analysis Tools`>`DistanceMatrix`
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_08_DistanceMatrix.png)
-
-
   * Select `Bronx_Schools` as the `Input point layer`. Set `SCHOOLNAME` as the `Input unique ID field`. The input point layer is the layer that the distance of the target point layer will be measured in relation to.
   * Select `Bronx_Libraries` as the `Target point layer` and `facname` as the `Target unique ID field`.
-
   * For the output matrix type select `Linear (N*kx3) distance matrix`, and select `Use only the nearest (k) target points` and set this to 1.
-
+  * Make sure to Save to File, not save to temporary file
+ ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_12.png)
   * Run the process, and then open the Attribute Table of the resulting layer
 
   * You will see that we have generated a table where each school is matched with its nearest library and QGIS has computed the distance between them in feet.
@@ -198,17 +195,17 @@ For our first approximation we will ask: how many people live in the census trac
 
 * Navigate to `Vector`>`Research Tools`>`Select by location`. And make the following selections:
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_10_SelectLocation.png)
+![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_15.png)
 
 * Select ‘OK’ and then `Close`.
 * Your selections should look something like this:
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_11_Select.png)
+![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_16.png)
 
 * We can already tell that this will be a very coarse way to estimate the population served by each of the Bronx libraries because some census tracts which intersect our buffers are very large and portions of the tract are very far away from any library.
 
 * Despite this we now want to add up the total population within these selected census tracts.  To determine the total population of all of the census tracts that intersect a ¼ mile buffer of a Bronx library. To do this we will use the `Basic statistics` tool. Navigate to  `Vector`>`Analysis Tools`>`Basic statistics for numeric fields`. Make the following selections and click `OK`.
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_12_Statistics.png)
+![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_17.png)
 
 * We see that the total population of all of the census tracts that intersect a ¼ mile buffer around a Bronx library is 983,821. Make a note of this total we will compare it to the result we get in the next portion of the exercise.
 
@@ -223,7 +220,7 @@ Note: that proportional split estimation assumes that the attribute you are esti
 
 **Calculating the area of the census tracts**
 * Open the attribute table for the Bronx census tracts layer and select the field calculator – this will turn on editing mode, you are now altering the Bronx_tracts_2014 shapefile.
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_13_Area.png)
+![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_18.png)
 
 * Create a new field, assign the Output field name as `Area`, the Output field type as `Decimal number (real)`, the Output field width as `10` and the Precision `2`. Open the Geometry menu and double click on `$area`
 * Click `OK`
@@ -233,7 +230,7 @@ Note: that proportional split estimation assumes that the attribute you are esti
 **Clipping the census tracts to the ¼ mile buffers**  
 * Next we will use the `clip` tool to clip the Bronx census tracts with the ¼ mile buffers around the Bronx libraries.
 * Navigate to `Vector`>`Geoprocessing Tools`>`Clip`
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_14_Clip.png)
+![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_19.png)
 
 * The input vector layer is the layer you will clip (in our case the Bronx census tracts)
 * The Clip layer is the layer you will use to clip the input layer (in our case the ¼ mile buffers around the libraries).
@@ -242,7 +239,7 @@ Note: that proportional split estimation assumes that the attribute you are esti
 * A new layer containing the census tracts clipped to the ¼ mile buffers around the libraries was added to your map.
 * Toggle the visibility of all of of the layers on your map off except for `BXTracts_LibraryQuartMiClip`.
 * Use the select tool to click on some of the individual clipped census tract polygons to familiarize yourself with this new layer.
- ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_15_Clip.png)
+ ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_20.png)
 
 **Calculating the area of the clipped census tracts**  
 * Now we will calculate the area of these new polygons.
@@ -251,7 +248,7 @@ Note: that proportional split estimation assumes that the attribute you are esti
 * Set the Output field name as `AreaClip`,
 * Select `Decimal number (real)` as the output field type, Set the output field width as 10 and the precision as 2. Under the geometry menu select `$area`. Click `OK`.
 * Notice the new field that has been added to the far right of the attribute table called `AreaClip`
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_16_Area.png)  
+![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_21.png)  
 
 **Dividing the the area of the clipped census tracts by their original area**
 * Again open the field calculator and calculate a new field.
