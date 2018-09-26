@@ -2,6 +2,9 @@
 
 In this exercise, you will explore some of the georeferencing tools available in QGIS and use them to georeference a 1909 map of Mumbai, "Island of Bombay". You will learn how to use GIS tools to georectify raster datasets. You will then use the georeferenced map to digitize vector features from the map infomation. 
 
+
+## Part I - Georeferencing a scanned paper map
+
 ### Notes on the data
 
 The map you will be using for this exercise is Mumbai from 1909 (then Bombay). This is a public domain map, so we can use it freely. The wikimedia record for the map can be found [here](https://commons.wikimedia.org/wiki/File:Bombay_1909.jpg). We are using the highest resolution available (1,571 × 2,104 pixels).
@@ -15,23 +18,23 @@ If you haven't already, download the GitHub repository for this course. Using th
 
 Open QGIS:
 
-![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef1.png)
+![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef1_.png)
 
 You are going to use OSM data as the reference data for the georeferencing process. You can view the OSM basemap service is QGIS through the OpenLayers plugin.  This plugin does not come pre-installed with QGIS, so you will probably need to add it.  Under the plugins menu, select “Manage and Install Plugins…” 
-![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef2.png)
+![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef2_.png)
 
 The plugins dialog will open.  Search for “Openlayers Plugin.”  Highlight it, and click “Install plugin”:
 
-![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef3.png)
+![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef3_.png)
 
 It may take a few seconds to install.  Close the plugins menu when finished.  The OpenLayers tools should now appear under the Web menu: 
 
-![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef4.png)
+![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef4_.png)
 
 This plugin will allow you to view a number of basemap services and steam them directly into your QGIS workspace.  Choose the OpenStreetMap>OpenStreetMap option.
 Since you are working in a new QGIS project, the map should show the entire earth as the default: 
-![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef5.png)
-Use the zoom in tool ![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef6.png) and zoom into Mumbai, India:
+![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef5_.png)
+Use the zoom in tool ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef6_.png) and zoom into Mumbai, India:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef07.png)
 Now you will access the georeferencing tools and match the scanned map to the OSM map.  
 
@@ -39,9 +42,9 @@ Under the Raster menu, select Georeferencer>Georeferencer:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef24.png)
 
 The Georeferencer screen will open:
-![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef9.png)
+![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef9_.png)
 
-Click on the Add Raster button ![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef10a.png) and navigate to the JPEG image "bombay-india-historical-map-1909.jpg" from the class files in the directory ConflictUrbanism-InfraPolitics/Data.  
+Click on the Add Raster button ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef10a_.png) and navigate to the JPEG image "bombay-india-historical-map-1909.jpg" from the class files in the directory ConflictUrbanism-InfraPolitics/Data.  
 
 It will appear in the georeferencer window:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef10.png)
@@ -52,21 +55,21 @@ Historical maps can be difficult to georeference, and this sheet poses a number 
 
 ### Adding a Point
 The QGIS georeferencer does not allow you to view both the scanned map and the workspace at the same time, so you will have to inspect both maps in turn and choose carefully to select locations to add georeferencing control points. 
-One candidate is the Prince's Dock in Bombay Harbor which continues to exist largely its original configuration.  Use the georeferencer zoom tools ![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef11.png) to zoom to the south-oriented dock: ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef11.png)
+One candidate is the Prince's Dock in Bombay Harbor which continues to exist largely its original configuration.  Use the georeferencer zoom tools ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef11_.png) to zoom to the south-oriented dock: ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef11.png)
  
-Identify as precise a location as possible (a corner of the dock will work nicely) and click on it in the georeferencing window using the add point tool ![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef17.png) When you do so, the Enter map coordinates window appears:
-![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef14.png)
+Identify as precise a location as possible (a corner of the dock will work nicely) and click on it in the georeferencing window using the add point tool ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef17_.png) When you do so, the Enter map coordinates window appears:
+![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef14_.png)
 
-If we knew the coordinates of this location, we could now add them manually, but since we do not, we must select them from the OSM data in the main QGIS window.  Click on the ![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef15.png) button to see the QGIS workspace.  
+If we knew the coordinates of this location, we could now add them manually, but since we do not, we must select them from the OSM data in the main QGIS window.  Click on the ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef15_.png) button to see the QGIS workspace.  
 You may want to use the QGIS zoom tools to zoom in very close to the dock.
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef12.png)
 
-(You may need to reactivate the add button tool ![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef17.png) by maximizing the georeferencing window and clicking the ![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef18.png) button again).  
+(You may need to reactivate the add button tool ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef17_.png) by maximizing the georeferencing window and clicking the ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef18_.png) button again).  
 
 Once you select the same location on the main workspace window (the OSM window), you will automatically be brought back to the georeferencing window where the assigned coordinates will be imputed (you will have different numbers).  
-![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef19.png)
+![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef19_.png)
 
-At this point, if you are dissatisfied, you can move the assigned control points with the move GCP point tool ![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef20.png) or delete it entirely and start over with the delete point tool ![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef21.png) 
+At this point, if you are dissatisfied, you can move the assigned control points with the move GCP point tool ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef20_.png) or delete it entirely and start over with the delete point tool ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef21_.png) 
 If satisfied, click the OK button and the point will be assigned and appear on the map.  Also, a link table entry will be generated on the bottom of the window:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef13.png)
 
@@ -102,7 +105,7 @@ Here you can select the transformation type (Polynomial 1 should be appropriate 
 
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef19.png)
 
-Close the settings options and click on the start georeferencing button ![blank](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/GeoRef29.png).
+Close the settings options and click on the start georeferencing button ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/GeoRef29_.png).
 
 After the transformation finishes, you should see the map appear in the QGIS workspace:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef17.png)
@@ -117,7 +120,8 @@ In the next section, you will be using the sheet you georeferenced here and digi
 
 Export your georeferenced layer as a GeoTiff - be sure to select 'Rendered Image' and CRS 4326 (Psuedo Mercator). Rendered image will remove the black background. CRS 4326 because that is what all webmaps use and we will use this map in a webmap next.
 
-Email the GeoTiff to Michelle at mam2518@columbia.edu
+To complete Part I, upload the GeoTiff to Canvas.
+
 
 ## Part II - Making Vector Data from Raster Data
 
@@ -133,9 +137,9 @@ The map you will be using for this exercise is the 1909 "Island of Bombay" map t
 
 Open QGIS:
 
-![DigitizingExercise](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/Digitize1.png)
+![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize1.png)
 
-Click on the add raster button ![DigitizingExercise](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/Digitize2.png) and navigate to the georeferenced image you made in the [Georeferencing](https://github.com/michellejm/ConflictUrbanism-InfraPolitics/blob/master/Tutorials/02_Georeferencing.md) exercise.  Since you verified its accuracy already, you will not need any basemap data for this exercise:
+Click on the add raster button ![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize2.png) and navigate to the georeferenced image you made in the [Georeferencing](https://github.com/michellejm/ConflictUrbanism-InfraPolitics/blob/master/Tutorials/02_Georeferencing.md) exercise.  Since you verified its accuracy already, you will not need any basemap data for this exercise:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef25.png)
 
 This map is from the years after the plague had subsided and the population of the city was back up to nearly 1 million people (977,822). Every structure, road, and rail line is mapped.  In this exercise, you will create new vector datasets, and hand-digitize some residences, transit stations, and hospitals. You will then annotate the map with significant social and political events leading up to and folliwng the plague. 
@@ -164,7 +168,7 @@ Save the new file in the same directory with your map, and name it MumbaiBuildin
  The layer will now appear in the Layers panel:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef29.png)
 
-Now begin editing by depressing the toggle editing tool ![DigitizingExercise](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/Digitize9.png) while the buildings layer is highlighted in the layers panel.  Now you can use the add feature tool ![DigitizingExercise](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/Digitize10.png) to start creating buildings.  Click on one of the buildings in the map.  An attribute dialog appears where you can type in attribute information for the feature you just created:
+Now begin editing by depressing the toggle editing tool ![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize9.png) while the buildings layer is highlighted in the layers panel.  Now you can use the add feature tool ![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize10.png) to start creating buildings.  Click on one of the buildings in the map.  An attribute dialog appears where you can type in attribute information for the feature you just created:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef30.png)
 
 There is no information on the map in regards to the type of building; however, the building I clicked on is labeled as a Fort, so I am entering that information now. It is a good idea to enter this information for any objects that you know their identity (forts, hospitals, train stations, etc.). Click OK when finished. 
@@ -172,35 +176,36 @@ There is no information on the map in regards to the type of building; however, 
 Continue to digitize buildings in this corner of Bombay:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef31.png)
 
-If you want to move one of the point features you can use the move feature tool ![DigitizingExercise](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/Digitize13.png) if you want to delete a feature, you can select it with the select features tool ![DigitizingExercise](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/Digitize14.png) at use the delete key on the keyboard.  It is a good idea to regularly use the “save for selected laters” function to save your work as you digitize:  
-![DigitizingExercise](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/Digitize15.png)
+If you want to move one of the point features you can use the move feature tool ![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize13.png) if you want to delete a feature, you can select it with the select features tool ![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize14.png) at use the delete key on the keyboard.  It is a good idea to regularly use the “save for selected laters” function to save your work as you digitize:  
+![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize15.png)
 
-When finished, depress the toggle editing tool ![DigitizingExercise](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/Digitize16.png) to close the editing session
+When finished, depress the toggle editing tool ![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize16.png) to close the editing session
 Next you will digitize the railways.  Create another new shapefile layer as above, but this time choose “Line” as the vector type and MumbaiRailways1909 as the file name:
 
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef32.png)
 
-Now when you toggle on editing and select the add features tool ![DigitizingExercise](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/Digitize19.png).  You will be digitizing line features.  As you click with the add features tool you can continue to add as many vertices to the line as you wish.  To complete the line segment, use the right mouse button. 
+Now when you toggle on editing and select the add features tool ![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize19.png).  You will be digitizing line features.  As you click with the add features tool you can continue to add as many vertices to the line as you wish.  To complete the line segment, use the right mouse button. 
 
 Line features are more complex than the point features you made earlier and a few more considerations need to be made. One issue regards the shape of the railways (or streets). You are going to digitize the ‘centerline,’ using a single line feature to represent the center of the path feature.  
 
 You also must decide where to begin and end the individual line features.  A common practice is to create individual features between every intersection (or station), ending each feature at the next intersection.  In this way, you can represent the connectivity of the features, essentially modeling a network.  It is important then to make sure that the connecting features are exactly coincident.  You can make sure that you connect features while digitizing by taking advantage of snapping tolerances.  Snapping tools will automatically adjust the digitizing tools and ‘snap’ them to specified features as the cursor gets sufficiently close. 
 
 To set snapping, select “snapping options” under the settings menu: 
-![DigitizingExercise](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/Digitize20.png)
+![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize20.png)
 
 Set the snapping options for the current layer to be within 10 map units of a vertex or segment:
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef33.png)
 
 Now the add feature tool will automatically snap to another feature’s vertex whenever the cursor comes within 10 meters.
 
-Digitize the first feature using the add features tool ![DigitizingExercise](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MakingData01/Digitize22.png). Be careful to keep each vertex as close to the railway as possible.  The more vertices you add the smoother the railroad can be. Right click at the first station. 
+Digitize the first feature using the add features tool ![DigitizingExercise](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/Digitize22.png). Be careful to keep each vertex as close to the railway as possible.  The more vertices you add the smoother the railroad can be. Right click at the first station. 
 ![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef34.png)
 
 Begin the next feature at the endpoint of the first and continue to digitize the railroads. This method can be used to digitize the roads as well, but because of time constraints, we will stop here for this tutorial. If you want or need to digitize the southern section of Bombay, you will need to use the polygon tool to represent the blocks that are filled in, which functions similarly to the points and lines. 
 
 
-To complete this part of the tutorial, send your MumbaiBuildings and your MumbaiRailways1909 shapefiles (remember to send all of the files) to Michelle at mam2518@columbia.edu
+#### Deliverables
+To complete Part II, upload your MumbaiBuildings and your MumbaiRailways1909 shapefiles (remember to send all of the files) to Canvas.
 ______________________________________________________________________________________________________________
 
 
