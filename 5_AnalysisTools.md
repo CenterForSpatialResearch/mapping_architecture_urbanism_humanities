@@ -40,7 +40,7 @@ Select the `add vector data` button and navigate to the `5_AnalyzingData/Shape` 
 * Bronx_Schools.shp
 * Bronx_Libraries.shp
 
-![add](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_01_Layers-.png)
+![add](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_01.png)
 First **open** the attribute tables of each data layer and inspect its contents.
 
 The field names for `Bronx_Tracts_2014` are:
@@ -83,17 +83,21 @@ We want to determine which libraries are located within census tracts where more
 
 * **Open** the attribute table of the Bronx_Tracts layer and choose the `select using an expression` tool. Select census tracts where more than 65 percent of the population over 5 years old speaks Spanish. Your expression should look like this. Click `Select`. You should see that 56 features were selected. Close the attribute table.
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_02_SelectExpression.png)
+![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_02.png)
 
-* Now we will determine which libraries lie within these census tracts by using the select by location tool. **navigate** to the `Vector` > `Research Tools` > `Select by Location` in the menu bar. Then make the following selections:
+* Now we will determine which libraries lie within these census tracts by using the select by location tool. **Navigate** to the `Vector` > `Research Tools` > `Select by Location` in the menu bar. Then make the following selections:
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_03_SelectByLocation.png)
+![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_04.png)
 
 * Open the attribute table of the `Bronx_Libraries` layer in order to note which libraries were selected. Four libraries were selected, what are their names?
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_04_Attribute.png)
+![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_05.png)
 
 This analysis give us a very rough sense of which libraries might already serve a large number of Spanish speakers however we have only selected libraries which are located exactly within census tracts with a large proportion of Spanish speakers. What if there is a library in an adjacent census tract? Our analysis will not have picked up on this.
+
+Now, before moving on, deselect all features from all layers.
+
+![deselect](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_07.png)
 
 #### Schools and Libraries
 Now we will depart from questions about language and instead ask a series of questions about the relationship between schools and libraries in the Bronx. Specifically we will ask:
@@ -106,8 +110,9 @@ To answer the first question, we will create a ¼ mile buffer around the librari
 
 ##### Creating Buffers
 * On your menu bar navigate to `Vector`>`Geoprocessing Tools` > `Fixed distance buffer`.
-![buffer](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_05_Buffer.png)
-
+![buffer](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_06.png)
+* Your menu may read `Vector > Geoprocessing Tools > Fixed distance buffer`. `Variable Distance Buffer` is another possible tool, but for now we will use Fixed Distance.
+![buffer2](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_06-1.png)
   * Choose Bronx_Libraries as your input vector layer – this sets which layer the buffers are drawn around.
 
   * Set the buffer distance to 1320. The values in this field have the same units as the projection of your input datalayer and map project. Our map is projected in the NAD83 New York State Plane (Long Island) projection system whose units are in feet. To confirm this you can open the layer properties and inspect the coordinate reference system for the layer. Thus we choose 1320 feet because this is equivalent to ¼ mile.
@@ -120,10 +125,12 @@ To answer the first question, we will create a ¼ mile buffer around the librari
 
   * Your map should look something like the following:
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_06_Buffer.png)
+![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_08.png)
 
 * Next we will use the select by location tool to determine which schools fall within ¼ mile of a library. Navigate to `Vector`>`Research Tools`>`Select By Location`
   * Select features in  `Bronx_Schools` that intersect features in `BX_Library_QuarterMiBuffer`
+      - This menu can look different in various installations of QGIS. If your menu looks like the following, use the following selections:
+![newmenu](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_08-1.png)
 
   * Select OK, and then close.
 
@@ -135,7 +142,7 @@ To answer the first question, we will create a ¼ mile buffer around the librari
 
   * Navigate to `Vector`>`Data Management Tools`>`Join attributes by location`.
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_07_SpatialJoin.png)
+![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_09.png)
 
   * Just like with a table join the `Target vector layer` is the layer to which we would like to join new information to and the `Join vector layer` is the layer which we are joining to the target layer. In our case BX_Library_QuarteMiBuffer is the `Target vector layer` and Bronx_Schools is the `Join vector layer`
 
@@ -266,7 +273,7 @@ Now we will compare the total estimated population within the buffers to the ori
 
 * Navigate to `Vector`>`Analysis Tools`>`Basic statistics for numeric fields`.
 * Select Pop2014_es as the Target field and note the Sum
-* Repeat for the population field for the entire census tract Pop2014 and note the difference 
+* Repeat for the population field for the entire census tract Pop2014 and note the difference
 
 #### What to Submit
 Please send an image (can be a simple screenshot) of the clipped buffers (the stage where it is just circles, and what number you got for the proportional split population estimate.
