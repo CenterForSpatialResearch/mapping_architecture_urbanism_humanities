@@ -237,10 +237,10 @@ my_map.addControl(new mapboxgl.GeolocateControl({
     let lat = event.coords.latitude
 
     // debug
-    console.log("geolocated!", lng, lat)
+    console.log("geolocated:", lng, lat)
 
     // format lng lat values and display them on our 'info' element
-    document.getElementById('info').innerHTML = location.lng.toFixed(5) + "," + location.lat.toFixed(5) 
+    document.getElementById('info').innerHTML = lng.toFixed(5) + "," + lat.toFixed(5) 
 
 }), "top-left")
 ```
@@ -254,15 +254,12 @@ What if you don't want to just know where you are, but you want to click on the 
 ```javascript
 my_map.on('click', function(event) {
 
-    // create new variables to store the attributes we're interested in from the event
     let lng = event.lngLat.lng
     let lat = event.lngLat.lat
 
-    // debug
-    console.log("clicked!", lng, lat)
+    console.log("clicked:", lng, lat)
 
-    // format lng lat values and display them on our 'info' element
-    document.getElementById('info').innerHTML = location.lng.toFixed(5) + "," + location.lat.toFixed(5) 
+    document.getElementById('info').innerHTML = lng.toFixed(5) + "," + lat.toFixed(5) 
 
 })
 ```
