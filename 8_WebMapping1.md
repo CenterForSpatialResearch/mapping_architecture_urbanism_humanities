@@ -98,7 +98,7 @@ CSS defines the display properties for each element. At the moment, our page onl
 Your `map.js` file should look like this:
 
 ```javascript
-console.log("Hello World")
+console.log("Hello, world!")
 ```
 
 Unlike HTML and CSS, Javascript is a programming language. HTML and CSS give important information to the browser, but they are like blueprints, whereas Javascript is more like a recipe. We are going to stop short of covering all the programming fundamentals, but you will learn what everything is doing and how to modify code to suit your purposes.
@@ -139,7 +139,7 @@ let my_map = new mapboxgl.Map({
 
 Now we're cooking with gas. If you reload, you should see a satellite image of the world (Web Mercator Projection). Have some fun zooming around.
 
-If you don't see a map, make sure you've followed the syntax exactly, and check for errors in your console. When programming, one misplaced character can break the whole thing (watch your commas!). The _block_ of code we just added creates a new _variable_ `my_map` which is a new _instance_ of the `Map` _object_ provided by the Mapbox javascript file we loaded in our HTML. A `Map` object has several attributes that we can change: `container` lets it know the HTML element that will become the map, `style` defines a source of map data, and `center` and `zoom` define the starting coordinates for the map. Change these for `my_map` and see what happens.
+If you don't see a map, make sure you've followed the syntax exactly, and check for errors in your console. When programming, one misplaced character can break the whole thing (watch your commas!). The _block_ of code we just added creates a new _variable_ `my_map` which is a new _instance_ of the `Map` _object_ provided by the Mapbox javascript file we loaded in our HTML. "my_map" is an arbitrary name--you can choose whatever you want. A `Map` object has several attributes that we can change: `container` lets it know the HTML element that will become the map, `style` defines a source of map data, and `center` and `zoom` define the starting coordinates for the map. Change these for `my_map` and see what happens.
 
 Other options for style:
 
@@ -161,7 +161,7 @@ Notice how the last style here is attached to a user account. You can customize 
 
 There are many other attributes you can add to the Map object, which you can find [here](https://www.mapbox.com/mapbox-gl-js/api/#map).
 
-We're going to add some additional elements to the screen by calling the _method_ `addControl` of `my_map`. And we're passing `addControl` more Mapbox objects--a [`NavigationControl`](https://www.mapbox.com/mapbox-gl-js/api/#navigationcontrol) and [`ScaleControl`](https://www.mapbox.com/mapbox-gl-js/api/#scalecontrol), each with their own modifiable parameters. Your js file should now look like this:
+We're going to add some additional elements to the screen by calling the _method_ `addControl` of `my_map`. And we're passing `addControl`  instances of more Mapbox objects--a [`NavigationControl`](https://www.mapbox.com/mapbox-gl-js/api/#navigationcontrol) and [`ScaleControl`](https://www.mapbox.com/mapbox-gl-js/api/#scalecontrol), each with their own modifiable parameters. Your js file should now look like this:
 
 ```javascript
 'use strict'
@@ -177,20 +177,22 @@ let my_map = new mapboxgl.Map({
     zoom: 1
 })
 
-my_map.addControl(new mapboxgl.NavigationControl({
+let my_navigation = new mapboxgl.NavigationControl({
     showCompass: false
-}), "top-left")
+})
+my_map.addControl(my_navigation, 'top-left')
 
-my_map.addControl(new mapboxgl.ScaleControl({
+let my_scale = new mapboxgl.ScaleControl({
     maxWidth: 80,
     unit: 'imperial'
-}), "bottom-right")
+})
+my_map.addControl(my_scale, 'bottom-right')
 ```
 
 A particularly interesting control object to add is [`GeolocateControl`](https://www.mapbox.com/mapbox-gl-js/api/#geolocatecontrol). This uses the capabilities of the browser to track its physical location. You can just add this to the bottom of your code.
 
 ```javascript
-my_map.addControl(new mapboxgl.GeolocateControl({
+let my_geolocate = new mapboxgl.GeolocateControl({
     positionOptions: {
         enableHighAccuracy: true
     },
@@ -200,7 +202,8 @@ my_map.addControl(new mapboxgl.GeolocateControl({
     }
 }).on('geolocate', function (event) {
     console.log(event.coords)
-}), "top-left")
+})
+my_map.addControl(my_geolocate, 'top-left')
 ```
 
 After adding this object and reloading the page, you should see the geolocation toggle on your map. Click it and geolocate yourself. 
@@ -222,7 +225,7 @@ __proto__: Coordinates
 We can see that the event contains the geocoordinates of the user. Let's make use of that "info" element we defined in our HTML. Modify that last block of code so that it looks like this:
 
 ```javascript
-my_map.addControl(new mapboxgl.GeolocateControl({
+let my_geolocate = new mapboxgl.GeolocateControl({
     positionOptions: {
         enableHighAccuracy: true
     },
@@ -230,24 +233,38 @@ my_map.addControl(new mapboxgl.GeolocateControl({
     showUserLocation: true,
     fitBoundsOptions: {
     }
-}).on('geolocate', function(event) {
+}).on('geolocate', function (event) {
 
     // create new variables to store the attributes we're interested in from the event
     let lng = event.coords.longitude
     let lat = event.coords.latitude
 
     // debug
-    console.log("geolocated:", lng, lat)
+    console.log('geolocated:', lng, lat)
 
     // format lng lat values and display them on our 'info' element
     document.getElementById('info').innerHTML = lng.toFixed(5) + "," + lat.toFixed(5) 
 
-}), "top-left")
+})
+my_map.addControl(my_geolocate, 'top-left')
 ```
 
 After reloading, you should now see your current longitude and latitude without needing to open your console. We've set up our `GeolocateControl` to track your position, so this function will be called periodically to update its information.
 
 _Note that we've put these on our display with longitude before latitude. Is this standard? Why or why not?_
+
+If you haven't already, now would be great time to `git add -u` your changes so far, `git commit -m "implemented geolocation"` them, and `git push` them to GitHub. Now visit your github.io page using your mobile device to see your geolocating map shine. 
+
+
+### Markers
+
+You can add a marker to your map like this:
+
+```javascript
+let marker = new mapboxgl.Marker().setLngLat([-73.96031,40.80874]).addTo(map)
+```
+
+**** the lnglat, etc
 
 What if you don't want to just know where you are, but you want to click on the map to find the longitude/latitude coordinates? In this case, we're just going to create a new event handler directly on `my_map` that responds to mouse click events, which looks like this:
 
@@ -265,10 +282,6 @@ my_map.on('click', function(event) {
 ```
 
 Confusingly, notice that the `click` event on `my_map`, which is a `Map` object, has a different way of specifying longitude/latitude than the `geolocate` event on the `GeolocateControl` object. Get used to this kind of thing when dealing with Javascript--`console.log` is your friend.
-
-
-### Markers
-
 
 ______________________________________________________________________________________________________________
 
