@@ -195,12 +195,24 @@ my_map.addControl(new mapboxgl.GeolocateControl({
     showUserLocation: true,
     fitBoundsOptions: {
     }
-}).on('geolocate', function (e) {
-    console.log(e.coords)
+}).on('geolocate', function (event) {
+    console.log(event.coords)
 }), "top-left")
 ```
 
 After adding this object and reloading the page, you should see the geolocation toggle on your map. Click it and geolocate yourself. 
 
-Unlike the previous control objects, `GeolocateControl` has a _handler_, called `on`, which is a special function that is called in response to an _event_. In this case, the name of the event is `geolocate`. So when the user has been geolocated, this handler function is called.
+Unlike the previous control objects, `GeolocateControl` has a _handler_, called `on`, which is a special function that is called in response to an _event_. In this case, the name of the event is `geolocate`. So when the user has been geolocated, this handler function is called. What does it do? Here we've just asked it to print `event.coords` to the console. `event` here is a variable which is an object that contains information about the event that just happened. Look in the Javascript console in the browser, and you should find an object:
+
+```javascript
+Coordinates {latitude: 40.8087666, longitude: -73.9603058, altitude: null, accuracy: 35, altitudeAccuracy: null, …}
+accuracy: 35
+altitude: null
+altitudeAccuracy: null
+heading: null
+latitude: 40.8087666
+longitude: -73.9603058
+speed: null
+__proto__: Coordinates
+```
 
