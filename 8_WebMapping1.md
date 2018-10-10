@@ -13,7 +13,7 @@ At this stage, you should have:
 - cloned a local copy of your repository to your computer using [git](https://git-scm.com/download/mac)
 - downloaded a text editor like [Sublime Text](https://www.sublimetext.com/)
 - created the empty files `index.html`, `style.css`, and `map.js` with your editor and added them to your repository
-- set up GitHub pages and used it view your site online
+- set up [GitHub pages](https://pages.github.com/) and used it view your site online (a project site from scratch)
 
 ### Setup
 
