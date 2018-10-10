@@ -1,17 +1,21 @@
 ## Web Mapping 1
 
-https://www.mapbox.com/mapbox-gl-js/api/
+We are going to be making webmaps using [Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/api/). This is a recent Javascript library that uses [WebGL](https://en.wikipedia.org/wiki/WebGL) to render interactive maps from vector (as opposed to raster) tiles created with [Mapbox Studio](https://www.mapbox.com/mapbox-studio/). Data for these maps comes from [OpenStreetMap](https://www.openstreetmap.org).
 
-Why Mapbox GL
+This tutorial will introduce you to the basic setup and what it feels like to develop for a web browser. This will be a very different approach than our experience with QGIS, and it is much more prone to error given the number of new concepts and syntaxes involved. Brackets, commas, quotes, and colons... stay with it--it's ok if you dont understand what everything is doing at first.
 
-### Setup
+
+### Prerequisites
 
 At this stage, you should have:
 - created a [GitHub](https://github.com) account
-- created a new repository 
+- created a new repository on GitHub, called `webmap_1`
 - cloned a local copy of your repository to your computer using [git](https://git-scm.com/download/mac)
-- created the empty files `index.html`, `style.css`, and `map.js` and added them to your repository
-- used GitHub pages to view your site online
+- downloaded a text editor like [Sublime Text](https://www.sublimetext.com/)
+- created the empty files `index.html`, `style.css`, and `map.js` with your editor and added them to your repository
+- set up GitHub pages and used it view your site online
+
+### Setup
 
 To review: HTML is the structure of a website, CSS is the style, and JavaScript is the functionality or the interaction. Each of these are contained in text files with the appropriate extension--and they each have entirely different syntax. When you are creating a website you are creating a series of linked files that your browser downloads and uses to construct the display. These files can also come from remote resources, such as in the case of javascript libraries or map tiles. 
 
@@ -325,15 +329,51 @@ popup.setHTML('This is the Center for Spatial Research<br /><img src="https://cu
 marker.setPopup(popup)
 ```
 
+What if you want to add multiple markers to your map? First, we'll need to create an _array_ of the necessary data:
+
+```javascript
+let data = [
+    {
+        location: [-73.96191,40.80762], 
+        content: 'I like to eat my lunch here'
+    },
+    {
+        location: [-73.95936,40.80610], 
+        content: '15 years ago, you could see over the trees'
+    },
+    {
+        location: [-73.96204,40.80994], 
+        content: 'This was once tennis courts'
+    },
+    ]
+```
+
+Be careful with your brackets and braces (and commas). This array contains three objects, each with a location parameter and a content parameter. We want to create a new marker and popup for each of these objects. We can do this in Javascript like this:
+
+```javascript
+data.forEach(function(d) {
+
+    let marker = new mapboxgl.Marker()    
+    marker.setLngLat(d.location)
+    marker.addTo(map)  
+
+    let popup = new mapboxgl.Popup()
+    popup.setHTML(d.content)
+    marker.setPopup(popup)
+
+})
+```
+
+This is similar to the marker and popup code we used before, but now we've enclosed it in a block that will be called for _each_ object in our array. Reloading your map should now show the markers on the map.
 
 
-What if you want to add multiple markers to your map?
+### Deliverables
 
+Make a customized webmap with a set of at least five markers that tells a story about a place in the world. Send the URL to your github.io site.
 
 
 ______________________________________________________________________________________________________________
 
 
 Tutorial written by Brian House for [Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities).
-
 
