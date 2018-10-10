@@ -129,7 +129,7 @@ mapboxgl.accessToken = 'YOUR TOKEN HERE BETWEEN THE QUOTES'
 You might want to reload your page and check the console to make sure there are no errors--you should just see your debug statement. Now add this to the bottom of your js file:
 
 ```javascript
-let my_map = new mapboxgl.Map({
+let map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/satellite-v9',
     center: [-73.96024, 40.80877],
@@ -139,7 +139,7 @@ let my_map = new mapboxgl.Map({
 
 Now we're cooking with gas. If you reload, you should see a satellite image of the world (Web Mercator Projection). Have some fun zooming around.
 
-If you don't see a map, make sure you've followed the syntax exactly, and check for errors in your console. When programming, one misplaced character can break the whole thing (watch your commas!). The _block_ of code we just added creates a new _variable_ `my_map` which is a new _instance_ of the `Map` _object_ provided by the Mapbox javascript file we loaded in our HTML. "my_map" is an arbitrary name--you can choose whatever you want. A `Map` object has several attributes that we can change: `container` lets it know the HTML element that will become the map, `style` defines a source of map data, and `center` and `zoom` define the starting coordinates for the map. Change these for `my_map` and see what happens.
+If you don't see a map, make sure you've followed the syntax exactly, and check for errors in your console. When programming, one misplaced character can break the whole thing (watch your commas and brackets!). The _block_ of code we just added creates a new _variable_ `map` which is a new _instance_ of the `Map` _object_ provided by the Mapbox javascript file we loaded in our HTML. "map" is actually an arbitrary name--you can choose whatever you want. A `Map` object has several attributes that we can change: `container` lets it know the HTML element that will become the map (in this case also called map), `style` defines a data source for the base map, and `center` and `zoom` define the starting coordinates for the map. Change these for `map` and see what happens.
 
 Other options for style:
 
@@ -161,7 +161,7 @@ Notice how the last style here is attached to a user account. You can customize 
 
 There are many other attributes you can add to the Map object, which you can find [here](https://www.mapbox.com/mapbox-gl-js/api/#map).
 
-We're going to add some additional elements to the screen by calling the _method_ `addControl` of `my_map`. And we're passing `addControl`  instances of more Mapbox objects--a [`NavigationControl`](https://www.mapbox.com/mapbox-gl-js/api/#navigationcontrol) and [`ScaleControl`](https://www.mapbox.com/mapbox-gl-js/api/#scalecontrol), each with their own modifiable parameters. Your js file should now look like this:
+We're going to add some additional elements to the screen by calling the _method_ `addControl` of `map`. And we're passing `addControl`  instances of more Mapbox objects--a [`NavigationControl`](https://www.mapbox.com/mapbox-gl-js/api/#navigationcontrol) and [`ScaleControl`](https://www.mapbox.com/mapbox-gl-js/api/#scalecontrol), each with their own modifiable parameters.
 
 ```javascript
 'use strict'
@@ -170,29 +170,35 @@ console.log('Loaded map.js')
 
 mapboxgl.accessToken = 'YOUR TOKEN HERE BETWEEN THE QUOTES'
 
-let my_map = new mapboxgl.Map({
+let map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/satellite-v9',
     center: [-73.96024, 40.80877],
     zoom: 1
 })
 
-let my_navigation = new mapboxgl.NavigationControl({
+// create an instance of NavigationControl
+let navigation = new mapboxgl.NavigationControl({
     showCompass: false
 })
-my_map.addControl(my_navigation, 'top-left')
 
-let my_scale = new mapboxgl.ScaleControl({
+// add the navigation to your map
+map.addControl(navigation, 'top-left')
+
+// create an instance of ScaleControl
+let scale = new mapboxgl.ScaleControl({
     maxWidth: 80,
     unit: 'imperial'
 })
-my_map.addControl(my_scale, 'bottom-right')
+
+// add the scale to your map
+map.addControl(scale, 'bottom-right')
 ```
 
 A particularly interesting control object to add is [`GeolocateControl`](https://www.mapbox.com/mapbox-gl-js/api/#geolocatecontrol). This uses the capabilities of the browser to track its physical location. You can just add this to the bottom of your code.
 
 ```javascript
-let my_geolocate = new mapboxgl.GeolocateControl({
+let geolocate = new mapboxgl.GeolocateControl({
     positionOptions: {
         enableHighAccuracy: true
     },
@@ -200,15 +206,20 @@ let my_geolocate = new mapboxgl.GeolocateControl({
     showUserLocation: true,
     fitBoundsOptions: {
     }
-}).on('geolocate', function (event) {
+})
+
+map.addControl(geolocate, 'top-left')
+
+// this is an event handler
+geolocate.on('geolocate', function(event) {
     console.log(event.coords)
 })
-my_map.addControl(my_geolocate, 'top-left')
+
 ```
 
 After adding this object and reloading the page, you should see the geolocation toggle on your map. Click it and geolocate yourself. 
 
-Unlike the previous control objects, `GeolocateControl` has a _handler_, called `on`, which is a special function that is called in response to an _event_. In this case, the name of the event is `geolocate`. So when the user has been geolocated, this handler function is called. What does it do? Here we've just asked it to print `event.coords` to the console. `event` here is a variable which is an object that contains information about the event that just happened. Look in the Javascript console in the browser, and you should find an object:
+We added something else here. The `GeolocateControl` has an _event handler_, called `on`, which is a special function that is called in response to an _event_. In this case, the name of the event is `geolocate` and it happens when the user has been successfully geolocated. What does it do? Here we've just asked this function to print `event.coords` to the console. `event` here is a variable which is an object that contains information about the event that just happened. Look in the Javascript console in the browser, and you should find an object:
 
 ```javascript
 Coordinates {latitude: 40.8087666, longitude: -73.9603058, altitude: null, accuracy: 35, altitudeAccuracy: null, …}
@@ -225,15 +236,7 @@ __proto__: Coordinates
 We can see that the event contains the geocoordinates of the user. Let's make use of that "info" element we defined in our HTML. Modify that last block of code so that it looks like this:
 
 ```javascript
-let my_geolocate = new mapboxgl.GeolocateControl({
-    positionOptions: {
-        enableHighAccuracy: true
-    },
-    trackUserLocation: true,
-    showUserLocation: true,
-    fitBoundsOptions: {
-    }
-}).on('geolocate', function (event) {
+geolocate.on('geolocate', function(event) {
 
     // create new variables to store the attributes we're interested in from the event
     let lng = event.coords.longitude
@@ -246,7 +249,6 @@ let my_geolocate = new mapboxgl.GeolocateControl({
     document.getElementById('info').innerHTML = lng.toFixed(5) + "," + lat.toFixed(5) 
 
 })
-my_map.addControl(my_geolocate, 'top-left')
 ```
 
 After reloading, you should now see your current longitude and latitude without needing to open your console. We've set up our `GeolocateControl` to track your position, so this function will be called periodically to update its information.
@@ -261,15 +263,25 @@ If you haven't already, now would be great time to `git add -u` your changes so 
 You can add a marker to your map like this:
 
 ```javascript
-let marker = new mapboxgl.Marker().setLngLat([-73.96031,40.80874]).addTo(map)
+let marker = new mapboxgl.Marker()
+marker.setLngLat([-73.95997,40.80865])
+marker.addTo(map)
 ```
 
-**** the lnglat, etc
-
-What if you don't want to just know where you are, but you want to click on the map to find the longitude/latitude coordinates? In this case, we're just going to create a new event handler directly on `my_map` that responds to mouse click events, which looks like this:
+You can give it a popup like this:
 
 ```javascript
-my_map.on('click', function(event) {
+let popup = new mapboxgl.Popup()
+popup.setText('This is the Center for Spatial Research')
+marker.setPopup(popup)
+```
+
+Add it and reload your page, you should see a blue marker at the Center for Spatial Research. Click it to see the label.
+
+If you're going to be adding more markers to your map, you're going to need to know where to put them, ie, the longitude/latitude coordinates. We're already displaying our coordinates in the "info" container when we are geolocated--let's make it so that it displays the coordinates where you click on the map as well.
+
+```javascript
+map.on('click', function(event) {
 
     let lng = event.lngLat.lng
     let lat = event.lngLat.lat
@@ -281,7 +293,10 @@ my_map.on('click', function(event) {
 })
 ```
 
-Confusingly, notice that the `click` event on `my_map`, which is a `Map` object, has a different way of specifying longitude/latitude than the `geolocate` event on the `GeolocateControl` object. Get used to this kind of thing when dealing with Javascript--`console.log` is your friend.
+This is another event handler, which looks a lot like the one we added to our `GeolocateControl` object. Notice, however, that the `click` event on a `Map` object has a different way of specifying longitude/latitude than the `geolocate` event on the `GeolocateControl` object. Get used to this kind of thing when dealing with Javascript--`console.log` is your friend.
+
+When you reload your page, the "info" container should show the coordinates wherever you click. _Both_ event handlers are now updating "info".
+
 
 ______________________________________________________________________________________________________________
 
