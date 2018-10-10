@@ -5,17 +5,27 @@ We are going to be making webmaps using [Mapbox GL JS](https://www.mapbox.com/ma
 This tutorial will introduce you to the basic setup and what it feels like to develop for a web browser. This will be a very different approach than our experience with QGIS, and it is much more prone to error given the number of new concepts and syntaxes involved. Brackets, commas, quotes, and colons... stay with it—it's ok if you dont understand what everything is doing at first.
 
 
-### Prerequisites
+### Setup Prerequisites
 
 At this stage, you should have:
 - created a [GitHub](https://github.com) account
 - created a new repository on GitHub, called `webmap_1`
-- cloned a local copy of your repository to your computer using [git](https://git-scm.com/download/mac)
+- set up your repository as a [GitHub page](https://pages.github.com/) (a project site from scratch)
+- installed [git](https://git-scm.com/downloads)
+- opened your Terminal (Applications > Utilities) and learned how to [navigate](https://www.macworld.com/article/2042378/master-the-command-line-navigating-files-and-folders.html)
+- set up git, eg
+```bash
+    git config --global user.name 'My Name'
+    git config --global user.email 'email@wherever.com'
+```
+- cloned a local copy of your repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/)
 - downloaded a text editor like [Sublime Text](https://www.sublimetext.com/)
 - created the empty files `index.html`, `style.css`, and `map.js` with your editor and added them to your repository
-- set up [GitHub pages](https://pages.github.com/) and used it view your site online (a project site from scratch)
+- added, commited, and pushed your changes
+- viewed the result on your github page
 
-### Setup
+
+### A web page
 
 To review: HTML is the structure of a website, css is the style, and javascript is the functionality or the interaction. Each of these are contained in text files with the appropriate extension—and they each have entirely different syntax. When you are creating a website you are creating a series of linked files that your browser downloads and uses to construct the display. These files can also come from remote resources, such as in the case of javascript libraries or map tiles. 
 
