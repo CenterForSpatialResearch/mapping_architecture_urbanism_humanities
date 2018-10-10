@@ -373,5 +373,5 @@ Make a customized webmap with a set of at least five markers that tells a story 
 ______________________________________________________________________________________________________________
 
 
-Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities, [Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities).
+Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)).
 
