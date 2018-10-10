@@ -19,12 +19,14 @@ At this stage, you should have:
     git config --global user.email 'email@wherever.com'
 ```
 ...and added [colors](https://nathanhoad.net/how-to-colours-in-git)
-- cloned a local copy of your repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/)  
+- cloned a local copy of your repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/):  
 `git clone https://github.com/yourusername/webmap_1`
 - downloaded a text editor like [Sublime Text](https://www.sublimetext.com/)
-- created the empty files `index.html`, `style.css`, and `map.js` with your editor and added them to your repository  
+- created the empty files `index.html`, `style.css`, and `map.js` with your editor and added them to your repository:  
 `git add index.html style.css map.js`
-- added, commited, and pushed your changes
+- commited and pushed your changes:  
+`git commit -m 'initial import'`  
+`git push`  
 - viewed the result on your github page
 
 
