@@ -12,15 +12,22 @@ At this stage, you should have:
 - created a new repository on GitHub, called `webmap_1`
 - set up your repository as a [GitHub page](https://pages.github.com/) (a project site from scratch)
 - installed [git](https://git-scm.com/downloads)
-- opened your Terminal (Applications > Utilities) and learned how to [navigate](https://www.macworld.com/article/2042378/master-the-command-line-navigating-files-and-folders.html)
-- set up git, eg
+- opened your terminal (Applications > Utilities > Terminal.app) and learned how to [navigate](https://www.macworld.com/article/2042378/master-the-command-line-navigating-files-and-folders.html)
+- set up git, ie:
 ```bash
     git config --global user.name 'My Name'
     git config --global user.email 'email@wherever.com'
 ```
+...and added [colors](https://nathanhoad.net/how-to-colours-in-git)
 - cloned a local copy of your repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/)
+```bash
+    git clone https://github.com/yourusername/webmap_1
+```
 - downloaded a text editor like [Sublime Text](https://www.sublimetext.com/)
 - created the empty files `index.html`, `style.css`, and `map.js` with your editor and added them to your repository
+```bash
+    git add _filename_
+```
 - added, commited, and pushed your changes
 - viewed the result on your github page
 
