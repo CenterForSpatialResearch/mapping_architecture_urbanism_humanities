@@ -1,8 +1,8 @@
-## Web Mapping 1
+## Tutorial 8: Web Mapping
 
-We are going to be making webmaps using [Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/api/). This is a recent Javascript library that uses [WebGL](https://en.wikipedia.org/wiki/WebGL) to render interactive maps from vector (as opposed to raster) tiles created with [Mapbox Studio](https://www.mapbox.com/mapbox-studio/). Data for these maps comes from [OpenStreetMap](https://www.openstreetmap.org).
+We are going to be making webmaps using [Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/api/). This is a recent javascript library that uses [WebGL](https://en.wikipedia.org/wiki/WebGL) to render interactive maps from vector tiles (as opposed to raster tiles) created with [Mapbox Studio](https://www.mapbox.com/mapbox-studio/). Data for these maps comes from [OpenStreetMap](https://www.openstreetmap.org).
 
-This tutorial will introduce you to the basic setup and what it feels like to develop for a web browser. This will be a very different approach than our experience with QGIS, and it is much more prone to error given the number of new concepts and syntaxes involved. Brackets, commas, quotes, and colons... stay with it--it's ok if you dont understand what everything is doing at first.
+This tutorial will introduce you to the basic setup and what it feels like to develop for a web browser. This will be a very different approach than our experience with QGIS, and it is much more prone to error given the number of new concepts and syntaxes involved. Brackets, commas, quotes, and colons... stay with it—it's ok if you dont understand what everything is doing at first.
 
 
 ### Prerequisites
@@ -17,7 +17,7 @@ At this stage, you should have:
 
 ### Setup
 
-To review: HTML is the structure of a website, CSS is the style, and JavaScript is the functionality or the interaction. Each of these are contained in text files with the appropriate extension--and they each have entirely different syntax. When you are creating a website you are creating a series of linked files that your browser downloads and uses to construct the display. These files can also come from remote resources, such as in the case of javascript libraries or map tiles. 
+To review: HTML is the structure of a website, css is the style, and javascript is the functionality or the interaction. Each of these are contained in text files with the appropriate extension—and they each have entirely different syntax. When you are creating a website you are creating a series of linked files that your browser downloads and uses to construct the display. These files can also come from remote resources, such as in the case of javascript libraries or map tiles. 
 
 HTML is defined by a series of tags, which are either in the form `<tag />` or `<tag></tag>`. A comment in HTML, which is simply a non-functional bit of text meant to explicate the code, is in the form `<!-- comment -->`. Reproduce the following in your `index.html` file using your text editor (but you can leave out the comments).
 
@@ -64,7 +64,7 @@ HTML is defined by a series of tags, which are either in the form `<tag />` or `
 </html>
 ```
 
-Notice that we are loading several files within this page. These include a css and js file from Mapbox, and our own css and js files. The reason `map.js` is loaded within the body and not the head is that it must be loaded _after_ the `map` and `info` elements have been created.
+Notice that we are loading several files within this page. These include a css and javascript file from Mapbox, and our own css and javascript files. The reason `map.js` is loaded within the body and not the head is that it must be loaded _after_ the `map` and `info` elements have been created.
 
 Your `style.css` file should look like this:
 
@@ -101,7 +101,7 @@ img {
 }
 ```
 
-CSS defines the display properties for each element. At the moment, our page only has two elements, which you see defined here. We also have defined a default width for images. Note that a comment in CSS is designated like `/* comment */`.
+css defines the display properties for each element. At the moment, our page only has two elements, which you see defined here. We also have defined a default width for images. Note that a comment in css is designated like `/* comment */`.
 
 Your `map.js` file should look like this:
 
@@ -109,16 +109,16 @@ Your `map.js` file should look like this:
 console.log("Hello, world!")
 ```
 
-Unlike HTML and CSS, Javascript is a programming language. HTML and CSS give important information to the browser, but they are like blueprints, whereas Javascript is more like a recipe. We are going to stop short of covering all the programming fundamentals, but you will learn what everything is doing and how to modify code to suit your purposes.
+Unlike HTML and css, javascript is a programming language. HTML and css give important information to the browser, but they are like blueprints, whereas javascript is more like a recipe. We are going to stop short of covering all the programming fundamentals, but you will learn what everything is doing and how to modify code to suit your purposes.
 
-`console.log` is a debug statement--it lets you write to the Javascript console to keep track of what you're doing, which is a very helpful tool. 
+`console.log` is a debug statement—it lets you write to the javascript console to keep track of what you're doing, which is a very helpful tool. 
 
 If you load your website at this point, you should see ... nothing. 
 
-However, in your browser open `View > Developer > JavaScript Console` (Chrome) or `Develop > Show JavaScript Console` (Safari, with "Show Develop menu in menu bar" turned on in the Preferences under advanced). You should see "Hello World" printed. This means that your `map.js` file has been successfully loaded and you are ready to start programming. If there are other errors, check the format of your HTML and that the script tag which loads the Mapbox javascript are formatted correctly.
+However, in your browser open `View > Developer > JavaScript Console` (Chrome) or `Develop > Show JavaScript Console` (Safari, with "Show Develop menu in menu bar" turned on in the Preferences under advanced). You should see "[Hello, world!](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)" printed. This means that your `map.js` file has been successfully loaded and you are ready to start programming. If there are other errors, check the format of your HTML and that the script tag which loads the Mapbox javascript are formatted correctly.
 
 
-### Basic Mapbox GL Javascript
+### Basic Mapbox GL JavaScript
 
 One more setup step: register a [Mapbox](https://www.mapbox.com/signup/) account. Then find your "[Default public token](https://www.mapbox.com/account/)" which you will use in your code.
 
@@ -134,7 +134,7 @@ console.log('Loaded map.js')
 mapboxgl.accessToken = 'YOUR TOKEN HERE BETWEEN THE QUOTES'
 ```
 
-You might want to reload your page and check the console to make sure there are no errors--you should just see your debug statement. Now add this to the bottom of your js file:
+You might want to reload your page and check the console to make sure there are no errors—you should just see your debug statement. Now add this to the bottom of your js file:
 
 ```javascript
 let map = new mapboxgl.Map({
@@ -147,7 +147,7 @@ let map = new mapboxgl.Map({
 
 Now we're cooking with gas. If you reload, you should see a satellite image of the world (Web Mercator Projection). Have some fun zooming around.
 
-If you don't see a map, make sure you've followed the syntax exactly, and check for errors in your console. When programming, one misplaced character can break the whole thing (watch your commas and brackets!). The _block_ of code we just added creates a new _variable_ `map` which is a new _instance_ of the `Map` _object_ provided by the Mapbox javascript file we loaded in our HTML. "map" is actually an arbitrary name--you can choose whatever you want. A `Map` object has several attributes that we can change: `container` lets it know the HTML element that will become the map (in this case also called map), `style` defines a data source for the base map, and `center` and `zoom` define the starting coordinates for the map. Change these for `map` and see what happens.
+If you don't see a map, make sure you've followed the syntax exactly, and check for errors in your console. When programming, one misplaced character can break the whole thing (watch your commas and brackets!). The _block_ of code we just added creates a new _variable_ `map` which is a new _instance_ of the `Map` _object_ provided by the Mapbox javascript file we loaded in our HTML. "map" is actually an arbitrary name—you can choose whatever you want. A `Map` object has several attributes that we can change: `container` lets it know the HTML element that will become the map (in this case also called map), `style` defines a data source for the base map, and `center` and `zoom` define the starting coordinates for the map. Change these for `map` and see what happens.
 
 Other options for style:
 
@@ -167,7 +167,7 @@ style: 'mapbox://styles/brianhouse/cjn0u552b52kr2spdz6yhpqj4'
 
 Notice how the last style here is attached to a user account. You can customize your own styles with [Mapbox Studio](https://www.mapbox.com/studio/). Once you create a style, you'll just need to find your "Style URL" by clicking "Share &amp; use" and then the "Use" tab and scrolling down. 
 
-There are many other attributes you can add to the Map object, which you can find [here](https://www.mapbox.com/mapbox-gl-js/api/#map). Try adding `pitch` while centered on Columbia at a high `zoom`, using the map style from my account:
+There are many other attributes you can add to the Map object, which you can find [here](https://www.mapbox.com/mapbox-gl-js/api/#map). Try adding `pitch` while centered on Columbia at a high `zoom`, using this custom map style:
 
 ```javascript
 let map = new mapboxgl.Map({
@@ -179,7 +179,7 @@ let map = new mapboxgl.Map({
 })
 ```
 
-Now we're going to add some additional elements to the screen by calling the _method_ `addControl` of `map`. And we're passing `addControl`  instances of more Mapbox objects--a [`NavigationControl`](https://www.mapbox.com/mapbox-gl-js/api/#navigationcontrol) and [`ScaleControl`](https://www.mapbox.com/mapbox-gl-js/api/#scalecontrol), each with their own modifiable parameters. Your javascript should look something like this:
+Now we're going to add some additional elements to the screen by calling the _method_ `addControl` of `map`. And we're _passing_ `addControl`  instances of more Mapbox objects—a [`NavigationControl`](https://www.mapbox.com/mapbox-gl-js/api/#navigationcontrol) and [`ScaleControl`](https://www.mapbox.com/mapbox-gl-js/api/#scalecontrol), each with their own modifiable parameters. Your javascript should look something like this:
 
 ```javascript
 'use strict'
@@ -239,7 +239,7 @@ geolocate.on('geolocate', function(event) {
 
 After adding this object and reloading the page, you should see the geolocation toggle on your map. Click it and geolocate yourself. 
 
-We added something else here. The `GeolocateControl` has an _event handler_, which is a special function `on` that is called in response to an _event_. In this case, the name of the event is `geolocate` and it happens when the user has been successfully geolocated. What does it do? Here we've just asked this function to print `event.coords` to the console. `event` here is a variable which is an object that contains information about the event that just happened. Look in the Javascript console in the browser, and you should find an object:
+We added something else here. The `GeolocateControl` has an _event handler_, which is a special function `on` that is called in response to an _event_. In this case, the name of the event is `geolocate` and it happens when the user has been successfully geolocated. What does it do? Here we've just asked this function to print `event.coords` to the console. `event` here is a variable which is an object that contains information about the event that just happened. Look in the javascript console in the browser, and you should find an object:
 
 ```javascript
 Coordinates {latitude: 40.8087666, longitude: -73.9603058, altitude: null, accuracy: 35, altitudeAccuracy: null, …}
@@ -271,16 +271,14 @@ geolocate.on('geolocate', function(event) {
 })
 ```
 
-After reloading, you should now see your current longitude and latitude without needing to open your console. We've set up our `GeolocateControl` to track your position, so this function will be called periodically to update its information.
-
-_Note that we've put these on our display with longitude before latitude. Question for discussion: Is this standard? Why or why not?_
+After reloading, you should now see your current longitude and latitude without needing to open your console. We've set up our `GeolocateControl` to track your position, so this function will be called periodically to update its information. Note that we've put these on our display with longitude before latitude. _Question for discussion: Is this standard? Why or why not?_
 
 If you haven't already, now would be great time to `git add -u` your changes so far, `git commit -m "implemented geolocation"` them, and `git push` them to GitHub. Now visit your github.io page using your mobile device to see your geolocating map shine. 
 
 
 #### More event handlers
 
-You're probably going to want to be able to figure out other coordinates on the map other than your geolocated position. We're already displaying our coordinates in the "info" container when we are geolocated--let's make it so that it displays the coordinates where you click on the map as well.
+You're probably going to want to be able to figure out other coordinates on the map other than your geolocated position. We're already displaying our coordinates in the "info" container when we are geolocated—let's make it so that it displays the coordinates where you click on the map as well.
 
 
 ```javascript
@@ -296,7 +294,7 @@ map.on('click', function(event) {
 })
 ```
 
-This is another event handler, which looks a lot like the one we added to our `GeolocateControl` object. Notice, however, that the `click` event on a `Map` object has a different way of specifying longitude/latitude than the `geolocate` event on the `GeolocateControl` object. Get used to this kind of thing when dealing with Javascript--`console.log` is your friend.
+This is another event handler, which looks a lot like the one we added to our `GeolocateControl` object. Notice, however, that the `click` event on a `Map` object has a different way of specifying longitude/latitude than the `geolocate` event on the `GeolocateControl` object. Get used to this kind of thing when dealing with javascript—`console.log` is your friend.
 
 When you reload your page, the "info" container should show the coordinates wherever you click. _Both_ event handlers are now updating "info".
 
@@ -348,7 +346,7 @@ let data = [
     ]
 ```
 
-Be careful with your brackets and braces (and commas). This array contains three objects, each with a location parameter and a content parameter. We want to create a new marker and popup for each of these objects. We can do this in Javascript like this:
+Be careful with your brackets and braces (and commas). This array contains three objects, each with a location parameter and a content parameter. We want to create a new marker and popup for each of these objects. We can do this in javascript like this:
 
 ```javascript
 data.forEach(function(d) {
@@ -369,11 +367,11 @@ This is similar to the marker and popup code we used before, but now we've enclo
 
 ### Deliverables
 
-Make a customized webmap with a set of at least five markers that tells a story about a place in the world. Send the URL to your github.io site.
+Make a customized webmap with a set of at least five markers that tells a story about a place in the world. Submit the URL to your github.io site.
 
 
 ______________________________________________________________________________________________________________
 
 
-Tutorial written by Brian House for [Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities).
+Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities, [Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities).
 
