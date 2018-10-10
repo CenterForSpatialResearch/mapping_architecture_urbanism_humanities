@@ -19,6 +19,8 @@ At this stage, you should have:
 
 To review: HTML is the structure of a website, css is the style, and javascript is the functionality or the interaction. Each of these are contained in text files with the appropriate extension—and they each have entirely different syntax. When you are creating a website you are creating a series of linked files that your browser downloads and uses to construct the display. These files can also come from remote resources, such as in the case of javascript libraries or map tiles. 
 
+![Directory Structure][01]
+
 HTML is defined by a series of tags, which are either in the form `<tag />` or `<tag></tag>`. A comment in HTML, which is simply a non-functional bit of text meant to explicate the code, is in the form `<!-- comment -->`. Reproduce the following in your `index.html` file using your text editor (but you can leave out the comments).
 
 ```html
@@ -147,6 +149,8 @@ let map = new mapboxgl.Map({
 
 Now we're cooking with gas. If you reload, you should see a satellite image of the world (Web Mercator Projection). Have some fun zooming around.
 
+![World map][02]
+
 If you don't see a map, make sure you've followed the syntax exactly, and check for errors in your console. When programming, one misplaced character can break the whole thing (watch your commas and brackets!). The _block_ of code we just added creates a new _variable_ `map` which is a new _instance_ of the `Map` _object_ provided by the Mapbox javascript file we loaded in our HTML. "map" is actually an arbitrary name—you can choose whatever you want. A `Map` object has several attributes that we can change: `container` lets it know the HTML element that will become the map (in this case also called map), `style` defines a data source for the base map, and `center` and `zoom` define the starting coordinates for the map. Change these for `map` and see what happens.
 
 Other options for style:
@@ -178,6 +182,8 @@ let map = new mapboxgl.Map({
     pitch: 45
 })
 ```
+
+![3D view][03]
 
 Now we're going to add some additional elements to the screen by calling the _method_ `addControl` of `map`. And we're _passing_ `addControl`  instances of more Mapbox objects—a [`NavigationControl`](https://www.mapbox.com/mapbox-gl-js/api/#navigationcontrol) and [`ScaleControl`](https://www.mapbox.com/mapbox-gl-js/api/#scalecontrol), each with their own modifiable parameters. Your javascript should look something like this:
 
@@ -213,6 +219,8 @@ let scale = new mapboxgl.ScaleControl({
 map.addControl(scale, 'bottom-right')
 ```
 
+![Map controls][04]
+
 ### Geolocation
 
 A particularly interesting control object to add is [`GeolocateControl`](https://www.mapbox.com/mapbox-gl-js/api/#geolocatecontrol). This uses the capabilities of the browser to track its physical location (_Question for discussion: how does this work?_). You can just add this to the bottom of your code.
@@ -239,7 +247,11 @@ geolocate.on('geolocate', function(event) {
 
 After adding this object and reloading the page, you should see the geolocation toggle on your map. Click it and geolocate yourself. 
 
+![Geolocation control][05]
+
 We added something else here. The `GeolocateControl` has an _event handler_, which is a special function `on` that is called in response to an _event_. In this case, the name of the event is `geolocate` and it happens when the user has been successfully geolocated. What does it do? Here we've just asked this function to print `event.coords` to the console. `event` here is a variable which is an object that contains information about the event that just happened. Look in the javascript console in the browser, and you should find an object:
+
+![Coordinates in console][06]
 
 ```javascript
 Coordinates {latitude: 40.8087666, longitude: -73.9603058, altitude: null, accuracy: 35, altitudeAccuracy: null, …}
@@ -272,6 +284,8 @@ geolocate.on('geolocate', function(event) {
 ```
 
 After reloading, you should now see your current longitude and latitude without needing to open your console. We've set up our `GeolocateControl` to track your position, so this function will be called periodically to update its information. Note that we've put these on our display with longitude before latitude. _Question for discussion: Is this standard? Why or why not?_
+
+![Coordinates in info box][07]
 
 If you haven't already, now would be great time to `git add -u` your changes so far, `git commit -m "implemented geolocation"` them, and `git push` them to GitHub. Now visit your github.io page using your mobile device to see your geolocating map shine. 
 
@@ -319,6 +333,8 @@ marker.setPopup(popup)
 
 Add it and reload your page, you should see a blue marker at the Center for Spatial Research. Click it to see the label.
 
+![C4SR marker with popup][08]
+
 However, text is boring. We can actually put any HTML elements inside a popup. This is a bit of a recursive wormhole, but our javascript is editing the structure of our page as it runs, and there's a lot of possibilities here. For now, let's just put an HTML image element inside our popup. Find the full URL of an image online. An easy way to do this is to control-click any image you see in your browser and choose "Open Image in New Tab". Then add it to your popup like this:
 
 ```javascript
@@ -326,6 +342,8 @@ let popup = new mapboxgl.Popup()
 popup.setHTML('This is the Center for Spatial Research<br /><img src="https://currystonefoundation.org/wp-content/uploads/2018/05/csf_pr_csr_image5.jpg" />')
 marker.setPopup(popup)
 ```
+
+![C4SR marker with popup and image][09]
 
 What if you want to add multiple markers to your map? First, we'll need to create an _array_ of the necessary data:
 
@@ -374,4 +392,19 @@ ________________________________________________________________________________
 
 
 Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)).
+
+
+
+
+[01]: Images/webmap_1_01.png
+[02]: Images/webmap_1_02.png
+[03]: Images/webmap_1_03.png
+[04]: Images/webmap_1_04.png
+[05]: Images/webmap_1_05.png
+[06]: Images/webmap_1_06.png
+[07]: Images/webmap_1_07.png
+[08]: Images/webmap_1_08.png
+[09]: Images/webmap_1_09.png
+[10]: Images/webmap_1_10.png
+
 
