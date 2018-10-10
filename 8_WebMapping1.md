@@ -396,7 +396,7 @@ data.forEach(function(d) {
 
 This is similar to the marker and popup code we used before, but now we've enclosed it in a block that will be called for _each_ object in our array. Reloading your map should now show the markers on the map.
 
-![MULTI]
+![Multiple markers on a map][MULTI]
 
 ### Deliverables
 
