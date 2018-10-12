@@ -30,11 +30,11 @@ At this stage, you should have:
 
 ### A web page
 
-To review: HTML is the structure of a website, css is the style, and javascript is the functionality or the interaction. Each of these are contained in text files with the appropriate extension—and they each have entirely different syntax. When you are creating a website you are creating a series of linked files that your browser downloads and uses to construct the display. These files can also come from remote resources, such as in the case of javascript libraries or map tiles. 
+HTML is the structure of a web page, css is the style, and javascript is the functionality or the interaction. Each of these are contained in text files with the appropriate extension—and they each have entirely different syntax. When you are creating a website you are creating a series of linked files that your browser downloads and uses to construct the display. These files can also come from remote resources, such as in the case of javascript libraries or map tiles. 
 
 ![Directory Structure][DIRECTORY]
 
-HTML is defined by a series of tags, which are either in the form `<tag />` or `<tag></tag>`. A comment in HTML, which is simply a non-functional bit of text meant to explicate the code, is in the form `<!-- comment -->`. Reproduce the following in your `index.html` file using your text editor (but you can leave out the comments).
+HTML is defined by a series of tags, which are either in the form `<tag />` or `<tag></tag>`. A comment in HTML, which is simply a non-functional bit of text meant to explicate the code, is in the form `<!-- comment -->`. Reproduce the following in your `index.html` file using your text editor (you can copy and paste).
 
 ```html
 <!DOCTYPE html> <!-- let the browser know this is an HTML file -->
@@ -81,7 +81,7 @@ HTML is defined by a series of tags, which are either in the form `<tag />` or `
 
 Notice that we are loading several files within this page. These include a css and javascript file from Mapbox, and our own css and javascript files. The reason `map.js` is loaded within the body and not the head is that it must be loaded _after_ the `map` and `info` elements have been created.
 
-Your `style.css` file should look like this:
+Likewise, put this into your `style.css` file:
 
 ```css
 body, html {
@@ -116,19 +116,19 @@ img {
 }
 ```
 
-css defines the display properties for each element. At the moment, our page only has two elements, which you see defined here. We also have defined a default width for images. Note that a comment in css is designated like `/* comment */`.
+css defines the display properties for each HTML element. At the moment, our page only has two elements, which you see defined here as `#map` and `#info`. We also have defined a default width for images. Note that a comment in css is designated like `/* comment */`.
 
-Your `map.js` file should look like this:
+Next, your `map.js` file should look like this:
 
 ```javascript
 console.log("Hello, world!")
 ```
 
-Unlike HTML and css, javascript is a programming language. HTML and css give important information to the browser, but they are like blueprints, whereas javascript is more like a recipe. We are going to stop short of covering all the programming fundamentals, but you will learn what everything is doing and how to modify code to suit your purposes.
+Unlike HTML and css, javascript is a programming language. HTML and css give important information to the browser, but they are like blueprints, whereas javascript is more like a recipe. Javascript will be our focus for the webmapping exercises. We are going to stop short of covering all general programming fundamentals, but you will learn what everything is doing and how to modify code to suit your purposes.
 
 `console.log` is a debug statement—it lets you write to the javascript console to keep track of what you're doing, which is a very helpful tool. 
 
-If you load your website at this point, you should see ... nothing. 
+At this point, open `index.html` in your browser (preferably Chrome). We will look at it with your github web address later, but for now you are just looking at your site "locally." Your browser should show an address that is something like "`file:///Users/bjh18/Desktop/webmap_1/index.html`" On the page itself you should see ... nothing. 
 
 However, in your browser open `View > Developer > JavaScript Console` (Chrome) or `Develop > Show JavaScript Console` (Safari, with "Show Develop menu in menu bar" turned on in the Preferences under advanced). You should see "[Hello, world!](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)" printed. This means that your `map.js` file has been successfully loaded and you are ready to start programming. If there are other errors, check the format of your HTML and that the script tag which loads the Mapbox javascript are formatted correctly.
 
