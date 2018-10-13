@@ -425,4 +425,4 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 [MARKER]: Images/webmap_1_09.png
 [IMAGE]: Images/webmap_1_10.png
 [MULTI]: Images/webmap_1_11.png
-[TOKENS]: Images/webmap_1_2-1.png
+[TOKEN]: Images/webmap_1_2-1.png
