@@ -403,7 +403,7 @@ This is similar to the marker and popup code we used before, but now we've enclo
 
 ### Deliverables
 
-Make a customized webmap with a set of at least five markers that tells a story about a place in the world. Submit the URL to your github.io site (i.e., https://mygithubusername.github.io).
+Make a customized webmap with a set of at least five markers that tells a story about a place in the world. Submit the URL to your github.io site (i.e., https://mygithubusername.github.io/webmap_1).
 
 
 ______________________________________________________________________________________________________________
