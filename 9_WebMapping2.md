@@ -135,7 +135,7 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 [Converting to GeoJSON]: Images/webmap2_converting_geojson.png
 [Mapbox tilesets]: Images/webmap2_mapbox_tilesets.png
 [Mapbox upload]: Images/webmap2_mapbox_upload.png
-[Mapbox style chooser]: Images/webmap2_style_chooser
+[Mapbox style chooser]: Images/webmap2_style_chooser.png
 [Position lock]: Images/webmap2_position_lock.png
 [Choosing rat_sightings]: Images/webmap2_choosing_layer.png
 [Circle style]: Images/webmap2_circle_style.png
