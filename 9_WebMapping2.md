@@ -24,18 +24,24 @@ However, CSVs can have formatting ambiguities that Mapbox does not like, and the
 
 Upload your `rat_sightings.csv` file to the converter and let it do its thing. Download the result as `rat_sightings.geojson`.
 
+___
 ![Converting to GeoJSON]
+___
 
 
 ### Mapbox tilesets
 
 Navigate to [Mapbox Studio](https://www.mapbox.com/studio/), log in with your account, and find the `Tilesets` tab near the top right. Here you will see the built in tilesets provided by Mapbox, as well as option to create a new one.
 
+___
 ![Mapbox tilesets]
+___
 
 Click `New tileset`, and then `Select a file`. Choose your `rat_sightings.geojson` file and upload it. It may take a few minutes to upload and process, but you should end up with a new tileset:
 
+___
 ![Mapbox upload]
+___
 
 
 ### Mapbox styles
@@ -44,43 +50,61 @@ On its own, a vector tile does not contain any information about how it should b
 
 We're going to create our own Mapbox style. Click on the `Styles` tab in the top right of the page. Choose the option to `Pick a template or upload a style`, and create a map based on the `Dark` template.
 
+___
 ![Mapbox styles]
+___
 ![Mapbox style chooser]
+___
 
 The first thing we'll want to do is manually pan the map so that it centers on New York City. Once we've done that, click on `Map position` in the hovering toolbar on the right side. Lock the default position to the current view, so we don't need to scroll every time.
 
+___
 ![Position lock]
+___
 
 On the left side of the screen is list of all the layers currently used by this map style. These are, first, tilesets. But they are also embedded style information. We'll see how this works by creating our own layer.
 
 In the upper left corner, there is a button `Add layer`. When you click it, you'll see a list of tilesets. `Mapbox streets v7` and `Mapbox terrain v2` are active, because these are used by the `Dark` template. If you click one, it will expand to show multiple types of data, including polygons, lines, and points, any of which can be incorporated into layers on a map. However, we're going to scroll down and look at the unused sources, where you should see the `rat_sightings` (with a random extension) tileset created earlier. If you click it, you'll see just one kind of data, which is points, and if you click _that_, it will add the data to the map.
 
+___
 ![Choosing rat_sightings]
+___
 
 At the top of this pane, there is the title of the layer. Rename name this to remove the random extension, so it's just `rat-sightings`—this will make things easier later on. 
 
 If you click on `Type` you'll see options to display the data as several different types. It should have defaulted to `circle`. You'll see this displayed on the map, but with just abstract styling. Next to the layer tab, you'll see that the `Select data` tab is currently selected—choose `Style` instead. Here we can adjust the look of the circle marker. Go ahead and experiment with the different options.
 
+___
 ![Circle style]
+___
 
 We now have all the rat sightings called into 311 indicated on the map. At this point, we'll want to save our map style. First, let's rename it. Click on the name of the style, currently `Dark`, and call it `NYC Rats`. On the other side of the interface, there is a button, `Publish`. Do this, and you'll see a dialogue box come up where you can find your `Style URL`. Go ahead and copy this, we'll use it later in our javascript. 
 
+___
 ![Mapbox rename]
+___
 ![Mapbox publish]
+___
 
 We're not finished yet, however. The heatmap is compelling way to present these data, but Mapbox provides some more interesting options. We're going to keep this layer and create another.
 
 Over on the left list of layers, there is an option to duplicate the layer. Do this, select the new layer, and rename it `rat-activity`. 
 
+___
 ![Rat activity]
+___
 
 You'll be in the style tab, but click over to `Select data`. Now modify the type by choosing `Heatmap`. Mapbox will warn us that we'll lose our previous customizations to the layer—but that's ok, because this is a duplicate layer. You might want to zoom in at this point to get a good idea of how it might look when being used on a mobile device. Once again, you should see the abstract-styled heatmap:
 
+___
 ![Heatmap]
+___
 
 Mapbox automatically computes heatmap values based on the points in our sightings—play with the heatmap parameters to fine tune it. The algorithm's default is a bit over-zealous—you might want to set the `radius` value to 20px.
 
+___
 ![Heatmap style]
+___
 
 
 The heatmap should occlude the sightings markers in the previous layer. That will work just fine for our purposes, so go ahead and publish this map again, and we'll be done with Mapbox Studio for now.
