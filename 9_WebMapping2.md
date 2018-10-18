@@ -137,7 +137,6 @@ Put this in your `index.html` file:
 </head>
 <body>
     <div id='map'></div>
-    <div id='info'></div>
     <script src='map.js'></script>    
 </body>
 </html>
@@ -158,25 +157,63 @@ body, html {
     bottom: 0;
     width: 100%;
 }
-
-#info {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 10px 10px auto auto;
-    padding: 5px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 12px;
-    text-align: center;
-    color: #222;
-    background: #fff;
-}
 ```
+
+For `map.js`, we'll use much the same template as the previous tutorial. However, make sure to include your new map style:
+
+
+```javascript
+'use strict'
+
+console.log('Loaded map.js')
+
+mapboxgl.accessToken = 'YOUR TOKEN HERE'
+
+let map = new mapboxgl.Map({
+    container: 'map',
+    style: 'YOUR STYLE HERE',
+    center: [-73.96216,40.80779],
+    zoom: 16
+})
+
+let navigation = new mapboxgl.NavigationControl({
+    showCompass: false
+})
+map.addControl(navigation, 'top-left')
+
+let scale = new mapboxgl.ScaleControl({
+    maxWidth: 80,
+    unit: 'imperial'
+})
+map.addControl(scale, 'bottom-right')
+
+let geolocate = new mapboxgl.GeolocateControl({
+    positionOptions: {
+        enableHighAccuracy: true
+    },
+    trackUserLocation: true,
+    showUserLocation: true,
+    fitBoundsOptions: {
+    }
+})
+map.addControl(geolocate, 'top-left')
+
+geolocate.on('geolocate', function(event) {
+
+})
+```
+
+Open `index.html` with your browser, and you should see the map style you created in Mapbox Studio. If not, check the javascript console for errors.
 
 Now commit and push your changes:  
 `git commit -m 'initial import'`  
 `git push`  
+
+And view the map online at http://YOURUSERNAME.github.io/rat_map
+
+
+### Javascript 
+
 
 
 ### Deliverables
@@ -210,4 +247,4 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 [Mapbox publish]: Images/webmap2_mapbox_publish.png
 [Rat activity]: Images/webmap2_rat_activity.png
 [Heatmap]: Images/webmap2_heatmap.png
-[Heatmap style chooser]: Images/webmap2_heatmap_style.png
+[Heatmap style]: Images/webmap2_heatmap_style.png
