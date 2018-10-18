@@ -108,8 +108,75 @@ ___
 The heatmap should occlude the sightings markers in the previous layer. That will work just fine for our purposes, so go ahead and publish this map again, and we'll be done with Mapbox Studio for now.
 
 
-### 
+### Start a web project
 
+Follow the same steps as in the [previous tutorial](8_WebMapping1.md):
+
+- create a new repository on your GitHub account, called `nyc_rats`, and make sure you initialize it with a README
+- go into the repository settings and make the master branch of your repository a Github page
+- clone a local copy of this repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/) in the terminal:  
+`git clone https://github.com/yourusername/nyc_rats`
+- create the empty files `index.html`, `style.css`, and `map.js` with your editor (Sublime Text) and add them to your repository:  
+`git add index.html style.css map.js`
+
+Put this in your `index.html` file:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />    
+    <title>Rat Map</title>     
+    <meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate' />
+    <meta http-equiv='Pragma' content='no-cache' />
+    <meta http-equiv='Expires' content='0' />    
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />     
+    <link href='style.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+</head>
+<body>
+    <div id='map'></div>
+    <div id='info'></div>
+    <script src='map.js'></script>    
+</body>
+</html>
+```
+
+And put this into your `style.css` file:
+
+```css
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;    
+}                
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+#info {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px 10px auto auto;
+    padding: 5px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    color: #222;
+    background: #fff;
+}
+```
+
+Now commit and push your changes:  
+`git commit -m 'initial import'`  
+`git push`  
 
 
 ### Deliverables
