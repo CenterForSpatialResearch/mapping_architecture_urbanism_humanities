@@ -51,8 +51,6 @@ On its own, a vector tile does not contain any information about how it should b
 We're going to create our own Mapbox style. Click on the `Styles` tab in the top right of the page. Choose the option to `Pick a template or upload a style`, and create a map based on the `Dark` template.
 
 ___
-![Mapbox styles]
-___
 ![Mapbox style chooser]
 ___
 
@@ -145,4 +143,4 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 [Mapbox publish]: Images/webmap2_mapbox_publish.png
 [Rat activity]: Images/webmap2_rat_activity.png
 [Heatmap]: Images/webmap2_heatmap.png
-[Heatmap style]: Images/webmap2_heatmap_style.png
+[Heatmap style chooser]: Images/webmap2_heatmap_style.png
