@@ -8,13 +8,17 @@ In this tutorial, we will create a tileset using external data. Just like QGIS, 
 
 To begin, we will go through the familiar process of downloading a dataset and preparing it for use. Navigate to the [NYC OpenData](https://opendata.cityofnewyork.us/) portal, and browse the data catalog for 311 Service Requests.
 
+___
 ![311 Service Requests]
+___
 
 View the data, and filter it by `Descriptor: Rat Sightings` and `Created Date is after 09/01/2018`. This will give us rat sightings in NYC since the beginning of the semester, around 2,631 of them. Export the data as a CSV file, and call it `rat_sightings.csv`.
 
+___
 ![Rat filter]
+___
 
-Mapbox's native data format is called [GeoJSON](http://geojson.org/). GeoJSON is a data format, but it is also javascript code--GeoJSON defines an array of javascript objects that have a set of expected properties that can be interpreted spatially. While CSV files, shapfiles, and other formats can work with Mapbox, they are converted to GeoJSON behind the scenes.
+Mapbox's native data format is called [GeoJSON](http://geojson.org/). GeoJSON is a data format, but it is also javascript code—GeoJSON defines an array of javascript objects that have a set of expected properties that can be interpreted spatially. While CSV files, shapfiles, and other formats can work with Mapbox, they are converted to GeoJSON behind the scenes.
 
 However, CSVs can have formatting ambiguities that Mapbox does not like, and these can cause errors when uploading data. So we're going to convert our data to GeoJSON before uploading to Mapbox in a more forgiving parser. There are many tools for this, but the simplest for our purposes now is to use an [online converter](http://www.convertcsv.com/csv-to-geojson.htm).
 
@@ -113,7 +117,7 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 [Position lock]: Images/webmap2_position_lock.png
 [Choosing rat_sightings]: Images/webmap2_choosing_layer.png
 [Circle style]: Images/webmap2_circle_style.png
-[Rename]: Images/webmap2_rename.png
+[Mapbox rename]: Images/webmap2_rename.png
 [Mapbox publish]: Images/webmap2_mapbox_publish.png
 [Rat activity]: Images/webmap2_rat_activity.png
 [Heatmap]: Images/webmap2_heatmap.png
