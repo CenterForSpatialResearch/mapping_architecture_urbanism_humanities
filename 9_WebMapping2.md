@@ -212,18 +212,211 @@ Now commit and push your changes:
 And view the map online at http://YOURUSERNAME.github.io/rat_map
 
 
-### Javascript 
+### Place-based interactivity 
 
+This map functions well as a reference when viewed on the computer. However, when you view it on a mobile device with your geolocated position it opens up additional possibilities. When you're walking in the streets of NYC, you might not only want to see the heatmap, but a locator that points to the nearest location of a rat sighting. By building this, we will learn how to do map calculations on the fly.
+
+Using Mapbox Studio, we created two layers—one that is our heat map, and a hidden layer that's just markers for individual rat sightings. In javascript, our `map` object has a function, `queryRenderedFeatures`, through which we can retrieve information about those individual sightings. For now, we'll put this inside of a `click` handler like the one we used in the previous tutorial. Add this to the bottom of your javascript:
+
+```javascript
+map.on('click', function(event) {
+
+    let features = map.queryRenderedFeatures({ layers: ['rat-sightings'] })
+    console.log(features)
+
+})
+```
+Now, whenever you click the map, you should get a list of features on the `rat-sightings` layer printed out in your console. These will be all the that are _currently_ showing on the map. Click on the arrows in your console to expand one, and you should see all the fields from the original NYC dataset:
+
+___
+![Console display]
+___
+
+To start with, we're going to find the closest rat sighting to wherever the user clicks on the map. First we will need to get the location of the click:
+
+```javascript
+map.on('click', function(event) {
+
+    let features = map.queryRenderedFeatures({ layers: ['rat-sightings'] })
+    console.log(features)
+
+    let current_location = [event.lngLat.lng, event.lngLat.lat]
+    console.log(current_location)
+
+})
+```
+
+Test this with the console—each time you click, you should see the coordinates logged.
+
+To find the closest feature to the clicked location, we will cycle through all the features, calculate the distance, and keep track of the shortest one. To do this, we are going to make use of the [turf.js](http://turfjs.org/) library. This library provides a set of javascript functions that we can use in our script. To use it, we'll first need to add a line in our HTML to tell it to load the library.
+
+```html
+...
+
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />     
+<link href='style.css' rel='stylesheet' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.5/turf.min.js'></script>
+
+...
+```
+
+Now we can use turf's distance function in `map.js`. Here is the algorithm with comments:
+
+```javascript
+map.on('click', function(event) {
+
+    // get the rat-sightings from the layer data
+    let features = map.queryRenderedFeatures({ layers: ['rat-sightings'] })
+    console.log("Click location:", current_location)
+
+    // get the location of the click
+    let current_location = [event.lngLat.lng, event.lngLat.lat]
+    console.log(current_location)
+
+    // if there aren't any features, don't continue
+    if (features.length == 0) return
+
+    // create variables to hold the closest feature found so far
+    let closest_distance = Infinity
+    let closest_feature = null
+
+    // we're going to check each feature
+    for (let feature of features) {
+
+        // calculate the distance using turf
+        let distance = turf.distance(turf.point(feature.geometry.coordinates), turf.point(current_location))
+
+        // if the distance is less than the closest distance we've seen so far, update the variables
+        if (distance < closest_distance) {
+            closest_distance = distance
+            closest_feature = feature
+        }        
+
+    }
+
+    // closest_distance should now be set to the minimum value
+    // closest_feature should be set to the feature itself
+    console.log("Closest feature:", closest_feature.geometry.coordinates, "(", closest_distance, "m)")
+
+    // additional handler code goes here
+
+})
+```
+
+Run it in your browser and check the console:
+
+___
+![Closest feature]
+___
+
+"[Bearing](https://en.wikipedia.org/wiki/Bearing_(navigation))" is the navigational term for the angle of the line between two points. To calculate it between the current (click) location and the feature location, we'll use turf again. Add this to the bottom of the click handler (before the closing brace and parens):
+
+```javascript
+    // calculate bearing
+    let bearing = turf.bearing(turf.point(current_location), turf.point(closest_feature.geometry.coordinates))
+    console.log("Bearing:", bearing)
+```
+
+Now we have all the information we need. We've found the closest feature to the current location, and we've calulated the direction we would need to travel to get there. Let's indicate it on the map with an arrow.
+
+First, we'll need to add a new element in our HTML:
+
+```html
+<body>
+    <div id='map'></div>
+    <div id='pointer'>↑</div>
+    <script src='map.js'></script>        
+</body>
+```
+
+Notice the up arrow text inside the new 'pointer' div. We could also use an image that we've designed, but this is a quick and dirty way to get it done.
+
+Now that we've added an element to the HTML, we'll need to add style information for it in our CSS. This tells the browser to put the div in the center of the screen and make the text big and centered.
+
+```css
+#pointer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 200px;
+    margin-left: -75px;
+    margin-top: -100px;
+    font-size: 200px;
+    font-family: monospace;
+    color: white;
+    transform-origin: center;
+    text-align: center;
+}
+```
+
+Now we can add the code to the javascript which will make the arrow turn. This should be within the 'click' handler, below our bearing calculation. We're also going to add another line to recenter the map:
+
+```javascript
+    // calculate bearing
+    let bearing = turf.bearing(turf.point(current_location), turf.point(closest_feature.geometry.coordinates))
+    console.log("Bearing:", bearing)
+
+    // turn the pointer in that direction
+    var pointer = document.getElementById('pointer')
+    pointer.style.transform = 'rotate(' + bearing + 'deg)'
+
+    map.flyTo({ center: current_location })
+```
+
+_Think about how this `flyTo` method might be used in another application to create an interactive tour._
+
+Try this out in the browser. Wherever you click, the map should center on that point and the arrow turn to point to the nearest rat sighting.
+
+___
+![Flyto]
+___
+
+Clicking to update the arrow position is not super useful. But it provided a way for us to test out the functionality of our code while building it. What we really want, however, is for the map to follow our geolocated position and for the arrow to update accordingly. All that is required to make that adjustment is to change our code from the `click` event handler to the `geolocate` handler.
+
+Currently, the beginning of our handler looks like this:
+
+```javascript
+geolocate.on('geolocate', function(event) {
+
+})
+
+map.on('click', function(event) {
+
+    // get the rat-sightings from the layer data
+    let features = map.queryRenderedFeatures({ layers: ['rat-sightings'] })
+    
+    ...
+```
+
+But we can just delete a few lines to change the functionality:
+
+```javascript
+geolocate.on('geolocate', function(event) {
+
+    // get the rat-sightings from the layer data
+    let features = map.queryRenderedFeatures({ layers: ['rat-sightings'] })
+
+    ...
+```
+
+Now the map will center on the user's position and point to the nearest rat sighting, assuming there is one nearby. Try this out on your mobile device.
+
+This is as far as we'll go in this tutorial. But from here, we might want to make the arrow disappear if there are no rats nearby, display the distance to the rat, add alerts, or other functionality. Additional layers that we create through Mapbox studio might overlay other types of information to help us contextualize what we're seeing, and these layers could be toggled on and off by the user. Think about what might be needed, both in terms of rat-sightings and for ways in which you might repurpose this model, and we will discuss in class.
 
 
 ### Deliverables
 
-Make a customized webmap with a set of at least five markers that tells a story about a place in the world. Submit the URL to your github.io site (i.e., https://mygithubusername.github.io/webmap_1).
+Submit the github URL to your working rat map.
+
+Extra credit: repurpose this code with a different dataset.
 
 
-### Bonus
+### About those rats...
 
-Curious about rat communication?
+Curious about rat communication? I was too. Check out the "New York" section of this _New York Times Magazine_ feature from a few weeks back: [http://nytimes.com/voyages](http://nytimes.com/voyages)
 
 
 ______________________________________________________________________________________________________________
@@ -248,3 +441,6 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 [Rat activity]: Images/webmap2_rat_activity.png
 [Heatmap]: Images/webmap2_heatmap.png
 [Heatmap style]: Images/webmap2_heatmap_style.png
+[Console display]: Images/webmap2_console_display.png
+[Closest feature]: Images/webmap2_closest_feature.png
+[Flyto]: Images/webmap2_flyto.png
