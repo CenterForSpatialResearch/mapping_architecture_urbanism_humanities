@@ -1,11 +1,11 @@
-## Tutorial 8: Web Mapping 1
+# Tutorial 8: Web Mapping 1
 
 We are going to be making webmaps using [Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/api/). This is a recent javascript library that uses [WebGL](https://en.wikipedia.org/wiki/WebGL) to render interactive maps from vector tiles (as opposed to raster tiles) created with [Mapbox Studio](https://www.mapbox.com/mapbox-studio/). Data for these maps comes from [OpenStreetMap](https://www.openstreetmap.org).
 
 This tutorial will introduce you to the basic setup and what it feels like to develop for a web browser. This will be a very different approach than our experience with QGIS, and it is much more prone to error given the number of new concepts and syntaxes involved. Brackets, commas, quotes, and colons... stay with it—it's ok if you dont understand what everything is doing at first.
 
 
-### Setup Prerequisites
+## Setup Prerequisites
 
 At this stage, you should have:
 - created a [GitHub](https://github.com) account
@@ -28,7 +28,7 @@ At this stage, you should have:
 - viewed the result on your github page
 
 
-### A web page
+## A web page
 
 HTML is the structure of a web page, css is the style, and javascript is the functionality or the interaction. Each of these are contained in text files with the appropriate extension—and they each have entirely different syntax. When you are creating a website you are creating a series of linked files that your browser downloads and uses to construct the display. These files can also come from remote resources, such as in the case of javascript libraries or map tiles.
 
@@ -134,7 +134,7 @@ However, in your browser open `View > Developer > JavaScript Console` <!--(Chrom
 
 ![Hello world][HELLOWORLD]
 
-### Basic Mapbox GL JavaScript
+## Basic Mapbox GL JavaScript
 
 One more setup step: register a [Mapbox](https://www.mapbox.com/signup/) account. Then find your "[Default public token](https://www.mapbox.com/account/)" under the "Access Tokens" tab, which you will use in your code.
 
@@ -237,7 +237,7 @@ map.addControl(scale, 'bottom-right')
 
 ![Map controls][CONTROLS]
 
-### Geolocation
+## Geolocation
 
 A particularly interesting control object to add is [`GeolocateControl`](https://www.mapbox.com/mapbox-gl-js/api/#geolocatecontrol). This uses the capabilities of the browser to track its physical location (_Question for discussion: how does this work?_). You can just add this to the bottom of your code.
 
@@ -306,7 +306,7 @@ After reloading, you should now see your current longitude and latitude without 
 If you haven't already, now would be great time to `git add -u` your changes so far, `git commit -m "implemented geolocation"` them, and `git push` them to GitHub. Now visit your github.io page using your mobile device to see your geolocating map shine.
 
 
-#### More event handlers
+### More event handlers
 
 You're probably going to want to be able to figure out coordinates on the map other than your geolocated position. We're already displaying our coordinates in the "info" container when we are geolocated — let's make it so that it displays the coordinates where you click on the map as well.
 
@@ -330,7 +330,7 @@ This is another event handler, which looks a lot like the one we added to our `G
 When you reload your page, the "info" container should show the coordinates wherever you click. _Both_ event handlers are now updating "info".
 
 
-### Markers
+## Markers
 
 You can add a marker to your map like this:
 
@@ -401,7 +401,7 @@ This is similar to the marker and popup code we used before, but now we've enclo
 
 ![Multiple markers on a map][MULTI]
 
-### Deliverables
+## Deliverables
 
 Make a customized webmap with a set of at least five markers that tells a story about a place in the world. Submit the URL to your github.io site (i.e., https://mygithubusername.github.io/webmap_1).
 

@@ -1,10 +1,10 @@
-## Tutorial 9: Web Mapping 2
+# Tutorial 9: Web Mapping 2
 
 In the [previous tutorial](8_WebMapping1.md), we created markers using Mapbox GL JS by declaring them explicitly in our code. Our basemap data came from Mapbox's defaults, which in turn come from [OpenStreetMap](https://www.openstreetmap.org). 
 
 In this tutorial, we will create a tileset using external data. Just like QGIS, Mapbox can add layers from vector, raster, and point-based information. Unlike QGIS, which works with maps at a single level of detail, Mapbox converts data to tiles which are delivered to the browser as they are needed. Tiles contain data limited to a bounded geographic area and zoom level, which means not everything needs to be visualized at once. This allows for the kind of interactivity we have come to expect from web maps, and it also allows us to make local calculations about the user's position in relation to data.
 
-### Data munging
+## Data munging
 
 To begin, we will go through the familiar process of downloading a dataset and preparing it for use. Navigate to the [NYC OpenData](https://opendata.cityofnewyork.us/) portal, and browse the data catalog for 311 Service Requests.
 
@@ -29,7 +29,7 @@ ___
 ___
 
 
-### Mapbox tilesets
+## Mapbox tilesets
 
 Navigate to [Mapbox Studio](https://www.mapbox.com/studio/), log in with your account, and find the `Tilesets` tab near the top right. Here you will see the built in tilesets provided by Mapbox, as well as option to create a new one.
 
@@ -44,7 +44,7 @@ ___
 ___
 
 
-### Mapbox styles
+## Mapbox styles
 
 On its own, a vector tile does not contain any information about how it should be displayed. This is different than a raster tile, which is an image. Just like HTML needs CSS to tell the browser how to make the elements appear, vector tiles need style information to accompany them. 
 
@@ -108,7 +108,7 @@ ___
 The heatmap should occlude the sightings markers in the previous layer. That will work just fine for our purposes, so go ahead and publish this map again, and we'll be done with Mapbox Studio for now.
 
 
-### Start a web project
+## Start a web project
 
 Follow the same steps as in the [previous tutorial](8_WebMapping1.md):
 
@@ -212,7 +212,7 @@ Now commit and push your changes:
 And view the map online at http://YOURUSERNAME.github.io/rat_map
 
 
-### Place-based interactivity 
+## Place-based interactivity 
 
 This map functions well as a reference when viewed on the computer. However, when you view it on a mobile device with your geolocated position it opens up additional possibilities. When you're walking in the streets of NYC, you might not only want to see the heatmap, but a locator that points to the nearest location of a rat sighting. By building this, we will learn how to do map calculations on the fly.
 
@@ -407,7 +407,7 @@ Now the map will center on the user's position and point to the nearest rat sigh
 This is as far as we'll go in this tutorial. But from here, we might want to make the arrow disappear if there are no rats nearby, display the distance to the rat, add alerts, or other functionality. Additional layers that we create through Mapbox studio might overlay other types of information to help us contextualize what we're seeing, and these layers could be toggled on and off by the user. Think about what might be needed, both in terms of rat-sightings and for ways in which you might repurpose this model, and we will discuss in class.
 
 
-### Deliverables
+## Deliverables
 
 Submit the github URL to your working rat map.
 
