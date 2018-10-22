@@ -4,6 +4,8 @@ In the [previous tutorial](8_WebMapping1.md), we created markers using Mapbox GL
 
 In this tutorial, we will create a tileset using external data. Just like QGIS, Mapbox can add layers from vector, raster, and point-based information. Unlike QGIS, which works with maps at a single level of detail, Mapbox converts data to tiles which are delivered to the browser as they are needed. Tiles contain data limited to a bounded geographic area and zoom level, which means not everything needs to be visualized at once. This allows for the kind of interactivity we have come to expect from web maps, and it also allows us to make local calculations about the user's position in relation to data.
 
+The theme of this tutorial will be a classic element of NYC life.
+
 ## Data munging
 
 To begin, we will go through the familiar process of downloading a dataset and preparing it for use. Navigate to the [NYC OpenData](https://opendata.cityofnewyork.us/) portal, and browse the data catalog for 311 Service Requests.
@@ -209,7 +211,7 @@ Now add them to your repository, commit, and push your changes:
 `git commit -m 'initial import'`  
 `git push`  
 
-And view the map online at http://YOURUSERNAME.github.io/rat_map
+And view the map online at http://YOURUSERNAME.github.io/nyc_rats
 
 
 ## Place-based interactivity 
@@ -269,11 +271,11 @@ map.on('click', function(event) {
 
     // get the rat-sightings from the layer data
     let features = map.queryRenderedFeatures({ layers: ['rat-sightings'] })
-    console.log("Click location:", current_location)
+    console.log(features)
 
     // get the location of the click
     let current_location = [event.lngLat.lng, event.lngLat.lat]
-    console.log(current_location)
+    console.log("Click location:", current_location)
 
     // if there aren't any features, don't continue
     if (features.length == 0) return
@@ -307,7 +309,6 @@ map.on('click', function(event) {
 
 Run it in your browser and check the console:
 
-___
 ![Closest feature]
 ___
 
@@ -333,7 +334,7 @@ First, we'll need to add a new element in our HTML:
 
 Notice the up arrow text inside the new 'pointer' div. We could also use an image that we've designed, but this is a quick and dirty way to get it done.
 
-Now that we've added an element to the HTML, we'll need to add style information for it in our CSS. This tells the browser to put the div in the center of the screen and make the text big and centered.
+Now that we've added an element to the HTML, we'll need to add style information for it in our CSS. This tells the browser to put the `div` container in the center of the screen and make the text big and centered.
 
 ```css
 #pointer {
@@ -352,7 +353,7 @@ Now that we've added an element to the HTML, we'll need to add style information
 }
 ```
 
-Now we can add the code to the javascript which will make the arrow turn. This should be within the 'click' handler, below our bearing calculation. We're also going to add another line to recenter the map:
+Now we can add the code to the javascript which will make the arrow turn. This should be within the 'click' handler below our bearing calculation. We're also going to add another line to recenter the map:
 
 ```javascript
     // calculate bearing
@@ -370,9 +371,7 @@ _Think about how this `flyTo` method might be used in another application to cre
 
 Try this out in the browser. Wherever you click, the map should center on that point and the arrow turn to point to the nearest rat sighting.
 
-___
 ![Flyto]
-___
 
 Clicking to update the arrow position is not super useful. But it provided a way for us to test out the functionality of our code while building it. What we really want, however, is for the map to follow our geolocated position and for the arrow to update accordingly. All that is required to make that adjustment is to change our code from the `click` event handler to the `geolocate` handler.
 
@@ -404,7 +403,7 @@ geolocate.on('geolocate', function(event) {
 
 Now the map will center on the user's position and point to the nearest rat sighting, assuming there is one nearby. Try this out on your mobile device.
 
-This is as far as we'll go in this tutorial. But from here, we might want to make the arrow disappear if there are no rats nearby, display the distance to the rat, add alerts, or other functionality. Additional layers that we create through Mapbox studio might overlay other types of information to help us contextualize what we're seeing, and these layers could be toggled on and off by the user. Think about what might be needed, both in terms of rat-sightings and for ways in which you might repurpose this model, and we will discuss in class.
+This is as far as we'll go in this tutorial. But from here, we might want to make the arrow disappear if there are no rat sightings nearby, display the distance to the sighting, add alerts, or other functionality. Additional layers that we create through Mapbox studio might overlay other types of information to help us contextualize what we're seeing, and these layers could be toggled on and off by the user. Think about what might be needed, both in terms of rat sightings and for ways in which you might repurpose this model, and we will discuss in class.
 
 
 ## Deliverables
