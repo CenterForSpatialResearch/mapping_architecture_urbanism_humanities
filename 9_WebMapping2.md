@@ -116,8 +116,7 @@ Follow the same steps as in the [previous tutorial](8_WebMapping1.md):
 - go into the repository settings and make the master branch of your repository a Github page
 - clone a local copy of this repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/) in the terminal:  
 `git clone https://github.com/yourusername/nyc_rats`
-- create the empty files `index.html`, `style.css`, and `map.js` with your editor (Sublime Text) and add them to your repository:  
-`git add index.html style.css map.js`
+- create the empty files `index.html`, `style.css`, and `map.js` with your editor (Sublime Text)
 
 Put this in your `index.html` file:
 
@@ -205,7 +204,8 @@ geolocate.on('geolocate', function(event) {
 
 Open `index.html` with your browser, and you should see the map style you created in Mapbox Studio. If not, check the javascript console for errors.
 
-Now commit and push your changes:  
+Now add them to your repository, commit, and push your changes:  
+`git add index.html style.css map.js`  
 `git commit -m 'initial import'`  
 `git push`  
 
