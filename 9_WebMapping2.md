@@ -84,7 +84,7 @@ ___
 ![Mapbox publish]
 ___
 
-We're not finished yet, however. The heatmap is compelling way to present these data, but Mapbox provides some more interesting options. We're going to keep this layer and create another.
+We're not finished yet, however. Markers are one way to present these data, but Mapbox provides some more interesting options. We're going to keep this layer and create another.
 
 Over on the left list of layers, there is an option to duplicate the layer. Do this, select the new layer, and rename it `rat-activity`. 
 
@@ -92,13 +92,13 @@ ___
 ![Rat activity]
 ___
 
-You'll be in the style tab, but click over to `Select data`. Now modify the type by choosing `Heatmap`. Mapbox will warn us that we'll lose our previous customizations to the layer—but that's ok, because this is a duplicate layer. You might want to zoom in at this point to get a good idea of how it might look when being used on a mobile device. Once again, you should see the abstract-styled heatmap:
+You'll be in the style tab, but click over to `Select data`. Now modify the type by choosing `Heatmap`. Mapbox will warn us that we'll lose our previous customizations to the layer—but that's ok, because this is a duplicate layer. You might want to zoom in at this point to get a good idea of how it might look when being used on a mobile device. You should see heatmap, once again with an abstract style:
 
 ___
 ![Heatmap]
 ___
 
-Mapbox automatically computes heatmap values based on the points in our sightings—play with the heatmap parameters to fine tune it. The algorithm's default is a bit over-zealous—you might want to set the `radius` value to 20px.
+Mapbox automatically computes heatmap values based on the points in our sightings—play with the heatmap parameters to fine-tune it. The algorithm's default is a bit over-zealous—you might want to set the `radius` value to 20px.
 
 ___
 ![Heatmap style]
