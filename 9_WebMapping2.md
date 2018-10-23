@@ -401,6 +401,11 @@ geolocate.on('geolocate', function(event) {
     ...
 ```
 
+...whoops, no. As we learned in the previous tutorial, the `geolocate` event gives us coordinates in a different format than the `click` event, so we also have to change what we're putting in our `current_location` variable:
+```javascript
+    let current_location = [event.coords.longitude, event.coords.latitude]
+```
+
 Now the map will center on the user's position and point to the nearest rat sighting, assuming there is one nearby. Try this out on your mobile device.
 
 This is as far as we'll go in this tutorial. But from here, we might want to make the arrow disappear if there are no rat sightings nearby, display the distance to the sighting, add alerts, or other functionality. Additional layers that we create through Mapbox studio might overlay other types of information to help us contextualize what we're seeing, and these layers could be toggled on and off by the user. Think about what might be needed, both in terms of rat sightings and for ways in which you might repurpose this model, and we will discuss in class.
