@@ -198,11 +198,11 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 
 
 
-[mLab account]: webmap_2_mlab_account.png
-[mLab sandbox]: webmap_2_mlab_sandbox.png
-[mLab confirmation]: webmap_2_mlab_confirmation.png
-[mLab db user]: webmap_2_mlab_db_user.png
-[mLab API Key]: webmap_2_mlab_api_key.png
-[mLab API Enable]: webmap_2_mlab_api_enable.png
+[mLab account]: Images/webmap_2_mlab_account.png
+[mLab sandbox]: Images/webmap_2_mlab_sandbox.png
+[mLab confirmation]: Images/webmap_2_mlab_confirmation.png
+[mLab db user]: Images/webmap_2_mlab_db_user.png
+[mLab API Key]: Images/webmap_2_mlab_api_key.png
+[mLab API Enable]: Images/webmap_2_mlab_api_enable.png
 
 
