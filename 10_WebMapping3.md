@@ -275,7 +275,7 @@ record_btn.addEventListener('click', function() {
 
 So far so good. If you save and test at this point, you should have a button that changes color.
 
-[Button indicator]
+![Button indicator]
 
 
 
