@@ -114,7 +114,7 @@ In `map.js`, you should be creating a map object, adding navigation and scale co
 // we're going to initialize it to the default center of the map
 let current_location = [-73.96216, 40.80779]
 
-// update the variable whenever a geolcation event fires
+// update the variable whenever a geolocation event fires
 geolocate.on('geolocate', function(event) {
     current_location = [event.coords.longitude, event.coords.latitude]
     console.log('geolocated', current_location)   
@@ -158,16 +158,16 @@ Make sure your files are saved, and reload the page with your browser. You shoul
 
 Now we can add a reference to it in the javascript, at the very bottom of `map.js` below the map handler:
 ```javascript
-    // variable which references the HTML button element
-    let record_btn = document.getElementById('record_btn')
+// variable which references the HTML button element
+let record_btn = document.getElementById('record_btn')
 
-    // a handler that is called when the button is clicked
-    record_btn.addEventListener('click', function() {
+// a handler that is called when the button is clicked
+record_btn.addEventListener('click', function() {
 
-        // print something in the console to test
-        console.log('clicked record_btn')                 
+    // print something in the console to test
+    console.log('clicked record_btn')                 
 
-    })
+})
 ```
 
 Test it now. You should see the message appear in the javascript console.
@@ -192,7 +192,7 @@ function stopRecording() {
 }
 ```
 
-So far this is still just a placeholder. Let's modify these functions so that they add a marker to each of these actions at the current location:
+So far this is still just a placeholder. But as we proceed, we'll incremently add code to these two functions to accomplish more things. First, let's modify them so that they add a marker to each of these actions at the current location:
 
 ```javascript
 let recording = false
@@ -273,23 +273,70 @@ record_btn.addEventListener('click', function() {
 })
 ```
 
-So far so good. If you save and test at this point, you should have a button that changes color.
+If you save and test at this point, you should have a button that changes color.
 
 ![Button indicator]
 
 
-
-
-
-For GPS drawing, we're going to need to keep track of our path as a sequence of points.
+So far so good. We have the user interaction down, but now we need to keep track of the path itself as a sequence of points. We'll do that with an array, which we declare with our other variables like this:
 
 ```javascript
-// this array will hold the sequence of points in our path
-let path = []
+let recording = false
+let start_marker = null 
+let stop_marker = null 
+let path = []               // this array will hold the sequence of points in our path
 ```
 
+When we hit start, we want to add the current location to the path.
+
+```javascript
+function startRecording() {
+    recording = true                                
+    record_btn.style['background-color'] = "red"    
+    record_btn.style['color'] = "white"             
+    record_btn.value = 'Stop and save'              
+
+    start_marker = new mapboxgl.Marker()    
+    start_marker.setLngLat(current_location)
+    start_marker.addTo(map)
+
+    path.push(current_location)         // add the current location to the path
+}
+```
+
+Now what? Well, each time `current_location` is updated, we want to add it to the path. So we have to modify our `geolocate` habndler and the `click` handler on our map. Once again, we'll use a conditional statement so it only happens when we are in record mode.
+
+```javascript
+// update the variable whenever a geolocation event fires
+geolocate.on('geolocate', function(event) {
+    current_location = [event.coords.longitude, event.coords.latitude]
+    console.log('geolocated', current_location)   
+
+    if (recording) {
+        path.push(current_location)
+    }
+
+})
+
+// for testing purposes, also update the variable whenever you click on the map
+map.on('click', function(event) {
+    current_location = [event.lngLat.lng, event.lngLat.lat]
+    console.log('clicked', current_location)        
+
+    if (recording) {
+        path.push(current_location)
+        console.log(path)                   // for testing, log the path so far to the console.
+    }
+
+})
+```
+
+We included a `log` statement in the `click` handler so we can see what's going on. Try it:
 
 
+Notice how once you click the record button, every click shows an array in the console. And the array grows with each click. If you open up the array in the console to see the details (click on the small arrow), you can see the coordinates.
+
+![Test coordinates]
 
 
 
@@ -314,10 +361,10 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 [mLab API Key]: Images/webmap_2_mlab_api_key.png
 [mLab API Enable]: Images/webmap_2_mlab_api_enable.png
 [Clicked map]: Images/webmap_2_clicked_map.png
-[Made button]: Images/webmap_2_made_button.png.png
+[Made button]: Images/webmap_2_made_button.png
 [Clicked button]: Images/webmap_2_clicked_button.png
 [Button indicator]: Images/webmap_2_button_indicator.png
-
+[Test coordinates]: Images/webmap_2_test_coordinates.png
 
 
 
