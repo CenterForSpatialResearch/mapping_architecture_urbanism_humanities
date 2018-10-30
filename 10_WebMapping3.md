@@ -129,15 +129,17 @@ map.on('click', function(event) {
 
 `current_location` will now hold the most up-to-date coordinates. It will update when geolocation is determined, but since we're programming this on computers, using the `click` handler provides an easier way to test things—you can just click the map to simulate movement.
 
+![Clicked map]
+
 For GPS drawing, we are going to need a way to start and stop "recording" coordinates. This will make our "map" begin to feel like a data gathering interface. To do this, we'll add a button. There are three steps to doing this: we'll have to alter the HTML, the css, and the javascript.
 
 First, the HTML. Between the body tags, it should look like this:
-```javascript
-    <body>
-        <div id='map'></div>
-        <input type='button' id='record_btn' value='Start' />
-        <script src='map.js'></script>    
-    </body>
+```html
+<body>
+    <div id='map'></div>
+    <input type='button' id='record_btn' value='Start' />
+    <script src='map.js'></script>    
+</body>
 ```
 
 We also need to position that `record_btn` element. We can do that by adding the following block to the css file:
@@ -151,25 +153,132 @@ We also need to position that `record_btn` element. We can do that by adding the
 
 Make sure your files are saved, and reload the page with your browser. You should see the button appear.
 
-Now we can add a reference to it in the javascript, at the very bottom below the map handler:
+![Made button]
+
+
+Now we can add a reference to it in the javascript, at the very bottom of `map.js` below the map handler:
 ```javascript
     // variable which references the HTML button element
     let record_btn = document.getElementById('record_btn')
 
     // a handler that is called when the button is clicked
     record_btn.addEventListener('click', function() {
-        console.log('clicked record_btn')                   // this will show up in the console so we can test that the button is working
+
+        // print something in the console to test
+        console.log('clicked record_btn')                 
+
     })
 ```
 
-Test it now. You should see the messages appear in the javascript console.
+Test it now. You should see the message appear in the javascript console.
 
-To add functionality to this, think about what this button does. It's actually two things: on the first click it should start recording, and on the second, stop. To start with, we're going to create functions for each of those two behaviors.
+![Clicked button]
+
+To add functionality to this, think about what this button does. It's actually two things: on the first click it should start recording location, and on the second, stop recording. We're going to create a new function for each of those two behaviors, along with a variable that keeps track of whether we're recording or not.
+
+```javascript
+let recording = false       // keeps track of the recording state
+
+function startRecording() {
+
+    recording = true
+
+}
+
+function stopRecording() {
+
+    recording = false
+
+}
+```
+
+So far this is still just a placeholder. Let's modify these functions so that they add a marker to each of these actions at the current location:
+
+```javascript
+let recording = false
+let start_marker = null         // keeps track of the start marker
+let stop_marker = null          // keeps track of the stop marker
+
+function startRecording() {
+
+    recording = true
+
+    start_marker = new mapboxgl.Marker()    
+    start_marker.setLngLat(current_location)
+    start_marker.addTo(map)    
+
+}
+
+function stopRecording() {
+
+    recording = false
+
+    stop_marker = new mapboxgl.Marker()    
+    stop_marker.setLngLat(current_location)
+    stop_marker.addTo(map)    
+
+}
+```
+
+We also want to provide the user with some indication that location is being recorded. We can do this by modifying the button itself.
+
+
+```javascript
+let recording = false
+let start_marker = null 
+let stop_marker = null 
+
+function startRecording() {
+
+    recording = true
+
+    start_marker = new mapboxgl.Marker()    
+    start_marker.setLngLat(current_location)
+    start_marker.addTo(map) 
+
+    record_btn.style['background-color'] = "red"         // make the button red
+    record_btn.style['color'] = "white"                  // make it's text white
+    record_btn.value = 'Stop and save'                   // change the text to the opposite state
+
+}
+
+function stopRecording() {
+
+    recording = false
+
+    stop_marker = new mapboxgl.Marker()    
+    stop_marker.setLngLat(current_location)
+    stop_marker.addTo(map)
+
+    record_btn.style['background-color'] = "white"      // make the button white again
+    record_btn.style['color'] = "black"                 // make the text black
+    record_btn.value = 'Start'                          // change the text
+
+}
+```
+
+These functions are still not connected to our button. To do that, we'll need to modify our button's `click` handler. We'll make use of a conditional `if` statement, one of the fundamental logic components of programming. Which code will run is determined by the value of our `recording` variable:
+
+```javascript
+record_btn.addEventListener('click', function() {
+  
+    console.log('clicked record_btn')
+  
+    if (recording) {
+        stopRecording()
+    } else {
+        startRecording()
+    }
+
+})
+```
+
+So far so good. If you save and test at this point, you should have a button that changes color.
+
+[Button indicator]
 
 
 
-
- feature that starts and stop 
 
 
 For GPS drawing, we're going to need to keep track of our path as a sequence of points.
@@ -204,5 +313,13 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 [mLab db user]: Images/webmap_2_mlab_db_user.png
 [mLab API Key]: Images/webmap_2_mlab_api_key.png
 [mLab API Enable]: Images/webmap_2_mlab_api_enable.png
+[Clicked map]: Images/webmap_2_clicked_map.png
+[Made button]: Images/webmap_2_made_button.png.png
+[Clicked button]: Images/webmap_2_clicked_button.png
+[Button indicator]: Images/webmap_2_button_indicator.png
+
+
+
+
 
 
