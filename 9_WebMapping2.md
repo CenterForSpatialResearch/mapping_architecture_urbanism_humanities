@@ -1,8 +1,8 @@
 # Tutorial 9: Web Mapping 2
 
-In the [previous tutorial](8_WebMapping1.md), we created markers using Mapbox GL JS by declaring them explicitly in our code. Our basemap data came from Mapbox's defaults, which in turn come from [OpenStreetMap](https://www.openstreetmap.org). 
+In the [previous tutorial](8_WebMapping1.md), we created markers using Mapbox GL JS by declaring them explicitly in our code. Our basemap data came from Mapbox's defaults, which in turn come from [OpenStreetMap](https://www.openstreetmap.org).
 
-In this tutorial, we will create a tileset using external data. Just like QGIS, Mapbox can add layers from vector, raster, and point-based information. Unlike QGIS, which works with maps at a single level of detail, Mapbox converts data to tiles which are delivered to the browser as they are needed. Tiles contain data limited to a bounded geographic area and zoom level, which means not everything needs to be visualized at once. This allows for the kind of interactivity we have come to expect from web maps, and it also allows us to make local calculations about the user's position in relation to data.
+In this tutorial, we will create a tileset using external data. Just like QGIS, Mapbox can add layers from vector, raster, and point-based information. Unlike QGIS, which works with maps at a single level of detail, Mapbox converts data to tiles which are delivered to the browser as they are needed. The data in each tile is limited to a bounded geographic area and zoom level, the result of which is that certain things can be visualized only at relevant times, rather than everything needing to be visualized all at once. This allows for the kind of interactivity we have come to expect from web maps, and it also allows us to make local calculations about the user's position in relation to data.
 
 The theme of this tutorial will be a classic element of NYC life.
 
@@ -14,13 +14,13 @@ ___
 ![311 Service Requests]
 ___
 
-View the data, and filter it by `Descriptor: Rat Sightings` and `Created Date is after 09/01/2018`. This will give us rat sightings in NYC since the beginning of the semester, around 2,631 of them. Export the data as a CSV file, and call it `rat_sightings.csv`.
+View the data, and filter it by `Descriptor: Rat Sightings` and `Created Date is after 09/01/2018`. This will give us rat sightings in NYC since the beginning of the semester, around 2,631 of them (and counting...). Export the data as a CSV file, and call it `rat_sightings.csv`.
 
 ___
 ![Rat filter]
 ___
 
-Mapbox's native data format is called [GeoJSON](http://geojson.org/). GeoJSON is a data format, but it is also javascript code—GeoJSON defines an array of javascript objects that have a set of expected properties that can be interpreted spatially. While CSV files, shapfiles, and other formats can work with Mapbox, they are converted to GeoJSON behind the scenes.
+Mapbox's native data format is called [GeoJSON](http://geojson.org/). GeoJSON is a data format, but it is also javascript code—GeoJSON defines an array of javascript objects that have a set of expected properties that can be interpreted spatially. While CSV files, shapefiles, and other formats can work with Mapbox, they are converted to GeoJSON behind the scenes.
 
 However, CSVs can have formatting ambiguities that Mapbox does not like, and these can cause errors when uploading data. So we're going to convert our data to GeoJSON before uploading to Mapbox in a more forgiving parser. There are many tools for this, but the simplest for our purposes now is to use an [online converter](http://www.convertcsv.com/csv-to-geojson.htm).
 
@@ -48,7 +48,7 @@ ___
 
 ## Mapbox styles
 
-On its own, a vector tile does not contain any information about how it should be displayed. This is different than a raster tile, which is an image. Just like HTML needs CSS to tell the browser how to make the elements appear, vector tiles need style information to accompany them. 
+On its own, a vector tile does not contain any information about how it should be displayed. This is different than a raster tile, which is an image. Just like HTML needs CSS to tell the browser how to make the elements appear, vector tiles need style information to accompany them.
 
 We're going to create our own Mapbox style. Click on the `Styles` tab in the top right of the page. Choose the option to `Pick a template or upload a style`, and create a map based on the `Dark` template.
 
@@ -70,15 +70,15 @@ ___
 ![Choosing rat_sightings]
 ___
 
-At the top of this pane, there is the title of the layer. Rename name this to remove the random extension, so it's just `rat-sightings`—this will make things easier later on. 
+At the top of this pane, there is the title of the layer. Rename name this to remove the random extension, so it's just `rat-sightings`—this will make things easier later on.
 
-If you click on `Type` you'll see options to display the data as several different types. It should have defaulted to `circle`. You'll see this displayed on the map, but with just abstract styling. Next to the layer tab, you'll see that the `Select data` tab is currently selected—choose `Style` instead. Here we can adjust the look of the circle marker. Go ahead and experiment with the different options.
+On the left side of this panel, there are four tabs that allow you to make adjustments the layer. If you click on the `Type` tab, you'll see options to display the data as several different types. It should have defaulted to `circle`. You'll see this displayed on the map, but with random styling. In the upper right corner, next to the layer tab, you'll see that the `Select data` tab is currently selected—choose `Style` instead. Here we can adjust the look of the circle marker. Go ahead and experiment with the different options.
 
 ___
 ![Circle style]
 ___
 
-We now have all the rat sightings called into 311 indicated on the map. At this point, we'll want to save our map style. First, let's rename it. Click on the name of the style, currently `Dark`, and call it `NYC Rats`. On the other side of the interface, there is a button, `Publish`. Do this, and you'll see a dialogue box come up where you can find your `Style URL`. Go ahead and copy this, we'll use it later in our javascript. 
+We now have all the rat sightings called into 311 indicated on the map. At this point, we'll want to save our map style. First, let's rename it. Click on the name of the style, currently `Dark`, and call it `NYC Rats`. On the other side of the interface, there is a button, `Publish`. Do this, and you'll see a dialogue box come up where you can find your `Style URL`. Go ahead and copy this, we'll use it later in our javascript.
 
 ___
 ![Mapbox rename]
@@ -88,13 +88,13 @@ ___
 
 We're not finished yet, however. Markers are one way to present these data, but Mapbox provides some more interesting options. We're going to keep this layer and create another.
 
-Over on the left list of layers, there is an option to duplicate the layer. Do this, select the new layer, and rename it `rat-activity`. 
+Over on the left list of layers, there is an option to duplicate the layer. Do this, select the new layer, and rename it `rat-activity`.
 
 ___
 ![Rat activity]
 ___
 
-You'll be in the style tab, but click over to `Select data`. Now modify the type by choosing `Heatmap`. Mapbox will warn us that we'll lose our previous customizations to the layer—but that's ok, because this is a duplicate layer. You might want to zoom in at this point to get a good idea of how it might look when being used on a mobile device. You should see heatmap, once again with an abstract style:
+You'll be in the style tab, but click over to `Select data`. Now modify the Type (currently `Circle`) by choosing `Heatmap`. Mapbox will warn us that we'll lose our previous customizations to the layer—but that's ok, because this is a duplicate layer. You might want to zoom in at this point to get a good idea of how it might look when being used on a mobile device. You should see heatmap, once again with a random style:
 
 ___
 ![Heatmap]
@@ -213,8 +213,10 @@ Now add them to your repository, commit, and push your changes:
 
 And view the map online at http://YOURUSERNAME.github.io/nyc_rats
 
+(Note: if you are getting a 404, or your page is otherwise not showing up, make sure your repository is set to be viewable as a Github Pages website. In the `Settings` of your repository, scroll down to the `Github Pages` section, and if the source reads `None`, then select `master branch` and click `Save`. Your site should now be viewable)
 
-## Place-based interactivity 
+
+## Place-based interactivity
 
 This map functions well as a reference when viewed on the computer. However, when you view it on a mobile device with your geolocated position it opens up additional possibilities. When you're walking in the streets of NYC, you might not only want to see the heatmap, but a locator that points to the nearest location of a rat sighting. By building this, we will learn how to do map calculations on the fly.
 
@@ -234,7 +236,7 @@ ___
 ![Console display]
 ___
 
-To start with, we're going to find the closest rat sighting to wherever the user clicks on the map. First we will need to get the location of the click:
+To start with, we're going to find the closest rat sighting to wherever the user clicks on the map. First we will need to get the location of the click. Delete the javascript that you just added, and replace it with the following:
 
 ```javascript
 map.on('click', function(event) {
@@ -250,21 +252,15 @@ map.on('click', function(event) {
 
 Test this with the console—each time you click, you should see the coordinates logged.
 
-To find the closest feature to the clicked location, we will cycle through all the features, calculate the distance, and keep track of the shortest one. To do this, we are going to make use of the [turf.js](http://turfjs.org/) library. This library provides a set of javascript functions that we can use in our script. To use it, we'll first need to add a line in our HTML to tell it to load the library.
+To find the closest feature to the clicked location, we will cycle through all the features, calculate the distance, and keep track of the shortest one. To do this, we are going to make use of the [turf.js](http://turfjs.org/) library. This library provides a set of javascript functions that we can use in our script. To use it, we'll first need to add a line in our HTML to tell it to load the library. In your `index.html` file, add the following code to the bottom of the `<head>` section, just above the closing tag `</head>`:
 
 ```html
-...
-
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />     
-<link href='style.css' rel='stylesheet' />
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.5/turf.min.js'></script>
 
-...
 ```
 
-Now we can use turf's distance function in `map.js`. Here is the algorithm with comments:
+Now we can use turf's distance function in `map.js`. Here is the algorithm with comments. Again, delete the last bit of code you added to `map.js` and replace it with the following:
 
 ```javascript
 map.on('click', function(event) {
@@ -312,7 +308,7 @@ Run it in your browser and check the console:
 ![Closest feature]
 ___
 
-"[Bearing](https://en.wikipedia.org/wiki/Bearing_(navigation))" is the navigational term for the angle of the line between two points. To calculate it between the current (click) location and the feature location, we'll use turf again. Add this to the bottom of the click handler (before the closing brace and parens):
+"[Bearing](https://en.wikipedia.org/wiki/Bearing_(navigation))" is the navigational term for the angle of the line between two points. To calculate it between the current location (the click) and the feature location, we'll use turf again. Add this to the bottom of the click handler (before the closing brace and parenthesis):
 
 ```javascript
     // calculate bearing
@@ -322,7 +318,7 @@ ___
 
 Now we have all the information we need. We've found the closest feature to the current location, and we've calulated the direction we would need to travel to get there. Let's indicate it on the map with an arrow.
 
-First, we'll need to add a new element in our HTML:
+First, we'll need to add a new element in our HTML. Between the two elements already present in the `<body>` section, add a third, so that the `<body>` section now reads:
 
 ```html
 <body>
@@ -334,7 +330,7 @@ First, we'll need to add a new element in our HTML:
 
 Notice the up arrow text inside the new 'pointer' div. We could also use an image that we've designed, but this is a quick and dirty way to get it done.
 
-Now that we've added an element to the HTML, we'll need to add style information for it in our CSS. This tells the browser to put the `div` container in the center of the screen and make the text big and centered.
+Now that we've added an element to the HTML, we'll need to add style information for it in our CSS. Add the following code to the end of your `style.css` file. This tells the browser to put the `div` container in the center of the screen and make the text big and centered.
 
 ```css
 #pointer {
@@ -353,7 +349,7 @@ Now that we've added an element to the HTML, we'll need to add style information
 }
 ```
 
-Now we can add the code to the javascript which will make the arrow turn. This should be within the 'click' handler below our bearing calculation. We're also going to add another line to recenter the map:
+Now we can add the code to the javascript which will make the arrow turn. This should be within the 'click' handler below our bearing calculation. We're also going to add another line of code which will recenter the map:
 
 ```javascript
     // calculate bearing
@@ -386,7 +382,7 @@ map.on('click', function(event) {
 
     // get the rat-sightings from the layer data
     let features = map.queryRenderedFeatures({ layers: ['rat-sightings'] })
-    
+
     ...
 ```
 
