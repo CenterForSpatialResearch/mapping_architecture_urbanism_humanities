@@ -500,8 +500,7 @@ One last thing: we didn't add any functionality to _delete_ paths, but you can d
 
 ## Deliverables
 
-
-Use the interface on your mobile device to draw a picture for the class. Yes, you could do this by clicking. But it will be so much more interesting to see it produced on the street.
+Use the interface on your mobile device to draw a picture for the class, and submit the url to your map. Yes, you could do this by clicking. But it will be so much more interesting to see it produced on the street.
 
 One caveat to keep in mind—we've built this in javascript, so it's not quite the same as an app you would download from the app store, for example. One big  difference is that it does not run in the background. So as you move around, you'll need to have the browser on your device open for it to be recording your path.
 
