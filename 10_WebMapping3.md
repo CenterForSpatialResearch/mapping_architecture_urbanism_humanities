@@ -131,20 +131,20 @@ map.on('click', function(event) {
 
 ![Clicked map]
 
-For GPS drawing, we are going to need a way to start and stop "recording" coordinates. This will make our "map" begin to feel like a data gathering interface. To do this, we'll add a button. There are three steps to doing this: we'll have to alter the HTML, the css, and the javascript.
+For GPS drawing, we are going to need a way to start and stop "drawing" coordinates. This will make our map begin to feel like a data gathering interface. To do this, we'll add a button. There are three steps to doing this: we'll have to alter the HTML, the css, and the javascript.
 
 First, the HTML. Between the body tags, it should look like this:
 ```html
 <body>
     <div id='map'></div>
-    <input type='button' id='record_btn' value='Start' />
+    <input type='button' id='draw_btn' value='Start' />
     <script src='map.js'></script>    
 </body>
 ```
 
-We also need to position that `record_btn` element. We can do that by adding the following block to the css file:
+We also need to position that `draw_btn` element. We can do that by adding the following block to the css file:
 ```css
-#record_btn {
+#draw_btn {
     position: absolute;
     left: 10px;
     top: 200px;
@@ -159,13 +159,13 @@ Make sure your files are saved, and reload the page with your browser. You shoul
 Now we can add a reference to it in the javascript, at the very bottom of `map.js` below the map handler:
 ```javascript
 // variable which references the HTML button element
-let record_btn = document.getElementById('record_btn')
+let draw_btn = document.getElementById('draw_btn')
 
 // a handler that is called when the button is clicked
-record_btn.addEventListener('click', function() {
+draw_btn.addEventListener('click', function() {
 
     // print something in the console to test
-    console.log('clicked record_btn')                 
+    console.log('clicked draw_btn')                 
 
 })
 ```
@@ -174,48 +174,36 @@ Test it now. You should see the message appear in the javascript console.
 
 ![Clicked button]
 
-To add functionality to this, think about what this button does. It's actually two things: on the first click it should start recording location, and on the second, stop recording. We're going to create a new function for each of those two behaviors, along with a variable that keeps track of whether we're recording or not.
+To add functionality to this, think about what this button does. It's actually two things: on the first click it should start drawing, and on the second, stop drawing. We're going to create a new function for each of those two behaviors, along with a variable that keeps track of whether we're drawing or not.
 
 ```javascript
-let recording = false       // keeps track of the recording state
+let drawing = false       // keeps track of whether or not we're drawing
 
-function startRecording() {
+function startDrawing() {
 
-    recording = true
+    drawing = true
 
 }
 
-function stopRecording() {
+function stopDrawing() {
 
-    recording = false
+    drawing = false
 
 }
 ```
 
-So far this is still just a placeholder. But as we proceed, we'll incremently add code to these two functions to accomplish more things. First, let's modify them so that they add a marker to each of these actions at the current location:
+So far this is still just a placeholder. But as we proceed, we'll incremently add code to these two functions to accomplish more things. First, let's modify `startDrawing` so that it adds a marker at the current location:
 
 ```javascript
-let recording = false
-let start_marker = null         // keeps track of the start marker
-let stop_marker = null          // keeps track of the stop marker
+let drawing = false
+let start_marker = new mapboxgl.Marker()    
 
-function startRecording() {
+function startDrawing() {
 
-    recording = true
+    drawing = true
 
-    start_marker = new mapboxgl.Marker()    
     start_marker.setLngLat(current_location)
     start_marker.addTo(map)    
-
-}
-
-function stopRecording() {
-
-    recording = false
-
-    stop_marker = new mapboxgl.Marker()    
-    stop_marker.setLngLat(current_location)
-    stop_marker.addTo(map)    
 
 }
 ```
@@ -224,15 +212,13 @@ We also want to provide the user with some indication that location is being rec
 
 
 ```javascript
-let recording = false
-let start_marker = null 
-let stop_marker = null 
+let active = false
+let start_marker = new mapboxgl.Marker()    
 
-function startRecording() {
+function startDrawing() {
 
-    recording = true
+    active = true
 
-    start_marker = new mapboxgl.Marker()    
     start_marker.setLngLat(current_location)
     start_marker.addTo(map) 
 
@@ -242,13 +228,9 @@ function startRecording() {
 
 }
 
-function stopRecording() {
+function stopDrawing() {
 
-    recording = false
-
-    stop_marker = new mapboxgl.Marker()    
-    stop_marker.setLngLat(current_location)
-    stop_marker.addTo(map)
+    active = false
 
     record_btn.style['background-color'] = "white"      // make the button white again
     record_btn.style['color'] = "black"                 // make the text black
@@ -257,17 +239,17 @@ function stopRecording() {
 }
 ```
 
-These functions are still not connected to our button. To do that, we'll need to modify our button's `click` handler. We'll make use of a conditional `if` statement, one of the fundamental logic components of programming. Which code will run is determined by the value of our `recording` variable:
+These functions are still not connected to our button. To do that, we'll need to modify our button's `click` handler. We'll make use of a conditional `if` statement, one of the fundamental logic components of programming. Which code will run is determined by the value of our `active` variable:
 
 ```javascript
 record_btn.addEventListener('click', function() {
   
     console.log('clicked record_btn')
   
-    if (recording) {
-        stopRecording()
-    } else {
-        startRecording()
+    if (active) {            // if we're already drawing, stop drawing
+        stopDrawing()
+    } else {                    // otherwise, start drawing
+        startDrawing()
     }
 
 })
@@ -281,22 +263,20 @@ If you save and test at this point, you should have a button that changes color.
 So far so good. We have the user interaction down, but now we need to keep track of the path itself as a sequence of points. We'll do that with an array, which we declare with our other variables like this:
 
 ```javascript
-let recording = false
-let start_marker = null 
-let stop_marker = null 
+let active = false
+let start_marker = new mapboxgl.Marker()     
 let path = []               // this array will hold the sequence of points in our path
 ```
 
 When we hit start, we want to add the current location to the path.
 
 ```javascript
-function startRecording() {
-    recording = true                                
+function startDrawing() {
+    drawing = true                                
     record_btn.style['background-color'] = "red"    
     record_btn.style['color'] = "white"             
     record_btn.value = 'Stop and save'              
 
-    start_marker = new mapboxgl.Marker()    
     start_marker.setLngLat(current_location)
     start_marker.addTo(map)
 
@@ -304,47 +284,228 @@ function startRecording() {
 }
 ```
 
-Now what? Well, each time `current_location` is updated, we want to add it to the path. So we have to modify our `geolocate` habndler and the `click` handler on our map. Once again, we'll use a conditional statement so it only happens when we are in record mode.
+Now what? Well, each time `current_location` is updated, we want to add it to the path. So we have to modify our `geolocate` handler and the `click` handler on our map. Once again, we'll use a conditional statement so that it only happens when we are in record mode.
 
 ```javascript
-// update the variable whenever a geolocation event fires
 geolocate.on('geolocate', function(event) {
     current_location = [event.coords.longitude, event.coords.latitude]
     console.log('geolocated', current_location)   
 
-    if (recording) {
-        path.push(current_location)
+    if (active) {                           // if we're drawing
+        path.push(current_location)         // add the current location to the path
     }
 
 })
 
-// for testing purposes, also update the variable whenever you click on the map
 map.on('click', function(event) {
     current_location = [event.lngLat.lng, event.lngLat.lat]
     console.log('clicked', current_location)        
 
-    if (recording) {
-        path.push(current_location)
-        console.log(path)                   // for testing, log the path so far to the console.
+    if (active) {                           // if we're drawing
+        path.push(current_location)         // add the current location to the path
+        console.log(path)                   // ...and for testing purposes, log the path so far to the console.
     }
 
 })
 ```
 
-We included a `log` statement in the `click` handler so we can see what's going on. Try it:
-
-
-Notice how once you click the record button, every click shows an array in the console. And the array grows with each click. If you open up the array in the console to see the details (click on the small arrow), you can see the coordinates.
+We included a `log` statement in the `click` handler so we can see what's going on. Try it by reloading the page. Notice how once you click the record button, every click shows an array in the console. And the array grows with each click. If you open up the array in the console to see the details (click on the small arrow), you can see the coordinates.
 
 ![Test coordinates]
 
+Now for the fun part. To show this path on the map, we need to create and continuously modify a map layer via javascript. To do this, we'll use the `addLayer` method of our map object to add a drawing layer. What's tricky about this, however, is that we have to wait until the map style is fully loaded before adding our layer. Therefore, we'll make use of another event handler on our map object, `load`, which is called only once the map is fully in place and ready to be modified.
 
+```javascript
+map.on('load', function() {             // 'load' event handler
+    map.addLayer({                      // add a layer
+        'id': 'drawing',
+        'type': 'line',
+        'source': {
+            'type': 'geojson',
+            'data': null
+        },
+        'layout': {
+            'line-cap': 'round',
+            'line-join': 'round'
+        },
+        'paint': {
+            'line-color': '#50C3DF',
+            'line-width': 5,
+            'line-opacity': .8
+        }
+    })
+})
+```
+
+You'll notice that the layer we're adding is defined by an elaborate object structure. This includes parameters for `type`, `layout`, and `paint`, all of which you may modify to alter the style of the drawing.
+
+For our purposes now, the most interesting section is `source`. This tells the layer that we will be providing data in the form of geojson. To start with, that data is `null`, meaning there is nothing there. But we will create a geojson object which we will be able to modify on the fly.
+
+```javascript
+let geojson = {
+    "type": "FeatureCollection",
+    "features": []
+}
+```
+
+This is a minimal definition of a geojson object. Notice that `features` is an array within it. When we start a path, we will also need to create a new feature, and add it to this array. Once again we'll modify our `startDrawing` function:
+
+```javascript
+function startDrawing() {
+    active = true                              
+    record_btn.style['background-color'] = "red"  
+    record_btn.style['color'] = "white"           
+    record_btn.value = 'Stop and save'            
+
+    start_marker.setLngLat(current_location)
+    start_marker.addTo(map)
+
+    path.push(current_location)
+
+    geojson.features.push({                     // add a new feature to the geojson
+        "type": "Feature",
+        "geometry": {
+            "type": "LineString",
+            "coordinates": path                 // the coordinates of this feature are our path array
+        }
+    })    
+    map.getSource('drawing').setData(geojson)   // update the drawing layer with the latest geojson
+
+}
+```
+
+Notice that last line—each time we update the geojson, we also have to tell the map layer to update. Therefore, we'll also need to add that line to our `geolocate` and `click` handlers:
+
+
+```javascript
+geolocate.on('geolocate', function(event) {
+    current_location = [event.coords.longitude, event.coords.latitude]
+    console.log('geolocated', current_location)   
+
+    if (active) { 
+        path.push(current_location)
+        map.getSource('drawing').setData(geojson)               // update the layer because the path has changed
+    }
+
+})
+
+map.on('click', function(event) {
+    current_location = [event.lngLat.lng, event.lngLat.lat]
+    console.log('clicked', current_location)        
+
+    if (active) {                
+        path.push(current_location) 
+        console.log(path)           
+        map.getSource('drawing').setData(geojson)               // update the layer because the path has changed        
+    }
+
+})
+```
+
+Now would be a good time to save, reload, and try out the map. If all has gone well, you should be able to click the record button to create a path with subsequent clicks. And if you push it to github and load it on your mobile device, you can walk around to create your path by geolocation.
+
+![Drawing]
+
+
+### Database functions
+
+One thing that our code doesn't yet do, however, is save paths in the database. If you reload the page, the paths will disappear. We've already included `db.js` in our setup—now we just have to make the appropriate calls.
+
+We want to save a path every time the `stopDrawing` function is called, so we'll add that to the function. We'll also make sure to reset our path variable:
+
+```javascript
+function stopDrawing() {
+
+    active = false
+
+    record_btn.style['background-color'] = "white"  
+    record_btn.style['color'] = "black"             
+    record_btn.value = 'Start'                      
+
+    db.insert(path)                         // insert the path into the database
+    path = []                               // reset the path
+
+}
+```
+
+Now, when you complete a path by clicking "Stop and save" on your map, it really is saving, and you'll see that in your console:
+
+![Stop and save]
+
+
+We're now saving the paths that we create. However, they're still not showing up when we reload the page. To do that, we'll need to query the database right away and draw those paths from the get-go. We'll modify the same `load` event handler that we used to create our layer, which will ensure that everything happens in the correct order.
+
+```javascript
+map.on('load', function() {
+    map.addLayer({
+        'id': 'drawing',
+        'type': 'line',
+        'source': {
+            'type': 'geojson',
+            'data': null
+        },
+        'layout': {
+            'line-cap': 'round',
+            'line-join': 'round'
+        },
+        'paint': {
+            'line-color': '#50C3DF',
+            'line-width': 5,
+            'line-opacity': .8
+        }
+    })
+
+    // get the previously created paths from the database and add them as features
+    db.get(function(data) {
+        for (let item of data) {
+            if (!item.path) continue
+            geojson.features.push({
+                "type": "Feature",
+                "geometry": {
+                    "type": "LineString",
+                    "coordinates": item.path
+                }
+            })
+            map.getSource('drawing').setData(geojson)
+        }
+    })
+
+})
+```
+
+Phew. That's it! Play around with your map and create some paths. When you reload the page, they should show up again. You're live!
+
+The intent here is that we'll use this app on our mobile devices, not via the web. So we can delete our `click` handler at this point. Better yet, we can "comment it out" so that it will be disabled, but we can still restore it if we need to experiment more. To do this, just add the comment slashes `//` before each line:
+
+```javascript
+// map.on('click', function(event) {
+//     current_location = [event.lngLat.lng, event.lngLat.lat]
+//     console.log('clicked', current_location)        
+//
+//     if (active) {
+//         path.push(current_location)
+//         console.log(path)   
+//         map.getSource('drawing').setData(geojson)    
+//     }
+//
+// })
+```
+
+Now you'll see that clicking on the map has no effect. But geolocating tracking still does.
+
+One last thing: we didn't add any functionality to _delete_ paths, but you can do this through your mLab account. If you click on your database, you'll see your "Collections". One of those will be "paths", and if you click on that, you can see the coordinate data in GeoJSON format, as well as edit it directly.
+
+![mLab collections]
+![mLab data]
 
 ## Deliverables
 
 
+Use the interface on your mobile device to draw a picture for the class. Yes, you could do this by clicking. But it will be so much more interesting to see it produced on the street.
 
+One caveat to keep in mind—we've built this in javascript, so it's not quite the same as an app you would download from the app store, for example. One big  difference is that it does not run in the background. So as you move around, you'll need to have the browser on your device open for it to be recording your path.
 
+Happy drawing!
 
 ______________________________________________________________________________________________________________
 
@@ -354,19 +515,20 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 
 
 
-[mLab account]: Images/webmap_2_mlab_account.png
-[mLab sandbox]: Images/webmap_2_mlab_sandbox.png
-[mLab confirmation]: Images/webmap_2_mlab_confirmation.png
-[mLab db user]: Images/webmap_2_mlab_db_user.png
-[mLab API Key]: Images/webmap_2_mlab_api_key.png
-[mLab API Enable]: Images/webmap_2_mlab_api_enable.png
-[Clicked map]: Images/webmap_2_clicked_map.png
-[Made button]: Images/webmap_2_made_button.png
-[Clicked button]: Images/webmap_2_clicked_button.png
-[Button indicator]: Images/webmap_2_button_indicator.png
-[Test coordinates]: Images/webmap_2_test_coordinates.png
-
-
-
+[mLab account]: Images/webmap_3_mlab_account.png
+[mLab sandbox]: Images/webmap_3_mlab_sandbox.png
+[mLab confirmation]: Images/webmap_3_mlab_confirmation.png
+[mLab db user]: Images/webmap_3_mlab_db_user.png
+[mLab API Key]: Images/webmap_3_mlab_api_key.png
+[mLab API Enable]: Images/webmap_3_mlab_api_enable.png
+[Clicked map]: Images/webmap_3_clicked_map.png
+[Made button]: Images/webmap_3_made_button.png
+[Clicked button]: Images/webmap_3_clicked_button.png
+[Button indicator]: Images/webmap_3_button_indicator.png
+[Test coordinates]: Images/webmap_3_test_coordinates.png
+[Drawing]: Images/webmap_3_drawing.png
+[Stop and save]: Images/webmap_3_save.png
+[mLab collections]: Images/webmap_3_mlab_collections.png
+[mLab data]: Images/webmap_3_mlab_data.png
 
 
