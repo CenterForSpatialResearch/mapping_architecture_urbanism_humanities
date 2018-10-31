@@ -384,7 +384,7 @@ geolocate.on('geolocate', function(event) {
 
     if (active) { 
         path.push(current_location)
-        map.getSource('drawing').setData(geojson)               // update the layer because the path has changed
+        map.getSource('drawing').setData(geojson)   // update the layer because the path has changed
     }
 
 })
@@ -396,7 +396,7 @@ map.on('click', function(event) {
     if (active) {                
         path.push(current_location) 
         console.log(path)           
-        map.getSource('drawing').setData(geojson)               // update the layer because the path has changed        
+        map.getSource('drawing').setData(geojson)   // update the layer because the path has changed        
     }
 
 })
