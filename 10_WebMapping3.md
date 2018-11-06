@@ -33,7 +33,7 @@ Just like for the [previous web mapping tutorials](9_WebMapping2.md), you'll nee
 
 Once you've created the initial files (`index.html`, `style.css`, and `map.js`), we'll need to make a few small changes. In this case, the first customization we'll do is to change the title in the `<title></title>` tags of our `index.html` file: change it to "GPS Drawing".
 
-Additionally, you'll also want to create a new Mapbox style for this project, so that you can customize it without altering your previous maps. Go over to your Mapbox account, click on "Studio" in the upper right corner. Under "Styles," create a new style (refer to the steps in the first webmap tutorial if you need a reminder how to do this). Once you've created a style, you can rename it by opening it (click "Menu>Details"), and then on the next page, "Edit this style". Once you've renamed the style (you can call it whatever you want, or "GPS_Drawing" for consistency). Make sure you copy the new "Style URL", and put that style URL into your code in your `map.js` file.
+Additionally, you'll also want to create a new Mapbox style for this project, so that you can customize it without altering your previous maps. Go over to your Mapbox account, click on "Studio" in the upper right corner. Under "Styles," create a new style (refer to the steps in the [previous tutorial](9_WebMapping2.md#mapbox-styles) if you need a reminder how to do this). Once you've created a style, you can rename it by opening it (click "Menu>Details"), and then on the next page, "Edit this style". Once you've renamed the style (you can call it whatever you want, or "GPS_Drawing" for consistency), make sure you copy the new "Style URL", and put that style URL into your code in your `map.js` file. You can edit this style to adjust the aesthetics however you want at a later point if you wish.
 
 <!--![Mapbox Duplicate]
 
@@ -188,23 +188,7 @@ Test it now. You should see the message appear in the javascript console.
 
 To add functionality to this, think about what this button does. It's actually two things: on the first click it should start drawing, and on the second, stop drawing. We're going to create a new function for each of those two behaviors, along with a variable that keeps track of whether we're drawing or not.
 
-<!--BRIAN: you shifted from "drawing" to "active" between this initial step and the next step. i'm pretty sure the code only needs one of them (i was getting an error with both sections), so I changed it up here. If it actually needs both, some editing needs to happen...-->
-
-<!--```javascript
-let drawing = false       // keeps track of whether or not we're drawing
-
-function startDrawing() {
-
-    drawing = true
-
-}
-
-function stopDrawing() {
-
-    drawing = false
-
-}
-```-->
+<!--BRIAN: there was a shift in use of variables here. i changed all the `drawing` to `active`, to match with your final code-->
 
 ```javascript
 let active = false       // keeps track of whether or not we're drawing
@@ -223,20 +207,6 @@ function stopDrawing() {
 ```
 
 So far this is still just a placeholder. But as we proceed, we'll incrementally add code to these two functions to accomplish more things. First, let's modify `startDrawing` so that it adds a marker at the current location:
-
-<!--```javascript
-let drawing = false
-let start_marker = new mapboxgl.Marker()    
-
-function startDrawing() {
-
-    drawing = true
-
-    start_marker.setLngLat(current_location)
-    start_marker.addTo(map)    
-
-}
-```-->
 
 ```javascript
 let active = false
@@ -304,7 +274,7 @@ If you save and test at this point, you should have a button that changes color.
 ![Button indicator]
 
 
-So far so good. We have the user interaction down, but now we need to keep track of the path itself as a sequence of points. We'll do that with an array, which we declare with our other variables like this:
+So far so good. We have the user interaction down, but now we need to keep track of the path itself as a sequence of points. We'll do that with a variable we will call `path`, which we'll make an array, and we can declare it with our other variables like this:
 
 ```javascript
 let active = false
@@ -312,11 +282,11 @@ let start_marker = new mapboxgl.Marker()
 let path = []               // this array will hold the sequence of points in our path
 ```
 
-When we hit start, we want to add the current location to the path.
+When we hit start, we want to add the current location to the path. Add this line to the `startDrawing` function:
 
 ```javascript
 function startDrawing() {
-    drawing = true                                
+    active = true                                
     draw_btn.style['background-color'] = "red"    
     draw_btn.style['color'] = "white"             
     draw_btn.value = 'Stop and save'              
@@ -328,7 +298,7 @@ function startDrawing() {
 }
 ```
 
-Now what? Well, each time `current_location` is updated, we want to add it to the path. So we have to modify our `geolocate` handler and the `click` handler on our map. Once again, we'll use a conditional statement so that it only happens when we are in record mode.
+Now what? Well, each time `current_location` is updated, we want to add it to the path. So we have to modify our `geolocate` handler and the `click` handler on our map. Once again, we'll use a conditional statement so that it only happens when we are in record mode. Add the following `if` statements to the handlers:
 
 ```javascript
 geolocate.on('geolocate', function(event) {
@@ -383,7 +353,7 @@ map.on('load', function() {             // 'load' event handler
 
 You'll notice that the layer we're adding is defined by an elaborate object structure. This includes parameters for `type`, `layout`, and `paint`, all of which you may modify to alter the style of the drawing.
 
-For our purposes now, the most interesting section is `source`. This tells the layer that we will be providing data in the form of geojson. To start with, that data is `null`, meaning there is nothing there. But we will create a geojson object which we will be able to modify on the fly.
+For our purposes now, the most interesting section is `source`. This tells the layer that we will be providing data in the form of geojson. To start with, that data is `null`, meaning there is nothing there. But we can create a geojson object which we will be able to modify on the fly. Add the following variable at the bottom of your code:
 
 ```javascript
 let geojson = {
@@ -397,12 +367,13 @@ This is a minimal definition of a geojson object. Notice that `features` is an a
 ```javascript
 function startDrawing() {
     active = true                              
-    draw_btn.style['background-color'] = "red"  
-    draw_btn.style['color'] = "white"           
-    draw_btn.value = 'Stop and save'            
 
     start_marker.setLngLat(current_location)
     start_marker.addTo(map)
+
+    draw_btn.style['background-color'] = "red"  
+    draw_btn.style['color'] = "white"           
+    draw_btn.value = 'Stop and save'            
 
     path.push(current_location)
 
