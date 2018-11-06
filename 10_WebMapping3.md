@@ -9,7 +9,7 @@ In this tutorial, we will use the sensing capacity of our devices to make GPS dr
 
 ## Databases
 
-Our web-based maps run via javascript in the browser. For them to interact with a database, the database also has to be accessible online. For many projects, you'll want to set up your own database server. That's beyond the scope of our exercise now, however, so we are going to make use of a service, [mLab](https://mlab.com/), that will host a database that we can use (yet another account to create!). 
+Our web-based maps run via javascript in the browser. For them to interact with a database, the database also has to be accessible online. For many projects, you'll want to set up your own database server. That's beyond the scope of our exercise now, however, so we are going to make use of a service, [mLab](https://mlab.com/), that will host a database that we can use (yet another account to create!).
 
 ![mLab account]
 
@@ -29,16 +29,24 @@ Once you've created and deployed your database, you'll need to get your API key.
 
 ## Setting up our template
 
-Just like for the [previous web mapping tutorials](9_WebMapping2.md), you'll need to set up a new github project. `index.html`, `style.css`, and `map.js` can be the same as what you've used before to begin with. In fact, most programming projects begin in this way, by assembling relevant pieces from past projects. One advantage of using Github is that you'll have all those projects organized and accessible to reference when you need them. In this case, the first customization we'll do is to change the title in the `<title></title>` tags. You'll also want to create a new Mapbox style for this project that you can customize without altering your previous maps—you'll put that style URL into your code.
+Just like for the [previous web mapping tutorials](9_WebMapping2.md), you'll need to set up a new github project. Call this repository "gps_drawing". The `index.html`, `style.css`, and `map.js` can be the same as what we used in the previous tutorials — refer to those tutorials to get your initial files set up. This is a good practice to get familiar with: most programming projects begin in this way, by assembling relevant pieces from past projects. One advantage of using Github is that you'll have all those projects organized and accessible to reference when you need them.
+
+Once you've created the initial files (`index.html`, `style.css`, and `map.js`), we'll need to make a few small changes. In this case, the first customization we'll do is to change the title in the `<title></title>` tags of our `index.html` file: change it to "GPS Drawing".
+
+Additionally, you'll also want to create a new Mapbox style for this project, so that you can customize it without altering your previous maps. Go over to your Mapbox account, click on "Studio" in the upper right corner. Under "Styles," create a new style (refer to the steps in the first webmap tutorial if you need a reminder how to do this). Once you've created a style, you can rename it by opening it (click "Menu>Details"), and then on the next page, "Edit this style". Once you've renamed the style (you can call it whatever you want, or "GPS_Drawing" for consistency). Make sure you copy the new "Style URL", and put that style URL into your code in your `map.js` file.
+
+<!--![Mapbox Duplicate]
+
+Under "Your Styles," choose one of your existing styles (we can use "Rats_NYC" from our previous tutorial), click the "Menu" to the right and select "Duplicate". Once the style is duplicated, you can rename it by opening it (click "Menu>Details"), and then on the next page, "Edit this style". Once you've renamed the style (you can call it whatever you want, or "GPS_Drawing" consistency), make sure you copy the new "Style URL", and put that style URL into your code in your `map.js` file.-->
 
 
 ## Interfacing with the database
 
-We're going to use some prewritten code to interface with the mLab API. This consists of two functions—inserting data, and recalling data. Save this code in a new file, `db.js`, and put in your API key from mLab. 
+We're going to use some prewritten code to interface with the mLab API. This consists of two functions—inserting data, and recalling data. Save this code in a new file, `db.js`, and put in your API key from mLab.
 
 ```javascript
 let base = "https://api.mlab.com/api/1/databases/"
-let apiKey = YOURKEYHERE
+let apiKey = "YOURKEYHERE"
 let database = "drawing-db"
 
 class DB {
@@ -107,9 +115,11 @@ To use this in your map code, you'll also need to load `db.js` within your HTML.
 
 ### Map programming
 
-While building this map, remember to save periodically and test using your browser and the javascript console. You don't need to push to Github to do that—just open `index.html` directly in Chrome or Safari. But adding your files, committing them, and pushing to Github is a great way to keep track of your progress and to have a fallback if something breaks.
+While building this map, remember to save periodically and test using your browser and the javascript console. You don't need to push to Github to do that—just open `index.html` directly in your browser. But adding your files, committing them, and pushing to Github is a great way to keep track of your progress and to have a fallback if something breaks.
 
 In `map.js`, you should be creating a map object, adding navigation and scale controls as desired, and including a geolocation control. We'll be begin adding code with the geolocation handler.
+
+<!--BRIAN: I had a hard time figuring out what the starting point for your code was. There are inconsistencies between the code on the two previous tutorials, so I didn't know which one you were building off of. In either case, there are duplicate definitions in what follows, so I had to alter the previous code no matter which one I started with. I think it might be worthwhile to have the whole here to start with, until these kinks in the connections between tutorials get worked out.-->
 
 ```javascript
 // create a variable to keep track of the user's current location
@@ -178,7 +188,9 @@ Test it now. You should see the message appear in the javascript console.
 
 To add functionality to this, think about what this button does. It's actually two things: on the first click it should start drawing, and on the second, stop drawing. We're going to create a new function for each of those two behaviors, along with a variable that keeps track of whether we're drawing or not.
 
-```javascript
+<!--BRIAN: you shifted from "drawing" to "active" between this initial step and the next step. i'm pretty sure the code only needs one of them (i was getting an error with both sections), so I changed it up here. If it actually needs both, some editing needs to happen...-->
+
+<!--```javascript
 let drawing = false       // keeps track of whether or not we're drawing
 
 function startDrawing() {
@@ -192,17 +204,47 @@ function stopDrawing() {
     drawing = false
 
 }
-```
-
-So far this is still just a placeholder. But as we proceed, we'll incremently add code to these two functions to accomplish more things. First, let's modify `startDrawing` so that it adds a marker at the current location:
+```-->
 
 ```javascript
+let active = false       // keeps track of whether or not we're drawing
+
+function startDrawing() {
+
+    active = true
+
+}
+
+function stopDrawing() {
+
+    active = false
+
+}
+```
+
+So far this is still just a placeholder. But as we proceed, we'll incrementally add code to these two functions to accomplish more things. First, let's modify `startDrawing` so that it adds a marker at the current location:
+
+<!--```javascript
 let drawing = false
 let start_marker = new mapboxgl.Marker()    
 
 function startDrawing() {
 
     drawing = true
+
+    start_marker.setLngLat(current_location)
+    start_marker.addTo(map)    
+
+}
+```-->
+
+```javascript
+let active = false
+let start_marker = new mapboxgl.Marker()    
+
+function startDrawing() {
+
+    active = true
 
     start_marker.setLngLat(current_location)
     start_marker.addTo(map)    
@@ -222,11 +264,11 @@ function startDrawing() {
     active = true
 
     start_marker.setLngLat(current_location)
-    start_marker.addTo(map) 
+    start_marker.addTo(map)
 
-    record_btn.style['background-color'] = "red"         // make the button red
-    record_btn.style['color'] = "white"                  // make it's text white
-    record_btn.value = 'Stop and save'                   // change the text to the opposite state
+    draw_btn.style['background-color'] = "red"         // make the button red
+    draw_btn.style['color'] = "white"                  // make it's text white
+    draw_btn.value = 'Stop and save'                   // change the text to the opposite state
 
 }
 
@@ -234,9 +276,9 @@ function stopDrawing() {
 
     active = false
 
-    record_btn.style['background-color'] = "white"      // make the button white again
-    record_btn.style['color'] = "black"                 // make the text black
-    record_btn.value = 'Start'                          // change the text
+    draw_btn.style['background-color'] = "white"      // make the button white again
+    draw_btn.style['color'] = "black"                 // make the text black
+    draw_btn.value = 'Start'                          // change the text
 
 }
 ```
@@ -244,10 +286,10 @@ function stopDrawing() {
 These functions are still not connected to our button. To do that, we'll need to modify our button's `click` handler. We'll make use of a conditional `if` statement, one of the fundamental logic components of programming. Which code will run is determined by the value of our `active` variable:
 
 ```javascript
-record_btn.addEventListener('click', function() {
-  
-    console.log('clicked record_btn')
-  
+draw_btn.addEventListener('click', function() {
+
+    console.log('clicked draw_btn')
+
     if (active) {            // if we're already drawing, stop drawing
         stopDrawing()
     } else {                    // otherwise, start drawing
@@ -275,9 +317,9 @@ When we hit start, we want to add the current location to the path.
 ```javascript
 function startDrawing() {
     drawing = true                                
-    record_btn.style['background-color'] = "red"    
-    record_btn.style['color'] = "white"             
-    record_btn.value = 'Stop and save'              
+    draw_btn.style['background-color'] = "red"    
+    draw_btn.style['color'] = "white"             
+    draw_btn.value = 'Stop and save'              
 
     start_marker.setLngLat(current_location)
     start_marker.addTo(map)
@@ -355,9 +397,9 @@ This is a minimal definition of a geojson object. Notice that `features` is an a
 ```javascript
 function startDrawing() {
     active = true                              
-    record_btn.style['background-color'] = "red"  
-    record_btn.style['color'] = "white"           
-    record_btn.value = 'Stop and save'            
+    draw_btn.style['background-color'] = "red"  
+    draw_btn.style['color'] = "white"           
+    draw_btn.value = 'Stop and save'            
 
     start_marker.setLngLat(current_location)
     start_marker.addTo(map)
@@ -384,7 +426,7 @@ geolocate.on('geolocate', function(event) {
     current_location = [event.coords.longitude, event.coords.latitude]
     console.log('geolocated', current_location)   
 
-    if (active) { 
+    if (active) {
         path.push(current_location)
         map.getSource('drawing').setData(geojson)   // update the layer because the path has changed
     }
@@ -396,7 +438,7 @@ map.on('click', function(event) {
     console.log('clicked', current_location)        
 
     if (active) {                
-        path.push(current_location) 
+        path.push(current_location)
         console.log(path)           
         map.getSource('drawing').setData(geojson)   // update the layer because the path has changed        
     }
@@ -420,9 +462,9 @@ function stopDrawing() {
 
     active = false
 
-    record_btn.style['background-color'] = "white"  
-    record_btn.style['color'] = "black"             
-    record_btn.value = 'Start'                      
+    draw_btn.style['background-color'] = "white"  
+    draw_btn.style['color'] = "black"             
+    draw_btn.value = 'Start'                      
 
     db.insert(path)                         // insert the path into the database
     path = []                               // reset the path
@@ -531,5 +573,4 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 [Stop and save]: Images/webmap_3_save.png
 [mLab collections]: Images/webmap_3_mlab_collections.png
 [mLab data]: Images/webmap_3_mlab_data.png
-
-
+[Mapbox Duplicate]: Images/webmap_3_duplicate.png
