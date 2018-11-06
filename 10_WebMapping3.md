@@ -29,7 +29,7 @@ Once you've created and deployed your database, you'll need to get your API key.
 
 ## Setting up our template
 
-Just like for the [previous web mapping tutorials](9_WebMapping2.md), you'll need to set up a new github project. Call this repository "gps_drawing". The `index.html`, `style.css`, and `map.js` can be the same as what we used in the previous tutorials — refer to those tutorials to get your initial files set up. This is a good practice to get familiar with: most programming projects begin in this way, by assembling relevant pieces from past projects. One advantage of using Github is that you'll have all those projects organized and accessible to reference when you need them.
+Just like for the [previous web mapping tutorials](9_WebMapping2.md#start-a-web-project), you'll need to set up a new github project. Call this repository "gps_drawing". The `index.html`, `style.css`, and `map.js` can be the same as what we used in the previous tutorial — refer to those tutorials to get your initial files set up. This is a good practice to get familiar with: most programming projects begin in this way, by assembling relevant pieces from past projects. One advantage of using Github is that you'll have all those projects organized and accessible to reference when you need them.
 
 Once you've created the initial files (`index.html`, `style.css`, and `map.js`), we'll need to make a few small changes. In this case, the first customization we'll do is to change the title in the `<title></title>` tags of our `index.html` file: change it to "GPS Drawing".
 
@@ -118,8 +118,6 @@ To use this in your map code, you'll also need to load `db.js` within your HTML.
 While building this map, remember to save periodically and test using your browser and the javascript console. You don't need to push to Github to do that—just open `index.html` directly in your browser. But adding your files, committing them, and pushing to Github is a great way to keep track of your progress and to have a fallback if something breaks.
 
 In `map.js`, you should be creating a map object, adding navigation and scale controls as desired, and including a geolocation control. We'll be begin adding code with the geolocation handler.
-
-<!--BRIAN: I had a hard time figuring out what the starting point for your code was. There are inconsistencies between the code on the two previous tutorials, so I didn't know which one you were building off of. In either case, there are duplicate definitions in what follows, so I had to alter the previous code no matter which one I started with. I think it might be worthwhile to have the whole here to start with, until these kinks in the connections between tutorials get worked out.-->
 
 ```javascript
 // create a variable to keep track of the user's current location
