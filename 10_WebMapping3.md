@@ -19,7 +19,9 @@ After creating your account and logging in, create a new Mongo DB Deployment. Mo
 
 ![mLab confirmation]
 
-Once you've created and deployed your database, you'll need to get your API key. You'll find this under your "user" settings. You'll also need to `Enable Data API Access`.
+Click the blue button in the bottom right corner that says "Submit Order", and you should be up and running.
+
+Once you've created and deployed your database, you'll need to get your API key. You'll find this under your "user" settings. Click the blue link that has your username in the upper right corner, and scroll down to the section that says "API Key." Copy your key (paste it into another document or note application if you need to). You'll also need to `Enable Data API Access`.
 
 ![mLab db user]
 ![mLab API Enable]
