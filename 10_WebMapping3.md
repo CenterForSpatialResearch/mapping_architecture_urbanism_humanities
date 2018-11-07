@@ -85,6 +85,8 @@ class DB {
     }
 
 }
+
+let db = new DB()
 ```
 
 To use this in your map code, you'll also need to load `db.js` within your HTML. You can do this by adding a script tag within the `<head>` portion of your HTML.
