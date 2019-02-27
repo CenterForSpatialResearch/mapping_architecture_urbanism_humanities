@@ -1,0 +1,1635 @@
+GISJOIN,YEAR,STATE,STATEA,COUNTY,COUNTYA,AREANAME,Pop_1850
+G0100010,1850,Alabama,10,Autauga,10,Autauga,15023
+G0100030,1850,Alabama,10,Baldwin,30,Baldwin,4414
+G0100050,1850,Alabama,10,Barbour,50,Barbour,23632
+G0100055,1850,Alabama,10,Benton,55,Benton,17163
+G0100070,1850,Alabama,10,Bibb,70,Bibb,9969
+G0100090,1850,Alabama,10,Blount,90,Blount,7367
+G0100130,1850,Alabama,10,Butler,130,Butler,10836
+G0100170,1850,Alabama,10,Chambers,170,Chambers,23960
+G0100190,1850,Alabama,10,Cherokee,190,Cherokee,13884
+G0100230,1850,Alabama,10,Choctaw,230,Choctaw,8389
+G0100250,1850,Alabama,10,Clarke,250,Clarke,9786
+G0100310,1850,Alabama,10,Coffee,310,Coffee,5940
+G0100350,1850,Alabama,10,Conecuh,350,Conecuh,9322
+G0100370,1850,Alabama,10,Coosa,370,Coosa,14543
+G0100390,1850,Alabama,10,Covington,390,Covington,3645
+G0100450,1850,Alabama,10,Dale,450,Dale,6382
+G0100470,1850,Alabama,10,Dallas,470,Dallas,29727
+G0100490,1850,Alabama,10,DeKalb,490,Dekalb,8245
+G0100570,1850,Alabama,10,Fayette,570,Fayette,9681
+G0100590,1850,Alabama,10,Franklin,590,Franklin,19610
+G0100630,1850,Alabama,10,Greene,630,Greene,31441
+G0100655,1850,Alabama,10,Hancock,655,Hancock,1542
+G0100670,1850,Alabama,10,Henry,670,Henry,9019
+G0100710,1850,Alabama,10,Jackson,710,Jackson,14088
+G0100730,1850,Alabama,10,Jefferson,730,Jefferson,8989
+G0100770,1850,Alabama,10,Lauderdale,770,Lauderdale,17172
+G0100790,1850,Alabama,10,Lawrence,790,Lawrence,15258
+G0100830,1850,Alabama,10,Limestone,830,Limestone,16483
+G0100850,1850,Alabama,10,Lowndes,850,Lowndes,21915
+G0100870,1850,Alabama,10,Macon,870,Macon,26898
+G0100890,1850,Alabama,10,Madison,890,Madison,26427
+G0100910,1850,Alabama,10,Marengo,910,Marengo,27831
+G0100930,1850,Alabama,10,Marion,930,Marion,7833
+G0100950,1850,Alabama,10,Marshall,950,Marshall,8846
+G0100970,1850,Alabama,10,Mobile,970,Mobile,27600
+G0100990,1850,Alabama,10,Monroe,990,Monroe,12013
+G0101010,1850,Alabama,10,Montgomery,1010,Montgomery,29711
+G0101030,1850,Alabama,10,Morgan,1030,Morgan,10125
+G0101050,1850,Alabama,10,Perry,1050,Perry,22285
+G0101070,1850,Alabama,10,Pickens,1070,Pickens,21512
+G0101090,1850,Alabama,10,Pike,1090,Pike,15920
+G0101110,1850,Alabama,10,Randolph,1110,Randolph,11581
+G0101130,1850,Alabama,10,Russell,1130,Russell,19548
+G0101150,1850,Alabama,10,St Clair,1150,St Clair,6829
+G0101170,1850,Alabama,10,Shelby,1170,Shelby,9536
+G0101190,1850,Alabama,10,Sumter,1190,Sumter,22250
+G0101210,1850,Alabama,10,Talladega,1210,Talladega,18624
+G0101230,1850,Alabama,10,Tallapoosa,1230,Tallapoosa,15584
+G0101250,1850,Alabama,10,Tuscaloosa,1250,Tuscaloosa,18056
+G0101270,1850,Alabama,10,Walker,1270,Walker,5124
+G0101290,1850,Alabama,10,Washington,1290,Washington,2713
+G0101310,1850,Alabama,10,Wilcox,1310,Wilcox,17352
+G0500010,1850,Arkansas,50,Arkansas,10,Arkansas,3245
+G0500030,1850,Arkansas,50,Ashley,30,Ashley,2058
+G0500070,1850,Arkansas,50,Benton,70,Benton,3710
+G0500110,1850,Arkansas,50,Bradley,110,Bradley,3829
+G0500150,1850,Arkansas,50,Carroll,150,Carroll,4614
+G0500170,1850,Arkansas,50,Chicot,170,Chicot,5115
+G0500190,1850,Arkansas,50,Clark,190,Clark,4070
+G0500290,1850,Arkansas,50,Conway,290,Conway,3583
+G0500330,1850,Arkansas,50,Crawford,330,Crawford,7960
+G0500350,1850,Arkansas,50,Crittenden,350,Crittenden,2648
+G0500390,1850,Arkansas,50,Dallas,390,Dallas,6877
+G0500410,1850,Arkansas,50,Desha,410,Desha,2911
+G0500430,1850,Arkansas,50,Drew,430,Drew,3276
+G0500470,1850,Arkansas,50,Franklin,470,Franklin,3972
+G0500490,1850,Arkansas,50,Fulton,490,Fulton,1819
+G0500550,1850,Arkansas,50,Greene,550,Greene,2593
+G0500570,1850,Arkansas,50,Hempstead,570,Hempstead,7672
+G0500590,1850,Arkansas,50,Hot Spring,590,Hot Spring,3609
+G0500630,1850,Arkansas,50,Independence,630,Independence,7767
+G0500650,1850,Arkansas,50,Izard,650,Izard,3213
+G0500670,1850,Arkansas,50,Jackson,670,Jackson,3086
+G0500690,1850,Arkansas,50,Jefferson,690,Jefferson,5834
+G0500710,1850,Arkansas,50,Johnson,710,Johnson,5227
+G0500730,1850,Arkansas,50,Lafayette,730,Lafayette,5220
+G0500750,1850,Arkansas,50,Lawrence,750,Lawrence,5274
+G0500870,1850,Arkansas,50,Madison,870,Madison,4823
+G0500890,1850,Arkansas,50,Marion,890,Marion,2308
+G0500930,1850,Arkansas,50,Mississippi,930,Mississippi,2368
+G0500950,1850,Arkansas,50,Monroe,950,Monroe,2049
+G0500970,1850,Arkansas,50,Montgomery,970,Montgomery,1958
+G0501010,1850,Arkansas,50,Newton,1010,Newton,1758
+G0501030,1850,Arkansas,50,Ouachita,1030,Ouachita,9591
+G0501050,1850,Arkansas,50,Perry,1050,Perry,978
+G0501070,1850,Arkansas,50,Phillips,1070,Phillips,6935
+G0501090,1850,Arkansas,50,Pike,1090,Pike,1861
+G0501110,1850,Arkansas,50,Poinsett,1110,Poinsett,2308
+G0501130,1850,Arkansas,50,Polk,1130,Polk,1263
+G0501150,1850,Arkansas,50,Pope,1150,Pope,4710
+G0501170,1850,Arkansas,50,Prairie,1170,Prairie,2097
+G0501190,1850,Arkansas,50,Pulaski,1190,Pulaski,5657
+G0501210,1850,Arkansas,50,Randolph,1210,Randolph,3275
+G0501230,1850,Arkansas,50,St Francis,1230,St Francis,4479
+G0501250,1850,Arkansas,50,Saline,1250,Saline,3903
+G0501270,1850,Arkansas,50,Scott,1270,Scott,3083
+G0501290,1850,Arkansas,50,Searcy,1290,Searcy,1979
+G0501330,1850,Arkansas,50,Sevier,1330,Sevier,4240
+G0501390,1850,Arkansas,50,Union,1390,Union,10298
+G0501410,1850,Arkansas,50,Van Buren,1410,Van Buren,2864
+G0501430,1850,Arkansas,50,Washington,1430,Washington,9970
+G0501450,1850,Arkansas,50,White,1450,White,2619
+G0501490,1850,Arkansas,50,Yell,1490,Yell,3341
+G0600070,1850,California,60,Butte,70,Butte,3574
+G0600090,1850,California,60,Calaveras,90,Calaveras,16884
+G0600110,1850,California,60,Colusa,110,Colusa,115
+G0600115,1850,California,60,Colusa-Shasta-Trinity [multi-county reporting area],115,Colusa-Shasta-Trinity (multi-county reporting area),
+G0600130,1850,California,60,Contra Costa,130,Contra Costa,
+G0600170,1850,California,60,El Dorado,170,El Dorado,20057
+G0600370,1850,California,60,Los Angeles,370,Los Angeles,3530
+G0600410,1850,California,60,Marin,410,Marin,323
+G0600430,1850,California,60,Mariposa,430,Mariposa,4379
+G0600450,1850,California,60,Mendocino,450,Mendocino,55
+G0600530,1850,California,60,Monterey,530,Monterey,1872
+G0600550,1850,California,60,Napa,550,Napa,405
+G0600670,1850,California,60,Sacramento,670,Sacramento,9087
+G0600730,1850,California,60,San Diego,730,San Diego,798
+G0600750,1850,California,60,San Francisco,750,San Francisco,
+G0600770,1850,California,60,San Joaquin,770,San Joaquin,3647
+G0600790,1850,California,60,San Luis Obispo,790,San Luis Obispo,336
+G0600830,1850,California,60,Santa Barbara,830,Santa Barbara,1185
+G0600850,1850,California,60,Santa Clara,850,Santa Clara,
+G0600870,1850,California,60,Santa Cruz,870,Santa Cruz,643
+G0600890,1850,California,60,Shasta,890,Shasta,378
+G0600950,1850,California,60,Solano,950,Solano,580
+G0600970,1850,California,60,Sonoma,970,Sonoma,560
+G0601010,1850,California,60,Sutter,1010,Sutter,3444
+G0601050,1850,California,60,Trinity,1050,Trinity,1635
+G0601090,1850,California,60,Tuolumne,1090,Tuolumne,8351
+G0601130,1850,California,60,Yolo,1130,Yolo,1086
+G0601150,1850,California,60,Yuba,1150,Yuba,9673
+G0900010,1850,Connecticut,90,Fairfield,10,Fairfield,59775
+G0900030,1850,Connecticut,90,Hartford,30,Hartford,69967
+G0900050,1850,Connecticut,90,Litchfield,50,Litchfield,45253
+G0900070,1850,Connecticut,90,Middlesex,70,Middlesex,27216
+G0900090,1850,Connecticut,90,New Haven,90,New Haven,65588
+G0900110,1850,Connecticut,90,New London,110,New London,51821
+G0900130,1850,Connecticut,90,Tolland,130,Tolland,20091
+G0900150,1850,Connecticut,90,Windham,150,Windham,31081
+G1000010,1850,Delaware,100,Kent,10,Kent,22816
+G1000030,1850,Delaware,100,New Castle,30,New Castle,42780
+G1000050,1850,Delaware,100,Sussex,50,Sussex,25936
+G1100017,1850,District Of Columbia,110,Georgetown,17,Georgetown,8366
+G1100075,1850,District Of Columbia,110,Rural Washington county,75,Rural Washington county,3320
+G1100115,1850,District Of Columbia,110,Washington City,115,Washington City,40001
+G1200010,1850,Florida,120,Alachua,10,Alachua,2524
+G1200065,1850,Florida,120,Benton,65,Benton,926
+G1200130,1850,Florida,120,Calhoun,130,Calhoun,1377
+G1200230,1850,Florida,120,Columbia,230,Columbia,4808
+G1200250,1850,Florida,120,Dade,250,Dade,159
+G1200310,1850,Florida,120,Duval,310,Duval,4539
+G1200330,1850,Florida,120,Escambia,330,Escambia,4351
+G1200370,1850,Florida,120,Franklin,370,Franklin,1561
+G1200390,1850,Florida,120,Gadsden,390,Gadsden,8784
+G1200470,1850,Florida,120,Hamilton,470,Hamilton,2511
+G1200570,1850,Florida,120,Hillsborough,570,Hillsborough,2377
+G1200590,1850,Florida,120,Holmes,590,Holmes,1205
+G1200630,1850,Florida,120,Jackson,630,Jackson,6639
+G1200650,1850,Florida,120,Jefferson,650,Jefferson,7718
+G1200730,1850,Florida,120,Leon,730,Leon,11442
+G1200750,1850,Florida,120,Levy,750,Levy,465
+G1200790,1850,Florida,120,Madison,790,Madison,5490
+G1200830,1850,Florida,120,Marion,830,Marion,3338
+G1200870,1850,Florida,120,Monroe,870,Monroe,2645
+G1200890,1850,Florida,120,Nassau,890,Nassau,2164
+G1200950,1850,Florida,120,Orange,950,Orange,466
+G1201070,1850,Florida,120,Putnam,1070,Putnam,687
+G1201090,1850,Florida,120,St Johns,1090,St Johns,2525
+G1201115,1850,Florida,120,St Lucie (old),1115,St Lucie (old),139
+G1201130,1850,Florida,120,Santa Rosa,1130,Santa Rosa,2883
+G1201290,1850,Florida,120,Wakulla,1290,Wakulla,1955
+G1201310,1850,Florida,120,Walton,1310,Walton,1817
+G1201330,1850,Florida,120,Washington,1330,Washington,1950
+G1300010,1850,Georgia,130,Appling,10,Appling,2949
+G1300070,1850,Georgia,130,Baker,70,Baker,8120
+G1300090,1850,Georgia,130,Baldwin,90,Baldwin,8148
+G1300210,1850,Georgia,130,Bibb,210,Bibb,12699
+G1300290,1850,Georgia,130,Bryan,290,Bryan,3424
+G1300310,1850,Georgia,130,Bulloch,310,Bulloch,4300
+G1300330,1850,Georgia,130,Burke,330,Burke,16100
+G1300350,1850,Georgia,130,Butts,350,Butts,6488
+G1300390,1850,Georgia,130,Camden,390,Camden,6319
+G1300395,1850,Georgia,130,Campbell,395,Campbell,7232
+G1300450,1850,Georgia,130,Carroll,450,Carroll,9357
+G1300455,1850,Georgia,130,Cass,455,Cass,13300
+G1300458,1850,Georgia,130,Cass-Cordon [multi-county reporting area],458,Cass-Cordon (multi-county reporting area),
+G1300510,1850,Georgia,130,Chatham,510,Chatham,23901
+G1300550,1850,Georgia,130,Chattooga,550,Chattooga,6815
+G1300570,1850,Georgia,130,Cherokee,570,Cherokee,12800
+G1300590,1850,Georgia,130,Clarke,590,Clarke,11119
+G1300650,1850,Georgia,130,Clinch,650,Clinch,637
+G1300670,1850,Georgia,130,Cobb,670,Cobb,13843
+G1300730,1850,Georgia,130,Columbia,730,Columbia,11961
+G1300770,1850,Georgia,130,Coweta,770,Coweta,13635
+G1300790,1850,Georgia,130,Crawford,790,Crawford,8984
+G1300830,1850,Georgia,130,Dade,830,Dade,2680
+G1300870,1850,Georgia,130,Decatur,870,Decatur,8262
+G1300890,1850,Georgia,130,DeKalb,890,De Kalb,14328
+G1300930,1850,Georgia,130,Dooly,930,Dooly,8361
+G1300990,1850,Georgia,130,Early,990,Early,7246
+G1301030,1850,Georgia,130,Effingham,1030,Effingham,3864
+G1301050,1850,Georgia,130,Elbert,1050,Elbert,12959
+G1301070,1850,Georgia,130,Emanuel,1070,Emanuel,4577
+G1301130,1850,Georgia,130,Fayette,1130,Fayette,8709
+G1301150,1850,Georgia,130,Floyd,1150,Floyd,8205
+G1301170,1850,Georgia,130,Forsyth,1170,Forsyth,8850
+G1301190,1850,Georgia,130,Franklin,1190,Franklin,11513
+G1301230,1850,Georgia,130,Gilmer,1230,Gilmer,8440
+G1301270,1850,Georgia,130,Glynn,1270,Glynn,4933
+G1301290,1850,Georgia,130,Gordon,1290,Gordon,5984
+G1301330,1850,Georgia,130,Greene,1330,Greene,13068
+G1301350,1850,Georgia,130,Gwinnett,1350,Gwinnett,11257
+G1301370,1850,Georgia,130,Habersham,1370,Habersham,8895
+G1301390,1850,Georgia,130,Hall,1390,Hall,8713
+G1301410,1850,Georgia,130,Hancock,1410,Hancock,11578
+G1301450,1850,Georgia,130,Harris,1450,Harris,14721
+G1301490,1850,Georgia,130,Heard,1490,Heard,6923
+G1301510,1850,Georgia,130,Henry,1510,Henry,14726
+G1301530,1850,Georgia,130,Houston,1530,Houston,16450
+G1301550,1850,Georgia,130,Irwin,1550,Irwin,3334
+G1301570,1850,Georgia,130,Jackson,1570,Jackson,9768
+G1301590,1850,Georgia,130,Jasper,1590,Jasper,11486
+G1301630,1850,Georgia,130,Jefferson,1630,Jefferson,9131
+G1301690,1850,Georgia,130,Jones,1690,Jones,10224
+G1301750,1850,Georgia,130,Laurens,1750,Laurens,6442
+G1301770,1850,Georgia,130,Lee,1770,Lee,6660
+G1301790,1850,Georgia,130,Liberty,1790,Liberty,7926
+G1301810,1850,Georgia,130,Lincoln,1810,Lincoln,5998
+G1301850,1850,Georgia,130,Lowndes,1850,Lowndes,7714
+G1301870,1850,Georgia,130,Lumpkin,1870,Lumpkin,8955
+G1301910,1850,Georgia,130,McIntosh,1910,Mcintosh,6027
+G1301930,1850,Georgia,130,Macon,1930,Macon,7052
+G1301950,1850,Georgia,130,Madison,1950,Madison,5703
+G1301970,1850,Georgia,130,Marion,1970,Marion,10280
+G1301990,1850,Georgia,130,Meriwether,1990,Meriwether,16476
+G1302070,1850,Georgia,130,Monroe,2070,Monroe,16985
+G1302090,1850,Georgia,130,Montgomery,2090,Montgomery,2154
+G1302110,1850,Georgia,130,Morgan,2110,Morgan,10744
+G1302130,1850,Georgia,130,Murray,2130,Murray,14433
+G1302150,1850,Georgia,130,Muscogee,2150,Muscogee,18578
+G1302170,1850,Georgia,130,Newton,2170,Newton,13296
+G1302210,1850,Georgia,130,Oglethorpe,2210,Oglethorpe,12259
+G1302230,1850,Georgia,130,Paulding,2230,Paulding,7039
+G1302310,1850,Georgia,130,Pike,2310,Pike,14306
+G1302350,1850,Georgia,130,Pulaski,2350,Pulaski,6627
+G1302370,1850,Georgia,130,Putnam,2370,Putnam,10794
+G1302410,1850,Georgia,130,Rabun,2410,Rabun,2448
+G1302430,1850,Georgia,130,Randolph,2430,Randolph,12868
+G1302450,1850,Georgia,130,Richmond,2450,Richmond,16246
+G1302510,1850,Georgia,130,Screven,2510,Screven,6847
+G1302590,1850,Georgia,130,Stewart,2590,Stewart,16027
+G1302610,1850,Georgia,130,Sumter,2610,Sumter,10322
+G1302630,1850,Georgia,130,Talbot,2630,Talbot,16534
+G1302650,1850,Georgia,130,Taliaferro,2650,Taliaferro,5146
+G1302670,1850,Georgia,130,Tattnall,2670,Tattnall,3227
+G1302710,1850,Georgia,130,Telfair,2710,Telfair,3026
+G1302750,1850,Georgia,130,Thomas,2750,Thomas,10103
+G1302850,1850,Georgia,130,Troup,2850,Troup,16879
+G1302890,1850,Georgia,130,Twiggs,2890,Twiggs,8179
+G1302910,1850,Georgia,130,Union,2910,Union,7234
+G1302930,1850,Georgia,130,Upson,2930,Upson,9424
+G1302950,1850,Georgia,130,Walker,2950,Walker,13109
+G1302970,1850,Georgia,130,Walton,2970,Walton,10821
+G1302990,1850,Georgia,130,Ware,2990,Ware,3888
+G1303010,1850,Georgia,130,Warren,3010,Warren,12425
+G1303030,1850,Georgia,130,Washington,3030,Washington,11766
+G1303050,1850,Georgia,130,Wayne,3050,Wayne,1499
+G1303170,1850,Georgia,130,Wilkes,3170,Wilkes,12107
+G1303190,1850,Georgia,130,Wilkinson,3190,Wilkinson,8296
+G1700010,1850,Illinois,170,Adams,10,Adams,26508
+G1700030,1850,Illinois,170,Alexander,30,Alexander,2484
+G1700050,1850,Illinois,170,Bond,50,Bond,6144
+G1700070,1850,Illinois,170,Boone,70,Boone,7624
+G1700090,1850,Illinois,170,Brown,90,Brown,7198
+G1700110,1850,Illinois,170,Bureau,110,Bureau,8841
+G1700130,1850,Illinois,170,Calhoun,130,Calhoun,3231
+G1700150,1850,Illinois,170,Carroll,150,Carroll,4586
+G1700170,1850,Illinois,170,Cass,170,Cass,7253
+G1700190,1850,Illinois,170,Champaign,190,Champaign,2649
+G1700210,1850,Illinois,170,Christian,210,Christian,3203
+G1700230,1850,Illinois,170,Clark,230,Clark,9532
+G1700250,1850,Illinois,170,Clay,250,Clay,4289
+G1700270,1850,Illinois,170,Clinton,270,Clinton,5139
+G1700290,1850,Illinois,170,Coles,290,Coles,9335
+G1700310,1850,Illinois,170,Cook,310,Cook,43385
+G1700330,1850,Illinois,170,Crawford,330,Crawford,7135
+G1700350,1850,Illinois,170,Cumberland,350,Cumberland,3718
+G1700370,1850,Illinois,170,DeKalb,370,De Kalb,7540
+G1700390,1850,Illinois,170,De Witt,390,De Witt,5002
+G1700430,1850,Illinois,170,Du Page,430,Du Page,9290
+G1700450,1850,Illinois,170,Edgar,450,Edgar,10692
+G1700470,1850,Illinois,170,Edwards,470,Edwards,3524
+G1700490,1850,Illinois,170,Effingham,490,Effingham,3799
+G1700510,1850,Illinois,170,Fayette,510,Fayette,8075
+G1700550,1850,Illinois,170,Franklin,550,Franklin,5681
+G1700570,1850,Illinois,170,Fulton,570,Fulton,22508
+G1700590,1850,Illinois,170,Gallatin,590,Gallatin,5448
+G1700610,1850,Illinois,170,Greene,610,Greene,12429
+G1700630,1850,Illinois,170,Grundy,630,Grundy,3023
+G1700650,1850,Illinois,170,Hamilton,650,Hamilton,6362
+G1700670,1850,Illinois,170,Hancock,670,Hancock,14652
+G1700690,1850,Illinois,170,Hardin,690,Hardin,2887
+G1700710,1850,Illinois,170,Henderson,710,Henderson,4612
+G1700730,1850,Illinois,170,Henry,730,Henry,3807
+G1700750,1850,Illinois,170,Iroquois,750,Iroquois,4149
+G1700770,1850,Illinois,170,Jackson,770,Jackson,5862
+G1700790,1850,Illinois,170,Jasper,790,Jasper,3220
+G1700810,1850,Illinois,170,Jefferson,810,Jefferson,8109
+G1700830,1850,Illinois,170,Jersey,830,Jersey,7354
+G1700850,1850,Illinois,170,Jo Daviess,850,Jo Daviess,18604
+G1700870,1850,Illinois,170,Johnson,870,Johnson,4114
+G1700890,1850,Illinois,170,Kane,890,Kane,16703
+G1700930,1850,Illinois,170,Kendall,930,Kendall,7730
+G1700950,1850,Illinois,170,Knox,950,Knox,13279
+G1700970,1850,Illinois,170,Lake,970,Lake,14226
+G1700990,1850,Illinois,170,La Salle,990,La Salle,17815
+G1701010,1850,Illinois,170,Lawrence,1010,Lawrence,6121
+G1701030,1850,Illinois,170,Lee,1030,Lee,5292
+G1701050,1850,Illinois,170,Livingston,1050,Livingston,1552
+G1701070,1850,Illinois,170,Logan,1070,Logan,5128
+G1701090,1850,Illinois,170,McDonough,1090,Mcdonough,7616
+G1701110,1850,Illinois,170,McHenry,1110,Mchenry,14978
+G1701130,1850,Illinois,170,McLean,1130,Mclean,10163
+G1701150,1850,Illinois,170,Macon,1150,Macon,3988
+G1701170,1850,Illinois,170,Macoupin,1170,Macoupin,12355
+G1701190,1850,Illinois,170,Madison,1190,Madison,20441
+G1701210,1850,Illinois,170,Marion,1210,Marion,6720
+G1701230,1850,Illinois,170,Marshall,1230,Marshall,5180
+G1701250,1850,Illinois,170,Mason,1250,Mason,5921
+G1701270,1850,Illinois,170,Massac,1270,Massac,4092
+G1701290,1850,Illinois,170,Menard,1290,Menard,6349
+G1701310,1850,Illinois,170,Mercer,1310,Mercer,5246
+G1701330,1850,Illinois,170,Monroe,1330,Monroe,7679
+G1701350,1850,Illinois,170,Montgomery,1350,Montgomery,6277
+G1701370,1850,Illinois,170,Morgan,1370,Morgan,16064
+G1701390,1850,Illinois,170,Moultrie,1390,Moultrie,3234
+G1701410,1850,Illinois,170,Ogle,1410,Ogle,10020
+G1701430,1850,Illinois,170,Peoria,1430,Peoria,17547
+G1701450,1850,Illinois,170,Perry,1450,Perry,5278
+G1701470,1850,Illinois,170,Piatt,1470,Piatt,1606
+G1701490,1850,Illinois,170,Pike,1490,Pike,18819
+G1701510,1850,Illinois,170,Pope,1510,Pope,3975
+G1701530,1850,Illinois,170,Pulaski,1530,Pulaski,2265
+G1701550,1850,Illinois,170,Putnam,1550,Putnam,3924
+G1701570,1850,Illinois,170,Randolph,1570,Randolph,11079
+G1701590,1850,Illinois,170,Richland,1590,Richland,4012
+G1701610,1850,Illinois,170,Rock Island,1610,Rock Island,6937
+G1701630,1850,Illinois,170,St Clair,1630,St Clair,20180
+G1701650,1850,Illinois,170,Saline,1650,Saline,5588
+G1701670,1850,Illinois,170,Sangamon,1670,Sangamon,19228
+G1701690,1850,Illinois,170,Schuyler,1690,Schuyler,10573
+G1701710,1850,Illinois,170,Scott,1710,Scott,7914
+G1701730,1850,Illinois,170,Shelby,1730,Shelby,7807
+G1701750,1850,Illinois,170,Stark,1750,Stark,3710
+G1701770,1850,Illinois,170,Stephenson,1770,Stephenson,11666
+G1701790,1850,Illinois,170,Tazewell,1790,Tazewell,12052
+G1701810,1850,Illinois,170,Union,1810,Union,7615
+G1701830,1850,Illinois,170,Vermilion,1830,Vermilion,11492
+G1701850,1850,Illinois,170,Wabash,1850,Wabash,4690
+G1701870,1850,Illinois,170,Warren,1870,Warren,8176
+G1701890,1850,Illinois,170,Washington,1890,Washington,6953
+G1701910,1850,Illinois,170,Wayne,1910,Wayne,6825
+G1701930,1850,Illinois,170,White,1930,White,8925
+G1701950,1850,Illinois,170,Whiteside,1950,Whiteside,5361
+G1701970,1850,Illinois,170,Will,1970,Will,16703
+G1701990,1850,Illinois,170,Williamson,1990,Williamson,7216
+G1702010,1850,Illinois,170,Winnebago,2010,Winnebago,11773
+G1702030,1850,Illinois,170,Woodford,2030,Woodford,4415
+G1800010,1850,Indiana,180,Adams,10,Adams,5797
+G1800030,1850,Indiana,180,Allen,30,Allen,16919
+G1800050,1850,Indiana,180,Bartholomew,50,Bartholomew,12428
+G1800070,1850,Indiana,180,Benton,70,Benton,1144
+G1800090,1850,Indiana,180,Blackford,90,Blackford,2860
+G1800110,1850,Indiana,180,Boone,110,Boone,11631
+G1800130,1850,Indiana,180,Brown,130,Brown,4846
+G1800150,1850,Indiana,180,Carroll,150,Carroll,11015
+G1800170,1850,Indiana,180,Cass,170,Cass,11021
+G1800190,1850,Indiana,180,Clark,190,Clark,15828
+G1800210,1850,Indiana,180,Clay,210,Clay,7944
+G1800230,1850,Indiana,180,Clinton,230,Clinton,11869
+G1800250,1850,Indiana,180,Crawford,250,Crawford,6524
+G1800270,1850,Indiana,180,Daviess,270,Daviess,10352
+G1800290,1850,Indiana,180,Dearborn,290,Dearborn,20166
+G1800310,1850,Indiana,180,Decatur,310,Decatur,15107
+G1800330,1850,Indiana,180,DeKalb,330,De Kalb,8251
+G1800350,1850,Indiana,180,Delaware,350,Delaware,10843
+G1800370,1850,Indiana,180,Dubois,370,Dubois,6321
+G1800390,1850,Indiana,180,Elkhart,390,Elkhart,12690
+G1800410,1850,Indiana,180,Fayette,410,Fayette,10217
+G1800430,1850,Indiana,180,Floyd,430,Floyd,14875
+G1800450,1850,Indiana,180,Fountain,450,Fountain,13253
+G1800470,1850,Indiana,180,Franklin,470,Franklin,17968
+G1800490,1850,Indiana,180,Fulton,490,Fulton,5982
+G1800510,1850,Indiana,180,Gibson,510,Gibson,10771
+G1800530,1850,Indiana,180,Grant,530,Grant,11092
+G1800550,1850,Indiana,180,Greene,550,Greene,12313
+G1800570,1850,Indiana,180,Hamilton,570,Hamilton,12684
+G1800590,1850,Indiana,180,Hancock,590,Hancock,9698
+G1800610,1850,Indiana,180,Harrison,610,Harrison,15286
+G1800630,1850,Indiana,180,Hendricks,630,Hendricks,14083
+G1800650,1850,Indiana,180,Henry,650,Henry,17605
+G1800670,1850,Indiana,180,Howard,670,Howard,6657
+G1800690,1850,Indiana,180,Huntington,690,Huntington,7850
+G1800710,1850,Indiana,180,Jackson,710,Jackson,11047
+G1800730,1850,Indiana,180,Jasper,730,Jasper,3540
+G1800750,1850,Indiana,180,Jay,750,Jay,7047
+G1800770,1850,Indiana,180,Jefferson,770,Jefferson,23916
+G1800790,1850,Indiana,180,Jennings,790,Jennings,12096
+G1800810,1850,Indiana,180,Johnson,810,Johnson,12101
+G1800830,1850,Indiana,180,Knox,830,Knox,11084
+G1800850,1850,Indiana,180,Kosciusko,850,Kosciusko,10243
+G1800870,1850,Indiana,180,Lagrange,870,Lagrange,8387
+G1800890,1850,Indiana,180,Lake,890,Lake,3991
+G1800910,1850,Indiana,180,LaPorte,910,Laporte,12145
+G1800930,1850,Indiana,180,Lawrence,930,Lawrence,12097
+G1800950,1850,Indiana,180,Madison,950,Madison,12375
+G1800970,1850,Indiana,180,Marion,970,Marion,24103
+G1800990,1850,Indiana,180,Marshall,990,Marshall,5348
+G1801010,1850,Indiana,180,Martin,1010,Martin,5941
+G1801030,1850,Indiana,180,Miami,1030,Miami,11304
+G1801050,1850,Indiana,180,Monroe,1050,Monroe,11286
+G1801070,1850,Indiana,180,Montgomery,1070,Montgomery,18084
+G1801090,1850,Indiana,180,Morgan,1090,Morgan,14576
+G1801130,1850,Indiana,180,Noble,1130,Noble,7946
+G1801150,1850,Indiana,180,Ohio,1150,Ohio,5308
+G1801170,1850,Indiana,180,Orange,1170,Orange,10809
+G1801190,1850,Indiana,180,Owen,1190,Owen,12106
+G1801210,1850,Indiana,180,Parke,1210,Parke,14968
+G1801230,1850,Indiana,180,Perry,1230,Perry,7268
+G1801250,1850,Indiana,180,Pike,1250,Pike,7720
+G1801270,1850,Indiana,180,Porter,1270,Porter,5234
+G1801290,1850,Indiana,180,Posey,1290,Posey,12549
+G1801310,1850,Indiana,180,Pulaski,1310,Pulaski,2595
+G1801330,1850,Indiana,180,Putnam,1330,Putnam,18615
+G1801350,1850,Indiana,180,Randolph,1350,Randolph,14725
+G1801370,1850,Indiana,180,Ripley,1370,Ripley,14820
+G1801390,1850,Indiana,180,Rush,1390,Rush,16445
+G1801410,1850,Indiana,180,St Joseph,1410,St Joseph,10954
+G1801430,1850,Indiana,180,Scott,1430,Scott,5885
+G1801450,1850,Indiana,180,Shelby,1450,Shelby,15502
+G1801470,1850,Indiana,180,Spencer,1470,Spencer,8616
+G1801490,1850,Indiana,180,Starke,1490,Starke,557
+G1801510,1850,Indiana,180,Steuben,1510,Steuben,6104
+G1801530,1850,Indiana,180,Sullivan,1530,Sullivan,10141
+G1801550,1850,Indiana,180,Switzerland,1550,Switzerland,12932
+G1801570,1850,Indiana,180,Tippecanoe,1570,Tippecanoe,19377
+G1801590,1850,Indiana,180,Tipton,1590,Tipton,3532
+G1801610,1850,Indiana,180,Union,1610,Union,6944
+G1801630,1850,Indiana,180,Vanderburgh,1630,Vanderburgh,11414
+G1801650,1850,Indiana,180,Vermillion,1650,Vermillion,8661
+G1801670,1850,Indiana,180,Vigo,1670,Vigo,15289
+G1801690,1850,Indiana,180,Wabash,1690,Wabash,12138
+G1801710,1850,Indiana,180,Warren,1710,Warren,7387
+G1801730,1850,Indiana,180,Warrick,1730,Warrick,8811
+G1801750,1850,Indiana,180,Washington,1750,Washington,17040
+G1801770,1850,Indiana,180,Wayne,1770,Wayne,25320
+G1801790,1850,Indiana,180,Wells,1790,Wells,6152
+G1801810,1850,Indiana,180,White,1810,White,4761
+G1801830,1850,Indiana,180,Whitley,1830,Whitley,5190
+G1900050,1850,Iowa,190,Allamakee,50,Allamakee,777
+G1900070,1850,Iowa,190,Appanoose,70,Appanoose,3131
+G1900110,1850,Iowa,190,Benton,110,Benton,672
+G1900130,1850,Iowa,190,Black Hawk,130,Black Hawk,135
+G1900150,1850,Iowa,190,Boone,150,Boone,735
+G1900190,1850,Iowa,190,Buchanan,190,Buchanan,517
+G1900310,1850,Iowa,190,Cedar,310,Cedar,3941
+G1900390,1850,Iowa,190,Clarke,390,Clarke,79
+G1900430,1850,Iowa,190,Clayton,430,Clayton,3873
+G1900450,1850,Iowa,190,Clinton,450,Clinton,2822
+G1900490,1850,Iowa,190,Dallas,490,Dallas,854
+G1900510,1850,Iowa,190,Davis,510,Davis,7264
+G1900530,1850,Iowa,190,Decatur,530,Decatur,965
+G1900550,1850,Iowa,190,Delaware,550,Delaware,1759
+G1900570,1850,Iowa,190,Des Moines,570,Des Moines,12988
+G1900610,1850,Iowa,190,Dubuque,610,Dubuque,10841
+G1900650,1850,Iowa,190,Fayette,650,Fayette,825
+G1900710,1850,Iowa,190,Fremont,710,Fremont,1244
+G1900870,1850,Iowa,190,Henry,870,Henry,8707
+G1900950,1850,Iowa,190,Iowa,950,Iowa,822
+G1900970,1850,Iowa,190,Jackson,970,Jackson,7210
+G1900990,1850,Iowa,190,Jasper,990,Jasper,1280
+G1901010,1850,Iowa,190,Jefferson,1010,Jefferson,9904
+G1901030,1850,Iowa,190,Johnson,1030,Johnson,4472
+G1901050,1850,Iowa,190,Jones,1050,Jones,3007
+G1901070,1850,Iowa,190,Keokuk,1070,Keokuk,4822
+G1901110,1850,Iowa,190,Lee,1110,Lee,18861
+G1901130,1850,Iowa,190,Linn,1130,Linn,5444
+G1901150,1850,Iowa,190,Louisa,1150,Louisa,4939
+G1901170,1850,Iowa,190,Lucas,1170,Lucas,471
+G1901210,1850,Iowa,190,Madison,1210,Madison,1179
+G1901230,1850,Iowa,190,Mahaska,1230,Mahaska,5989
+G1901250,1850,Iowa,190,Marion,1250,Marion,5482
+G1901270,1850,Iowa,190,Marshall,1270,Marshall,338
+G1901350,1850,Iowa,190,Monroe,1350,Monroe,2884
+G1901390,1850,Iowa,190,Muscatine,1390,Muscatine,5731
+G1901450,1850,Iowa,190,Page,1450,Page,551
+G1901530,1850,Iowa,190,Polk,1530,Polk,4513
+G1901550,1850,Iowa,190,Pottawattamie,1550,Pottawattamie,7828
+G1901570,1850,Iowa,190,Poweshiek,1570,Poweshiek,615
+G1901630,1850,Iowa,190,Scott,1630,Scott,5986
+G1901710,1850,Iowa,190,Tama,1710,Tama,8
+G1901730,1850,Iowa,190,Taylor,1730,Taylor,204
+G1901770,1850,Iowa,190,Van Buren,1770,Van Buren,12270
+G1901790,1850,Iowa,190,Wapello,1790,Wapello,8471
+G1901810,1850,Iowa,190,Warren,1810,Warren,961
+G1901830,1850,Iowa,190,Washington,1830,Washington,4957
+G1901850,1850,Iowa,190,Wayne,1850,Wayne,340
+G1901910,1850,Iowa,190,Winneshiek,1910,Winneshiek,546
+G2100010,1850,Kentucky,210,Adair,10,Adair,9898
+G2100030,1850,Kentucky,210,Allen,30,Allen,8742
+G2100050,1850,Kentucky,210,Anderson,50,Anderson,6260
+G2100070,1850,Kentucky,210,Ballard,70,Ballard,5496
+G2100090,1850,Kentucky,210,Barren,90,Barren,20240
+G2100110,1850,Kentucky,210,Bath,110,Bath,12115
+G2100150,1850,Kentucky,210,Boone,150,Boone,11185
+G2100170,1850,Kentucky,210,Bourbon,170,Bourbon,14466
+G2100210,1850,Kentucky,210,Boyle,210,Boyle,9116
+G2100230,1850,Kentucky,210,Bracken,230,Bracken,8903
+G2100250,1850,Kentucky,210,Breathitt,250,Breathitt,3785
+G2100270,1850,Kentucky,210,Breckinridge,270,Breckinridge,10593
+G2100290,1850,Kentucky,210,Bullitt,290,Bullitt,6774
+G2100310,1850,Kentucky,210,Butler,310,Butler,5755
+G2100330,1850,Kentucky,210,Caldwell,330,Caldwell,13048
+G2100350,1850,Kentucky,210,Calloway,350,Calloway,8096
+G2100370,1850,Kentucky,210,Campbell,370,Campbell,13127
+G2100410,1850,Kentucky,210,Carroll,410,Carroll,5526
+G2100430,1850,Kentucky,210,Carter,430,Carter,6241
+G2100450,1850,Kentucky,210,Casey,450,Casey,6556
+G2100470,1850,Kentucky,210,Christian,470,Christian,19580
+G2100490,1850,Kentucky,210,Clark,490,Clark,12683
+G2100510,1850,Kentucky,210,Clay,510,Clay,5421
+G2100530,1850,Kentucky,210,Clinton,530,Clinton,4889
+G2100550,1850,Kentucky,210,Crittenden,550,Crittenden,6351
+G2100570,1850,Kentucky,210,Cumberland,570,Cumberland,7005
+G2100590,1850,Kentucky,210,Daviess,590,Daviess,12362
+G2100610,1850,Kentucky,210,Edmonson,610,Edmonson,4088
+G2100650,1850,Kentucky,210,Estill,650,Estill,5985
+G2100670,1850,Kentucky,210,Fayette,670,Fayette,22735
+G2100690,1850,Kentucky,210,Fleming,690,Fleming,13914
+G2100710,1850,Kentucky,210,Floyd,710,Floyd,5714
+G2100730,1850,Kentucky,210,Franklin,730,Franklin,12462
+G2100750,1850,Kentucky,210,Fulton,750,Fulton,4446
+G2100770,1850,Kentucky,210,Gallatin,770,Gallatin,5137
+G2100790,1850,Kentucky,210,Garrard,790,Garrard,10237
+G2100810,1850,Kentucky,210,Grant,810,Grant,6531
+G2100830,1850,Kentucky,210,Graves,830,Graves,11397
+G2100850,1850,Kentucky,210,Grayson,850,Grayson,6837
+G2100870,1850,Kentucky,210,Green,870,Green,9060
+G2100890,1850,Kentucky,210,Greenup,890,Greenup,9654
+G2100910,1850,Kentucky,210,Hancock,910,Hancock,3853
+G2100930,1850,Kentucky,210,Hardin,930,Hardin,14525
+G2100950,1850,Kentucky,210,Harlan,950,Harlan,4268
+G2100970,1850,Kentucky,210,Harrison,970,Harrison,13064
+G2100990,1850,Kentucky,210,Hart,990,Hart,9093
+G2101010,1850,Kentucky,210,Henderson,1010,Henderson,12171
+G2101030,1850,Kentucky,210,Henry,1030,Henry,11442
+G2101050,1850,Kentucky,210,Hickman,1050,Hickman,4791
+G2101070,1850,Kentucky,210,Hopkins,1070,Hopkins,12441
+G2101110,1850,Kentucky,210,Jefferson,1110,Jefferson,59831
+G2101130,1850,Kentucky,210,Jessamine,1130,Jessamine,10249
+G2101150,1850,Kentucky,210,Johnson,1150,Johnson,3873
+G2101170,1850,Kentucky,210,Kenton,1170,Kenton,17038
+G2101210,1850,Kentucky,210,Knox,1210,Knox,7050
+G2101230,1850,Kentucky,210,Larue,1230,Larue,5859
+G2101250,1850,Kentucky,210,Laurel,1250,Laurel,4145
+G2101270,1850,Kentucky,210,Lawrence,1270,Lawrence,6281
+G2101330,1850,Kentucky,210,Letcher,1330,Letcher,2512
+G2101350,1850,Kentucky,210,Lewis,1350,Lewis,7202
+G2101370,1850,Kentucky,210,Lincoln,1370,Lincoln,10093
+G2101390,1850,Kentucky,210,Livingston,1390,Livingston,6578
+G2101410,1850,Kentucky,210,Logan,1410,Logan,16581
+G2101450,1850,Kentucky,210,McCracken,1450,Mccracken,6067
+G2101510,1850,Kentucky,210,Madison,1510,Madison,15727
+G2101550,1850,Kentucky,210,Marion,1550,Marion,11765
+G2101570,1850,Kentucky,210,Marshall,1570,Marshall,5269
+G2101610,1850,Kentucky,210,Mason,1610,Mason,18344
+G2101630,1850,Kentucky,210,Meade,1630,Meade,7393
+G2101670,1850,Kentucky,210,Mercer,1670,Mercer,14067
+G2101710,1850,Kentucky,210,Monroe,1710,Monroe,7756
+G2101730,1850,Kentucky,210,Montgomery,1730,Montgomery,9903
+G2101750,1850,Kentucky,210,Morgan,1750,Morgan,7620
+G2101770,1850,Kentucky,210,Muhlenberg,1770,Muhlenberg,9809
+G2101790,1850,Kentucky,210,Nelson,1790,Nelson,14789
+G2101810,1850,Kentucky,210,Nicholas,1810,Nicholas,10361
+G2101830,1850,Kentucky,210,Ohio,1830,Ohio,9749
+G2101850,1850,Kentucky,210,Oldham,1850,Oldham,7629
+G2101870,1850,Kentucky,210,Owen,1870,Owen,10444
+G2101890,1850,Kentucky,210,Owsley,1890,Owsley,3774
+G2101910,1850,Kentucky,210,Pendleton,1910,Pendleton,6774
+G2101930,1850,Kentucky,210,Perry,1930,Perry,3092
+G2101950,1850,Kentucky,210,Pike,1950,Pike,5365
+G2101990,1850,Kentucky,210,Pulaski,1990,Pulaski,14195
+G2102030,1850,Kentucky,210,Rockcastle,2030,Rockcastle,4697
+G2102070,1850,Kentucky,210,Russell,2070,Russell,5349
+G2102090,1850,Kentucky,210,Scott,2090,Scott,14946
+G2102110,1850,Kentucky,210,Shelby,2110,Shelby,17095
+G2102130,1850,Kentucky,210,Simpson,2130,Simpson,7733
+G2102150,1850,Kentucky,210,Spencer,2150,Spencer,6842
+G2102170,1850,Kentucky,210,Taylor,2170,Taylor,7250
+G2102190,1850,Kentucky,210,Todd,2190,Todd,12268
+G2102210,1850,Kentucky,210,Trigg,2210,Trigg,10129
+G2102230,1850,Kentucky,210,Trimble,2230,Trimble,5963
+G2102250,1850,Kentucky,210,Union,2250,Union,9012
+G2102270,1850,Kentucky,210,Warren,2270,Warren,15123
+G2102290,1850,Kentucky,210,Washington,2290,Washington,12194
+G2102310,1850,Kentucky,210,Wayne,2310,Wayne,8692
+G2102350,1850,Kentucky,210,Whitley,2350,Whitley,7447
+G2102390,1850,Kentucky,210,Woodford,2390,Woodford,12423
+G2200050,1850,Louisiana,220,Ascension,50,Ascension,10752
+G2200070,1850,Louisiana,220,Assumption,70,Assumption,10538
+G2200090,1850,Louisiana,220,Avoyelles,90,Avoyelles,9326
+G2200130,1850,Louisiana,220,Bienville,130,Bienville,5539
+G2200150,1850,Louisiana,220,Bossier,150,Bossier,6962
+G2200170,1850,Louisiana,220,Caddo,170,Caddo,8884
+G2200190,1850,Louisiana,220,Calcasieu,190,Calcasieu,3914
+G2200210,1850,Louisiana,220,Caldwell,210,Caldwell,2815
+G2200235,1850,Louisiana,220,Carroll,235,Carroll,8789
+G2200250,1850,Louisiana,220,Catahoula,250,Catahoula,7132
+G2200270,1850,Louisiana,220,Claiborne,270,Claiborne,7471
+G2200290,1850,Louisiana,220,Concordia,290,Concordia,7758
+G2200310,1850,Louisiana,220,De Soto,310,De Soto,8023
+G2200330,1850,Louisiana,220,East Baton Rouge,330,East Baton Rouge,11977
+G2200370,1850,Louisiana,220,East Feliciana,370,East Feliciana,13598
+G2200410,1850,Louisiana,220,Franklin,410,Franklin,3251
+G2200470,1850,Louisiana,220,Iberville,470,Iberville,12278
+G2200490,1850,Louisiana,220,Jackson,490,Jackson,5566
+G2200510,1850,Louisiana,220,Jefferson,510,Jefferson,25093
+G2200550,1850,Louisiana,220,Lafayette,550,Lafayette,6720
+G2200570,1850,Louisiana,220,Lafourche,570,Lafourche,9532
+G2200630,1850,Louisiana,220,Livingston,630,Livingston,3385
+G2200650,1850,Louisiana,220,Madison,650,Madison,8773
+G2200670,1850,Louisiana,220,Morehouse,670,Morehouse,3913
+G2200690,1850,Louisiana,220,Natchitoches,690,Natchitoches,14228
+G2200710,1850,Louisiana,220,Orleans,710,Orleans,119460
+G2200730,1850,Louisiana,220,Ouachita,730,Ouachita,5008
+G2200750,1850,Louisiana,220,Plaquemines,750,Plaquemines,7390
+G2200770,1850,Louisiana,220,Pointe Coupee,770,Pointe Coupee,11339
+G2200790,1850,Louisiana,220,Rapides,790,Rapides,16561
+G2200850,1850,Louisiana,220,Sabine,850,Sabine,4515
+G2200870,1850,Louisiana,220,St Bernard,870,St Bernard,3802
+G2200890,1850,Louisiana,220,St Charles,890,St Charles,5120
+G2200910,1850,Louisiana,220,St Helena,910,St Helena,4561
+G2200930,1850,Louisiana,220,St James,930,St James,11098
+G2200950,1850,Louisiana,220,St John The Baptist,950,St John The Baptist,7317
+G2200970,1850,Louisiana,220,St Landry,970,St Landry,22253
+G2200990,1850,Louisiana,220,St Martin,990,St Martin,11761
+G2201010,1850,Louisiana,220,St Mary,1010,St Mary,13697
+G2201030,1850,Louisiana,220,St Tammany,1030,St Tammany,6364
+G2201070,1850,Louisiana,220,Tensas,1070,Tensas,9040
+G2201090,1850,Louisiana,220,Terrebonne,1090,Terrebonne,7724
+G2201110,1850,Louisiana,220,Union,1110,Union,8203
+G2201130,1850,Louisiana,220,Vermillion,1130,Vermillion,3409
+G2201170,1850,Louisiana,220,Washington,1170,Washington,3408
+G2201210,1850,Louisiana,220,West Baton Rouge,1210,West Baton Rouge,6270
+G2201250,1850,Louisiana,220,West Feliciana,1250,West Feliciana,13245
+G2300030,1850,Maine,230,Aroostook,30,Aroostook,12529
+G2300050,1850,Maine,230,Cumberland,50,Cumberland,79538
+G2300070,1850,Maine,230,Franklin,70,Franklin,20027
+G2300090,1850,Maine,230,Hancock,90,Hancock,34372
+G2300110,1850,Maine,230,Kennebec,110,Kennebec,62521
+G2300150,1850,Maine,230,Lincoln,150,Lincoln,74875
+G2300170,1850,Maine,230,Oxford,170,Oxford,39763
+G2300190,1850,Maine,230,Penobscot,190,Penobscot,63089
+G2300210,1850,Maine,230,Piscataquis,210,Piscataquis,14735
+G2300250,1850,Maine,230,Somerset,250,Somerset,35581
+G2300270,1850,Maine,230,Waldo,270,Waldo,47230
+G2300290,1850,Maine,230,Washington,290,Washington,38811
+G2300310,1850,Maine,230,York,310,York,60098
+G2400010,1850,Maryland,240,Allegany,10,Allegany,22769
+G2400030,1850,Maryland,240,Anne Arundel,30,Anne Arundel,32393
+G2400050,1850,Maryland,240,Baltimore,50,Baltimore,210646
+G2400090,1850,Maryland,240,Calvert,90,Calvert,9646
+G2400110,1850,Maryland,240,Caroline,110,Caroline,9692
+G2400130,1850,Maryland,240,Carroll,130,Carroll,20616
+G2400150,1850,Maryland,240,Cecil,150,Cecil,18939
+G2400170,1850,Maryland,240,Charles,170,Charles,16162
+G2400190,1850,Maryland,240,Dorchester,190,Dorchester,18877
+G2400210,1850,Maryland,240,Frederick,210,Frederick,40987
+G2400250,1850,Maryland,240,Harford,250,Harford,19356
+G2400290,1850,Maryland,240,Kent,290,Kent,11386
+G2400310,1850,Maryland,240,Montgomery,310,Montgomery,15860
+G2400330,1850,Maryland,240,Prince Georges,330,Prince Georges,21549
+G2400350,1850,Maryland,240,Queen Anne's,350,Queen Anne's,14484
+G2400370,1850,Maryland,240,St Mary's,370,St Mary's,13698
+G2400390,1850,Maryland,240,Somerset,390,Somerset,22456
+G2400410,1850,Maryland,240,Talbot,410,Talbot,13811
+G2400430,1850,Maryland,240,Washington,430,Washington,30848
+G2400470,1850,Maryland,240,Worcester,470,Worcester,18859
+G2500010,1850,Massachusetts,250,Barnstable,10,Barnstable,35276
+G2500030,1850,Massachusetts,250,Berkshire,30,Berkshire,49591
+G2500050,1850,Massachusetts,250,Bristol,50,Bristol,76192
+G2500070,1850,Massachusetts,250,Dukes,70,Dukes,4540
+G2500090,1850,Massachusetts,250,Essex,90,Essex,131300
+G2500110,1850,Massachusetts,250,Franklin,110,Franklin,30870
+G2500130,1850,Massachusetts,250,Hampden,130,Hampden,51283
+G2500150,1850,Massachusetts,250,Hampshire,150,Hampshire,35732
+G2500170,1850,Massachusetts,250,Middlesex,170,Middlesex,161383
+G2500190,1850,Massachusetts,250,Nantucket,190,Nantucket,8452
+G2500210,1850,Massachusetts,250,Norfolk,210,Norfolk,78892
+G2500230,1850,Massachusetts,250,Plymouth,230,Plymouth,55697
+G2500250,1850,Massachusetts,250,Suffolk,250,Suffolk,144517
+G2500270,1850,Massachusetts,250,Worcester,270,Worcester,130789
+G2600050,1850,Michigan,260,Allegan,50,Allegan,5125
+G2600150,1850,Michigan,260,Barry,150,Barry,5072
+G2600210,1850,Michigan,260,Berrien,210,Berrien,11417
+G2600230,1850,Michigan,260,Branch,230,Branch,12472
+G2600250,1850,Michigan,260,Calhoun,250,Calhoun,19162
+G2600270,1850,Michigan,260,Cass,270,Cass,10907
+G2600330,1850,Michigan,260,Chippewa,330,Chippewa,898
+G2600370,1850,Michigan,260,Clinton,370,Clinton,5102
+G2600450,1850,Michigan,260,Eaton,450,Eaton,7058
+G2600490,1850,Michigan,260,Genesee,490,Genesee,12031
+G2600590,1850,Michigan,260,Hillsdale,590,Hillsdale,16159
+G2600610,1850,Michigan,260,Houghton,610,Houghton,708
+G2600630,1850,Michigan,260,Huron,630,Huron,210
+G2600650,1850,Michigan,260,Ingham,650,Ingham,8631
+G2600670,1850,Michigan,260,Ionia,670,Ionia,7597
+G2600750,1850,Michigan,260,Jackson,750,Jackson,19431
+G2600770,1850,Michigan,260,Kalamazoo,770,Kalamazoo,13179
+G2600810,1850,Michigan,260,Kent,810,Kent,12016
+G2600870,1850,Michigan,260,Lapeer,870,Lapeer,7029
+G2600910,1850,Michigan,260,Lenawee,910,Lenawee,26372
+G2600930,1850,Michigan,260,Livingston,930,Livingston,13485
+G2600990,1850,Michigan,260,Macomb,990,Macomb,15530
+G2601030,1850,Michigan,260,Marquette,1030,Marquette,136
+G2601050,1850,Michigan,260,Mason,1050,Mason,93
+G2601095,1850,Michigan,260,Michilimackinac,1095,Michilimackinac,3598
+G2601110,1850,Michigan,260,Midland,1110,Midland,65
+G2601150,1850,Michigan,260,Monroe,1150,Monroe,14698
+G2601170,1850,Michigan,260,Montcalm,1170,Montcalm,891
+G2601230,1850,Michigan,260,Newaygo,1230,Newaygo,510
+G2601250,1850,Michigan,260,Oakland,1250,Oakland,31270
+G2601270,1850,Michigan,260,Oceana,1270,Oceana,300
+G2601310,1850,Michigan,260,Ontonagon,1310,Ontonagon,389
+G2601390,1850,Michigan,260,Ottawa,1390,Ottawa,5587
+G2601450,1850,Michigan,260,Saginaw,1450,Saginaw,2609
+G2601470,1850,Michigan,260,St Clair,1470,St Clair,10420
+G2601490,1850,Michigan,260,St Joseph,1490,St Joseph,12725
+G2601510,1850,Michigan,260,Sanilac,1510,Sanilac,2112
+G2601530,1850,Michigan,260,Schoolcraft,1530,Schoolcraft,16
+G2601550,1850,Michigan,260,Shiawassee,1550,Shiawassee,5230
+G2601570,1850,Michigan,260,Tuscola,1570,Tuscola,291
+G2601590,1850,Michigan,260,Van Buren,1590,Van Buren,5800
+G2601610,1850,Michigan,260,Washtenaw,1610,Washtenaw,28567
+G2601630,1850,Michigan,260,Wayne,1630,Wayne,42756
+G2750015,1850,Minnesota Territory,275,Benton,15,Benton,418
+G2750035,1850,Minnesota Territory,275,Dakotah,35,Dakotah,584
+G2750055,1850,Minnesota Territory,275,Itasca,55,Itasca,97
+G2750075,1850,Minnesota Territory,275,Mankahta,75,Mankahta,158
+G2750095,1850,Minnesota Territory,275,Pembina,95,Pembina,1134
+G2750115,1850,Minnesota Territory,275,Ramsey,115,Ramsey,2227
+G2750135,1850,Minnesota Territory,275,Wabasha,135,Wabasha,243
+G2750155,1850,Minnesota Territory,275,Wahnahta,155,Wahnahta,160
+G2750165,1850,Minnesota Territory,275,Wahnahta-Mankahta [multi-county reporting area],165,Wahnahta-Mankahta (multi-county reporting area),
+G2750175,1850,Minnesota Territory,275,Washington,175,Washington,1056
+G2800010,1850,Mississippi,280,Adams,10,Adams,18601
+G2800050,1850,Mississippi,280,Amite,50,Amite,9694
+G2800070,1850,Mississippi,280,Attala,70,Attala,10991
+G2800110,1850,Mississippi,280,Bolivar,110,Bolivar,2577
+G2800150,1850,Mississippi,280,Carroll,150,Carroll,18491
+G2800170,1850,Mississippi,280,Chickasaw,170,Chickasaw,16369
+G2800190,1850,Mississippi,280,Choctaw,190,Choctaw,11402
+G2800210,1850,Mississippi,280,Claiborne,210,Claiborne,14941
+G2800230,1850,Mississippi,280,Clarke,230,Clarke,5477
+G2800270,1850,Mississippi,280,Coahoma,270,Coahoma,2780
+G2800290,1850,Mississippi,280,Copiah,290,Copiah,11794
+G2800310,1850,Mississippi,280,Covington,310,Covington,3338
+G2800330,1850,Mississippi,280,De Soto,330,De Soto,19042
+G2800370,1850,Mississippi,280,Franklin,370,Franklin,5904
+G2800410,1850,Mississippi,280,Greene,410,Greene,2018
+G2800450,1850,Mississippi,280,Hancock,450,Hancock,3672
+G2800470,1850,Mississippi,280,Harrison,470,Harrison,4875
+G2800490,1850,Mississippi,280,Hinds,490,Hinds,25340
+G2800510,1850,Mississippi,280,Holmes,510,Holmes,13928
+G2800550,1850,Mississippi,280,Issaquena,550,Issaquena,4478
+G2800570,1850,Mississippi,280,Itawamba,570,Itawamba,13528
+G2800590,1850,Mississippi,280,Jackson,590,Jackson,3196
+G2800610,1850,Mississippi,280,Jasper,610,Jasper,6184
+G2800630,1850,Mississippi,280,Jefferson,630,Jefferson,13193
+G2800670,1850,Mississippi,280,Jones,670,Jones,2164
+G2800690,1850,Mississippi,280,Kemper,690,Kemper,12517
+G2800710,1850,Mississippi,280,Lafayette,710,Lafayette,14069
+G2800750,1850,Mississippi,280,Lauderdale,750,Lauderdale,8717
+G2800770,1850,Mississippi,280,Lawrence,770,Lawrence,6478
+G2800790,1850,Mississippi,280,Leake,790,Leake,5533
+G2800870,1850,Mississippi,280,Lowndes,870,Lowndes,19544
+G2800890,1850,Mississippi,280,Madison,890,Madison,18173
+G2800910,1850,Mississippi,280,Marion,910,Marion,4410
+G2800930,1850,Mississippi,280,Marshall,930,Marshall,29689
+G2800950,1850,Mississippi,280,Monroe,950,Monroe,21172
+G2800990,1850,Mississippi,280,Neshoba,990,Neshoba,4728
+G2801010,1850,Mississippi,280,Newton,1010,Newton,4465
+G2801030,1850,Mississippi,280,Noxubee,1030,Noxubee,16299
+G2801050,1850,Mississippi,280,Oktibbeha,1050,Oktibbeha,9171
+G2801070,1850,Mississippi,280,Panola,1070,Panola,11444
+G2801110,1850,Mississippi,280,Perry,1110,Perry,2438
+G2801130,1850,Mississippi,280,Pike,1130,Pike,7360
+G2801150,1850,Mississippi,280,Pontotoc,1150,Pontotoc,17112
+G2801210,1850,Mississippi,280,Rankin,1210,Rankin,7227
+G2801230,1850,Mississippi,280,Scott,1230,Scott,3961
+G2801270,1850,Mississippi,280,Simpson,1270,Simpson,4734
+G2801290,1850,Mississippi,280,Smith,1290,Smith,4071
+G2801330,1850,Mississippi,280,Sunflower,1330,Sunflower,1102
+G2801350,1850,Mississippi,280,Tallahatchie,1350,Tallahatchie,4643
+G2801390,1850,Mississippi,280,Tippah,1390,Tippah,20741
+G2801410,1850,Mississippi,280,Tishomingo,1410,Tishomingo,15490
+G2801430,1850,Mississippi,280,Tunica,1430,Tunica,1314
+G2801490,1850,Mississippi,280,Warren,1490,Warren,18120
+G2801510,1850,Mississippi,280,Washington,1510,Washington,8389
+G2801530,1850,Mississippi,280,Wayne,1530,Wayne,2892
+G2801570,1850,Mississippi,280,Wilkinson,1570,Wilkinson,16914
+G2801590,1850,Mississippi,280,Winston,1590,Winston,7956
+G2801610,1850,Mississippi,280,Yalobusha,1610,Yalobusha,17258
+G2801630,1850,Mississippi,280,Yazoo,1630,Yazoo,14418
+G2900010,1850,Missouri,290,Adair,10,Adair,2342
+G2900030,1850,Missouri,290,Andrew,30,Andrew,9433
+G2900050,1850,Missouri,290,Atchison,50,Atchison,1678
+G2900070,1850,Missouri,290,Audrain,70,Audrain,3506
+G2900090,1850,Missouri,290,Barry,90,Barry,3467
+G2900130,1850,Missouri,290,Bates,130,Bates,3669
+G2900150,1850,Missouri,290,Benton,150,Benton,5015
+G2900190,1850,Missouri,290,Boone,190,Boone,14979
+G2900210,1850,Missouri,290,Buchanan,210,Buchanan,12975
+G2900230,1850,Missouri,290,Butler,230,Butler,1616
+G2900250,1850,Missouri,290,Caldwell,250,Caldwell,2316
+G2900270,1850,Missouri,290,Callaway,270,Callaway,13827
+G2900290,1850,Missouri,290,Camden,290,Camden,2338
+G2900310,1850,Missouri,290,Cape Girardeau,310,Cape Girardeau,13912
+G2900330,1850,Missouri,290,Carroll,330,Carroll,5441
+G2900370,1850,Missouri,290,Cass,370,Cass,6090
+G2900390,1850,Missouri,290,Cedar,390,Cedar,3361
+G2900410,1850,Missouri,290,Chariton,410,Chariton,7514
+G2900450,1850,Missouri,290,Clark,450,Clark,5527
+G2900470,1850,Missouri,290,Clay,470,Clay,10332
+G2900490,1850,Missouri,290,Clinton,490,Clinton,3786
+G2900510,1850,Missouri,290,Cole,510,Cole,6696
+G2900530,1850,Missouri,290,Cooper,530,Cooper,12950
+G2900550,1850,Missouri,290,Crawford,550,Crawford,6397
+G2900570,1850,Missouri,290,Dade,570,Dade,4246
+G2900590,1850,Missouri,290,Dallas,590,Dallas,3648
+G2900610,1850,Missouri,290,Daviess,610,Daviess,5298
+G2900630,1850,Missouri,290,DeKalb,630,De Kalb,2075
+G2900655,1850,Missouri,290,Dodge,655,Dodge,375
+G2900690,1850,Missouri,290,Dunklin,690,Dunklin,1229
+G2900710,1850,Missouri,290,Franklin,710,Franklin,11021
+G2900730,1850,Missouri,290,Gasconade,730,Gasconade,4996
+G2900750,1850,Missouri,290,Gentry,750,Gentry,4248
+G2900770,1850,Missouri,290,Greene,770,Greene,12785
+G2900790,1850,Missouri,290,Grundy,790,Grundy,3006
+G2900810,1850,Missouri,290,Harrison,810,Harrison,2447
+G2900830,1850,Missouri,290,Henry,830,Henry,4052
+G2900850,1850,Missouri,290,Hickory,850,Hickory,2329
+G2900870,1850,Missouri,290,Holt,870,Holt,3957
+G2900890,1850,Missouri,290,Howard,890,Howard,13969
+G2900950,1850,Missouri,290,Jackson,950,Jackson,14000
+G2900970,1850,Missouri,290,Jasper,970,Jasper,4223
+G2900990,1850,Missouri,290,Jefferson,990,Jefferson,6928
+G2901010,1850,Missouri,290,Johnson,1010,Johnson,7464
+G2901030,1850,Missouri,290,Knox,1030,Knox,2894
+G2901050,1850,Missouri,290,Laclede,1050,Laclede,2498
+G2901070,1850,Missouri,290,Lafayette,1070,Lafayette,13690
+G2901090,1850,Missouri,290,Lawrence,1090,Lawrence,4859
+G2901110,1850,Missouri,290,Lewis,1110,Lewis,6578
+G2901130,1850,Missouri,290,Lincoln,1130,Lincoln,9421
+G2901150,1850,Missouri,290,Linn,1150,Linn,4058
+G2901170,1850,Missouri,290,Livingston,1170,Livingston,4247
+G2901190,1850,Missouri,290,McDonald,1190,Mcdonald,2236
+G2901210,1850,Missouri,290,Macon,1210,Macon,6565
+G2901230,1850,Missouri,290,Madison,1230,Madison,6003
+G2901270,1850,Missouri,290,Marion,1270,Marion,12230
+G2901290,1850,Missouri,290,Mercer,1290,Mercer,2691
+G2901310,1850,Missouri,290,Miller,1310,Miller,3834
+G2901330,1850,Missouri,290,Mississippi,1330,Mississippi,3123
+G2901350,1850,Missouri,290,Moniteau,1350,Moniteau,6004
+G2901370,1850,Missouri,290,Monroe,1370,Monroe,10541
+G2901390,1850,Missouri,290,Montgomery,1390,Montgomery,5489
+G2901410,1850,Missouri,290,Morgan,1410,Morgan,4650
+G2901430,1850,Missouri,290,New Madrid,1430,New Madrid,5541
+G2901450,1850,Missouri,290,Newton,1450,Newton,4268
+G2901470,1850,Missouri,290,Nodaway,1470,Nodaway,2118
+G2901490,1850,Missouri,290,Oregon,1490,Oregon,1432
+G2901510,1850,Missouri,290,Osage,1510,Osage,6704
+G2901530,1850,Missouri,290,Ozark,1530,Ozark,2294
+G2901570,1850,Missouri,290,Perry,1570,Perry,7215
+G2901590,1850,Missouri,290,Pettis,1590,Pettis,5150
+G2901630,1850,Missouri,290,Pike,1630,Pike,13609
+G2901650,1850,Missouri,290,Platte,1650,Platte,16845
+G2901670,1850,Missouri,290,Polk,1670,Polk,6186
+G2901690,1850,Missouri,290,Pulaski,1690,Pulaski,3998
+G2901710,1850,Missouri,290,Putnam,1710,Putnam,1636
+G2901730,1850,Missouri,290,Ralls,1730,Ralls,6151
+G2901750,1850,Missouri,290,Randolph,1750,Randolph,9439
+G2901770,1850,Missouri,290,Ray,1770,Ray,10373
+G2901790,1850,Missouri,290,Reynolds,1790,Reynolds,1849
+G2901810,1850,Missouri,290,Ripley,1810,Ripley,2830
+G2901830,1850,Missouri,290,St Charles,1830,St Charles,11454
+G2901850,1850,Missouri,290,St Clair,1850,St Clair,3556
+G2901860,1850,Missouri,290,Ste Genevieve,1860,Ste Genevieve,5313
+G2901870,1850,Missouri,290,St Francois,1870,St Francois,4964
+G2901890,1850,Missouri,290,St Louis,1890,St Louis,104978
+G2901950,1850,Missouri,290,Saline,1950,Saline,8843
+G2901970,1850,Missouri,290,Schuyler,1970,Schuyler,3287
+G2901990,1850,Missouri,290,Scotland,1990,Scotland,3782
+G2902010,1850,Missouri,290,Scott,2010,Scott,3182
+G2902030,1850,Missouri,290,Shannon,2030,Shannon,1199
+G2902050,1850,Missouri,290,Shelby,2050,Shelby,4253
+G2902070,1850,Missouri,290,Stoddard,2070,Stoddard,4277
+G2902110,1850,Missouri,290,Sullivan,2110,Sullivan,2983
+G2902130,1850,Missouri,290,Taney,2130,Taney,4373
+G2902150,1850,Missouri,290,Texas,2150,Texas,2312
+G2902190,1850,Missouri,290,Warren,2190,Warren,5860
+G2902210,1850,Missouri,290,Washington,2210,Washington,8811
+G2902230,1850,Missouri,290,Wayne,2230,Wayne,4518
+G2902290,1850,Missouri,290,Wright,2290,Wright,3387
+G3300010,1850,New Hampshire,330,Belknap,10,Belknap,17721
+G3300030,1850,New Hampshire,330,Carroll,30,Carroll,20157
+G3300050,1850,New Hampshire,330,Cheshire,50,Cheshire,30144
+G3300070,1850,New Hampshire,330,Coos,70,Coos,11853
+G3300090,1850,New Hampshire,330,Grafton,90,Grafton,42343
+G3300110,1850,New Hampshire,330,Hillsborough,110,Hillsborough,57478
+G3300130,1850,New Hampshire,330,Merrimack,130,Merrimack,40337
+G3300150,1850,New Hampshire,330,Rockingham,150,Rockingham,49194
+G3300170,1850,New Hampshire,330,Strafford,170,Strafford,29374
+G3300190,1850,New Hampshire,330,Sullivan,190,Sullivan,19375
+G3400010,1850,New Jersey,340,Atlantic,10,Atlantic,8961
+G3400030,1850,New Jersey,340,Bergen,30,Bergen,14725
+G3400050,1850,New Jersey,340,Burlington,50,Burlington,43203
+G3400070,1850,New Jersey,340,Camden,70,Camden,25422
+G3400090,1850,New Jersey,340,Cape May,90,Cape May,6433
+G3400110,1850,New Jersey,340,Cumberland,110,Cumberland,17189
+G3400130,1850,New Jersey,340,Essex,130,Essex,73950
+G3400150,1850,New Jersey,340,Gloucester,150,Gloucester,14655
+G3400170,1850,New Jersey,340,Hudson,170,Hudson,21822
+G3400190,1850,New Jersey,340,Hunterdon,190,Hunterdon,28990
+G3400210,1850,New Jersey,340,Mercer,210,Mercer,27992
+G3400230,1850,New Jersey,340,Middlesex,230,Middlesex,28635
+G3400250,1850,New Jersey,340,Monmouth,250,Monmouth,30313
+G3400270,1850,New Jersey,340,Morris,270,Morris,30158
+G3400290,1850,New Jersey,340,Ocean,290,Ocean,10032
+G3400310,1850,New Jersey,340,Passaic,310,Passaic,22569
+G3400330,1850,New Jersey,340,Salem,330,Salem,19467
+G3400350,1850,New Jersey,340,Somerset,350,Somerset,19692
+G3400370,1850,New Jersey,340,Sussex,370,Sussex,22989
+G3400410,1850,New Jersey,340,Warren,410,Warren,22358
+G3550035,1850,New Mexico Territory,355,Bernalillo,35,Bernalillo,7751
+G3550315,1850,New Mexico Territory,355,Rio Arriba,315,Rio Arriba,10668
+G3550395,1850,New Mexico Territory,355,San Miguel,395,San Miguel,7074
+G3550415,1850,New Mexico Territory,355,Santa Anna,415,Santa Anna,4645
+G3550435,1850,New Mexico Territory,355,Santa Fe,435,Santa Fe,7713
+G3550495,1850,New Mexico Territory,355,Taos,495,Taos,9507
+G3550555,1850,New Mexico Territory,355,Valencia,555,Valencia,14189
+G3600010,1850,New York,360,Albany,10,Albany,93279
+G3600030,1850,New York,360,Allegany,30,Allegany,37808
+G3600070,1850,New York,360,Broome,70,Broome,30660
+G3600090,1850,New York,360,Cattaraugus,90,Cattaraugus,38950
+G3600110,1850,New York,360,Cayuga,110,Cayuga,55458
+G3600130,1850,New York,360,Chautauqua,130,Chautauqua,50493
+G3600150,1850,New York,360,Chemung,150,Chemung,28821
+G3600170,1850,New York,360,Chenango,170,Chenango,40311
+G3600190,1850,New York,360,Clinton,190,Clinton,40047
+G3600210,1850,New York,360,Columbia,210,Columbia,43073
+G3600230,1850,New York,360,Cortland,230,Cortland,25140
+G3600250,1850,New York,360,Delaware,250,Delaware,39834
+G3600270,1850,New York,360,Dutchess,270,Dutchess,58992
+G3600290,1850,New York,360,Erie,290,Erie,100993
+G3600310,1850,New York,360,Essex,310,Essex,31148
+G3600330,1850,New York,360,Franklin,330,Franklin,25102
+G3600350,1850,New York,360,Fulton,350,Fulton,20171
+G3600370,1850,New York,360,Genesee,370,Genesee,28488
+G3600390,1850,New York,360,Greene,390,Greene,33126
+G3600410,1850,New York,360,Hamilton,410,Hamilton,2188
+G3600430,1850,New York,360,Herkimer,430,Herkimer,38244
+G3600450,1850,New York,360,Jefferson,450,Jefferson,68153
+G3600470,1850,New York,360,Kings,470,Kings,138882
+G3600490,1850,New York,360,Lewis,490,Lewis,24564
+G3600510,1850,New York,360,Livingston,510,Livingston,40875
+G3600530,1850,New York,360,Madison,530,Madison,43072
+G3600550,1850,New York,360,Monroe,550,Monroe,87650
+G3600570,1850,New York,360,Montgomery,570,Montgomery,31992
+G3600610,1850,New York,360,New York,610,New York,515547
+G3600630,1850,New York,360,Niagara,630,Niagara,42276
+G3600650,1850,New York,360,Oneida,650,Oneida,99566
+G3600670,1850,New York,360,Onondaga,670,Onondaga,85890
+G3600690,1850,New York,360,Ontario,690,Ontario,43929
+G3600710,1850,New York,360,Orange,710,Orange,57145
+G3600730,1850,New York,360,Orleans,730,Orleans,28501
+G3600750,1850,New York,360,Oswego,750,Oswego,62198
+G3600770,1850,New York,360,Otsego,770,Otsego,48638
+G3600790,1850,New York,360,Putnam,790,Putnam,14138
+G3600810,1850,New York,360,Queens,810,Queens,36833
+G3600830,1850,New York,360,Rensselaer,830,Rensselaer,73363
+G3600850,1850,New York,360,Richmond,850,Richmond,15061
+G3600870,1850,New York,360,Rockland,870,Rockland,16962
+G3600890,1850,New York,360,St Lawrence,890,St Lawrence,68617
+G3600910,1850,New York,360,Saratoga,910,Saratoga,45646
+G3600930,1850,New York,360,Schenectady,930,Schenectady,20054
+G3600950,1850,New York,360,Schoharie,950,Schoharie,33548
+G3600990,1850,New York,360,Seneca,990,Seneca,25441
+G3601010,1850,New York,360,Steuben,1010,Steuben,63771
+G3601030,1850,New York,360,Suffolk,1030,Suffolk,36922
+G3601050,1850,New York,360,Sullivan,1050,Sullivan,25088
+G3601070,1850,New York,360,Tioga,1070,Tioga,24880
+G3601090,1850,New York,360,Tompkins,1090,Tompkins,38746
+G3601110,1850,New York,360,Ulster,1110,Ulster,59384
+G3601130,1850,New York,360,Warren,1130,Warren,17199
+G3601150,1850,New York,360,Washington,1150,Washington,44750
+G3601170,1850,New York,360,Wayne,1170,Wayne,44953
+G3601190,1850,New York,360,Westchester,1190,Westchester,58263
+G3601210,1850,New York,360,Wyoming,1210,Wyoming,31981
+G3601230,1850,New York,360,Yates,1230,Yates,20590
+G3700010,1850,North Carolina,370,Alamance,10,Alamance,11444
+G3700030,1850,North Carolina,370,Alexander,30,Alexander,5220
+G3700070,1850,North Carolina,370,Anson,70,Anson,13489
+G3700090,1850,North Carolina,370,Ashe,90,Ashe,8777
+G3700130,1850,North Carolina,370,Beaufort,130,Beaufort,13816
+G3700150,1850,North Carolina,370,Bertie,150,Bertie,12851
+G3700170,1850,North Carolina,370,Bladen,170,Bladen,9767
+G3700190,1850,North Carolina,370,Brunswick,190,Brunswick,7272
+G3700210,1850,North Carolina,370,Buncombe,210,Buncombe,13425
+G3700230,1850,North Carolina,370,Burke,230,Burke,7772
+G3700250,1850,North Carolina,370,Cabarrus,250,Cabarrus,9747
+G3700270,1850,North Carolina,370,Caldwell,270,Caldwell,6317
+G3700290,1850,North Carolina,370,Camden,290,Camden,6049
+G3700310,1850,North Carolina,370,Carteret,310,Carteret,6939
+G3700330,1850,North Carolina,370,Caswell,330,Caswell,15269
+G3700350,1850,North Carolina,370,Catawba,350,Catawba,8862
+G3700370,1850,North Carolina,370,Chatham,370,Chatham,18449
+G3700390,1850,North Carolina,370,Cherokee,390,Cherokee,6838
+G3700410,1850,North Carolina,370,Chowan,410,Chowan,6721
+G3700450,1850,North Carolina,370,Cleveland,450,Cleveland,10396
+G3700470,1850,North Carolina,370,Columbus,470,Columbus,5909
+G3700490,1850,North Carolina,370,Craven,490,Craven,14709
+G3700510,1850,North Carolina,370,Cumberland,510,Cumberland,20610
+G3700530,1850,North Carolina,370,Currituck,530,Currituck,7236
+G3700570,1850,North Carolina,370,Davidson,570,Davidson,15320
+G3700590,1850,North Carolina,370,Davie,590,Davie,7866
+G3700610,1850,North Carolina,370,Duplin,610,Duplin,13514
+G3700650,1850,North Carolina,370,Edgecombe,650,Edgecombe,17189
+G3700670,1850,North Carolina,370,Forsyth,670,Forsyth,11168
+G3700690,1850,North Carolina,370,Franklin,690,Franklin,11713
+G3700710,1850,North Carolina,370,Gaston,710,Gaston,8073
+G3700730,1850,North Carolina,370,Gates,730,Gates,8426
+G3700770,1850,North Carolina,370,Granville,770,Granville,21249
+G3700790,1850,North Carolina,370,Greene,790,Greene,6619
+G3700810,1850,North Carolina,370,Guilford,810,Guilford,19754
+G3700830,1850,North Carolina,370,Halifax,830,Halifax,16589
+G3700870,1850,North Carolina,370,Haywood,870,Haywood,7074
+G3700890,1850,North Carolina,370,Henderson,890,Henderson,6853
+G3700910,1850,North Carolina,370,Hertford,910,Hertford,8142
+G3700950,1850,North Carolina,370,Hyde,950,Hyde,7636
+G3700970,1850,North Carolina,370,Iredell,970,Iredell,14719
+G3701010,1850,North Carolina,370,Johnston,1010,Johnston,13726
+G3701030,1850,North Carolina,370,Jones,1030,Jones,5038
+G3701070,1850,North Carolina,370,Lenoir,1070,Lenoir,7828
+G3701090,1850,North Carolina,370,Lincoln,1090,Lincoln,7746
+G3701110,1850,North Carolina,370,McDowell,1110,Mcdowell,6246
+G3701130,1850,North Carolina,370,Macon,1130,Macon,6389
+G3701170,1850,North Carolina,370,Martin,1170,Martin,8307
+G3701190,1850,North Carolina,370,Mecklenburg,1190,Mecklenburg,13914
+G3701230,1850,North Carolina,370,Montgomery,1230,Montgomery,6872
+G3701250,1850,North Carolina,370,Moore,1250,Moore,9342
+G3701270,1850,North Carolina,370,Nash,1270,Nash,10657
+G3701290,1850,North Carolina,370,New Hanover,1290,New Hanover,17668
+G3701310,1850,North Carolina,370,Northampton,1310,Northampton,13335
+G3701330,1850,North Carolina,370,Onslow,1330,Onslow,8283
+G3701350,1850,North Carolina,370,Orange,1350,Orange,17055
+G3701390,1850,North Carolina,370,Pasquotank,1390,Pasquotank,8950
+G3701430,1850,North Carolina,370,Perquimans,1430,Perquimans,7332
+G3701450,1850,North Carolina,370,Person,1450,Person,10781
+G3701470,1850,North Carolina,370,Pitt,1470,Pitt,13397
+G3701510,1850,North Carolina,370,Randolph,1510,Randolph,15832
+G3701530,1850,North Carolina,370,Richmond,1530,Richmond,9818
+G3701550,1850,North Carolina,370,Robeson,1550,Robeson,12826
+G3701570,1850,North Carolina,370,Rockingham,1570,Rockingham,14495
+G3701590,1850,North Carolina,370,Rowan,1590,Rowan,13870
+G3701610,1850,North Carolina,370,Rutherford,1610,Rutherford,13550
+G3701630,1850,North Carolina,370,Sampson,1630,Sampson,14585
+G3701670,1850,North Carolina,370,Stanly,1670,Stanly,6922
+G3701690,1850,North Carolina,370,Stokes,1690,Stokes,9206
+G3701710,1850,North Carolina,370,Surry,1710,Surry,18443
+G3701770,1850,North Carolina,370,Tyrrell,1770,Tyrrell,5133
+G3701790,1850,North Carolina,370,Union,1790,Union,10051
+G3701830,1850,North Carolina,370,Wake,1830,Wake,24888
+G3701850,1850,North Carolina,370,Warren,1850,Warren,13912
+G3701870,1850,North Carolina,370,Washington,1870,Washington,5664
+G3701890,1850,North Carolina,370,Watauga,1890,Watauga,3400
+G3701910,1850,North Carolina,370,Wayne,1910,Wayne,13486
+G3701930,1850,North Carolina,370,Wilkes,1930,Wilkes,12099
+G3701990,1850,North Carolina,370,Yancey,1990,Yancey,8205
+G3900010,1850,Ohio,390,Adams,10,Adams,18883
+G3900030,1850,Ohio,390,Allen,30,Allen,12109
+G3900050,1850,Ohio,390,Ashland,50,Ashland,23813
+G3900070,1850,Ohio,390,Ashtabula,70,Ashtabula,28767
+G3900090,1850,Ohio,390,Athens,90,Athens,18215
+G3900110,1850,Ohio,390,Auglaize,110,Auglaize,11338
+G3900130,1850,Ohio,390,Belmont,130,Belmont,34600
+G3900150,1850,Ohio,390,Brown,150,Brown,27332
+G3900170,1850,Ohio,390,Butler,170,Butler,30789
+G3900190,1850,Ohio,390,Carroll,190,Carroll,17685
+G3900210,1850,Ohio,390,Champaign,210,Champaign,19782
+G3900230,1850,Ohio,390,Clark,230,Clark,22178
+G3900250,1850,Ohio,390,Clermont,250,Clermont,30455
+G3900270,1850,Ohio,390,Clinton,270,Clinton,18838
+G3900290,1850,Ohio,390,Columbiana,290,Columbiana,33621
+G3900310,1850,Ohio,390,Coshocton,310,Coshocton,25674
+G3900330,1850,Ohio,390,Crawford,330,Crawford,18177
+G3900350,1850,Ohio,390,Cuyahoga,350,Cuyahoga,48099
+G3900370,1850,Ohio,390,Darke,370,Darke,20276
+G3900390,1850,Ohio,390,Defiance,390,Defiance,6966
+G3900410,1850,Ohio,390,Delaware,410,Delaware,21817
+G3900430,1850,Ohio,390,Erie,430,Erie,18568
+G3900450,1850,Ohio,390,Fairfield,450,Fairfield,30264
+G3900470,1850,Ohio,390,Fayette,470,Fayette,12726
+G3900490,1850,Ohio,390,Franklin,490,Franklin,42909
+G3900510,1850,Ohio,390,Fulton,510,Fulton,7781
+G3900530,1850,Ohio,390,Gallia,530,Gallia,17063
+G3900550,1850,Ohio,390,Geauga,550,Geauga,17827
+G3900570,1850,Ohio,390,Greene,570,Greene,21946
+G3900590,1850,Ohio,390,Guernsey,590,Guernsey,30438
+G3900610,1850,Ohio,390,Hamilton,610,Hamilton,156844
+G3900630,1850,Ohio,390,Hancock,630,Hancock,16751
+G3900650,1850,Ohio,390,Hardin,650,Hardin,8251
+G3900670,1850,Ohio,390,Harrison,670,Harrison,20157
+G3900690,1850,Ohio,390,Henry,690,Henry,3434
+G3900710,1850,Ohio,390,Highland,710,Highland,25781
+G3900730,1850,Ohio,390,Hocking,730,Hocking,14119
+G3900750,1850,Ohio,390,Holmes,750,Holmes,20452
+G3900770,1850,Ohio,390,Huron,770,Huron,26203
+G3900790,1850,Ohio,390,Jackson,790,Jackson,12719
+G3900810,1850,Ohio,390,Jefferson,810,Jefferson,29133
+G3900830,1850,Ohio,390,Knox,830,Knox,28872
+G3900850,1850,Ohio,390,Lake,850,Lake,14654
+G3900870,1850,Ohio,390,Lawrence,870,Lawrence,15246
+G3900890,1850,Ohio,390,Licking,890,Licking,38846
+G3900910,1850,Ohio,390,Logan,910,Logan,19162
+G3900930,1850,Ohio,390,Lorain,930,Lorain,26086
+G3900950,1850,Ohio,390,Lucas,950,Lucas,12363
+G3900970,1850,Ohio,390,Madison,970,Madison,10015
+G3900990,1850,Ohio,390,Mahoning,990,Mahoning,23735
+G3901010,1850,Ohio,390,Marion,1010,Marion,12618
+G3901030,1850,Ohio,390,Medina,1030,Medina,24441
+G3901050,1850,Ohio,390,Meigs,1050,Meigs,17971
+G3901070,1850,Ohio,390,Mercer,1070,Mercer,7712
+G3901090,1850,Ohio,390,Miami,1090,Miami,24999
+G3901110,1850,Ohio,390,Monroe,1110,Monroe,28351
+G3901130,1850,Ohio,390,Montgomery,1130,Montgomery,38218
+G3901150,1850,Ohio,390,Morgan,1150,Morgan,28585
+G3901170,1850,Ohio,390,Morrow,1170,Morrow,20280
+G3901190,1850,Ohio,390,Muskingum,1190,Muskingum,45049
+G3901230,1850,Ohio,390,Ottawa,1230,Ottawa,3308
+G3901250,1850,Ohio,390,Paulding,1250,Paulding,1766
+G3901270,1850,Ohio,390,Perry,1270,Perry,20775
+G3901290,1850,Ohio,390,Pickaway,1290,Pickaway,21006
+G3901310,1850,Ohio,390,Pike,1310,Pike,10953
+G3901330,1850,Ohio,390,Portage,1330,Portage,24419
+G3901350,1850,Ohio,390,Preble,1350,Preble,21736
+G3901370,1850,Ohio,390,Putnam,1370,Putnam,7221
+G3901390,1850,Ohio,390,Richland,1390,Richland,30879
+G3901410,1850,Ohio,390,Ross,1410,Ross,32074
+G3901430,1850,Ohio,390,Sandusky,1430,Sandusky,14305
+G3901450,1850,Ohio,390,Scioto,1450,Scioto,18428
+G3901470,1850,Ohio,390,Seneca,1470,Seneca,27104
+G3901490,1850,Ohio,390,Shelby,1490,Shelby,13958
+G3901510,1850,Ohio,390,Stark,1510,Stark,39878
+G3901530,1850,Ohio,390,Summit,1530,Summit,27485
+G3901550,1850,Ohio,390,Trumbull,1550,Trumbull,30490
+G3901570,1850,Ohio,390,Tuscarawas,1570,Tuscarawas,31761
+G3901590,1850,Ohio,390,Union,1590,Union,12204
+G3901610,1850,Ohio,390,Van Wert,1610,Van Wert,4793
+G3901630,1850,Ohio,390,Vinton,1630,Vinton,9353
+G3901650,1850,Ohio,390,Warren,1650,Warren,25560
+G3901670,1850,Ohio,390,Washington,1670,Washington,29540
+G3901690,1850,Ohio,390,Wayne,1690,Wayne,32981
+G3901710,1850,Ohio,390,Williams,1710,Williams,8018
+G3901730,1850,Ohio,390,Wood,1730,Wood,9157
+G3901750,1850,Ohio,390,Wyandot,1750,Wyandot,11194
+G4130015,1850,Oregon Territory,413,Benton,15,Benton,814
+G4130035,1850,Oregon Territory,413,Clackamas,35,Clackamas,1859
+G4130055,1850,Oregon Territory,413,Clark,55,Clark,643
+G4130075,1850,Oregon Territory,413,Clatsop,75,Clatsop,462
+G4130095,1850,Oregon Territory,413,Lewis,95,Lewis,558
+G4130115,1850,Oregon Territory,413,Linn,115,Linn,994
+G4130135,1850,Oregon Territory,413,Marion,135,Marion,2749
+G4130155,1850,Oregon Territory,413,Polk,155,Polk,1051
+G4130175,1850,Oregon Territory,413,Washington,175,Washington,2652
+G4130195,1850,Oregon Territory,413,Yamhill,195,Yamhill,1512
+G4200010,1850,Pennsylvania,420,Adams,10,Adams,25981
+G4200030,1850,Pennsylvania,420,Allegheny,30,Allegheny,138290
+G4200050,1850,Pennsylvania,420,Armstrong,50,Armstrong,29560
+G4200070,1850,Pennsylvania,420,Beaver,70,Beaver,26689
+G4200090,1850,Pennsylvania,420,Bedford,90,Bedford,23052
+G4200110,1850,Pennsylvania,420,Berks,110,Berks,77129
+G4200130,1850,Pennsylvania,420,Blair,130,Blair,21777
+G4200150,1850,Pennsylvania,420,Bradford,150,Bradford,42831
+G4200170,1850,Pennsylvania,420,Bucks,170,Bucks,56091
+G4200190,1850,Pennsylvania,420,Butler,190,Butler,30346
+G4200210,1850,Pennsylvania,420,Cambria,210,Cambria,17773
+G4200250,1850,Pennsylvania,420,Carbon,250,Carbon,15686
+G4200270,1850,Pennsylvania,420,Centre,270,Centre,23355
+G4200290,1850,Pennsylvania,420,Chester,290,Chester,66438
+G4200310,1850,Pennsylvania,420,Clarion,310,Clarion,23565
+G4200330,1850,Pennsylvania,420,Clearfield,330,Clearfield,12586
+G4200350,1850,Pennsylvania,420,Clinton,350,Clinton,11207
+G4200370,1850,Pennsylvania,420,Columbia,370,Columbia,17710
+G4200390,1850,Pennsylvania,420,Crawford,390,Crawford,37849
+G4200410,1850,Pennsylvania,420,Cumberland,410,Cumberland,34327
+G4200430,1850,Pennsylvania,420,Dauphin,430,Dauphin,35754
+G4200450,1850,Pennsylvania,420,Delaware,450,Delaware,24679
+G4200470,1850,Pennsylvania,420,Elk,470,Elk,3531
+G4200490,1850,Pennsylvania,420,Erie,490,Erie,38742
+G4200510,1850,Pennsylvania,420,Fayette,510,Fayette,39112
+G4200550,1850,Pennsylvania,420,Franklin,550,Franklin,39904
+G4200570,1850,Pennsylvania,420,Fulton,570,Fulton,7567
+G4200590,1850,Pennsylvania,420,Greene,590,Greene,22136
+G4200610,1850,Pennsylvania,420,Huntingdon,610,Huntingdon,24786
+G4200630,1850,Pennsylvania,420,Indiana,630,Indiana,27170
+G4200650,1850,Pennsylvania,420,Jefferson,650,Jefferson,13518
+G4200670,1850,Pennsylvania,420,Juniata,670,Juniata,13029
+G4200710,1850,Pennsylvania,420,Lancaster,710,Lancaster,98944
+G4200730,1850,Pennsylvania,420,Lawrence,730,Lawrence,21079
+G4200750,1850,Pennsylvania,420,Lebanon,750,Lebanon,26071
+G4200770,1850,Pennsylvania,420,Lehigh,770,Lehigh,32479
+G4200790,1850,Pennsylvania,420,Luzerne,790,Luzerne,56072
+G4200810,1850,Pennsylvania,420,Lycoming,810,Lycoming,26257
+G4200830,1850,Pennsylvania,420,McKean,830,Mckean,5254
+G4200850,1850,Pennsylvania,420,Mercer,850,Mercer,33172
+G4200870,1850,Pennsylvania,420,Mifflin,870,Mifflin,14980
+G4200890,1850,Pennsylvania,420,Monroe,890,Monroe,13270
+G4200910,1850,Pennsylvania,420,Montgomery,910,Montgomery,58291
+G4200930,1850,Pennsylvania,420,Montour,930,Montour,13239
+G4200950,1850,Pennsylvania,420,Northampton,950,Northampton,40235
+G4200970,1850,Pennsylvania,420,Northumberland,970,Northumberland,23272
+G4200990,1850,Pennsylvania,420,Perry,990,Perry,20088
+G4201010,1850,Pennsylvania,420,Philadelphia,1010,Philadelphia,408762
+G4201030,1850,Pennsylvania,420,Pike,1030,Pike,5881
+G4201050,1850,Pennsylvania,420,Potter,1050,Potter,6048
+G4201070,1850,Pennsylvania,420,Schuylkill,1070,Schuylkill,60713
+G4201110,1850,Pennsylvania,420,Somerset,1110,Somerset,24416
+G4201130,1850,Pennsylvania,420,Sullivan,1130,Sullivan,3694
+G4201150,1850,Pennsylvania,420,Susquehanna,1150,Susquehanna,28688
+G4201170,1850,Pennsylvania,420,Tioga,1170,Tioga,23987
+G4201190,1850,Pennsylvania,420,Union,1190,Union,26083
+G4201210,1850,Pennsylvania,420,Venango,1210,Venango,18310
+G4201230,1850,Pennsylvania,420,Warren,1230,Warren,13671
+G4201250,1850,Pennsylvania,420,Washington,1250,Washington,44939
+G4201270,1850,Pennsylvania,420,Wayne,1270,Wayne,21890
+G4201290,1850,Pennsylvania,420,Westmoreland,1290,Westmoreland,51726
+G4201310,1850,Pennsylvania,420,Wyoming,1310,Wyoming,10655
+G4201330,1850,Pennsylvania,420,York,1330,York,57450
+G4400010,1850,Rhode Island,440,Bristol,10,Bristol,8514
+G4400030,1850,Rhode Island,440,Kent,30,Kent,15068
+G4400050,1850,Rhode Island,440,Newport,50,Newport,20007
+G4400070,1850,Rhode Island,440,Providence,70,Providence,87526
+G4400090,1850,Rhode Island,440,Washington,90,Washington,16430
+G4500010,1850,South Carolina,450,Abbeville,10,Abbeville,32318
+G4500070,1850,South Carolina,450,Anderson,70,Anderson,21475
+G4500110,1850,South Carolina,450,Barnwell,110,Barnwell,26608
+G4500130,1850,South Carolina,450,Beaufort,130,Beaufort,38805
+G4500190,1850,South Carolina,450,Charleston,190,Charleston,72805
+G4500230,1850,South Carolina,450,Chester,230,Chester,18038
+G4500250,1850,South Carolina,450,Chesterfield,250,Chesterfield,10790
+G4500290,1850,South Carolina,450,Colleton,290,Colleton,39505
+G4500310,1850,South Carolina,450,Darlington,310,Darlington,16831
+G4500370,1850,South Carolina,450,Edgefield,370,Edgefield,39262
+G4500390,1850,South Carolina,450,Fairfield,390,Fairfield,21404
+G4500430,1850,South Carolina,450,Georgetown,430,Georgetown,20647
+G4500450,1850,South Carolina,450,Greenville,450,Greenville,20156
+G4500510,1850,South Carolina,450,Horry,510,Horry,7646
+G4500550,1850,South Carolina,450,Kershaw,550,Kershaw,14473
+G4500570,1850,South Carolina,450,Lancaster,570,Lancaster,10988
+G4500590,1850,South Carolina,450,Laurens,590,Laurens,23407
+G4500630,1850,South Carolina,450,Lexington,630,Lexington,12930
+G4500670,1850,South Carolina,450,Marion,670,Marion,17407
+G4500690,1850,South Carolina,450,Marlboro,690,Marlboro,10789
+G4500710,1850,South Carolina,450,Newberry,710,Newberry,20143
+G4500750,1850,South Carolina,450,Orangeburg,750,Orangeburg,23582
+G4500770,1850,South Carolina,450,Pickens,770,Pickens,16904
+G4500790,1850,South Carolina,450,Richland,790,Richland,20243
+G4500830,1850,South Carolina,450,Spartanburg,830,Spartanburg,26400
+G4500850,1850,South Carolina,450,Sumter,850,Sumter,33220
+G4500870,1850,South Carolina,450,Union,870,Union,19851
+G4500890,1850,South Carolina,450,Williamsburg,890,Williamsburg,12447
+G4500910,1850,South Carolina,450,York,910,York,19433
+G4700010,1850,Tennessee,470,Anderson,10,Anderson,6938
+G4700030,1850,Tennessee,470,Bedford,30,Bedford,21511
+G4700050,1850,Tennessee,470,Benton,50,Benton,6315
+G4700070,1850,Tennessee,470,Bledsoe,70,Bledsoe,5959
+G4700090,1850,Tennessee,470,Blount,90,Blount,12424
+G4700110,1850,Tennessee,470,Bradley,110,Bradley,12259
+G4700130,1850,Tennessee,470,Campbell,130,Campbell,6068
+G4700150,1850,Tennessee,470,Cannon,150,Cannon,8982
+G4700170,1850,Tennessee,470,Carroll,170,Carroll,15967
+G4700190,1850,Tennessee,470,Carter,190,Carter,6296
+G4700250,1850,Tennessee,470,Claiborne,250,Claiborne,9369
+G4700290,1850,Tennessee,470,Cocke,290,Cocke,8300
+G4700310,1850,Tennessee,470,Coffee,310,Coffee,8351
+G4700370,1850,Tennessee,470,Davidson,370,Davidson,38882
+G4700390,1850,Tennessee,470,Decatur,390,Decatur,6003
+G4700410,1850,Tennessee,470,DeKalb,410,De Kalb,8016
+G4700430,1850,Tennessee,470,Dickson,430,Dickson,8404
+G4700450,1850,Tennessee,470,Dyer,450,Dyer,6361
+G4700470,1850,Tennessee,470,Fayette,470,Fayette,26719
+G4700490,1850,Tennessee,470,Fentress,490,Fentress,4454
+G4700510,1850,Tennessee,470,Franklin,510,Franklin,13768
+G4700530,1850,Tennessee,470,Gibson,530,Gibson,19548
+G4700550,1850,Tennessee,470,Giles,550,Giles,25949
+G4700570,1850,Tennessee,470,Grainger,570,Grainger,12370
+G4700590,1850,Tennessee,470,Greene,590,Greene,17824
+G4700610,1850,Tennessee,470,Grundy,610,Grundy,2773
+G4700650,1850,Tennessee,470,Hamilton,650,Hamilton,10075
+G4700670,1850,Tennessee,470,Hancock,670,Hancock,5660
+G4700690,1850,Tennessee,470,Hardeman,690,Hardeman,17456
+G4700710,1850,Tennessee,470,Hardin,710,Hardin,10328
+G4700730,1850,Tennessee,470,Hawkins,730,Hawkins,13370
+G4700750,1850,Tennessee,470,Haywood,750,Haywood,17259
+G4700770,1850,Tennessee,470,Henderson,770,Henderson,13164
+G4700790,1850,Tennessee,470,Henry,790,Henry,18233
+G4700810,1850,Tennessee,470,Hickman,810,Hickman,9397
+G4700850,1850,Tennessee,470,Humphreys,850,Humphreys,6422
+G4700870,1850,Tennessee,470,Jackson,870,Jackson,15673
+G4700890,1850,Tennessee,470,Jefferson,890,Jefferson,13204
+G4700910,1850,Tennessee,470,Johnson,910,Johnson,3705
+G4700930,1850,Tennessee,470,Knox,930,Knox,18807
+G4700970,1850,Tennessee,470,Lauderdale,970,Lauderdale,5169
+G4700990,1850,Tennessee,470,Lawrence,990,Lawrence,9280
+G4701010,1850,Tennessee,470,Lewis,1010,Lewis,4438
+G4701030,1850,Tennessee,470,Lincoln,1030,Lincoln,23492
+G4701070,1850,Tennessee,470,McMinn,1070,Mcminn,13906
+G4701090,1850,Tennessee,470,McNairy,1090,Mcnairy,12864
+G4701110,1850,Tennessee,470,Macon,1110,Macon,6948
+G4701130,1850,Tennessee,470,Madison,1130,Madison,21470
+G4701150,1850,Tennessee,470,Marion,1150,Marion,6314
+G4701170,1850,Tennessee,470,Marshall,1170,Marshall,15616
+G4701190,1850,Tennessee,470,Maury,1190,Maury,29520
+G4701210,1850,Tennessee,470,Meigs,1210,Meigs,4879
+G4701230,1850,Tennessee,470,Monroe,1230,Monroe,11874
+G4701250,1850,Tennessee,470,Montgomery,1250,Montgomery,21045
+G4701290,1850,Tennessee,470,Morgan,1290,Morgan,3430
+G4701310,1850,Tennessee,470,Obion,1310,Obion,7633
+G4701330,1850,Tennessee,470,Overton,1330,Overton,11211
+G4701350,1850,Tennessee,470,Perry,1350,Perry,5821
+G4701390,1850,Tennessee,470,Polk,1390,Polk,6338
+G4701430,1850,Tennessee,470,Rhea,1430,Rhea,4415
+G4701450,1850,Tennessee,470,Roane,1450,Roane,12185
+G4701470,1850,Tennessee,470,Robertson,1470,Robertson,16145
+G4701490,1850,Tennessee,470,Rutherford,1490,Rutherford,29122
+G4701510,1850,Tennessee,470,Scott,1510,Scott,1905
+G4701550,1850,Tennessee,470,Sevier,1550,Sevier,6920
+G4701570,1850,Tennessee,470,Shelby,1570,Shelby,31157
+G4701590,1850,Tennessee,470,Smith,1590,Smith,18412
+G4701610,1850,Tennessee,470,Stewart,1610,Stewart,9719
+G4701630,1850,Tennessee,470,Sullivan,1630,Sullivan,11742
+G4701650,1850,Tennessee,470,Sumner,1650,Sumner,22717
+G4701670,1850,Tennessee,470,Tipton,1670,Tipton,8887
+G4701750,1850,Tennessee,470,Van Buren,1750,Van Buren,2674
+G4701770,1850,Tennessee,470,Warren,1770,Warren,10179
+G4701790,1850,Tennessee,470,Washington,1790,Washington,13861
+G4701810,1850,Tennessee,470,Wayne,1810,Wayne,8170
+G4701830,1850,Tennessee,470,Weakley,1830,Weakley,14608
+G4701850,1850,Tennessee,470,White,1850,White,11444
+G4701870,1850,Tennessee,470,Williamson,1870,Williamson,27201
+G4701890,1850,Tennessee,470,Wilson,1890,Wilson,27443
+G4800010,1850,Texas,480,Anderson,10,Anderson,2884
+G4800050,1850,Texas,480,Angelina,50,Angelina,1165
+G4800150,1850,Texas,480,Austin,150,Austin,3841
+G4800210,1850,Texas,480,Bastrop,210,Bastrop,3099
+G4800290,1850,Texas,480,Bexar,290,Bexar,6052
+G4800370,1850,Texas,480,Bowie,370,Bowie,2912
+G4800390,1850,Texas,480,Brazoria,390,Brazoria,4841
+G4800410,1850,Texas,480,Brazos,410,Brazos,614
+G4800510,1850,Texas,480,Burleson,510,Burleson,1713
+G4800550,1850,Texas,480,Caldwell,550,Caldwell,1329
+G4800570,1850,Texas,480,Calhoun,570,Calhoun,1110
+G4800610,1850,Texas,480,Cameron,610,Cameron,8541
+G4800655,1850,Texas,480,Cass (old),655,Cass (old),4991
+G4800730,1850,Texas,480,Cherokee,730,Cherokee,6673
+G4800850,1850,Texas,480,Collin,850,Collin,1950
+G4800890,1850,Texas,480,Colorado,890,Colorado,2257
+G4800910,1850,Texas,480,Comal,910,Comal,1723
+G4800970,1850,Texas,480,Cooke,970,Cooke,220
+G4801130,1850,Texas,480,Dallas,1130,Dallas,2743
+G4801210,1850,Texas,480,Denton,1210,Denton,641
+G4801230,1850,Texas,480,De Witt,1230,De Witt,1716
+G4801390,1850,Texas,480,Ellis,1390,Ellis,989
+G4801470,1850,Texas,480,Fannin,1470,Fannin,3788
+G4801490,1850,Texas,480,Fayette,1490,Fayette,3756
+G4801570,1850,Texas,480,Fort Bend,1570,Fort Bend,2533
+G4801670,1850,Texas,480,Galveston,1670,Galveston,4529
+G4801710,1850,Texas,480,Gillespie,1710,Gillespie,1240
+G4801750,1850,Texas,480,Goliad,1750,Goliad,648
+G4801770,1850,Texas,480,Gonzales,1770,Gonzales,1492
+G4801810,1850,Texas,480,Grayson,1810,Grayson,2008
+G4801850,1850,Texas,480,Grimes,1850,Grimes,4008
+G4801870,1850,Texas,480,Guadalupe,1870,Guadalupe,1511
+G4802010,1850,Texas,480,Harris,2010,Harris,4668
+G4802030,1850,Texas,480,Harrison,2030,Harrison,11822
+G4802090,1850,Texas,480,Hays,2090,Hays,387
+G4802130,1850,Texas,480,Henderson,2130,Henderson,1237
+G4802230,1850,Texas,480,Hopkins,2230,Hopkins,2623
+G4802250,1850,Texas,480,Houston,2250,Houston,2721
+G4802310,1850,Texas,480,Hunt,2310,Hunt,1520
+G4802390,1850,Texas,480,Jackson,2390,Jackson,996
+G4802410,1850,Texas,480,Jasper,2410,Jasper,1767
+G4802450,1850,Texas,480,Jefferson,2450,Jefferson,1836
+G4802570,1850,Texas,480,Kaufman,2570,Kaufman,1047
+G4802770,1850,Texas,480,Lamar,2770,Lamar,3978
+G4802850,1850,Texas,480,Lavaca,2850,Lavaca,1571
+G4802890,1850,Texas,480,Leon,2890,Leon,1946
+G4802910,1850,Texas,480,Liberty,2910,Liberty,2522
+G4802930,1850,Texas,480,Limestone,2930,Limestone,2608
+G4803210,1850,Texas,480,Matagorda,3210,Matagorda,2124
+G4803250,1850,Texas,480,Medina,3250,Medina,909
+G4803310,1850,Texas,480,Milam,3310,Milam,2907
+G4803390,1850,Texas,480,Montgomery,3390,Montgomery,2384
+G4803470,1850,Texas,480,Nacogdoches,3470,Nacogdoches,5193
+G4803490,1850,Texas,480,Navarro,3490,Navarro,2190
+G4803495,1850,Texas,480,Navarro-Ellis-Tarrant [multi-county reporting area],3495,Navarro-Ellis-Tarrant (multi-county reporting area),
+G4803510,1850,Texas,480,Newton,3510,Newton,1689
+G4803550,1850,Texas,480,Nueces,3550,Nueces,698
+G4803650,1850,Texas,480,Panola,3650,Panola,3871
+G4803730,1850,Texas,480,Polk,3730,Polk,2348
+G4803870,1850,Texas,480,Red River,3870,Red River,3906
+G4803910,1850,Texas,480,Refugio,3910,Refugio,288
+G4803950,1850,Texas,480,Robertson,3950,Robertson,934
+G4804010,1850,Texas,480,Rusk,4010,Rusk,8148
+G4804030,1850,Texas,480,Sabine,4030,Sabine,2498
+G4804050,1850,Texas,480,San Augustine,4050,San Augustine,3648
+G4804090,1850,Texas,480,San Patricio,4090,San Patricio,200
+G4804190,1850,Texas,480,Shelby,4190,Shelby,4239
+G4804230,1850,Texas,480,Smith,4230,Smith,4292
+G4804270,1850,Texas,480,Starr,4270,Starr,
+G4804390,1850,Texas,480,Tarrant,4390,Tarrant,664
+G4804490,1850,Texas,480,Titus,4490,Titus,3636
+G4804530,1850,Texas,480,Travis,4530,Travis,3138
+G4804570,1850,Texas,480,Tyler,4570,Tyler,1894
+G4804590,1850,Texas,480,Upshur,4590,Upshur,3394
+G4804670,1850,Texas,480,Van Zandt,4670,Van Zandt,1348
+G4804690,1850,Texas,480,Victoria,4690,Victoria,2019
+G4804710,1850,Texas,480,Walker,4710,Walker,3964
+G4804770,1850,Texas,480,Washington,4770,Washington,5983
+G4804790,1850,Texas,480,Webb,4790,Webb,
+G4804810,1850,Texas,480,Wharton,4810,Wharton,1752
+G4804910,1850,Texas,480,Williamson,4910,Williamson,1568
+G4950115,1850,Utah Territory,495,Davis,115,Davis,1134
+G4950235,1850,Utah Territory,495,Great Salt Lake,235,Great Salt Lake,6157
+G4950295,1850,Utah Territory,495,Iron,295,Iron,360
+G4950535,1850,Utah Territory,495,San Pete,535,San Pete,365
+G4950615,1850,Utah Territory,495,Tooele,615,Tooele,152
+G4950675,1850,Utah Territory,495,Utah,675,Utah,2026
+G4950755,1850,Utah Territory,495,Weber,755,Weber,1186
+G5000010,1850,Vermont,500,Addison,10,Addison,26549
+G5000030,1850,Vermont,500,Bennington,30,Bennington,18589
+G5000050,1850,Vermont,500,Caledonia,50,Caledonia,23595
+G5000070,1850,Vermont,500,Chittenden,70,Chittenden,29036
+G5000090,1850,Vermont,500,Essex,90,Essex,4650
+G5000110,1850,Vermont,500,Franklin,110,Franklin,28586
+G5000130,1850,Vermont,500,Grand Isle,130,Grand Isle,4145
+G5000150,1850,Vermont,500,Lamoille,150,Lamoille,10872
+G5000170,1850,Vermont,500,Orange,170,Orange,27296
+G5000190,1850,Vermont,500,Orleans,190,Orleans,15707
+G5000210,1850,Vermont,500,Rutland,210,Rutland,33059
+G5000230,1850,Vermont,500,Washington,230,Washington,24654
+G5000250,1850,Vermont,500,Windham,250,Windham,29062
+G5000270,1850,Vermont,500,Windsor,270,Windsor,38320
+G5100010,1850,Virginia,510,Accomack,10,Accomack,17890
+G5100030,1850,Virginia,510,Albemarle,30,Albemarle,25800
+G5100035,1850,Virginia,510,Alexandria,35,Alexandria,10008
+G5100050,1850,Virginia,510,Alleghany,50,Alleghany,3515
+G5100070,1850,Virginia,510,Amelia,70,Amelia,9770
+G5100090,1850,Virginia,510,Amherst,90,Amherst,12699
+G5100110,1850,Virginia,510,Appomattox,110,Appomattox,9193
+G5100150,1850,Virginia,510,Augusta,150,Augusta,24610
+G5100155,1850,Virginia,510,Barbour,155,Barbour,9005
+G5100170,1850,Virginia,510,Bath,170,Bath,3426
+G5100190,1850,Virginia,510,Bedford,190,Bedford,24080
+G5100195,1850,Virginia,510,Berkeley,195,Berkeley,11771
+G5100215,1850,Virginia,510,Boone,215,Boone,3237
+G5100230,1850,Virginia,510,Botetourt,230,Botetourt,14908
+G5100233,1850,Virginia,510,Braxton,233,Braxton,4212
+G5100237,1850,Virginia,510,Brooke,237,Brooke,5054
+G5100250,1850,Virginia,510,Brunswick,250,Brunswick,13894
+G5100290,1850,Virginia,510,Buckingham,290,Buckingham,13837
+G5100293,1850,Virginia,510,Cabell,293,Cabell,6299
+G5100310,1850,Virginia,510,Campbell,310,Campbell,23245
+G5100330,1850,Virginia,510,Caroline,330,Caroline,18456
+G5100350,1850,Virginia,510,Carroll,350,Carroll,5909
+G5100360,1850,Virginia,510,Charles City,360,Charles City,5200
+G5100370,1850,Virginia,510,Charlotte,370,Charlotte,13955
+G5100410,1850,Virginia,510,Chesterfield,410,Chesterfield,17489
+G5100430,1850,Virginia,510,Clarke,430,Clarke,7352
+G5100470,1850,Virginia,510,Culpeper,470,Culpeper,12282
+G5100490,1850,Virginia,510,Cumberland,490,Cumberland,9751
+G5100530,1850,Virginia,510,Dinwiddie,530,Dinwiddie,25118
+G5100533,1850,Virginia,510,Doddridge,533,Doddridge,2750
+G5100550,1850,Virginia,510,Elizabeth City,550,Elizabeth City,4586
+G5100570,1850,Virginia,510,Essex,570,Essex,10206
+G5100590,1850,Virginia,510,Fairfax,590,Fairfax,10682
+G5100610,1850,Virginia,510,Fauquier,610,Fauquier,20868
+G5100615,1850,Virginia,510,Fayette,615,Fayette,3955
+G5100630,1850,Virginia,510,Floyd,630,Floyd,6458
+G5100650,1850,Virginia,510,Fluvanna,650,Fluvanna,9487
+G5100670,1850,Virginia,510,Franklin,670,Franklin,17430
+G5100690,1850,Virginia,510,Frederick,690,Frederick,15975
+G5100710,1850,Virginia,510,Giles,710,Giles,6570
+G5100715,1850,Virginia,510,Gilmer,715,Gilmer,3475
+G5100730,1850,Virginia,510,Gloucester,730,Gloucester,10527
+G5100750,1850,Virginia,510,Goochland,750,Goochland,10352
+G5100770,1850,Virginia,510,Grayson,770,Grayson,6677
+G5100775,1850,Virginia,510,Greenbrier,775,Greenbrier,10022
+G5100790,1850,Virginia,510,Greene,790,Greene,4400
+G5100810,1850,Virginia,510,Greensville,810,Greensville,5639
+G5100830,1850,Virginia,510,Halifax,830,Halifax,25962
+G5100833,1850,Virginia,510,Hampshire,833,Hampshire,14036
+G5100837,1850,Virginia,510,Hancock,837,Hancock,4050
+G5100850,1850,Virginia,510,Hanover,850,Hanover,15153
+G5100853,1850,Virginia,510,Hardy,853,Hardy,9543
+G5100857,1850,Virginia,510,Harrison,857,Harrison,11728
+G5100870,1850,Virginia,510,Henrico,870,Henrico,43572
+G5100890,1850,Virginia,510,Henry,890,Henry,8872
+G5100910,1850,Virginia,510,Highland,910,Highland,4227
+G5100930,1850,Virginia,510,Isle Of Wight,930,Isle Of Wight,9353
+G5100935,1850,Virginia,510,Jackson,935,Jackson,6544
+G5100950,1850,Virginia,510,James City,950,James City,4020
+G5100953,1850,Virginia,510,Jefferson,953,Jefferson,15357
+G5100957,1850,Virginia,510,Kanawha,957,Kanawha,15353
+G5100970,1850,Virginia,510,King And Queen,970,King And Queen,10319
+G5100990,1850,Virginia,510,King George,990,King George,5971
+G5101010,1850,Virginia,510,King William,1010,King William,8779
+G5101030,1850,Virginia,510,Lancaster,1030,Lancaster,4708
+G5101050,1850,Virginia,510,Lee,1050,Lee,10267
+G5101053,1850,Virginia,510,Lewis,1053,Lewis,10031
+G5101057,1850,Virginia,510,Logan,1057,Logan,3620
+G5101070,1850,Virginia,510,Loudoun,1070,Loudoun,22079
+G5101090,1850,Virginia,510,Louisa,1090,Louisa,16691
+G5101110,1850,Virginia,510,Lunenburg,1110,Lunenburg,11692
+G5101130,1850,Virginia,510,Madison,1130,Madison,9331
+G5101133,1850,Virginia,510,Marion,1133,Marion,10552
+G5101135,1850,Virginia,510,Marshall,1135,Marshall,10138
+G5101137,1850,Virginia,510,Mason,1137,Mason,7539
+G5101150,1850,Virginia,510,Matthews,1150,Matthews,6714
+G5101170,1850,Virginia,510,Mecklenburg,1170,Mecklenburg,20630
+G5101175,1850,Virginia,510,Mercer,1175,Mercer,4222
+G5101190,1850,Virginia,510,Middlesex,1190,Middlesex,4394
+G5101193,1850,Virginia,510,Monongalia,1193,Monongalia,12387
+G5101197,1850,Virginia,510,Monroe,1197,Monroe,10204
+G5101210,1850,Virginia,510,Montgomery,1210,Montgomery,8359
+G5101215,1850,Virginia,510,Morgan,1215,Morgan,3557
+G5101230,1850,Virginia,510,Nansemond,1230,Nansemond,12283
+G5101250,1850,Virginia,510,Nelson,1250,Nelson,12758
+G5101270,1850,Virginia,510,New Kent,1270,New Kent,6064
+G5101275,1850,Virginia,510,Nicholas,1275,Nicholas,3963
+G5101290,1850,Virginia,510,Norfolk,1290,Norfolk,33036
+G5101310,1850,Virginia,510,Northampton,1310,Northampton,7498
+G5101330,1850,Virginia,510,Northumberland,1330,Northumberland,7346
+G5101350,1850,Virginia,510,Nottoway,1350,Nottoway,8437
+G5101355,1850,Virginia,510,Ohio,1355,Ohio,18006
+G5101370,1850,Virginia,510,Orange,1370,Orange,10067
+G5101390,1850,Virginia,510,Page,1390,Page,7600
+G5101410,1850,Virginia,510,Patrick,1410,Patrick,9609
+G5101415,1850,Virginia,510,Pendleton,1415,Pendleton,5795
+G5101430,1850,Virginia,510,Pittsylvania,1430,Pittsylvania,28796
+G5101437,1850,Virginia,510,Pocahontas,1437,Pocahontas,3598
+G5101450,1850,Virginia,510,Powhatan,1450,Powhatan,8178
+G5101455,1850,Virginia,510,Preston,1455,Preston,11708
+G5101470,1850,Virginia,510,Prince Edward,1470,Prince Edward,11857
+G5101490,1850,Virginia,510,Prince George,1490,Prince George,7596
+G5101510,1850,Virginia,510,Princess Anne,1510,Princess Anne,7669
+G5101530,1850,Virginia,510,Prince William,1530,Prince William,8129
+G5101550,1850,Virginia,510,Pulaski,1550,Pulaski,5118
+G5101553,1850,Virginia,510,Putnam,1553,Putnam,5335
+G5101555,1850,Virginia,510,Raleigh,1555,Raleigh,1765
+G5101557,1850,Virginia,510,Randolph,1557,Randolph,5243
+G5101570,1850,Virginia,510,Rappahannock,1570,Rappahannock,9782
+G5101590,1850,Virginia,510,Richmond,1590,Richmond,6448
+G5101593,1850,Virginia,510,Ritchie,1593,Ritchie,3902
+G5101610,1850,Virginia,510,Roanoke,1610,Roanoke,8477
+G5101630,1850,Virginia,510,Rockbridge,1630,Rockbridge,16045
+G5101650,1850,Virginia,510,Rockingham,1650,Rockingham,20294
+G5101670,1850,Virginia,510,Russell,1670,Russell,11919
+G5101690,1850,Virginia,510,Scott,1690,Scott,9829
+G5101710,1850,Virginia,510,Shenandoah,1710,Shenandoah,13768
+G5101730,1850,Virginia,510,Smyth,1730,Smyth,8162
+G5101750,1850,Virginia,510,Southampton,1750,Southampton,13521
+G5101770,1850,Virginia,510,Spotsylvania,1770,Spotsylvania,14911
+G5101790,1850,Virginia,510,Stafford,1790,Stafford,8044
+G5101810,1850,Virginia,510,Surry,1810,Surry,5679
+G5101830,1850,Virginia,510,Sussex,1830,Sussex,9820
+G5101835,1850,Virginia,510,Taylor,1835,Taylor,5367
+G5101850,1850,Virginia,510,Tazewell,1850,Tazewell,9942
+G5101855,1850,Virginia,510,Tyler,1855,Tyler,5498
+G5101870,1850,Virginia,510,Warren,1870,Warren,6607
+G5101890,1850,Virginia,510,Warwick,1890,Warwick,1546
+G5101910,1850,Virginia,510,Washington,1910,Washington,14612
+G5101913,1850,Virginia,510,Wayne,1913,Wayne,4760
+G5101930,1850,Virginia,510,Westmoreland,1930,Westmoreland,8080
+G5101933,1850,Virginia,510,Wetzel,1933,Wetzel,4284
+G5101937,1850,Virginia,510,Wirt,1937,Wirt,3353
+G5101953,1850,Virginia,510,Wood,1953,Wood,9450
+G5101957,1850,Virginia,510,Wyoming,1957,Wyoming,1645
+G5101970,1850,Virginia,510,Wythe,1970,Wythe,12024
+G5101990,1850,Virginia,510,York,1990,York,4460
+G5500010,1850,Wisconsin,550,Adams,10,Adams,187
+G5500015,1850,Wisconsin,550,Adams-Sauk [multi-county reporting area],15,Adams-Sauk (multi-county reporting area),
+G5500090,1850,Wisconsin,550,Brown,90,Brown,6215
+G5500150,1850,Wisconsin,550,Calumet,150,Calumet,1743
+G5500170,1850,Wisconsin,550,Chippewa,170,Chippewa,615
+G5500175,1850,Wisconsin,550,Chippewa-Crawford [multi-county reporting area],175,Chippewa-Crawford (multi-county reporting area),
+G5500210,1850,Wisconsin,550,Columbia,210,Columbia,9565
+G5500230,1850,Wisconsin,550,Crawford,230,Crawford,2498
+G5500250,1850,Wisconsin,550,Dane,250,Dane,16639
+G5500270,1850,Wisconsin,550,Dodge,270,Dodge,19138
+G5500390,1850,Wisconsin,550,Fond du Lac,390,Fond Du Lac,14510
+G5500430,1850,Wisconsin,550,Grant,430,Grant,16169
+G5500450,1850,Wisconsin,550,Green,450,Green,8566
+G5500490,1850,Wisconsin,550,Iowa,490,Iowa,9525
+G5500550,1850,Wisconsin,550,Jefferson,550,Jefferson,15317
+G5500590,1850,Wisconsin,550,Kenosha,590,Kenosha,10734
+G5500650,1850,Wisconsin,550,Lafayette,650,Lafayette,11531
+G5500675,1850,Wisconsin,550,La Point,675,La Point,489
+G5500710,1850,Wisconsin,550,Manitowoc,710,Manitowoc,3702
+G5500730,1850,Wisconsin,550,Marathon,730,Marathon,508
+G5500770,1850,Wisconsin,550,Marquette,770,Marquette,8641
+G5500790,1850,Wisconsin,550,Milwaukee,790,Milwaukee,31077
+G5500970,1850,Wisconsin,550,Portage,970,Portage,1250
+G5501010,1850,Wisconsin,550,Racine,1010,Racine,14973
+G5501030,1850,Wisconsin,550,Richland,1030,Richland,903
+G5501050,1850,Wisconsin,550,Rock,1050,Rock,20750
+G5501090,1850,Wisconsin,550,St Croix,1090,St Croix,624
+G5501110,1850,Wisconsin,550,Sauk,1110,Sauk,4371
+G5501170,1850,Wisconsin,550,Sheboygan,1170,Sheboygan,8379
+G5501270,1850,Wisconsin,550,Walworth,1270,Walworth,17862
+G5501310,1850,Wisconsin,550,Washington,1310,Washington,19485
+G5501330,1850,Wisconsin,550,Waukesha,1330,Waukesha,19258
+G5501390,1850,Wisconsin,550,Winnebago,1390,Winnebago,10167
