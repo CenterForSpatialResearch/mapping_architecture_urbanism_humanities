@@ -23,9 +23,9 @@ The [American Community Survey](https://www.census.gov/programs-surveys/acs/), w
 
 The two images below show census block groups in orange and census tracts in blue over a portion of city blocks in Harlem.
 
-![Census Block Groups](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/01_Census_Block_Groups.png)
+![Census Block Groups](Images/01_Census_Block_Groups.png)
 
-![Census Tracts](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/02_Census_Tracts.png)
+![Census Tracts](Images/02_Census_Tracts.png)
 
 -To download the census tracts boundaries for New York State go [here](https://www.census.gov/cgi-bin/geo/shapefiles/index.php) and choose `2017` and `Census Tracts` and then `New York` and download.
 
@@ -42,14 +42,14 @@ The second main survey is called the [American Community Survey (ACS)](https://w
 
 In the left hand side of the `ADVANCED SEARCH` window, expand the `Topics` tab, and expand the `Dataset` option. Here, choose the `2016 ACS 5-year estimates`. You should see that dataset move to the top right-hand panel called `Your Selections`.
 
-![ACS 2016 5-year estimates](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/03_Datasets.png)
+![ACS 2016 5-year estimates](Images/03_Datasets.png)
 
 Next, let's select the geography. Click on the `Geographies` tab and set the following parameters:
 * Geographic type: Census Tract - 140
 * State: New York
 Once you've done this you will have the option to select the county. Select 'Bronx' and once the window below populates, highlight 'All Census Tracts Within Bronx County, New York' and click `ADD TO YOUR SELECTIONS`. Again, you should see this item added to your selections window. Do the same thing for all the census tracts in the rest of the counties in the city: New York (Manhattan), Kings (Brooklyn), Queens and Richmond (Staten Island).
 
-![Geographies](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_Geographies.png)
+![Geographies](Images/04_Geographies.png)
 
 Finally, we need to select the tables that we will be exporting. In this tutorial we will be using the table for 'Place of birth by nativity and citizenship status (B05002)'. To select this table click on the 'Topics' tab again, and expand 'People' and 'Origins' and click on 'Citizenship'. Once it's been added to your selections you can close that little window. Now you should see a list of all the tables that match your selection criteria. Click on the 'PLACE OF BIRTH BY NATIVITY AND CITIZENSHIP STATUS (B05002)' table. You should now see the selected table with the data for the selected census tracts.
 
@@ -74,7 +74,7 @@ On the top, we have every census tract with the corresponding value and a margin
 
 The last thing we need to do is modify the table so it fits the way data is organized in QGIS. If you remember when we opened attribute tables in QGIS, every row represented a feature and every column represented an attribute. Here, it's the other way around, so we need to 'transpose' the table to make it match QGIS. To do this click on `Modify Table` at the top left and then on `Transpose Rows/Columns`. Now you should see the table with the census tracts on the left-hand column and the fields on the first row.
 
-![Final table](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/05_Final_Table.png)
+![Final table](Images/05_Final_Table.png)
 
 Finally, click on `Download` and make sure you are selecting 'Use the data' as a comma-delimited (.csv) format with the 'single file' and 'Include descriptive data element names' options selected. Click `OK` and then once your files are ready `Download` again.
 
@@ -94,7 +94,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
   * Once you've done this you will be able to select the file called 'ACS_16_5YR_B05002_with_ann.csv' and open it.
   * Here's a preview of the raw file:
 
-  ![Excel Table](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/06_Excel_Table.png)
+  ![Excel Table](Images/06_Excel_Table.png)
 
   * We need to do two things: One, to rename the field names (header) and get rid of the second row (also a kind of header). And two, delete all the margin of error fields since we are not going to use them.
   * QGIS has certain requirements for field names: maximum 10 characters, no spaces, no punctuation (except - and _ ) and they must start with a letter, not a number.
@@ -135,7 +135,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
   * The names don't need to be the same, but this is how I will refer to them. There's no standard way of naming these fields. In general, choose names that you can read and understand, so that you and other people who use these files can easily understand what they mean. The metadata is there to tell you exactly what each of the fields means, but you should be able to figure it out when possible.
   * Once you've renamed your fields, delete the second row. Now you are left with only one header field and the actual data.
 
-  ![Excel Final Table](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/07_Excel_Final_Table.png)
+  ![Excel Final Table](Images/07_Excel_Final_Table.png)
 
   * Finally, save your file as a .csv file. If you are on a Mac, make sure you save your file as `Windows Comma Separated (.csv)`. There seems to be a problem with the line endings when you save it as the default .csv format. I am saving my file as `B05002.csv`.
 
@@ -143,7 +143,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
   * If you don't have Excel, or you don't want to use it, you can also re-format your file in a simple text editor. Here, I'll use the default Mac TextEdit application. You can also use your Windows Notepad or Sublime Text. As a side note, I highly recommend [Sublime Text](https://www.sublimetext.com/) as a text editor, we will use it later in the semester.
   * First, open the original census table ('ACS_16_5YR_B05002_with_ann.csv') with your text editor.
 
-  ![Text Edit Table](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/08_Text_Edit_Table.png)
+  ![Text Edit Table](Images/08_Text_Edit_Table.png)
 
   * Next, before you modify the file, *make a copy, so you don't overwrite the original*. I will save it as B05002_Text_Edit. TextEdit or Notepad will automatically save it as a .txt file, which is fine.
   * Next, replace the first line (the one that goes from 'GEO.id' to 'HD02_VD27') with the right headers. However, since we are not deleting the columns for the margins of error we need to add those headers. The new first line should be something like this:
@@ -152,7 +152,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
   * Now delete the second line, the one that goes from 'Id' to 'Not a U.S. citizen'.
   * Your new file should look something like this:
 
-  ![Text Edit Final Table](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/09_Text_Edit_Final_Table.png)
+  ![Text Edit Final Table](Images/09_Text_Edit_Final_Table.png)
 
 #### Creating the .csvt file:
   * In both cases you need to create also a .csvt file. This file will tell QGIS exactly what type of data each of the fields is in. The different types of data your fields can take are:
@@ -172,7 +172,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
 
   * Your final file should look something like this:
 
-  ![CSVT File](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/10_CSVT_File.png)
+  ![CSVT File](Images/10_CSVT_File.png)
 
 * Now that the files are ready we can move into QGIS and bring everything together.
 
@@ -182,7 +182,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
 * Once you've loaded the census boundaries, open it's attribute table. You will notice that the fourth column is called 'GEOID'. That's the one we will use to join our census table to. Close the attribute table.
 * Now, to add the census table click on the 'Add a delimited text layer' button:
 
-![Add .csv file](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/11_Add_CSV.png)
+![Add .csv file](Images/11_Add_CSV.png)
 
 * Select the .csv or .txt file with our data.
 * If you added the .csv file the `CSV (Comma Separated Values)` option should be checked.
@@ -190,11 +190,11 @@ Another great advantage of using Excel is that if you need to delete multiple fi
 * In both cases the option `First record has field names` should be checked so that the program recognizes our headers and in the 'Geometry definition' the option `No geometry (attribute only table)` should be selected too (our files don't contain coordinates or geometrical attributes).
 * Your import options should look something like this (for the .csv file):
 
-![Import options .csv file](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/12_Import_Options.png)
+![Import options .csv file](Images/12_Import_Options.png)
 
 * The ones for the .txt file should look like this:
 
-![Import options .txt file](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/13_Import_Options_Txt.png)
+![Import options .txt file](Images/13_Import_Options_Txt.png)
 
 * Click `OK` to import the table, and once you do it you should have it listed on your 'Layers Panel'. If you right-click / control-click on the table and open the attribute table you should see all your values there.
 
@@ -207,7 +207,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
   * Custom field name prefix: checked and delete what is in there. This is useful when you want to add a prefix for the fields that are joined, for example, when you are joining multiple tables and you want to differentiate them. In our case, since we are only joining one table we don't need this prefix.
   * The menu should look something like this:
 
-  <img src="https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/14_Join_Menu.png" width=400/>
+  <img src="Images/14_Join_Menu.png" width=400/>
 
   * Click `OK` and then `OK` again.
 
@@ -215,7 +215,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
 * An easy way to do this is to select all the census tracts that are not `NULL` for one of our main field, for example the GeoDisplay field.
 * To do this, go to the attribute table and create a selection expression that says `"GeoDisplay" IS NOT NULL` and click `Select`. You should have now 2,167 features selected and if you click `Close` and close the attribute table too, these selected features should correspond to New York City.
 
-![Selected Features](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/15_Selected_Features.png)
+![Selected Features](Images/15_Selected_Features.png)
 
 * Now export these selected features as a new shapefile and make sure it takes the right projection for New York City. Make sure also that when you are exporting you check the option that says `Save only selected features`, otherwise you will export all features, including the ones that don't have any census data.
 * Now you have a shapefile only with New York City census tracts with all the data that we downloaded.
@@ -235,7 +235,7 @@ First, just so you can see the difference between the different classification m
   * If you click on the `Histogram` option and then on the `Load values` button you will see how the program divides the data.
   * Click `OK` and take a look at the map:
 
-  ![Equal Interval](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/16_Equal_Interval.png)
+  ![Equal Interval](Images/16_Equal_Interval.png)
 
   * You will notice that most census tracts fall within the first or second class and that there are only a handful of them in the third, fourth or fifth.
   * With this classification method we see the effect an extreme value can have on the graphic representation of data: the census tract in the Bronx that represents Co-Op City is skewing the data towards the top so that there are too few census tracts in the intermediate classes.
@@ -247,7 +247,7 @@ First, just so you can see the difference between the different classification m
   * Go to the `Histogram` option and click on `Load values` to see how this classification method splits the data.
   * Click `OK` and take a look at the map:
 
-  ![Quantiles](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/17_Quantiles.png)
+  ![Quantiles](Images/17_Quantiles.png)
 
   * Here you see how every class has an equal number of features, but for example the census tract for Co-Op City, which we know has one of the highest counts of foreigners in the city, gets lumped up with many other census tracts, some of which might not have that many foreigners.
 
@@ -258,7 +258,7 @@ First, just so you can see the difference between the different classification m
   * You see how the divisions in the data follow the general pattern of the histogram.
   * Click `OK` and take a look at the map:
 
-  ![Natural Breaks](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/18_Natural_Breaks.png)
+  ![Natural Breaks](Images/18_Natural_Breaks.png)
 
   * This map is probably the most balanced one, clearly underlining the census tracts that have high values but still showing the variation in the rest of the census tracts.
 
@@ -268,7 +268,7 @@ First, just so you can see the difference between the different classification m
   * However, there's a problem with how QGIS classifies values here. The problem that QGIS has here is that it doesn't make the 'neutral' color correspond to the values around the mean or within 1 standard deviation of the mean. In this case, if you click `OK` you will see that the 'neutral' color actually corresponds to the values between 2 and 4 standard deviations away from the mean, which is pretty misleading. This classification method would only actually work well with a normally distributed dataset, which doesn't always happen.
   * Take a look at these two maps: they are based on the same dataset. The only difference is that the left one was made with QGIS and the other one with ArcMap. The ArcMap one correctly makes the 'neutral' color correspond to the values that are between -0.5 and +0.5 standard deviations away from the mean, so the most 'normal' values.
 
-  ![Standard Deviations](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/19_Standard_Deviations.png)
+  ![Standard Deviations](Images/19_Standard_Deviations.png)
 
 * In any case, this little exercise shows you the importance of choosing the right classification method for your data.
 
@@ -276,11 +276,11 @@ Finally, to create the last version of our map we need to normalize our data by 
 * To do this first go to the classification option for the census dataset.
 * In the `Column` option, click on the `ε` option. Here we will write a little expression to normalize our data.
 
-![Expression](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/20_Expression.png)
+![Expression](Images/20_Expression.png)
 
 * In this panel, choose the 'Foreign' field and divide it by the 'TotalPop' field. Your expression should read: ` "Foreign" / "TotalPop"`.
 
-![Normalize](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/21_Normalize.png)
+![Normalize](Images/21_Normalize.png)
 
 * Once you've done this, choose the right classification method (in our case that's probably going to be 'Natural Breaks' or 'Equal Intervals') and the right color scheme.
 * You can always modify slightly the values for the classes to round off the numbers and make the value ranges be more understandable. You do this by clicking on the specific value under `Values`.
@@ -298,7 +298,7 @@ Lastly, we need to hide the census block groups that fall outside of the New Yor
 There are a couple of ways of doing this: one option would be to clip the block group layer using the borough layer, in order to get rid of the census block groups that fall outside the boroughs. However, this option would permanently modify the block group layer and, if at any point the borough boundaries don't align perfectly with the block groups (which is entirely possible), the geometry of those block groups would be changed too. The best option then is to hide the block groups that fall inside the water and conveniently enough there is a field in the block group attribute table that has a specific value for these features.
 * First, open the attribute table of the CensusData layer. You will notice that there is a field called 'ALAND' and another called 'AWATER'. 'ALAND' one has a unique identifier for each of the block groups that has some land area; 'AWATER' has an identifier for those block groups that have some water. There problem is that some block groups have both water and land. So we will only show those block groups where the 'ALAND' field does not equal 0, meaning that they have some land.
 * To do this we will create a 'Feature subset'. Open the layer properties and go to the `General` tab. At the bottom of this tab you will see the 'Provider Feature filter' panel. Go to the bottom of this panel and click on the `Query Builder` button. This query builder will work in a similar way as the 'Selection by attributes' query builder.
-![querybuilder](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-5.png)
+![querybuilder](Images/georef4-5.png)
 * In the 'Fields' panel you will see the 'ALAND' field. Double-click on this to make it appear in the bottom panel ('Provider specific filter expression').
 * Now add '!= 0' to the expression. ('!=' means 'does not equal').
 * Your expression should look something like this:
@@ -309,16 +309,16 @@ There are a couple of ways of doing this: one option would be to clip the block 
 
 You may wish to change the projection of the whole project at this point. It should be in NAD83/New York Long Island EPSG 2263. Click on the project projection in the bottom right hand corner to open the project projection options.
 
-![Invert Selection](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-6.png)
+![Invert Selection](Images/georef4-6.png)
 
 Be sure to enable 'On the fly' transformations
 
-![Invert Selection](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/georef4-7.png)
+![Invert Selection](Images/georef4-7.png)
 
 
 Once you are finished with this go ahead and adjust colors, strokes and layer order. And finally, create a print composer, add a legend, title, explanation, source and a scale bar, and export your map as a PDF file. Your final map should look something like this:
 
-![Final Map](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/22_Final_Map.png)
+![Final Map](Images/22_Final_Map.png)
 
 #### Deliverables
 Upload your (PDF) map to Canvas. Your map should include a legend, scale bar, title, explanation and source.
@@ -326,4 +326,4 @@ Upload your (PDF) map to Canvas. Your map should include a legend, scale bar, ti
 
 ______________________________________________________________________________________________________________
 
-Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the [Mapping for Architecture, Urbanism and the Humanities](https://github.com/juanfrans-courses/mapping_arch_hum) class at Columbia University. Edited by Michelle McSweeney for [Fall 2017](https://github.com/brianhouse/mapping-architecture-urbanism-humanities), and Brian House for [Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities).
+Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the Mapping for Architecture, Urbanism and the Humanities class at Columbia University. Edited by Michelle McSweeney for Fall 2017 and Brian House for Fall 2018.
