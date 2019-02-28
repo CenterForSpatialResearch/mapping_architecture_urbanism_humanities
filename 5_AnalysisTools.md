@@ -29,7 +29,7 @@ To evaluate the confluence of Spanish speakers and branch libraries we will firs
 Then to evaluate which libraries serve the greatest number of school children we will first create a buffer around each library location of ½ mile (which we will be able to export as its own layer to display on our map). We will then use a spatial join in order to count the number of schools within ½ mile of a library and to determine the number of students enrolled in those schools.
 
 #### Before you begin
-If you haven't already, download the GitHub repository for this course. Using the green button [here](https://github.com/brianhouse/mapping-architecture-urbanism-humanities), select `Download ZIP`. The Data folder will then have all of the datasets needed for tutorials.
+If you haven't already, download the GitHub repository for this course. Using the green button [here](https://github.com/CenterForSpatialResearch/mapping-architecture-urbanism-humanities), select `Download ZIP`. The Data folder will then have all of the datasets needed for tutorials.
 
 #### Let’s Begin
 
@@ -40,7 +40,7 @@ Select the `add vector data` button and navigate to the `5_AnalyzingData/Shape` 
 * Bronx_Schools.shp
 * Bronx_Libraries.shp
 
-![add](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_01.png)
+![add](Images/mappingdata08_01.png)
 First **open** the attribute tables of each data layer and inspect its contents.
 
 The field names for `Bronx_Tracts_2014` are:
@@ -83,21 +83,21 @@ We want to determine which libraries are located within census tracts where more
 
 * **Open** the attribute table of the Bronx_Tracts layer and choose the `select using an expression` tool. Select census tracts where more than 65 percent of the population over 5 years old speaks Spanish. Your expression should look like this. Click `Select`. You should see that 56 features were selected. Close the attribute table.
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_02.png)
+![location](Images/mappingdata08_02.png)
 
 * Now we will determine which libraries lie within these census tracts by using the select by location tool. **Navigate** to the `Vector` > `Research Tools` > `Select by Location` in the menu bar. Then make the following selections:
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_04.png)
+![location](Images/mappingdata08_04.png)
 
 * Open the attribute table of the `Bronx_Libraries` layer in order to note which libraries were selected. Four libraries were selected, what are their names?
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_05.png)
+![location](Images/mappingdata08_05.png)
 
 This analysis give us a very rough sense of which libraries might already serve a large number of Spanish speakers however we have only selected libraries which are located exactly within census tracts with a large proportion of Spanish speakers. What if there is a library in an adjacent census tract? Our analysis will not have picked up on this.
 
 Now, before moving on, deselect all features from all layers.
 
-![deselect](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_07.png)
+![deselect](Images/mappingdata08_07.png)
 
 #### Schools and Libraries
 Now we will depart from questions about language and instead ask a series of questions about the relationship between schools and libraries in the Bronx. Specifically we will ask:
@@ -110,9 +110,9 @@ To answer the first question, we will create a ¼ mile buffer around the librari
 
 ##### Creating Buffers
 * On your menu bar navigate to `Vector`>`Geoprocessing Tools` > `Fixed distance buffer`.
-![buffer](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_06.png)
+![buffer](Images/mappingdata08_06.png)
 * Your menu may read `Vector > Geoprocessing Tools > Fixed distance buffer`. `Variable Distance Buffer` is another possible tool, but for now we will use Fixed Distance.
-![buffer2](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_06-1.png)
+![buffer2](Images/mappingdata08_06-1.png)
   * Choose Bronx_Libraries as your input vector layer – this sets which layer the buffers are drawn around.
 
   * Set the buffer distance to 1320. The values in this field have the same units as the projection of your input datalayer and map project. Our map is projected in the NAD83 New York State Plane (Long Island) projection system whose units are in feet. To confirm this you can open the layer properties and inspect the coordinate reference system for the layer. Thus we choose 1320 feet because this is equivalent to ¼ mile.
@@ -125,12 +125,12 @@ To answer the first question, we will create a ¼ mile buffer around the librari
 
   * Your map should look something like the following:
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_08.png)
+![location](Images/mappingdata08_08.png)
 
 * Next we will use the select by location tool to determine which schools fall within ¼ mile of a library. Navigate to `Vector`>`Research Tools`>`Select By Location`
   * Select features in  `Bronx_Schools` that intersect features in `BX_Library_QuarterMiBuffer`
       - This menu can look different in various installations of QGIS. If your menu looks like the following, use the following selections:
-![newmenu](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_08-1.png)
+![newmenu](Images/mappingdata08_08-1.png)
 
   * Select Run, and then close.
 
@@ -142,7 +142,7 @@ To answer the first question, we will create a ¼ mile buffer around the librari
 
   * Navigate to `Vector`>`Data Management Tools`>`Join attributes by location`.
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_09.png)
+![location](Images/mappingdata08_09.png)
 
   * Just like with a table join the `Target vector layer` is the layer to which we would like to join new information to and the `Join vector layer` is the layer which we are joining to the target layer. In our case BX_Library_QuarteMiBuffer is the `Target vector layer` and Bronx_Schools is the `Join vector layer`
 
@@ -164,7 +164,7 @@ To answer the first question, we will create a ¼ mile buffer around the librari
 
   * Which five libraries serve the greatest number of enrolled school children? Sort the attribute table by SUMEnrollment and identify the top five libraries.
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_10.png)
+![location](Images/mappingdata08_10.png)
 
 
 ##### Using a Distance Matrix
@@ -177,12 +177,12 @@ To answer the first question, we will create a ¼ mile buffer around the librari
   * Select `Bronx_Libraries` as the `Target point layer` and `facname` as the `Target unique ID field`.
   * For the output matrix type select `Linear (N*kx3) distance matrix`, and select `Use only the nearest (k) target points` and set this to 1.
   * Make sure to Save to File, not save to temporary file
- ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_12.png)
+ ![location](Images/mappingdata08_12.png)
   * Run the process, and then open the Attribute Table of the resulting layer
 
   * You will see that we have generated a table where each school is matched with its nearest library and QGIS has computed the distance between them in feet.
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/04_09_DistanceMatrix.png)
+![location](Images/04_09_DistanceMatrix.png)
 
 ##### Making Estimates
 We now have gathered information about how many schools are within ¼ mile of each library, as well as the total number of children enrolled in those schools and we have also computed the nearest library to each school. Now we would like to determine more generally how many people live near libraries in the Bronx – i.e. how many people do Bronx libraries serve?
@@ -195,17 +195,17 @@ For our first approximation we will ask: how many people live in the census trac
 
 * Navigate to `Vector`>`Research Tools`>`Select by location`. And make the following selections:
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_15.png)
+![location](Images/mappingdata08_15.png)
 
 * Select ‘OK’ and then `Close`.
 * Your selections should look something like this:
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_16.png)
+![location](Images/mappingdata08_16.png)
 
 * We can already tell that this will be a very coarse way to estimate the population served by each of the Bronx libraries because some census tracts which intersect our buffers are very large and portions of the tract are very far away from any library.
 
 * Despite this we now want to add up the total population within these selected census tracts.  To determine the total population of all of the census tracts that intersect a ¼ mile buffer of a Bronx library. To do this we will use the `Basic statistics` tool. Navigate to  `Vector`>`Analysis Tools`>`Basic statistics for numeric fields`. Make the following selections and click `OK`.
 
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_17.png)
+![location](Images/mappingdata08_17.png)
 
 * We see that the total population of all of the census tracts that intersect a ¼ mile buffer around a Bronx library is 983,821. Make a note of this total we will compare it to the result we get in the next portion of the exercise.
 
@@ -220,7 +220,7 @@ Note: that proportional split estimation assumes that the attribute you are esti
 
 **Calculating the area of the census tracts**
 * Open the attribute table for the Bronx census tracts layer and select the field calculator – this will turn on editing mode, you are now altering the Bronx_tracts_2014 shapefile.
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_18.png)
+![location](Images/mappingdata08_18.png)
 
 * Create a new field, assign the Output field name as `Area`, the Output field type as `Decimal number (real)`, the Output field width as `10` and the Precision `2`. Open the Geometry menu and double click on `$area`
 * Click `OK`
@@ -230,7 +230,7 @@ Note: that proportional split estimation assumes that the attribute you are esti
 **Clipping the census tracts to the ¼ mile buffers**  
 * Next we will use the `clip` tool to clip the Bronx census tracts with the ¼ mile buffers around the Bronx libraries.
 * Navigate to `Vector`>`Geoprocessing Tools`>`Clip`
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_19.png)
+![location](Images/mappingdata08_19.png)
 
 * The input vector layer is the layer you will clip (in our case the Bronx census tracts)
 * The Clip layer is the layer you will use to clip the input layer (in our case the ¼ mile buffers around the libraries).
@@ -239,7 +239,7 @@ Note: that proportional split estimation assumes that the attribute you are esti
 * A new layer containing the census tracts clipped to the ¼ mile buffers around the libraries was added to your map.
 * Toggle the visibility of all of of the layers on your map off except for `BXTracts_LibraryQuartMiClip`.
 * Use the select tool to click on some of the individual clipped census tract polygons to familiarize yourself with this new layer.
- ![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_20.png)
+ ![location](Images/mappingdata08_20.png)
 
 **Calculating the area of the clipped census tracts**  
 * Now we will calculate the area of these new polygons.
@@ -248,7 +248,7 @@ Note: that proportional split estimation assumes that the attribute you are esti
 * Set the Output field name as `AreaClip`,
 * Select `Decimal number (real)` as the output field type, Set the output field width as 10 and the precision as 2. Under the geometry menu select `$area`. Click `OK`.
 * Notice the new field that has been added to the far right of the attribute table called `AreaClip`
-![location](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata08_21.png)  
+![location](Images/mappingdata08_21.png)  
 
 **Dividing the the area of the clipped census tracts by their original area**
 * Again open the field calculator and calculate a new field.
@@ -278,4 +278,4 @@ Please send an image (can be a simple screenshot) of the clipped buffers (the st
 
 ______________________________________________________________________________________________________________
 
-Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2016 by the [Center for Spatial Research](http://c4sr.columbia.edu). More information about the course is available [here](http://c4sr.columbia.edu/courses/mapping-urban-humanities-summer-bootcamp). Edited by Brian House for [Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities).
+Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2016 by the [Center for Spatial Research](http://c4sr.columbia.edu). Edited by Brian House for Fall 2018.
