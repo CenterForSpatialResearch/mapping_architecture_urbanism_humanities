@@ -12,7 +12,7 @@ With this exercise, you will learn introductory skills involved in using QGIS to
 8. worked with projections and examined the impacts of projection transformations on spatial analysis
 
 ### Part 0
-Download the GitHub repository for this course. Using the green button [here](/), select `Download ZIP`. The Data folder will then have all of the datasets needed for tutorials.
+Download the GitHub repository for this course. Using the green button [here](https://github.com/CenterForSpatialResearch/mapping_architecture_urbanism_humanities/), select `Download ZIP`. The Data folder will then have all of the datasets needed for tutorials.
 
 Find instructions for installing QGIS [here](1_QGIS.md).
 
@@ -338,4 +338,4 @@ Include your answer to the following question you answered on your own:
 
 ______________________________________________________________________________________________________________
 
-Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2017 by the [Center for Spatial Research](http://c4sr.columbia.edu). More information about the course is available [here](http://c4sr.columbia.edu/courses/mapping-urban-humanities-summer-bootcamp).
+Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2017 by the [Center for Spatial Research](http://c4sr.columbia.edu).
