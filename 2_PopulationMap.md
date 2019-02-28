@@ -12,9 +12,9 @@ With this exercise, you will learn introductory skills involved in using QGIS to
 8. worked with projections and examined the impacts of projection transformations on spatial analysis
 
 ### Part 0
-Download the GitHub repository for this course. Using the green button [here](https://github.com/brianhouse/mapping-architecture-urbanism-humanities), select `Download ZIP`. The Data folder will then have all of the datasets needed for tutorials.
+Download the GitHub repository for this course. Using the green button [here](README.md), select `Download ZIP`. The Data folder will then have all of the datasets needed for tutorials.
 
-Find instructions for installing QGIS [here](../images/1_QGIS.md).
+Find instructions for installing QGIS [here](1_QGIS.md).
 
 ### Part 1: Mapping World Population(s)
 #### Premise
@@ -24,7 +24,7 @@ We are interested in creating a map of world countries and cities (and at the sa
 
 **Launch** QGIS. Your new blank map project will look like this:
 
-![blank](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata01_01.png)
+![blank](Images/mappingdata01_01.png)
 
 Begin to familiarize yourself with the interface. You can also refer to this [brief description](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Resources/QGIS_InterfaceDescription.md) of the elements of the interface for more information.
 
@@ -32,7 +32,7 @@ Begin to familiarize yourself with the interface. You can also refer to this [br
 
 In order to construct our map within QGIS we will need to add our data layers to the map project. There are several ways to accomplish this however we will begin by using the `Add Vector Layer` button.
 
-![vector](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata01_02.png)
+![vector](Images/mappingdata01_02.png)
 
 **Navigate** to the `Data/2_MappingData/Shape` folder. You'll notice a number of different file extensions that are likely unfamiliar. The files outlined in blue are all components of the admin_0_countries shapefile, and the ones outlined in magenta are all elements of the populated_places shapefile. It is very important that all of these files stay together in the same folder otherwise QGIS will not be able to load the layer.
 
@@ -48,7 +48,7 @@ In order to construct our map within QGIS we will need to add our data layers to
 Add the `populated_places.shp` and `admin_0_countries.shp` files. Even though we will just be adding these files to the map QGIS still references the other files associated with each layer (.shx,.dbf,.sbn,.prj).
 Note you can select multiple shapefiles by holding down Command (on Mac) or Ctrl (on Windows) while individually clicking the file names.
 The selected layers will be added in default colors.
-![layers](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/Images/mappingdata01_03.png)
+![layers](Images/mappingdata01_03.png)
 The cities layer is represented by points and the countries layer is represented by polygons. The order of the layers can be controlled with the `Layers panel` to the left of the Data Frame.
 
 **Click** and drag the admin_0_countries layer on top of the populated_places layer. The cities points are no longer visible because they are behind the countries polygons (or only visible at the borders of the countries and the oceans).
