@@ -14,7 +14,7 @@ With this exercise, you will learn introductory skills involved in using QGIS to
 ### Part 0
 Download the GitHub repository for this course. Using the green button [here](https://github.com/brianhouse/mapping-architecture-urbanism-humanities), select `Download ZIP`. The Data folder will then have all of the datasets needed for tutorials.
 
-Find instructions for installing QGIS [here](https://github.com/brianhouse/mapping-architecture-urbanism-humanities/blob/master/1_QGIS.md).
+Find instructions for installing QGIS [here](../images/1_QGIS.md).
 
 ### Part 1: Mapping World Population(s)
 #### Premise
