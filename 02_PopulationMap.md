@@ -1,20 +1,20 @@
 ## Tutorial 2: Mapping Data
 
-With this exercise, you will learn introductory skills involved in using QGIS to map existing spatial datasets. After the completion of this set of three Mapping Data exercises, you should have…
+With this exercise, you will learn introductory skills involved in using QGIS to map existing spatial datasets. After the completion of this set of three Mapping Data exercises, you should have:
 
-1. become familiar with the QGIS user interface
-2. learned the components of shapefiles
-3. created a clear and effective map composition
-4. critically considered symbology and classification and the differences between mapping qualitative and quantitative information
-5. created and calculated new fields in an attribute table
-6. performed a table join to combine additional data to an existing shapefile’s attribute table
-7. queried a GIS dataset, using both tabular queries and spatial queries
-8. worked with projections and examined the impacts of projection transformations on spatial analysis
+1. Become familiar with the QGIS user interface
+2. Learned the components of shapefiles
+3. Created a clear and effective map composition
+4. Critically considered symbology and classification and the differences between mapping qualitative and quantitative information
+5. Created and calculated new fields in an attribute table
+6. Performed a table join to combine additional data to an existing shapefile’s attribute table
+7. Queried a GIS dataset, using both tabular queries and spatial queries
+8. Worked with projections and examined the impacts of projection transformations on spatial analysis
 
 ### Part 0
-Download the GitHub repository for this course. Using the green button [here](https://github.com/CenterForSpatialResearch/mapping_architecture_urbanism_humanities/), select `Download ZIP`. The Data folder will then have all of the datasets needed for tutorials.
+Download the GitHub repository for this course. Using the green button [here](https://github.com/CenterForSpatialResearch/mapping_architecture_urbanism_humanities/), select `Download ZIP`. The `Data` folder will then have all of the datasets needed for tutorials.
 
-Find instructions for installing QGIS [here](1_QGIS.md).
+Find instructions for installing QGIS [here](01_QGIS.md).
 
 ### Part 1: Mapping World Population(s)
 #### Premise
@@ -24,7 +24,7 @@ We are interested in creating a map of world countries and cities (and at the sa
 
 **Launch** QGIS. Your new blank map project will look like this:
 
-![blank](Images/mappingdata01_01.png)
+![blank](Images/02/00_newProject.png)
 
 Begin to familiarize yourself with the interface. You can also refer to this [brief description](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Resources/QGIS_InterfaceDescription.md) of the elements of the interface for more information.
 
@@ -32,7 +32,7 @@ Begin to familiarize yourself with the interface. You can also refer to this [br
 
 In order to construct our map within QGIS we will need to add our data layers to the map project. There are several ways to accomplish this however we will begin by using the `Add Vector Layer` button.
 
-![vector](Images/mappingdata01_02.png)
+![vector](Images/02/01_vectorButton.png)
 
 **Navigate** to the `Data/2_MappingData/Shape` folder. You'll notice a number of different file extensions that are likely unfamiliar. The files outlined in blue are all components of the admin_0_countries shapefile, and the ones outlined in magenta are all elements of the populated_places shapefile. It is very important that all of these files stay together in the same folder otherwise QGIS will not be able to load the layer.
 
@@ -43,12 +43,14 @@ In order to construct our map within QGIS we will need to add our data layers to
 * .prj - The file that stores the coordinate system information.
 * For more information on these extensions and others see [this explanation by ESRI](http://webhelp.esri.com/arcgisdesktop/9.2/index.cfm?TopicName=Shapefile_file_extensions).
 
-![vector](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/02_ElementsofSHP.png)
+![vector](Images/02/02_importShapefiles.png)
 
 Add the `populated_places.shp` and `admin_0_countries.shp` files. Even though we will just be adding these files to the map QGIS still references the other files associated with each layer (.shx,.dbf,.sbn,.prj).
 Note you can select multiple shapefiles by holding down Command (on Mac) or Ctrl (on Windows) while individually clicking the file names.
 The selected layers will be added in default colors.
-![layers](Images/mappingdata01_03.png)
+
+![properties](Images/02/03_addedShapefiles.png)
+
 The cities layer is represented by points and the countries layer is represented by polygons. The order of the layers can be controlled with the `Layers panel` to the left of the Data Frame.
 
 **Click** and drag the admin_0_countries layer on top of the populated_places layer. The cities points are no longer visible because they are behind the countries polygons (or only visible at the borders of the countries and the oceans).
@@ -57,17 +59,17 @@ We can change this by removing the fill color of the country polygons, leaving o
 
 We will display the countries as just borders. To access the `Style Menu` **double-click** on the layer name in the Layers panel, or **right-click** on the layer name and select `Properties.`  There are many different ways to symbolize data on a map through QGIS. For now, we will just use one style for all of the features in the layer.
 
-![properties](Images/mappingdata01_10.png)
+![properties](Images/02/04_selectProperties.png)
 
-Once inside the Layer Properties Menu **select** the `Style` tab. **Select** `Simple Fill` and then in the `Symbol layer type` menu **select** Outline: Single line.
+Once inside the Layer Properties Menu **select** the `Style` tab. **Select** `Simple Fill` and then in the `Symbol layer type` menu **select** Outline: Simple line.
 
-![style](Images/mappingdata01_09.png)
+![style](Images/02/05_outlineSimpleLine.png)
 
 When your style settings are finished, **click** `OK` to exit the properties menu. You should now be able to see each of the populated places points through the empty country polygons.
 
-![style](Images/mappingdata01_11.png)
+![style](Images/02/06_points.png)
 
-**Save** your QGIS project by selecting `Project` > `Save`. Name your project MappingData_Population.qgs. QGIS projects are saved as .qgs files. It is important to note that the data layers are not saved with it the map project but are rather linked to the project.
+**Save** your QGIS project by selecting `Project` > `Save`. Name your project MappingData_Population.qgs. QGIS projects are saved as `.qgs` or `.qgz` files; make sure `.qgs` is selected in the file type dropdown. It is important to note that the data layers are not saved with it the map project but are rather linked to the project.
 
 
 ### Part 2: Mapping World Population(s) to understand the difference between multiple methods of measuring world population
@@ -95,7 +97,7 @@ It should still contain the countries polygons and populated places points we ad
 
 **Select** the `Add raster layer` button in order to add the CEISIN’s Gridded Population of the World raster layer.
 
-![add](Images/mappingdata02_01.png)
+![add](Images/02/07_addRaster.png)
 
 Then in the dialog box which opens browse to the `Data/2_MappingData/Raster` folder and select `gpw_v4_2010.tif`. We will speak about the qualities of raster datasets a bit more later but for now let’s just add it to the map. After you’ve added this layer you can **un-click** the box next to the layer name in int Layers menu in order to toggle the visibility of the layer off.
 
@@ -103,17 +105,16 @@ Now we will add the table that describes population by country which we will joi
 
 **Select** the `add delimited layer` button.
 
-![CSV](Images/mappingdata02_02.png)
+![CSV](Images/02/08_addDelimited.png)
 
 Then in the dialog box which opens browse to the `Data/2_MappingData/Tabular` folder and **select** `TotalPopulation_Countries.csv`.
 **Select** `CSV` as the File Format. And **select** `no geometry (attribute table only)` as the Geometry Definition. **Click** OK.
 
-![CSV](Images/mappingdata02_03.png)
-
+![CSV](Images/02/09_importCSV.png.png)
 
 You'll notice TotalPopulation_Countries has been added to the Layers menu. Because it is just a table and does not have any geometry it does not show up in our map view. Let's open up its attribute table to see the fields that it contains before we embark on joining it to our country polygons. It contains three columns (or fields): `Country_Code`, `Name`, and `Pop_2010`.
 
-![CSV](Images/mappingdata02_05.png)
+![CSV](Images/02/10_openAttributeTable.png.png)
 
 #### Performing a Table Join
 In order to answer questions about world population by country we will join tabular data published by the United Nations to the country polygons we have already mapped. A table join allows GIS users to combine tabular data with vector data based on an identical field in their attribute tables.  
@@ -125,7 +126,7 @@ We have already cleaned the `TotalPopulation_Countries.csv` file and removed add
 In order to join attributes from a table to a shapefile the two data sets must share a common attribute field.
 Let's review the fields in the attribute table for the admin_0_countries layer:
 
-![Attribute](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/11_Admin0FieldNames.png)
+![Attribute](Images/02/11_attributeTable.png)
 
 They are:
 * NAME, NAME_LONG: a text name for the admin 0 area or country
@@ -143,7 +144,7 @@ Note that the Country_Code is identical to the Cnt_Code for each country, and ea
 
 We always start the join on the file that we are joining to. Here, we are joining the population estimates table to the country boundary shapefile. Thus, Open the Properties for admin_0_countries, and navigate to “Joins” in the left hand menu. Click the “+” icon. Make the following selections in the dialogue box which appears.
 
-![Attribute](Images/mappingdata02_09.png)
+![Attribute](Images/02/12_performJoin.png)
 
 **Select** TotalPopulation_Countries as the “join layer”, Country_Code is the “join field”, and Cnt_Code is the “target field” which matches the join field in the admin_0_countries layer. Select the box next to “Custom field name prefix” and delete the contents of that field (note this is a helpful field if we are joining data from many different tables to one shapefile as it allows you to distinguish the source table). **Click** `OK` to close the join dialogue. Then **Click** `OK` to close the layer properties menu.
 
@@ -151,7 +152,7 @@ Open the attribute table for the countries shapefile. You’ll notice two new fi
 
 Note: the population estimates data that is joined to the country boundaries is not permanently associated with its attribute table. Instead the relationship only exists within this QGIS project. If we added the admin_0_countries layer to another QGIS project the fields we have joined from the population estimates would not be there.
 
-In order to permanently incorporate the population estimates into a shapefile of world countries we must save a new version of the shapefile. **Right-click / Control-click** on admin_0_countries in the layers menu and select `Save.` Select `ESRI Shapefile` as the format, and save your file in the `Data/2_MappingData/Shape` folder as `admin_0_countries_UNPop.shp`.
+In order to permanently incorporate the population estimates into a shapefile of world countries we must save a new version of the shapefile. **Right-click / Control-click** on admin_0_countries in the layers menu and select `Export > Save Features As...`. Select `ESRI Shapefile` as the format, and save your file in the `Data/2_MappingData/Shape` folder as `admin_0_countries_UNPop.shp`.
 
 This new layer will then be added to the map and will contain the population estimates that we joined from the UN tabular data.
 
@@ -166,21 +167,21 @@ We will answer a few questions:
 
 In order to answer these questions we’ll first select just those cities from the `populated_places` layer which have populations of more than two million. Then we will export that as a separate layer. Then we will do the same for countries which have populations of greater than seven million people, and also less than seven million.
 
-There are multiple routes to select features within a dataset, either we can open its attribute table and select `select features using an expression` or we can highlight the layer in the layers menu and select the `select features using an expression` button in the main toolbar.
+There are multiple routes to select features within a dataset, either we can open its attribute table and select `Select features using an expression` or we can navigate to `Edit > Select > Select Features by Expression...` option. (The same icon should show up as a new shortcut button in your toolbar once you have performed this action once.)
 
 Option 1:
 
-![Attribute](Images/mappingdata02_10.png)
+![Attribute](Images/02/13_selectByExpression.png)
 
 Option 2:
 
-![Attribute](Images/mappingdata02_11.png)
+![Attribute](Images/02/14_alternateOptions.png)
 
 Either route will open the `Select by Expression` tool. We can be sure we are selecting features from the correct layer from the header of this dialogue box. We see that the header reads “Select by expression - populated_places” and because we will select the cities first we know we are selecting features from the correct layer.
 
 If we click on any of the terms in the central box (highlighted in magenta) a description of it will appear on the right side (highlighted in blue). We will combine the field name with other operators which we will find in the magenta box in order to build an expression in the green box on the left side.
 
-![Attribute](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/15_SelectExpressionMenu_opt.png)
+![Attribute](Images/02/15_queryBuilder.png)
 
 We want to select just those cities with a maximum estimated population of greater than two million.
 
@@ -189,23 +190,23 @@ To do this we will expand `Fields and Values` and select `pop_max`.
 * Next we will open `Operators` and double-click on the greater than symbol (>).
 * Then type in 2,000,000. Your expression should now look like the following.
 
-![Attribute](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/16_SelectionExpression_Final.png)
+![Attribute](Images/02/16_buildQuery.png)
 
 * **Click** `Select`.
 
 You should notice that some of the populated_places points will turn yellow. In addition at the bottom left corner of your QGIS project the footer will tell you how many features were selected: we see that 215 cities were selected.
 
-![Attribute](Images/mappingdata02_12.png)
+![Attribute](Images/02/17_selectedPoints.png)
 
 We will now save those 215 cities as a separate shapefile, just like we did for the admin_0_countries layer after we joined the UN population estimates to it.
 
-* **Right-click / Control-click** populated_places in the Layers menu, **select** `Save As`.
+* **Right-click / Control-click** populated_places in the Layers menu, **select** `Export > Save Features As`.
 * Then in the dialogue box which opens select `Save only selected features`, and save the shapefile in `Data/2_MappingData/Shape` as `populated_places_2mil.shp`.  
-![save as](Images/mappingdata02_13.png)
+![save as](Images/02/18_saveSelectedPoints.png)
 
 * This will then be added to our map as a new layer. In order to see the new layer clear your selection by clicking the `Deselect features from all layers button.`
 
-![Attribute](Images/mappingdata02_14.png)
+![Attribute](Images/02/19_deselect.png)
 
 #### Select by location
 
@@ -217,13 +218,13 @@ As we outlined above  we are interested in finding out how many countries have f
 The header bar of the attribute table will indicate that 124 of 238 features were selected.
 
 Now, we will use this selection to identify which cities of greater than two million people are within countries with fewer than seven million people. To do this we will use the select by location tool.
-* On the menu bar navigate to `Vector`>`Research Tools`>`Select By Location`. In the dialogue box that opens make the following selections:
+* On the menu bar navigate to `Vector`>`Research Tools`>`Select By Location`. In the dialogue box that opens make the following selections (make sure that `Selected features only` is checked):
 
-![Attribute](Images/mappingdata02_15.png)
+![Attribute](Images/02/20_selectByLocation.png)
 
 In the bottom left hand corner of your QGIS window you will see that five populated places were selected. Open the populated places attribute table and identify which cities these are by choosing `Show Selected Features` from the dropdown menu at the bottom left of the window.
 
-![Attribute](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/20_SelectedFeatures.png)
+![Attribute](Images/02/21_showSelectedFeatures.png)
 
 
 Now use select by attributes and select by location to answer the following question:
@@ -243,21 +244,21 @@ To do this open the layer properties menu for the `populated_places` layer and n
 
 Choose Graduated Symbols. Select `pop_max` as the column, `Size` for the method, and `Natural Breaks (Jenks)` as the mode. Click `Classify` and then click `Apply`. The populated places will now be sized according to their population.
 
-![Attribute](Images/mappingdata02_17.png)
+![Attribute](Images/02/22_visSettings.png)
 
 Now switch the method to `Color` and observe the results.
 
 **Bonus**: What if you want both color _and_ size? Once you've symbolized based on color, click on Symbol 'Change' and then on 'Simple Marker.' Next to the size option, there is a small icon. Select 'Size Assistant'.
 
-![blank](Images/georef3-11.png)
+![blank](Images/02/23_sizeAssistant.png)
 
 In the pop up box, select the pop_max filed and Flannery classification
 
-![blank](Images/georef3-12.png)
+![blank](Images/02/24_flannery.png)
 
 The outcome of your selections should look something like this:
 
-![Attribute](Images/mappingdata02_19.png)
+![Attribute](Images/02/25_sizeAndColor.png)
 
 **Raster Classified Color Ramp**
 
@@ -267,7 +268,7 @@ A raster is a data layer that is composed of a grid of cells, or pixels, of a sp
 
 If it isn’t already check the box next to the gridded population layer, gpw-v4-population-count-2010, to make it visible if it is not the top layer drag it in the Layers menu so that it is the top visible layer. It will largely be black. Now open the properties menu for the gridded population layer. Navigate to the style tab. You’ll notice that this looks different than the style menu we have been working with for our vector layers. Instead of a symbol type we have an option for ‘Render type’ and many options for how to color the bands in our dataset.
 
-![Attribute](Images/mappingdata02_20.png)
+![Attribute](Images/02/26_rasterProperties.png)
 
 Here you will see that the default style is `Singleband gray`, which means that it's only symbolizing in grayscale based on one band (other raster datasets can be made up of multiple bands, some examples of these include satellite images and color historical maps). The color gradient is currently set as `Black to white` but that can be switched to `White to black`.
 
@@ -275,7 +276,7 @@ And it is symbolizing based on the minimum value, in this case '0' and on the ma
 
 Now change the `Render type` to `Singleband pseudocolor` to get something similar to a symbology we would do for a vector file. On the right-hand panel you will see the `Mode of classification` (`Continuous` or `Equal Interval`) and below, again, the Load min/max values panel. Click on the `Classify` button to load the values and then hit `Apply` to see it on the map. Now you can see clearly the regions of the world with the highest population density. You can experiment with the style of your map by changing the colors used with the pulldown menu highlighted in blue.
 
-![Attribute](Images/mappingdata02_21.png)
+![Attribute](Images/02/27_rasterSymbology.png)
 
 **Choropleth**
 
@@ -287,7 +288,7 @@ Experiment with different modes and numbers of classes. What argument does each 
 
 After selecting each combination **Click** `Classify`.  Click `Apply`. The country polygons will change on the map.
 
-![Attribute](Images/mappingdata02_22.png)
+![Attribute](Images/02/28_choroplethSymbology.png)
 
 
 #### Designing a map
@@ -295,41 +296,41 @@ In order to present these three types of population measures we will now compose
 
 Create a map composition where all three depictions of world populations are values. Experiment with changing the colors of the different layers to become more familiar with the style menus for raster and vector layers. You can adjust the transparency of your data layers using the style menu.
 
-![Attribute](https://github.com/CenterForSpatialResearch/MappingForTheUrbanHumanities/blob/master/Tutorials/Images/MappingData01/26_LayerTransparency.png)
+![Attribute](Images/02/29_vectorLayerTransparency.png)
 
-![dot layer transparency](Images/mappingdata02_23.png)
+![dot layer transparency](Images/02/30_pointLayerTransparency.png)
 
 Once you are pleased with your map composition we will create a new print composer. When prompted you can either name the print composer or not.
 
-![Attribute](Images/mappingdata02_24.png)
+![Attribute](Images/02/31_newPrintLayout.png)
 
 To add a new map to the composer select the add new map button. Then click once to begin to drag a rectangle over the area on the page that you would like the map to occupy and click again to stop. Whatever is showing in your QGIS map project window as you create this new map in the print composer is what will appear in the new map.
 
-![Attribute](Images/mappingdata02_25.png)
+![Attribute](Images/02/32_printComposer.png)
 
 Next we will add a legend. Select Add new legend, and again click to draw a rectangle where you would like to place the legend. An unformatted legend that matches the information from the Layers panel will appear. You can use the options in the Item Properties tab (circled in blue) to change which layers are represented in the legend and to change the labeling of the layers in the legend. Scroll within this tab to familiarize yourself with which properties about the legend you can change.
 
 We will format the legend and change the titles of each dataset so they are more descriptive. To do this un-click “Auto update” to make changes, then change the layer names by clicking the “legend item properties” button circled in magenta.
 
-![Attribute](Images/mappingdata02_26.png)
+![Attribute](Images/02/33_printCustomize.png)
 
 Next we will add a scale bar. Click the add new scale bar button. Again you will be able to change the properties of the scale bar, including the style, number of segments and size.
 
-![Attribute](Images/mappingdata02_27.png)
+![Attribute](Images/02/34_scaleBar.png)
 
 Last we will add two text boxes, one with a title for the map and another with abbreviated citations for our data sources. Click the add new label button then use the Main properties field to add the text you want, and use the Font button to change the text size and font.
 
-![Attribute](Images/mappingdata02_28.png)
+![Attribute](Images/02/35_textDescription.png)
 
 Finally use one of the export options circled in blue above to save the map composition as an image file, PDF, or SVG.
 
 * Make this map composition your own – experiment with changing colors, and symbol sizes and the locations of the text and scale bars. The aim is to create a design that you are pleased with, that is clear, and follows cartographic conventions.
 
-![Attribute](Images/mappingdata02_29.png)
+![Attribute](Images/02/36_finalMap.png)
 
 ### Deliverables:
 
-Post your finished map composition (as a pdf or jpeg) to canvas under the QGIS Tutorial 2 assignment.
+Post your finished map composition (as a pdf or jpeg) to canvas under the Tutorial 02 assignment.
 
 Include your answer to the following question you answered on your own:
 * How many countries contain cities with greater than 7 million inhabitants?
@@ -338,4 +339,4 @@ Include your answer to the following question you answered on your own:
 
 ______________________________________________________________________________________________________________
 
-Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2017 by the [Center for Spatial Research](http://c4sr.columbia.edu).
+Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2017 by the [Center for Spatial Research](http://c4sr.columbia.edu). Edited by Emily Fuhrman for Spring 2020. 
