@@ -110,11 +110,11 @@ Now we will add the table that describes population by country which we will joi
 Then in the dialog box which opens browse to the `Data/2_MappingData/Tabular` folder and **select** `TotalPopulation_Countries.csv`.
 **Select** `CSV` as the File Format. And **select** `no geometry (attribute table only)` as the Geometry Definition. **Click** OK.
 
-![CSV](Images/02/09_importCSV.png.png)
+![CSV](Images/02/09_importCSV.png)
 
 You'll notice TotalPopulation_Countries has been added to the Layers menu. Because it is just a table and does not have any geometry it does not show up in our map view. Let's open up its attribute table to see the fields that it contains before we embark on joining it to our country polygons. It contains three columns (or fields): `Country_Code`, `Name`, and `Pop_2010`.
 
-![CSV](Images/02/10_openAttributeTable.png.png)
+![CSV](Images/02/10_openAttributeTable.png)
 
 #### Performing a Table Join
 In order to answer questions about world population by country we will join tabular data published by the United Nations to the country polygons we have already mapped. A table join allows GIS users to combine tabular data with vector data based on an identical field in their attribute tables.  
