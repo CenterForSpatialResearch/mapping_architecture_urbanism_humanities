@@ -1,14 +1,14 @@
 ## Tutorial 3: Making Data
 
 In this tutorial, you will:
-* download 311 data for New York City
-* create a categorical and a quantitative map of this data.
-* join the 311 data to another spatial dataset (census block groups) to aggregate it and display it based on its geographical location
+* Download 311 data for New York City
+* Create a categorical and a quantitative map of this data.
+* Join the 311 data to another spatial dataset (census block groups) to aggregate it and display it based on its geographical location
 
 There are three basic steps in this process:
-1. select, filter and download 311 data
-2. add the 311 data to a map in QGIS
-3. classify the data so that it is correctly displayed on the map.
+1. Select, filter and download 311 data
+2. Add the 311 data to a map in QGIS
+3. Classify the data so that it is correctly displayed on the map.
 
 
 ### Datasets:
@@ -41,9 +41,7 @@ Other datasets we will be using are:
 This contains:
 * nybb - New York City boroughs ([original](http://www.nyc.gov/html/dcp/html/bytes/districts_download_metadata.shtml))
 * HYDRO - New York hydrography ([original](https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd))
-<!-- * hydropol - U.S. Hydrographic features ([original](http://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2014/polygon)) -->
 * tl_2017_36_bg - New York State census block groups ([original](https://www.census.gov/cgi-bin/geo/shapefiles/index.php), census block groups for New York state for 2017)
-<!--* state - U.S. State Boundaries. Originally downloaded from [here](http://www.rita.dot.gov/bts/sites/rita.dot.gov.bts/files/publications/national_transportation_atlas_database/2014/polygon)-->
 
 In addition, you **must** download the roadbeds data (it is too big to host on GitHub)
 * [Roadbed - New York roadbed](https://data.cityofnewyork.us/api/geospatial/xgwd-7vhd?method=export&format=Shapefile)
@@ -51,18 +49,20 @@ In addition, you **must** download the roadbeds data (it is too big to host on G
 ### Creating Noise Maps of 311 Data in New York City
 #### Downloading 311 Data
 The first step in this tutorial is to select, filter and download the 311 data. The [NYC Open Data portal](https://nycopendata.socrata.com/) is a great resource for data related to New York City and it provides an easy way of accessing 311 data. In it's search bar type "311" and it should take you to a list of datasets related to 311 data. The one we are looking for is called **"311 Service Requests from 2010 to Present"**. You may have to select 'View Dataset'
-![311](Images/georef4-1.png)
+
+![311](Images/03/00_viewData.png)
 
 Once you've accessed the dataset you will see something like this:
 
 ![311 Dataset](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/01_311_Dataset.png)
-Here, we need to filter the database to download only the records regarding noise complaints for the first 6 months of 2018. You could attempt to download records for a longer period of time, but the files might get too large. To filter the data do the following:
+Here, we need to filter the database to download only the records regarding noise complaints for the first 6 months of 2019. You could attempt to download records for a longer period of time, but the files might get too large. To filter the data do the following:
 * On the right-hand panel, where it says "Filter", create a small query with the drop-down menus. Where it says `Unique Key`, change it to `Complaint Type`. Keep the `is`, and then type in "Noise" in the space below (The query should read 'Complaint type is Noise'. Make sure there is a check-mark next to the word 'Noise'. You will see how the dataset is filtered and you only get the complaints of type 'Noise'.
-* Next, click on `Add a New Filter Condition` and create another query that reads `Created Date` `is between` "01/1/2018 12:00:00 AM" and "07/1/2018 12:00:00 AM".
-You should now see the data only for 'Noise' complaints created between the start of 2018 and the end of June 2018.
+* Next, click on `Add a New Filter Condition` and create another query that reads `Created Date` `is between` "01/1/2019 12:00:00 AM" and "07/1/2019 12:00:00 AM".
+You should now see the data only for 'Noise' complaints created between the start of 2019 and the end of June 2019.
 * Your filters should look something like this:
 
-![311 Filters](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/02_Filters.png)
+![311 Filters](Images/03/01_openDataFilters.png)
+
 * Finally, click on the 'Export' button at the top right-hand corner of the site and choose the 'CSV' format. Your file should start downloading then.
 * If you open your .csv file in Excel you will see that there are about 215,657 records and that they have both X and Y coordinates and Latitude and Longitude. In the next steps we will use these fields to add the 311 data to a QGIS map.
 
@@ -71,12 +71,12 @@ You should now see the data only for 'Noise' complaints created between the star
   * nybb
   * Roadbed
   * Hydrography
-  <!-- * hydropol (inside folder named "hydrolin", but use "hydropol.shp") -->
-* Organize your layers so that you have the roads on top, then water for New York, then boroughs and last the water for the country.
+* Organize your layers so that you have the roads on top, then water for New York, then boroughs.
   * Note: if you are having problems with the layers not lining up, not showing, or looking skewed, you may have an issue with the projection. In the lower-right corner of the interface, there is a button which takes you to an interface where you can choose a coordinate system for the project -- try one of the "User Defined Coordinate Systems."
-* Now, to add the CSV file we downloaded, click on the `Add Delimited Text Layer` button on the top toolbar.
+* Now, to add the CSV file we downloaded, click on the `Add Delimited Text Layer` button on the top or left-hand toolbar.
 
-![Add CSV](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/03_Add_CSV.png)
+![Add CSV](Images/03/02_addCSV.png)
+
 * In the menu that comes up, look for your .csv (311 data) file. Once you've selected your file QGIS will automatically select some presets. You should have the following options selected:
   * File format: `CSV (comma separated values)` - (this is the format our data is in: each value is separated by a comma)
   * Record options: `First record has field names` - (the first row of our file contains the field names)
@@ -84,7 +84,8 @@ You should now see the data only for 'Noise' complaints created between the star
   * X field: `Longitude` and Y field: `Latitude` - (these are the columns in our dataset that contain our location coordinates)
   * Your menu should look something like this:
 
-![CSV Menu](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/04_CSV_Menu.png)
+![CSV Menu](Images/03/03_csvImport.png)
+
 * Once you click `OK` you might get a warning that says that x number of records were discarded because they didn't have geometry definitions. Click `Close`. There might be some records in the dataset that we downloaded that for some reason didn't include location data.
 * Next, QGIS might ask you to select a coordinate reference system (map projection) for this layer. Since we are adding this data based on the latitude and longitude information (decimal degrees, as opposed to feet) we need to select the `WGS 84`, which is the coordinate system that will correctly interpret this data <!--see note at line 106-->. You will find it under `Geographic Coordinate Systems`. You will find more information on this coordinate system [here](https://en.wikipedia.org/wiki/World_Geodetic_System). Once you select the correct coordinate system, your points will appear on the map.
 * *If  you are not prompted, you can double check by double clicking on the layer and navigating to General, and EPSG 4326, WGS 84) should appear*
@@ -215,4 +216,4 @@ Upload your two (PDF) 311 data maps to canvas. Your map should include proper le
 
 ______________________________________________________________________________________________________________
 
-Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the Mapping for Architecture, Urbanism and the Humanities class at Columbia University. Edited by Michelle McSweeney for Fall 2017 and Brian House for Fall 2018.
+Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the Mapping for Architecture, Urbanism and the Humanities class at Columbia University. Edited by Michelle McSweeney for Fall 2017, Brian House for Fall 2018, and Emily Fuhrman for Spring 2020.
