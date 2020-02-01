@@ -131,80 +131,78 @@ The last step in creating a qualitative map of the 311 data is a simple one: we 
 
 ## Creating a Quantitative Map of 311 Data
 Let's say you want to identify which census block group has the highest number of 311 noise complaints. To do this, you first have to join your 311 data to a layer containing the boundaries of New York City's census block groups.
-* First, add the census block group shapefile (tl_2017_36_bg)
+* First, (optionally), add the hydrolin shapefile (hydropol_nyc_)
+* Next, add the census block group shapefile (tl_2017_36_bg)
 * Move this layer so that it's located below the HYDRO layer.
 * If you zoom out, you will notice that this layer includes the census block groups for the whole State. However, we only need the ones for New York City. To select just these block groups we will use the 'select by attributes' method, which means selecting based on data in one of the fields of the layer. The census block group layer contains a field listing the specific county each block group is located in; we will use this field to select only the census block groups located in any of the 5 counties that make up New York City:
   * First, control-click / right-click on the census block group layer and select `Open Attribute Table`. Here you will see the data associated with each of the census block groups. The second column, the one called 'COUNTYFP', contains the county identifiers, and this is the one we will use to select only the New York City block group.
   * Now we need to select all the census block groups that have as their 'COUNTYFP' '005' (Bronx), '061' (Manhattan), '047' (Brooklyn), '081' (Queens) or '085' (Staten Island). To do this click on the `Select features using and expression` button. In this menu we will construct a query selecting only the features that have any of these numbers for their 'COUNTYFP' value.
 
-  ![Attribute Table](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/05_Attribute_Table.png)
+  ![Attribute Table](Images/03/08_attributeTable.png)
 
   * To build the query, expand the 'Fields and Values' drop-down menu in the middle panel and double-click on 'COUNTYFP'. You will notice the  "COUNTYFP" is added to the left-hand panel. Now type '=' after that and then click on the `all unique` button below the right-hand panel; this will show a list of all the unique values this field contains. Double-click on '005' to complete the first part of the query on the left-hand panel.
   * The query so far reads "COUNTYFP" = '005'. Notice that the '005' is under single quotation marks. This is because the value is a string (text), not a number. If it was a number you would only type 5, without quotations, and you would be able to do normal math operations with it. Instead, since it's a string, you have to type it with quotations and it behaves like text.
   * Now we need to add the other possibilities, with the operator `or` which we could type or select from the 'Operators' menu. Your final query should read something like this: `"COUNTYFP" = '005' or "COUNTYFP" = '047' or "COUNTYFP" = '061' or "COUNTYFP" = '081' or "COUNTYFP" = '085'`.
 
-  ![Selection Query](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/06_Selection_Query.png)
+  ![Selection Query](Images/03/09_selectCounty.png)
 
   * Click the 'Select' button on the bottom-right side to select those features that match your query; then close your selection menu and your attribute table. You should see all the census block groups for New York City highlighted in yellow.
 
-  ![Selected Block Groups](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/07_Selected_Block_Groups.png)
+  ![Selected Block Groups](Images/03/10_selectedCounties.png)
 
-  * Finally, to create a shapefile with only the selected features, control-click / right-click on the census block group layer and select `Save As...`. In the next menu choose the following settings:
+  * Finally, to create a shapefile with only the selected features, control-click / right-click on the census block group layer and select `Export > Save Features As...`. In the next menu choose the following settings:
     * Format: `ESRI Shapefile`
     * Save as: choose the right location and name your file 'NYC_BlkGrp'
     * Check `Save only selected features` - (this one is very important; if you don't check it you will just export a copy of your original layer with all the features, selected or not)
-    * Uncheck `Skip attribute creation` - (you still want to retain the attributes associated with each point)
     * Check `Add saved file to map` - (so that once you export the layer, the layer is added to your map)
   * Click `OK` and you should see a new layer with only New York City block groups.
   * You can remove or hide the New York State blockgroups.
 * Now we need to join the 311 data to the census block groups and get a count of how many complaints are in each block group. To do this, click on `Vector` `Analysis Tools` `Count Points in Polygon...`
 
-![Points in Polygon](Images/points_in_polygon.png)
+![Points in Polygon](Images/03/11_countPointsInPolygon.png)
 
 * In the 'Count Points in Polygon' menu choose the following settings:
   * Polygons layer: 'NYC_BlkGrp' - (this is the polygon layer we will join the points to)
   * Points layer: '311_Data' - (this is the layer containing the points that will be joined)
-  <!--* Input point later attribute to aggregate: Incident Z-->
   * Count field name: '311_Count' - (this is a new field that will be created and will contain the count of points that were joined to each block group)
-  * Count: Click the ellipsis and select `Save to file`, name it '311_BlkGrp'
-  <!--* Check `Add result to canvas` so the new shapefile is added to the map.-->
+  * Count: Click the ellipsis and select `Save to file`, name it '311_BlkGrp'. Make sure `.shp` is selected as the output file type.
 
-![Couting Points in Polygon](Images/points_count.png)
+![Counting Points in Polygon](Images/03/12_countPointsModal.png)
 
 * Once you have all your settings ready, click `Run` and let it run. Once it's done, click `Close`. You will see your new layer on the map.
 * If you control-click / right-click on the new layer (311_BlkGrp) and choose 'Open Attribute Table' you will see that the last field is called '311_Count' and it contains the number of points joined to each block group. We will use this field to symbolize the block groups.
-* To actually symbolize the layer, control-click / right-click on it and choose `Properties`, and in the Style tab change the 'Single Symbol' drop-down menu to 'Graduated'.
+* To actually symbolize the layer, control-click / right-click on it and choose `Properties`, and in the `Symbology` tab change the 'Single Symbol' drop-down menu to 'Graduated'.
 * Next, in the 'Column' drop-down menu select the '311_Count' field to symbolize and click on the `Classify` button to load the values.
-* You will notice that QGIS automatically classifies the values into 5 categories. Also, if you look at the settings on the top right-hand side you will see that the software uses an 'Equal Interval' method for this classification. However, if you click `OK` and look at the resulting map you will notice that most block groups fall within the first group, the one that goes from 0 - 145.8 and that very few are fall in the other ones. In fact, it seems like there is one single block group with more than 400 complaints (located in Queens), which is skewing the whole classification method upwards. This is clearly an outlier and the classification method should not be based on this particular block group.
+* You will notice that QGIS automatically classifies the values into 5 categories. Also, if you look at the settings on the lower left-hand side you will see that the software uses an 'Equal Interval' method for this classification. However, if you click `OK` and look at the resulting map you will notice that most block groups fall within the first group, the one that goes from 0 - 189.2 and that very few are fall in the other ones. In fact, it seems like there is one single block group with more than 900 complaints (located in Staten Island), which is skewing the whole classification method upwards. This is clearly an outlier and the classification method should not be based on this particular block group.
 * Instead, go back to the properties and change the classification method to 'Natural Breaks (Jenks)' which deals better with datasets that are not normally distributed. You can find out more about this classification method [here](https://en.wikipedia.org/wiki/Jenks_natural_breaks_optimization).
 * You can change your color ramp or the individual colors or strokes of each of the classes. You can also change the number of classes the data is divided into but note that normally, we can only really differentiate between 5 or 6 classes.
 * Once you are done with the classification, click `OK` to apply it to the layer and see your results on the map.
 
-![Classification Methods](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/09_Classification_Methods.png)
+![Classification Methods](Images/03/13_jenks.png)
 
 Lastly, we need to hide the census block groups that fall outside of the New York City borough boundaries. If you look closely at the census block group layer, you will see that there are some block groups that fall inside the Hudson River and that shouldn't be included in our map.
 
 There are a couple of ways of doing this: one option would be to clip the block group layer using the borough layer, in order to get rid of the census block groups that fall outside the boroughs. However, this option would permanently modify the block group layer and, if at any point the borough boundaries don't align perfectly with the block groups (which is entirely possible), the geometry of those block groups would be changed too. The best option then is to hide the block groups that fall inside the water and conveniently enough there is a field in the block group attribute table that has a specific value for these features.
 * First, open the attribute table of the 311_BlkGroup layer. You will notice that there is a field called 'ALAND' and another called 'AWATER'. 'ALAND' one has a unique identifier for each of the block groups that has some land area; 'AWATER' has an identifier for those block groups that have some water. There problem is that some block groups have both water and land. So we will only show those block groups where the 'ALAND' field does not equal 0, meaning that they have some land.
-* To do this we will create a 'Feature subset'. Open the layer properties and go to the `General` tab. At the bottom of this tab you will see the 'Provider Feature filter' panel. Go to the bottom of this panel and click on the `Query Builder` button. This query builder will work in a similar way as the 'Selection by attributes' query builder.
-![querybuilder](Images/georef4-5.png)
+* To do this we will create a 'Feature subset'. Open the layer properties and go to the `Source` tab. At the bottom of this tab you will see the 'Provider Feature Filter' panel. Go to the bottom of this panel and click on the `Query Builder` button. This query builder will work in a similar way as the 'Selection by attributes' query builder.
+
+![querybuilder](Images/03/14_queryBuilder.png)
+
 * In the 'Fields' panel you will see the 'ALAND' field. Double-click on this to make it appear in the bottom panel ('Provider specific filter expression').
 * Now add '!= 0' to the expression. ('!=' means 'does not equal').
 * Your expression should look something like this:
 
-![Query Builder](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/10_Query_Builder.png)
+![Query Builder](Images/03/15_buildQuery.png)
 
 * Click `OK` in the 'Query Builder' and then `OK` again in the 'Properties' panel. Your map should now only show the census block groups that have land.
 
 You may wish to change the projection of the whole project at this point. It should be in NAD83/New York Long Island EPSG 2263. Click on the project projection in the bottom right hand corner to open the project projection options.
 
-![Invert Selection](Images/georef4-6.png)
+![Invert Selection](Images/03/16_changeProjection.png)
 
-Be sure to enable 'On the fly' transformations
+![Invert Selection](Images/03/17_correctProjection.png)
 
-![Invert Selection](Images/georef4-7.png)
-
-At this point, you can adjust colors, strokes and layer order. The water-related layers should be light grey with transparent boundaries, the classified 311 block group on top, and the boundaries should be transparent. Adjust the scale so there is a 0-0 scale that is white. The only other visible layers should be the water layers. You can, of course, style it as you wish, however.
+At this point, you can adjust colors, strokes and layer order. The water-related layers should be light grey with transparent boundaries. The classified 311 block group should appear to lay on top, with the boundaries of the boroughs visible on top. You can, of course, style it as you wish, however.
 
 And finally, create a print composer, add a legend, title, explanation, source and a scale bar, and export your map as a PDF file. Your final map should look something like this:
 
