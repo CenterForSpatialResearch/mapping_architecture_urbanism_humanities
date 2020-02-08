@@ -145,7 +145,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
 
   ![Text Edit Table](Images/04/05_textEdit.png)
 
-  * Next, before you modify the file, *make a copy, so you don't overwrite the original*. I will save it as B05002_Text_Edit. TextEdit or Notepad will automatically save it as a .txt file, which is fine.
+  * Next, before you modify the file, *make a copy, so you don't overwrite the original*. I will save it as B05002_Text_Edit. TextEdit or Notepad will automatically save it as a .txt file, which is fine, though you may change it to .csv.
   * Next, replace the first line (the one that goes from 'GEO.id' to 'HD02_VD27') with the right headers. However, since we are not deleting the columns for the margins of error we need to add those headers. The new first line should be something like this:
     * `GeoID,GeoID2,GeoDisplay,TotalPop,MOTotalPop,Native,MO_Native,InState,MO_InState,OtherSt,MO_OtherSt,OtherNE,MO_OtherNE,OtherMW,MO_OtherMW,OtherS,MO_OtherS,OtherW,MO_OtherW,N_Out,MO_N_Out,PuertoR,MO_PuertoR,USIsland,MO_USIsland,AbroadAP,MO_AbroadAP,Foreign,MO_Foreign,FrgNat,MO_FrgNat,FrgNatE,MO_FrgNatE,FrgNatAs,MO_FrgNatAs,FrgNatAf,MO_FrgNatAf,FrgNatOc,MO_FrgNatOc,FrgNatLA,MO_FrgNatLA,FrgNatNA,MO_FrgNatNA,FrgNonC,MO_FrgNonC,FrgNonCE,MO_FrgNonCE,FrgNonCAs,MO_FrgNonCAs,FrgNonCAf,MO_FrgNonCAf,FrgNonCOc,MO_FrgNonCOc,FrgNonCLA,MO_FrgNonCLA,FrgNonCNA,MO_FrgNonCNA`
     * Notice all the MO (margin of error) and the commas separating all the headers. These are very important.
@@ -172,7 +172,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
 
   * Your final file should look something like this:
 
-  ![CSVT File](Images/10_CSVT_File.png)
+  ![CSVT File](Images/04/07_CSVT.png)
 
 * Now that the files are ready we can move into QGIS and bring everything together.
 
@@ -182,7 +182,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
 * Once you've loaded the census boundaries, open it's attribute table. You will notice that the fourth column is called 'GEOID'. That's the one we will use to join our census table to. Close the attribute table.
 * Now, to add the census table click on the 'Add a delimited text layer' button:
 
-![Add .csv file](Images/11_Add_CSV.png)
+![Add .csv file](Images/04/08_addCSV.png)
 
 * Select the .csv or .txt file with our data.
 * If you added the .csv file the `CSV (Comma Separated Values)` option should be checked.
@@ -190,24 +190,24 @@ Another great advantage of using Excel is that if you need to delete multiple fi
 * In both cases the option `First record has field names` should be checked so that the program recognizes our headers and in the 'Geometry definition' the option `No geometry (attribute only table)` should be selected too (our files don't contain coordinates or geometrical attributes).
 * Your import options should look something like this (for the .csv file):
 
-![Import options .csv file](Images/12_Import_Options.png)
+![Import options .csv file](Images/04/09_importCSV.png)
 
 * The ones for the .txt file should look like this:
 
-![Import options .txt file](Images/13_Import_Options_Txt.png)
+![Import options .txt file](Images/04/10_importTextEdit.png)
 
-* Click `OK` to import the table, and once you do it you should have it listed on your 'Layers Panel'. If you right-click / control-click on the table and open the attribute table you should see all your values there.
+* Click `OK` to import the table, and once you do it you should have it listed on your 'Layers Panel'. If you right-click / control-click on the table and open the attribute table. You should see all your values there.
 
 #### Joining tables to shapefiles
-* To join the census table to the shapefile with the geographic boundaries right-click / control-click on the census boundaries and go to the properties panel. There, choose the `Joins` tab.
+* To join the census table to the shapefile with the geographic boundaries, double click on the census boundaries layer and go to the properties panel. There, choose the `Joins` tab.
 * In the `Joins` tab, click on the button with the plus sign to create a new join with the following settings:
   * Join layer: B05002 (the census table)
   * Join field: GeoID2 (the field that contains the unique identifier for each census tract)
-  * Target field: GEOID (the filed in the census boundaries that contains the unique identifier)
+  * Target field: GEOID (the field in the census boundaries that contains the unique identifier)
   * Custom field name prefix: checked and delete what is in there. This is useful when you want to add a prefix for the fields that are joined, for example, when you are joining multiple tables and you want to differentiate them. In our case, since we are only joining one table we don't need this prefix.
   * The menu should look something like this:
 
-  <img src="Images/14_Join_Menu.png" width=400/>
+  ![Import options .txt file](Images/04/11_addVectorJoin.png)
 
   * Click `OK` and then `OK` again.
 
@@ -215,13 +215,13 @@ Another great advantage of using Excel is that if you need to delete multiple fi
 * An easy way to do this is to select all the census tracts that are not `NULL` for one of our main field, for example the GeoDisplay field.
 * To do this, go to the attribute table and create a selection expression that says `"GeoDisplay" IS NOT NULL` and click `Select`. You should have now 2,167 features selected and if you click `Close` and close the attribute table too, these selected features should correspond to New York City.
 
-![Selected Features](Images/15_Selected_Features.png)
+![Selected Features](Images/04/12_selectNotNull.png)
 
 * Now export these selected features as a new shapefile and make sure it takes the right projection for New York City. Make sure also that when you are exporting you check the option that says `Save only selected features`, otherwise you will export all features, including the ones that don't have any census data.
 * Now you have a shapefile only with New York City census tracts with all the data that we downloaded.
 
 #### Symbolizing the data
-The last part in our process is to finally symbolize the data and see what comes out of it. For this tutorial we will symbolize the number of people who are foreign born in each census tract. However, it is very important to **normalize** the data. Since not all census tracts have the same number of people living in them, showing just total count of foreign born people would not be useful; the census tracts with more inhabitants would probably have more foreigners too. That's why we should normalize by the total number of people living in each census tract.
+The last part in our process is to finally symbolize the data and see what comes out of it. For this tutorial we will symbolize the number of people who are foreign born in each census tract. However, it is very important to _normalize_ the data. Since not all census tracts have the same number of people living in them, showing just total count of foreign born people would not be useful; the census tracts with more inhabitants would probably have more foreigners too. That's why we should normalize by the total number of people living in each census tract.
 
 In general, you should always try to normalize your data and this is usually going to be either by population or by area. Some examples are, cars per inhabitant, murders per 1,000 people, cell phones per person, built square footage per acre of land, income per capita. Always ask yourself if it wouldn't make more sense to view the data normalized by something else instead of just raw numbers.
 
@@ -231,11 +231,11 @@ First, just so you can see the difference between the different classification m
   * Change the classification from `Single Symbol` to `Graduated`.
   * In the column field, choose 'Foreign' and click on the `Classify` button. The panel in the middle should populate with 5 different ranges of values.
   * The default mode of classification is `Equal Interval`.
-  * You will notice that the breaks start from 0 and advance in increments of 1660.2. The `Equal Interval` takes the full range of the *values* and divides it into the number of classes (in our case, 5).
+  * You will notice that the breaks start from 0 and advance in increments of 1581.8. The `Equal Interval` takes the full range of the *values* and divides it into the number of classes (in our case, 5).
   * If you click on the `Histogram` option and then on the `Load values` button you will see how the program divides the data.
   * Click `OK` and take a look at the map:
 
-  ![Equal Interval](Images/16_Equal_Interval.png)
+  ![Equal Interval](Images/04/13_equalInterval.png)
 
   * You will notice that most census tracts fall within the first or second class and that there are only a handful of them in the third, fourth or fifth.
   * With this classification method we see the effect an extreme value can have on the graphic representation of data: the census tract in the Bronx that represents Co-Op City is skewing the data towards the top so that there are too few census tracts in the intermediate classes.
@@ -244,10 +244,10 @@ First, just so you can see the difference between the different classification m
   * Now return to the classification option in the style properties of the dataset.
   * Choose `Quantile (Equal Count)` as the classification mode.
   * This classification method gets the total number of features and divides it by the number of classes, so that each class has an equal number of features. The problem with this method is that features that might be very far apart in terms of their values might end up in the same class.
-  * Go to the `Histogram` option and click on `Load values` to see how this classification method splits the data.
+  * Go to the `Histogram` tab and click on `Load values` to see how this classification method splits the data.
   * Click `OK` and take a look at the map:
 
-  ![Quantiles](Images/17_Quantiles.png)
+  ![Quantiles](Images/04/14_quantile.png)
 
   * Here you see how every class has an equal number of features, but for example the census tract for Co-Op City, which we know has one of the highest counts of foreigners in the city, gets lumped up with many other census tracts, some of which might not have that many foreigners.
 
@@ -258,67 +258,65 @@ First, just so you can see the difference between the different classification m
   * You see how the divisions in the data follow the general pattern of the histogram.
   * Click `OK` and take a look at the map:
 
-  ![Natural Breaks](Images/18_Natural_Breaks.png)
+  ![Natural Breaks](Images/04/15_jenks.png)
 
   * This map is probably the most balanced one, clearly underlining the census tracts that have high values but still showing the variation in the rest of the census tracts.
 
 * Standard Deviation
   * Finally, change the classification method to `Standard Deviation`.
   * With this classification method it's always good to also change the color scale to a 'diverging' color scheme, something that starts with one color, goes through a neutral (or white) color and ends up in another color. This type of color scale makes it clear that there are some 'neutral' values and that there are some other values that are higher or lower than those.
-  * However, there's a problem with how QGIS classifies values here. The problem that QGIS has here is that it doesn't make the 'neutral' color correspond to the values around the mean or within 1 standard deviation of the mean. In this case, if you click `OK` you will see that the 'neutral' color actually corresponds to the values between 2 and 4 standard deviations away from the mean, which is pretty misleading. This classification method would only actually work well with a normally distributed dataset, which doesn't always happen.
+  * However, there's a problem with how QGIS classifies values here. The problem that QGIS has here is that it doesn't make the 'neutral' color correspond to the values around the mean or within 1 standard deviation of the mean. In this case, if you click `OK` you will see that the 'neutral' color actually corresponds to the values between 2 and 4 standard deviations away from the mean, which is pretty misleading; with our current dataset, you may not even see more than one class defined. This classification method would only actually work well with a normally distributed dataset, which doesn't always happen. 
   * Take a look at these two maps: they are based on the same dataset. The only difference is that the left one was made with QGIS and the other one with ArcMap. The ArcMap one correctly makes the 'neutral' color correspond to the values that are between -0.5 and +0.5 standard deviations away from the mean, so the most 'normal' values.
 
   ![Standard Deviations](Images/19_Standard_Deviations.png)
 
 * In any case, this little exercise shows you the importance of choosing the right classification method for your data.
 
-Finally, to create the last version of our map we need to normalize our data by the total population in the census tract. So the actual data that we will use is going to be: 'Foreign Population' / 'Total Population'. In other words, we will shoe percentage of foreign born population per census tract.
+Finally, to create the last version of our map we need to normalize our data by the total population in the census tract. So the actual data that we will use is going to be: 'Foreign Population' / 'Total Population'. In other words, we will show percentage of foreign born population per census tract.
 * To do this first go to the classification option for the census dataset.
 * In the `Column` option, click on the `ε` option. Here we will write a little expression to normalize our data.
 
-![Expression](Images/20_Expression.png)
+![Expression](Images/04/16_symbologyExpression.png)
 
 * In this panel, choose the 'Foreign' field and divide it by the 'TotalPop' field. Your expression should read: ` "Foreign" / "TotalPop"`.
 
-![Normalize](Images/21_Normalize.png)
+![Normalize](Images/04/17_normalize.png)
 
 * Once you've done this, choose the right classification method (in our case that's probably going to be 'Natural Breaks' or 'Equal Intervals') and the right color scheme.
-* You can always modify slightly the values for the classes to round off the numbers and make the value ranges be more understandable. You do this by clicking on the specific value under `Values`.
+* You can always modify slightly the values for the classes to round off the numbers and make the value ranges be more understandable. You do this by double-clicking on the specific value under `Values`.
 * In my case, my value ranges are:
-  * 0 - 0.2
-  * 0.2 - 0.3
-  * 0.3 - 0.4
-  * 0.4 - 0.5
-  * 0.5 - 0.85
+  * 0 - 0.20
+  * 0.20 - 0.35
+  * 0.34 - 0.45
+  * 0.45 - 0.60
+  * 0.60 - 0.85
 * Once you've classified correctly your data, click `OK` and make sure your map makes sense.
 
+**_BONUS:_** Some of the tracts seem to disappear after running this calculation. Can you figure out why? How might you fix this?
 
 Lastly, we need to hide the census block groups that fall outside of the New York City borough boundaries. If you look closely at the census block group layer, you will see that there are some block groups that fall inside the Hudson River and that shouldn't be included in our map.
 
 There are a couple of ways of doing this: one option would be to clip the block group layer using the borough layer, in order to get rid of the census block groups that fall outside the boroughs. However, this option would permanently modify the block group layer and, if at any point the borough boundaries don't align perfectly with the block groups (which is entirely possible), the geometry of those block groups would be changed too. The best option then is to hide the block groups that fall inside the water and conveniently enough there is a field in the block group attribute table that has a specific value for these features.
-* First, open the attribute table of the CensusData layer. You will notice that there is a field called 'ALAND' and another called 'AWATER'. 'ALAND' one has a unique identifier for each of the block groups that has some land area; 'AWATER' has an identifier for those block groups that have some water. There problem is that some block groups have both water and land. So we will only show those block groups where the 'ALAND' field does not equal 0, meaning that they have some land.
-* To do this we will create a 'Feature subset'. Open the layer properties and go to the `General` tab. At the bottom of this tab you will see the 'Provider Feature filter' panel. Go to the bottom of this panel and click on the `Query Builder` button. This query builder will work in a similar way as the 'Selection by attributes' query builder.
-![querybuilder](Images/georef4-5.png)
+* First, open the attribute table of the CensusData layer. You will notice that there is a field called 'ALAND' and another called 'AWATER'. 'ALAND' has a unique identifier for each of the block groups that has some land area; 'AWATER' has an identifier for those block groups that have some water. The problem is that some block groups have both water and land. So we will only show those block groups where the 'ALAND' field does not equal 0, meaning that they have some land.
+* To do this we will create a 'Feature subset'. Open the layer properties and go to the `Source` tab. At the bottom of this tab you will see the 'Provider Feature Filter' panel. Go to the bottom of this panel and click on the `Query Builder` button. This query builder will work in a similar way as the 'Selection by attributes' query builder.
+
+![querybuilder](Images/04/18_queryBuilder.png)
+
 * In the 'Fields' panel you will see the 'ALAND' field. Double-click on this to make it appear in the bottom panel ('Provider specific filter expression').
 * Now add '!= 0' to the expression. ('!=' means 'does not equal').
 * Your expression should look something like this:
 
-![Query Builder](https://github.com/juanfrans-courses/mapping_arch_hum/blob/master/Fall_2016/Tutorials/Images/02_Data_Types_and_311/10_Query_Builder.png)
+![Query Builder](Images/04/19_filterExpression.png)
 
 * Click `OK` in the 'Query Builder' and then `OK` again in the 'Properties' panel. Your map should now only show the census block groups that have land.
 
 You may wish to change the projection of the whole project at this point. It should be in NAD83/New York Long Island EPSG 2263. Click on the project projection in the bottom right hand corner to open the project projection options.
 
-![Invert Selection](Images/georef4-6.png)
-
-Be sure to enable 'On the fly' transformations
-
-![Invert Selection](Images/georef4-7.png)
-
+![Change Projection](Images/04/20_changeProjection.png)
 
 Once you are finished with this go ahead and adjust colors, strokes and layer order. And finally, create a print composer, add a legend, title, explanation, source and a scale bar, and export your map as a PDF file. Your final map should look something like this:
 
-![Final Map](Images/22_Final_Map.png)
+![Final Map](Images/04/21_finalMap.png)
 
 #### Deliverables
 Upload your (PDF) map to Canvas. Your map should include a legend, scale bar, title, explanation and source.
@@ -326,4 +324,4 @@ Upload your (PDF) map to Canvas. Your map should include a legend, scale bar, ti
 
 ______________________________________________________________________________________________________________
 
-Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the Mapping for Architecture, Urbanism and the Humanities class at Columbia University. Edited by Michelle McSweeney for Fall 2017 and Brian House for Fall 2018, and Emily Fuhrman for Spring 2020.
+Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the Mapping for Architecture, Urbanism and the Humanities class at Columbia University. Edited by Michelle McSweeney for Fall 2017, Brian House for Fall 2018, and Emily Fuhrman for Spring 2020.
