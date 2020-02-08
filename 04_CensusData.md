@@ -27,7 +27,7 @@ The two images below show census block groups in orange and census tracts in blu
 
 ![Census Tracts](Images/02_Census_Tracts.png)
 
--To download the census tracts boundaries for New York State go [here](https://www.census.gov/cgi-bin/geo/shapefiles/index.php) and choose `2017` and `Census Tracts` and then `New York` and download.
+-To download the census tracts boundaries for New York State go [here](https://www.census.gov/cgi-bin/geo/shapefiles/index.php) and choose `2019` and `Census Tracts` and then `New York` and download.
 
 Once we have the 'empty' geography boundaries for the census tracts we need to download the actual data. For this we will use the [American FactFinder](http://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) which is one of the portals where you can download census data.
 
@@ -38,20 +38,20 @@ Once you are on the American FactFinder website, click on the `ADVANCED SEARCH` 
 
 The U.S. Census has two main surveys, the Decennial Census and the American Community Survey. The [Decennial Census](https://www.census.gov/history/www/programs/demographic/decennial_census.html) is the major census survey, carried out every 10 years and attempting to count every person in the country. However, it has two major disadvantages: one, it only happens every 10 years, so for the years in between, like where we are now, the last census might be too outdated and the next one too far away; and two, because it is not using any sampling techniques, it often under-represents minorities.
 
-The second main survey is called the [American Community Survey (ACS)](https://www.census.gov/history/www/programs/demographic/american_community_survey.html) and happens continuously. Its questionnaire is sent to 295,000 addresses monthly and it gathers data on topics such as ancestry, educational attainment, income, language proficiency, migration, disability, employment, and housing characteristics. Its results come in 3 forms: 1-year estimates, 3-year estimates and 5-year estimates. The 1-year estimates are the most current but the least reliable. The 5-year estimates are not as current but are much more reliable. For this exercise we will be using the 2016 ACS 5-year estimate data.
+The second main survey is called the [American Community Survey (ACS)](https://www.census.gov/history/www/programs/demographic/american_community_survey.html) and happens continuously. Its questionnaire is sent to 295,000 addresses monthly and it gathers data on topics such as ancestry, educational attainment, income, language proficiency, migration, disability, employment, and housing characteristics. Its results come in 3 forms: 1-year estimates, 3-year estimates and 5-year estimates. The 1-year estimates are the most current but the least reliable. The 5-year estimates are not as current but are much more reliable. For this exercise we will be using the 2017 ACS 5-year estimate data.
 
-In the left hand side of the `ADVANCED SEARCH` window, expand the `Topics` tab, and expand the `Dataset` option. Here, choose the `2016 ACS 5-year estimates`. You should see that dataset move to the top right-hand panel called `Your Selections`.
+In the left hand side of the `ADVANCED SEARCH` window, expand the `Topics` tab, and expand the `Dataset` option. Here, choose the `2017 ACS 5-year estimates`. You should see that dataset move to the top right-hand panel called `Your Selections`.
 
-![ACS 2016 5-year estimates](Images/03_Datasets.png)
+![ACS 2016 5-year estimates](Images/04/00_ACS2017.png)
 
 Next, let's select the geography. Click on the `Geographies` tab and set the following parameters:
 * Geographic type: Census Tract - 140
 * State: New York
 Once you've done this you will have the option to select the county. Select 'Bronx' and once the window below populates, highlight 'All Census Tracts Within Bronx County, New York' and click `ADD TO YOUR SELECTIONS`. Again, you should see this item added to your selections window. Do the same thing for all the census tracts in the rest of the counties in the city: New York (Manhattan), Kings (Brooklyn), Queens and Richmond (Staten Island).
 
-![Geographies](Images/04_Geographies.png)
+![Geographies](Images/04/01_addGeographies.png)
 
-Finally, we need to select the tables that we will be exporting. In this tutorial we will be using the table for 'Place of birth by nativity and citizenship status (B05002)'. To select this table click on the 'Topics' tab again, and expand 'People' and 'Origins' and click on 'Citizenship'. Once it's been added to your selections you can close that little window. Now you should see a list of all the tables that match your selection criteria. Click on the 'PLACE OF BIRTH BY NATIVITY AND CITIZENSHIP STATUS (B05002)' table. You should now see the selected table with the data for the selected census tracts.
+Finally, we need to select the tables that we will be exporting. In this tutorial we will be using the table for 'PLACE OF BIRTH BY NATIVITY AND CITIZENSHIP STATUS (B05002)'. To select this table click on the 'Topics' tab again, and expand 'People' and 'Origins' and click on 'Citizenship'. Once it's been added to your selections you can close that little window. Now you should see a list of all the tables that match your selection criteria. Click on the 'PLACE OF BIRTH BY NATIVITY AND CITIZENSHIP STATUS (B05002)' table. You should now see the selected table with the data for the selected census tracts.
 
 As you can see this table has data on where everyone was born and it comes in the following form:
 * Total
@@ -74,32 +74,32 @@ On the top, we have every census tract with the corresponding value and a margin
 
 The last thing we need to do is modify the table so it fits the way data is organized in QGIS. If you remember when we opened attribute tables in QGIS, every row represented a feature and every column represented an attribute. Here, it's the other way around, so we need to 'transpose' the table to make it match QGIS. To do this click on `Modify Table` at the top left and then on `Transpose Rows/Columns`. Now you should see the table with the census tracts on the left-hand column and the fields on the first row.
 
-![Final table](Images/05_Final_Table.png)
+![Final table](Images/04/02_transposeRowsColumns.png)
 
 Finally, click on `Download` and make sure you are selecting 'Use the data' as a comma-delimited (.csv) format with the 'single file' and 'Include descriptive data element names' options selected. Click `OK` and then once your files are ready `Download` again.
 
 ### Formatting Census Data
-To bring census data into QGIS, we need to re-format the table, so that we can join it to its geographic boundaries. This is a two step process: first, we will format the actual table in Excel, Google Spreadsheet or a simple text editor and, second, we will create a .csvt file, which will tell QGIS the exact format for each of the fields in the table.
+To bring census data into QGIS, we need to re-format the table, so that we can join it to its geographic boundaries. This is a two step process: first, we will format the actual table in Excel, Google Sheets or a simple text editor. Second, we will create a .csvt file, which will tell QGIS the exact format for each of the fields in the table.
 
 As with many things GIS, there are multiple ways of formatting the data. Here, we will give instructions for doing it with either Excel or a text editor (you don't need to do both).
 
-Their are advantages and disadvantages to both methods. The  advantage of using Excel (or Google Docs) is that if you need to, you can add and **calculate** new fields; for example, in our case, you can calculate what percentage of the total population was foreign born and add that as a field (you could also do that inside QGIS). However, if you were to do that in a text editor, you would need to manually calculate the value. On the other hand, doing the re-formating through a text editor means that you can control the format of the data much more and that you won't have any problems with Excel auto-converting your data into other types, for example, from text into numbers, etc.
+Their are advantages and disadvantages to both methods. The  advantage of using Excel (or Google Sheets) is that if you need to, you can add and _calculate_ new fields; for example, in our case, you can calculate what percentage of the total population was foreign born and add that as a field (you could also do that inside QGIS). However, if you were to do that in a text editor, you would need to manually calculate the value. On the other hand, doing the re-formating through a text editor means that you can control the format of the data much more and that you won't have any problems with Excel auto-converting your data into other types, for example, from text into numbers, etc.
 
 Another great advantage of using Excel is that if you need to delete multiple fields (for example, all the margin of error fields), you can easily do it. Doing it in the text editor would be a nightmare. That being said, there are options, when downloading the data from American FactFinder, to not get the margin of error fields.
 
-#### Re-formating data in Excel:
+#### Re-formatting data in Excel:
   * First, open a new file in Excel.
   * Once you've opened it, click on `File`, `Open...` and navigate to the folder where you saved your downloaded census tables.
   * Make sure you are able to open `All Files` not just `All Readable Files`. In my Mac, that option is called `Enable` and in Windows you should select the option `All Files (*.*)` instead of `All Excel Files (...)`.
-  * Once you've done this you will be able to select the file called 'ACS_16_5YR_B05002_with_ann.csv' and open it.
+  * Once you've done this you will be able to select the file called 'ACS_17_5YR_B05002_with_ann.csv' and open it.
   * Here's a preview of the raw file:
 
-  ![Excel Table](Images/06_Excel_Table.png)
+  ![Excel Table](Images/04/03_ACSinExcel.png)
 
   * We need to do two things: One, to rename the field names (header) and get rid of the second row (also a kind of header). And two, delete all the margin of error fields since we are not going to use them.
   * QGIS has certain requirements for field names: maximum 10 characters, no spaces, no punctuation (except - and _ ) and they must start with a letter, not a number.
   * First, delete the margin of error columns. Just right-click / control-click on the column and select `Delete`.
-  * Now, rename the fields in the following way:
+  * Now, rename the header fields in the following way:
     * GeoID
     * GeoID2
     * GeoDisplay
@@ -135,15 +135,15 @@ Another great advantage of using Excel is that if you need to delete multiple fi
   * The names don't need to be the same, but this is how I will refer to them. There's no standard way of naming these fields. In general, choose names that you can read and understand, so that you and other people who use these files can easily understand what they mean. The metadata is there to tell you exactly what each of the fields means, but you should be able to figure it out when possible.
   * Once you've renamed your fields, delete the second row. Now you are left with only one header field and the actual data.
 
-  ![Excel Final Table](Images/07_Excel_Final_Table.png)
+  ![Excel Final Table](Images/04/04_modifiedCSV.png)
 
-  * Finally, save your file as a .csv file. If you are on a Mac, make sure you save your file as `Windows Comma Separated (.csv)`. There seems to be a problem with the line endings when you save it as the default .csv format. I am saving my file as `B05002.csv`.
+  * Finally, save your file as a new .csv file. I am saving my file as `B05002.csv`.
 
-#### Re-formating in a text editor:
+#### Re-formatting in a text editor:
   * If you don't have Excel, or you don't want to use it, you can also re-format your file in a simple text editor. Here, I'll use the default Mac TextEdit application. You can also use your Windows Notepad or Sublime Text. As a side note, I highly recommend [Sublime Text](https://www.sublimetext.com/) as a text editor, we will use it later in the semester.
-  * First, open the original census table ('ACS_16_5YR_B05002_with_ann.csv') with your text editor.
+  * First, open the original census table ('ACS_17_5YR_B05002_with_ann.csv') with your text editor.
 
-  ![Text Edit Table](Images/08_Text_Edit_Table.png)
+  ![Text Edit Table](Images/04/05_textEdit.png)
 
   * Next, before you modify the file, *make a copy, so you don't overwrite the original*. I will save it as B05002_Text_Edit. TextEdit or Notepad will automatically save it as a .txt file, which is fine.
   * Next, replace the first line (the one that goes from 'GEO.id' to 'HD02_VD27') with the right headers. However, since we are not deleting the columns for the margins of error we need to add those headers. The new first line should be something like this:
@@ -152,7 +152,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
   * Now delete the second line, the one that goes from 'Id' to 'Not a U.S. citizen'.
   * Your new file should look something like this:
 
-  ![Text Edit Final Table](Images/09_Text_Edit_Final_Table.png)
+  ![Text Edit Final Table](Images/04/06_textEditmodified.png)
 
 #### Creating the .csvt file:
   * In both cases you need to create also a .csvt file. This file will tell QGIS exactly what type of data each of the fields is in. The different types of data your fields can take are:
@@ -326,4 +326,4 @@ Upload your (PDF) map to Canvas. Your map should include a legend, scale bar, ti
 
 ______________________________________________________________________________________________________________
 
-Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the Mapping for Architecture, Urbanism and the Humanities class at Columbia University. Edited by Michelle McSweeney for Fall 2017 and Brian House for Fall 2018.
+Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the Mapping for Architecture, Urbanism and the Humanities class at Columbia University. Edited by Michelle McSweeney for Fall 2017 and Brian House for Fall 2018, and Emily Fuhrman for Spring 2020.
