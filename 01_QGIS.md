@@ -18,7 +18,7 @@ Mac users must install several packages which support QGIS: GDAL, NumPy, matplot
 1. Download this installer: [QGIS 3.4 for Mac](https://qgis.org/downloads/macos/qgis-macos-ltr.dmg)
 
 2. Once the download has completed, open the qgis-macos-ltr.dmg installer. Read and accept the Terms & Conditions. You will see the following: 
-![img](https://github.com/CenterForSpatialResearch/mapping_architecture_urbanism_humanities/blob/master/Images/01/01_install_qgis.png)
+![img](https://github.com/CenterForSpatialResearch/mapping_architecture_urbanism_humanities/blob/master/Images/01_00_installQGIS.png)
 
 QGIS will be in your Applications folder and is now ready to use. 
 

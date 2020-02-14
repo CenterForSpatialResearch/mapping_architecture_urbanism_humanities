@@ -11,15 +11,14 @@ Through this exercise you will learn key tools of analysis using QGIS. After com
 * Develop a raster based decision mapping methodology to answer a specific question
 * Adapt a raster dataset to your own research needs through raster re-classification
 
-
 #### Premise
-We are interested in looking at libraries in the Bronx as a public resource. We will use proximity based measures to the zones of impact (and potential impact) of libraries on Bronx residents from a number of different perspectives. First we want to evaluate which library branches are located within areas that have a high number of Spanish speaking residents. Then we will evaluate which libraries serve the greatest number of school children.  
+We are interested in looking at libraries in the Bronx as a public resource. We will use proximity based measures to the zones of impact (and potential impact) of libraries on Bronx residents from a number of different perspectives. First we want to evaluate which library branches are located within areas that have a high number of Spanish speaking residents. Then we will evaluate which libraries serve the greatest number of school children.
 
 #### Research questions
 * Where are Bronx Library branches?
 * Which Library branch locations are within areas with a high number of Spanish speaking residents?
 * How many public schools are located within ¼ mile of a library?
-* Which five Libraries serve the most students?
+* Which five libraries serve the most students?
 * What is the nearest library to each school?
 * How many people do these libraries serve?
 
@@ -40,10 +39,12 @@ Select the `add vector data` button and navigate to the `5_AnalyzingData/Shape` 
 * Bronx_Schools.shp
 * Bronx_Libraries.shp
 
-![add](Images/mappingdata08_01.png)
-First **open** the attribute tables of each data layer and inspect its contents.
+![add](Images/05_00_init.png)
+
+First **open** the attribute table of each data layer and inspect its contents.
 
 The field names for `Bronx_Tracts_2014` are:
+
 * `STATEFP`: the State FIPS code
 * `COUNTYFP`: the county FIPS code
 * `TRACTCE`: the FIPS code for the census tract
@@ -58,14 +59,18 @@ The field names for `Bronx_Tracts_2014` are:
 * `Pct_OnlyEn`: the percent of the population over 5 years old within the census tract that speaks only English
 * `Pct_Other`: the percent of the population over 5 years old within the census tract that speaks another language in addition to (or instead of) English
 * `Pct_Spanis=h`: the percent of the percent of the population over 5 years old within the census tract that speaks Spanish
+
 The field names for `Bronx_Libraries` are:
+
 * `facname`: the name of the facility
 * `borough`: the borough of the library – in this case they are all in the Bronx
 * `ft_decode`: the type of library it is, Branch or Central
 * `facaddress`: the address of the library
 * `zipcode`: the zipcode of the library
 * `ForRaster`: ignore this for now – it was created for an operation we will perform on the dataset in a later exercise.
+
 The field names for `Bronx_Schools` are:
+
 * `BORO`: a code for the name of the borough the school is within
 * `BORONUM`: a numeric code for the borough the school is within
 * `SCHOOLNAME`: the name of the school
@@ -73,7 +78,7 @@ The field names for `Bronx_Schools` are:
 * `ADDRESS`: the school’s address
 * `ZIP`: the school’s zipcode
 * `GRADES`: the grades within the school
-* `Emrollment`: the number of students enrolled in the school
+* `Enrollment`: the number of students enrolled in the school
 * `Raster`: again ignore this field for now
 
 
@@ -83,21 +88,21 @@ We want to determine which libraries are located within census tracts where more
 
 * **Open** the attribute table of the Bronx_Tracts layer and choose the `select using an expression` tool. Select census tracts where more than 65 percent of the population over 5 years old speaks Spanish. Your expression should look like this. Click `Select`. You should see that 56 features were selected. Close the attribute table.
 
-![location](Images/mappingdata08_02.png)
+![location](Images/05_01_query.png)
 
 * Now we will determine which libraries lie within these census tracts by using the select by location tool. **Navigate** to the `Vector` > `Research Tools` > `Select by Location` in the menu bar. Then make the following selections:
 
-![location](Images/mappingdata08_04.png)
+![location](Images/05_02_selectByLocation.png)
 
 * Open the attribute table of the `Bronx_Libraries` layer in order to note which libraries were selected. Four libraries were selected, what are their names?
 
-![location](Images/mappingdata08_05.png)
+![location](Images/05_03_selectedLibraries.png.png)
 
 This analysis give us a very rough sense of which libraries might already serve a large number of Spanish speakers however we have only selected libraries which are located exactly within census tracts with a large proportion of Spanish speakers. What if there is a library in an adjacent census tract? Our analysis will not have picked up on this.
 
 Now, before moving on, deselect all features from all layers.
 
-![deselect](Images/mappingdata08_07.png)
+![deselect](Images/05_04_deselectAll.png)
 
 #### Schools and Libraries
 Now we will depart from questions about language and instead ask a series of questions about the relationship between schools and libraries in the Bronx. Specifically we will ask:
@@ -109,28 +114,29 @@ To answer the first question, we will create a ¼ mile buffer around the librari
 
 
 ##### Creating Buffers
-* On your menu bar navigate to `Vector`>`Geoprocessing Tools` > `Fixed distance buffer`.
-![buffer](Images/mappingdata08_06.png)
+* On your menu bar navigate to `Vector`>`Geoprocessing Tools` > `Buffer`.
+
+![buffer](Images/05_05_bufferMenu.png)
+
 * Your menu may read `Vector > Geoprocessing Tools > Fixed distance buffer`. `Variable Distance Buffer` is another possible tool, but for now we will use Fixed Distance.
+
 ![buffer2](Images/mappingdata08_06-1.png)
+
   * Choose Bronx_Libraries as your input vector layer – this sets which layer the buffers are drawn around.
 
   * Set the buffer distance to 1320. The values in this field have the same units as the projection of your input datalayer and map project. Our map is projected in the NAD83 New York State Plane (Long Island) projection system whose units are in feet. To confirm this you can open the layer properties and inspect the coordinate reference system for the layer. Thus we choose 1320 feet because this is equivalent to ¼ mile.
-
-<!--   * Note: If you are using QGIS 2.14 or 2.18, there is a bug that might cause the *project* datum to revert back to the default (or actually to Clarke 1866). This means that it cannot be measured in feet, and must be measured in degrees. (If you were doing this for a project that you intended to publish widely, you may have to downgrade your software to version 2.8, which is the last version I know of without the bug.)
-      - If when you use 1320 (feet), you don't get the circles (pictured below), you'll have to use a different measurement. To get around this, use the conversion of .01 degree/km, so for ¼ mile, we will make our input distance `0.00402336` you'll have to use a different measurement. To get around this, use the conversion of .01 degree/km, so for ¼ mile, we will make our input distance `0.00402336`
- -->     <!-- * Save your new shapefile as buffers/2k_mine_buffers.shp-->  
 
   * Save the output layer as `BX_Library_QuarterMiBuffer`.
 
   * Your map should look something like the following:
 
-![location](Images/mappingdata08_08.png)
+![location](Images/05_06_buffered.png)
 
 * Next we will use the select by location tool to determine which schools fall within ¼ mile of a library. Navigate to `Vector`>`Research Tools`>`Select By Location`
-  * Select features in  `Bronx_Schools` that intersect features in `BX_Library_QuarterMiBuffer`
+  * Select features in  `Bronx_Schools` that intersect or are within features in `BX_Library_QuarterMiBuffer`
       - This menu can look different in various installations of QGIS. If your menu looks like the following, use the following selections:
-![newmenu](Images/mappingdata08_08-1.png)
+
+![newmenu](Images/05_07_selectByLocation.png)
 
   * Select Run, and then close.
 
@@ -142,29 +148,21 @@ To answer the first question, we will create a ¼ mile buffer around the librari
 
   * Navigate to `Vector`>`Data Management Tools`>`Join attributes by location`.
 
-![location](Images/mappingdata08_09.png)
+![location](Images/05_08_joinByLocation.png)
 
-  * Just like with a table join the `Target vector layer` is the layer to which we would like to join new information to and the `Join vector layer` is the layer which we are joining to the target layer. In our case BX_Library_QuarteMiBuffer is the `Target vector layer` and Bronx_Schools is the `Join vector layer`
-
-  * Because there might be multiple features in the join layer within one of the target layer features we need to tell QGIS how we would like to summarize the attributes from the Bronx Schools layer when they are joined to the buffer around the libraries. We can tell QGIS to take the values of the attribute fields for the first school it finds or to compute a summary (either Mean, Min, Max, Sum, or Median) of the values of all features in the schools layer which lie within the target features.
-
-  * We want to know the total number of students enrolled in the schools which are within our ¼ mile buffers and thus we will **select** `Take summary of intersecting features`, and choose `sum`.
-
-  * Save the output shapefile as `Library_QuartMiBuffer_SchoolsJoin`
-
-  * In the Output table options select Keep all records (including non-matching target records), this will ensure that the buffers for which there are no schools are kept in our dataset.
+  * Just like with a table join the `Input layer` is the layer to which we would like to join new information to and the `Join layer` is the layer which we are joining to the input layer. In our case BX_Library_QuarteMiBuffer is the `Input layer` and Bronx_Schools is the `Join layer`. _(Note: Given there might be multiple features in the join layer within a single feature of the target layer, QGIS will automatically sum the values of all dimensions within the join layer when performing this join.)_
 
   * Select `OK`.
 
-  * A warning box will appear letting you know that a new layer has been created as a result of this spatial join. Click `OK`. Then close the `Join attributes by location` dialogue box.
+  * A box will appear letting you know that a new layer has been created as a result of this spatial join. Click `OK`. Then close the `Join attributes by location` dialogue box.
 
-  * Note that `Library_QuarterMiBuffer_SchoolsJoin` has now been added to your map as a layer.
+  * Save the output layer as `BX_Library_QuartMiBuffer_SchoolsJoin`.
 
-  * **Open** the attribute table for this layer. Notice the new field `SUMEnrollment` that has been added on. This field contains the sum of the enrollments for all of the schools within the buffer.
+  * **Open** the attribute table for this layer. Notice the new field `Enrollment` that has been added on. This field contains the sum of the enrollments for all of the schools within the buffer.
 
-  * Which five libraries serve the greatest number of enrolled school children? Sort the attribute table by SUMEnrollment and identify the top five libraries.
+  * Which five libraries serve the greatest number of enrolled school children? Sort the attribute table by `Enrollment` and identify the top five libraries.
 
-![location](Images/mappingdata08_10.png)
+![location](Images/05_09_joinedAttributeTable.png)
 
 
 ##### Using a Distance Matrix
@@ -175,14 +173,15 @@ To answer the first question, we will create a ¼ mile buffer around the librari
   * Navigate on your menu bar to `Vector`>`Analysis Tools`>`DistanceMatrix`
   * Select `Bronx_Schools` as the `Input point layer`. Set `SCHOOLNAME` as the `Input unique ID field`. The input point layer is the layer that the distance of the target point layer will be measured in relation to.
   * Select `Bronx_Libraries` as the `Target point layer` and `facname` as the `Target unique ID field`.
-  * For the output matrix type select `Linear (N*kx3) distance matrix`, and select `Use only the nearest (k) target points` and set this to 1.
-  * Make sure to Save to File, not save to temporary file
- ![location](Images/mappingdata08_12.png)
+  * For the output matrix type select `Linear (N*k x 3) distance matrix`, and select `Use only the nearest (k) target points` and set this to 1.
+  
+ ![location](Images/05_10_distanceMatrix.png)
+  
   * Run the process, and then open the Attribute Table of the resulting layer
 
   * You will see that we have generated a table where each school is matched with its nearest library and QGIS has computed the distance between them in feet.
 
-![location](Images/04_09_DistanceMatrix.png)
+![location](Images/05_11_distanceMatrixOutput.png)
 
 ##### Making Estimates
 We now have gathered information about how many schools are within ¼ mile of each library, as well as the total number of children enrolled in those schools and we have also computed the nearest library to each school. Now we would like to determine more generally how many people live near libraries in the Bronx – i.e. how many people do Bronx libraries serve?
@@ -195,19 +194,21 @@ For our first approximation we will ask: how many people live in the census trac
 
 * Navigate to `Vector`>`Research Tools`>`Select by location`. And make the following selections:
 
-![location](Images/mappingdata08_15.png)
+![location](Images/05_12_selectByLocation.png)
 
 * Select ‘OK’ and then `Close`.
 * Your selections should look something like this:
-![location](Images/mappingdata08_16.png)
+
+![location](Images/05_13_selectResults.png)
 
 * We can already tell that this will be a very coarse way to estimate the population served by each of the Bronx libraries because some census tracts which intersect our buffers are very large and portions of the tract are very far away from any library.
 
-* Despite this we now want to add up the total population within these selected census tracts.  To determine the total population of all of the census tracts that intersect a ¼ mile buffer of a Bronx library. To do this we will use the `Basic statistics` tool. Navigate to  `Vector`>`Analysis Tools`>`Basic statistics for numeric fields`. Make the following selections and click `OK`.
+* Despite this we now want to add up the total population within these selected census tracts.  To determine the total population of all of the census tracts that intersect a ¼ mile buffer of a Bronx library. To do this we will use the `Basic statistics` tool. Navigate to  `Vector`>`Analysis Tools`>`Basic Statistics for Fields`. Make the following selections and click `OK`.
 
-![location](Images/mappingdata08_17.png)
+![location](Images/05_14_basicStatistics.png)
 
-* We see that the total population of all of the census tracts that intersect a ¼ mile buffer around a Bronx library is 983,821. Make a note of this total we will compare it to the result we get in the next portion of the exercise.
+* Look at the log readout in the "Log" tab, or click to open the Results Viewer HTML link that appears in the panel to the right.
+* We see from the `Sum:` field that the total population of all of the census tracts that intersect a ¼ mile buffer around a Bronx library is 983,821. Make a note of this total we will compare it to the result we get in the next portion of the exercise.
 
 Now we will refine our estimate of the population near libraries. We will estimate the population that lives precisely within our ¼ mile buffers using using a method called *proportional split estimation*. A proportional split is a way to estimate the proportion of a quantitative attribute that falls within a portion of a polygon’s area. A proportional split is calculated in a few fairly simple steps.
 
@@ -219,18 +220,21 @@ Now we will refine our estimate of the population near libraries. We will estima
 Note: that proportional split estimation assumes that the attribute you are estimating is evenly distributed through out the polygon. In reality, the population within each census tract is not evenly distributed nevertheless thus this is an estimate.
 
 **Calculating the area of the census tracts**
-* Open the attribute table for the Bronx census tracts layer and select the field calculator – this will turn on editing mode, you are now altering the Bronx_tracts_2014 shapefile.
-![location](Images/mappingdata08_18.png)
+* Open the attribute table for the Bronx census tracts layer and select the field calculator – computing this will automatically turn on editing mode, so treat this as though you are now altering the `Bronx_tracts_2014` shapefile.
+
+![location](Images/05_15_newField.png)
 
 * Create a new field, assign the Output field name as `Area`, the Output field type as `Decimal number (real)`, the Output field width as `10` and the Precision `2`. Open the Geometry menu and double click on `$area`
 * Click `OK`
-* Scroll to the right in the attribute table for the Bronx census tracts and see the new field that you have added. Now select the `Toggle editing mode` button to exit the editing mode. You will be asked if you want to save your changes, say `yes`.
-* Note: census tracts extend into the water so the area we are calculating here includes both land area and area of the tract that might be in the water. This introduces some error into our proportional split estimation. One way to be even more precise in our estimate is to clip the census tract polygons by the shoreline prior to embarking on this analysis.
+* Scroll to the right in the attribute table for the Bronx census tracts and see the new field that you have added. Now select the `Toggle editing mode` (pencil icon) button to exit the editing mode. You will be asked if you want to save your changes, say `Save`.
+* Note: Census tracts extend into the water so the area we are calculating here includes both land area and area of the tract that might be in the water. This introduces some error into our proportional split estimation. One way to be even more precise in our estimate is to clip the census tract polygons by the shoreline prior to embarking on this analysis.
 
 **Clipping the census tracts to the ¼ mile buffers**  
+
 * Next we will use the `clip` tool to clip the Bronx census tracts with the ¼ mile buffers around the Bronx libraries.
 * Navigate to `Vector`>`Geoprocessing Tools`>`Clip`
-![location](Images/mappingdata08_19.png)
+
+![location](Images/05_16_clipTracts.png)
 
 * The input vector layer is the layer you will clip (in our case the Bronx census tracts)
 * The Clip layer is the layer you will use to clip the input layer (in our case the ¼ mile buffers around the libraries).
@@ -239,28 +243,32 @@ Note: that proportional split estimation assumes that the attribute you are esti
 * A new layer containing the census tracts clipped to the ¼ mile buffers around the libraries was added to your map.
 * Toggle the visibility of all of of the layers on your map off except for `BXTracts_LibraryQuartMiClip`.
 * Use the select tool to click on some of the individual clipped census tract polygons to familiarize yourself with this new layer.
- ![location](Images/mappingdata08_20.png)
 
-**Calculating the area of the clipped census tracts**  
+ ![location](Images/05_17_clippedTracts.png)
+
+**Calculating the area of the clipped census tracts** 
+
 * Now we will calculate the area of these new polygons.
 * Open the attribute table for the clipped Bronx census tracts layer: `BXTracts_LibraryQuartMiClip`.
 * Open the field calculator and again create a new field to calculate the new area of each polygon.
 * Set the Output field name as `AreaClip`,
 * Select `Decimal number (real)` as the output field type, Set the output field width as 10 and the precision as 2. Under the geometry menu select `$area`. Click `OK`.
 * Notice the new field that has been added to the far right of the attribute table called `AreaClip`
-![location](Images/mappingdata08_21.png)  
+
+![location](Images/05_18_areaClip.png)  
 
 **Dividing the the area of the clipped census tracts by their original area**
 * Again open the field calculator and calculate a new field.
 * Set the Output field name as `Proportion`,
 * Select `Decimal number (real)` as the output field type, Set the output field width as 10 and the precision as 2.
-* Calculate `”AreaClip” / “Area”` -- i.e. the proportion of the original area that remained after the clip
+* Calculate `"AreaClip" / "Area"` -- i.e. the proportion of the original area that remained after the clip
 * Click `OK`
 
 **Multiplying the population by the proportion**
 
 * Now we will calculate one final field where we’ll multiply the attributes (for us, population in 2014) we wish to estimate by the proportion in order to estimate the proportion of the attribute that falls within the study area.
-* Set the Output field name as `Pop2014_est`
+* Again open the field calculator and calculate a new field.
+* Set the Output field name as `Pop2014est`
 * Select `Decimal number (real)` as the output field type, Set the output field width as 10 and the precision as 2.
 * Calculate `"Proportion" * "Pop2014"`
 * Click `OK`
@@ -268,14 +276,14 @@ Note: that proportional split estimation assumes that the attribute you are esti
 
 Now we will compare the total estimated population within the buffers to the original rough population estimate we made at the beginning of this exercise using the select by location tool.
 
-* Navigate to `Vector`>`Analysis Tools`>`Basic statistics for numeric fields`.
-* Select Pop2014_es as the Target field and note the Sum
+* Navigate to `Vector` > `Analysis Tools` > `Basic Statistics for Fields`.
+* Select Pop2014est as the Target field and note the Sum
 * Repeat for the population field for the entire census tract Pop2014 and note the difference
 
 #### What to Submit
-Please send an image (can be a simple screenshot) of the clipped buffers (the stage where it is just circles, and what number you got for the proportional split population estimate.
+Please send an image (can be a simple screenshot) of the clipped buffers (the stage where it is just circles), and what number you got for the proportional split population estimate.
 
 
 ______________________________________________________________________________________________________________
 
-Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2016 by the [Center for Spatial Research](http://c4sr.columbia.edu). Edited by Brian House for Fall 2018.
+Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2016 by the [Center for Spatial Research](http://c4sr.columbia.edu). Edited by Brian House for Fall 2018 and Emily Fuhrman for Spring 2020.
