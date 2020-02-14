@@ -278,4 +278,4 @@ Please send an image (can be a simple screenshot) of the clipped buffers (the st
 
 ______________________________________________________________________________________________________________
 
-Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2016 by the [Center for Spatial Research](http://c4sr.columbia.edu). Edited by Brian House for Fall 2018.
+Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2016 by the [Center for Spatial Research](http://c4sr.columbia.edu). Edited by Brian House for Fall 2018 and Emily Fuhrman for Spring 2020.
