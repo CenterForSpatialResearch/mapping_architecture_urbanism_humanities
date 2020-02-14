@@ -11,15 +11,14 @@ Through this exercise you will learn key tools of analysis using QGIS. After com
 * Develop a raster based decision mapping methodology to answer a specific question
 * Adapt a raster dataset to your own research needs through raster re-classification
 
-
 #### Premise
-We are interested in looking at libraries in the Bronx as a public resource. We will use proximity based measures to the zones of impact (and potential impact) of libraries on Bronx residents from a number of different perspectives. First we want to evaluate which library branches are located within areas that have a high number of Spanish speaking residents. Then we will evaluate which libraries serve the greatest number of school children.  
+We are interested in looking at libraries in the Bronx as a public resource. We will use proximity based measures to the zones of impact (and potential impact) of libraries on Bronx residents from a number of different perspectives. First we want to evaluate which library branches are located within areas that have a high number of Spanish speaking residents. Then we will evaluate which libraries serve the greatest number of school children.
 
 #### Research questions
 * Where are Bronx Library branches?
 * Which Library branch locations are within areas with a high number of Spanish speaking residents?
 * How many public schools are located within ¼ mile of a library?
-* Which five Libraries serve the most students?
+* Which five libraries serve the most students?
 * What is the nearest library to each school?
 * How many people do these libraries serve?
 
@@ -40,10 +39,12 @@ Select the `add vector data` button and navigate to the `5_AnalyzingData/Shape` 
 * Bronx_Schools.shp
 * Bronx_Libraries.shp
 
-![add](Images/mappingdata08_01.png)
-First **open** the attribute tables of each data layer and inspect its contents.
+![add](Images/05_00_init.png)
+
+First **open** the attribute table of each data layer and inspect its contents.
 
 The field names for `Bronx_Tracts_2014` are:
+
 * `STATEFP`: the State FIPS code
 * `COUNTYFP`: the county FIPS code
 * `TRACTCE`: the FIPS code for the census tract
@@ -58,14 +59,18 @@ The field names for `Bronx_Tracts_2014` are:
 * `Pct_OnlyEn`: the percent of the population over 5 years old within the census tract that speaks only English
 * `Pct_Other`: the percent of the population over 5 years old within the census tract that speaks another language in addition to (or instead of) English
 * `Pct_Spanis=h`: the percent of the percent of the population over 5 years old within the census tract that speaks Spanish
+
 The field names for `Bronx_Libraries` are:
+
 * `facname`: the name of the facility
 * `borough`: the borough of the library – in this case they are all in the Bronx
 * `ft_decode`: the type of library it is, Branch or Central
 * `facaddress`: the address of the library
 * `zipcode`: the zipcode of the library
 * `ForRaster`: ignore this for now – it was created for an operation we will perform on the dataset in a later exercise.
+
 The field names for `Bronx_Schools` are:
+
 * `BORO`: a code for the name of the borough the school is within
 * `BORONUM`: a numeric code for the borough the school is within
 * `SCHOOLNAME`: the name of the school
@@ -73,7 +78,7 @@ The field names for `Bronx_Schools` are:
 * `ADDRESS`: the school’s address
 * `ZIP`: the school’s zipcode
 * `GRADES`: the grades within the school
-* `Emrollment`: the number of students enrolled in the school
+* `Enrollment`: the number of students enrolled in the school
 * `Raster`: again ignore this field for now
 
 
@@ -83,21 +88,21 @@ We want to determine which libraries are located within census tracts where more
 
 * **Open** the attribute table of the Bronx_Tracts layer and choose the `select using an expression` tool. Select census tracts where more than 65 percent of the population over 5 years old speaks Spanish. Your expression should look like this. Click `Select`. You should see that 56 features were selected. Close the attribute table.
 
-![location](Images/mappingdata08_02.png)
+![location](Images/05_01_query.png)
 
 * Now we will determine which libraries lie within these census tracts by using the select by location tool. **Navigate** to the `Vector` > `Research Tools` > `Select by Location` in the menu bar. Then make the following selections:
 
-![location](Images/mappingdata08_04.png)
+![location](Images/05_02_selectByLocation.png)
 
 * Open the attribute table of the `Bronx_Libraries` layer in order to note which libraries were selected. Four libraries were selected, what are their names?
 
-![location](Images/mappingdata08_05.png)
+![location](Images/05_03_selectedLibraries.png.png)
 
 This analysis give us a very rough sense of which libraries might already serve a large number of Spanish speakers however we have only selected libraries which are located exactly within census tracts with a large proportion of Spanish speakers. What if there is a library in an adjacent census tract? Our analysis will not have picked up on this.
 
 Now, before moving on, deselect all features from all layers.
 
-![deselect](Images/mappingdata08_07.png)
+![deselect](Images/05_04_deselectAll.png)
 
 #### Schools and Libraries
 Now we will depart from questions about language and instead ask a series of questions about the relationship between schools and libraries in the Bronx. Specifically we will ask:
@@ -109,23 +114,23 @@ To answer the first question, we will create a ¼ mile buffer around the librari
 
 
 ##### Creating Buffers
-* On your menu bar navigate to `Vector`>`Geoprocessing Tools` > `Fixed distance buffer`.
-![buffer](Images/mappingdata08_06.png)
+* On your menu bar navigate to `Vector`>`Geoprocessing Tools` > `Buffer`.
+
+![buffer](Images/05_05_bufferMenu.png)
+
 * Your menu may read `Vector > Geoprocessing Tools > Fixed distance buffer`. `Variable Distance Buffer` is another possible tool, but for now we will use Fixed Distance.
+
 ![buffer2](Images/mappingdata08_06-1.png)
+
   * Choose Bronx_Libraries as your input vector layer – this sets which layer the buffers are drawn around.
 
   * Set the buffer distance to 1320. The values in this field have the same units as the projection of your input datalayer and map project. Our map is projected in the NAD83 New York State Plane (Long Island) projection system whose units are in feet. To confirm this you can open the layer properties and inspect the coordinate reference system for the layer. Thus we choose 1320 feet because this is equivalent to ¼ mile.
-
-<!--   * Note: If you are using QGIS 2.14 or 2.18, there is a bug that might cause the *project* datum to revert back to the default (or actually to Clarke 1866). This means that it cannot be measured in feet, and must be measured in degrees. (If you were doing this for a project that you intended to publish widely, you may have to downgrade your software to version 2.8, which is the last version I know of without the bug.)
-      - If when you use 1320 (feet), you don't get the circles (pictured below), you'll have to use a different measurement. To get around this, use the conversion of .01 degree/km, so for ¼ mile, we will make our input distance `0.00402336` you'll have to use a different measurement. To get around this, use the conversion of .01 degree/km, so for ¼ mile, we will make our input distance `0.00402336`
- -->     <!-- * Save your new shapefile as buffers/2k_mine_buffers.shp-->  
 
   * Save the output layer as `BX_Library_QuarterMiBuffer`.
 
   * Your map should look something like the following:
 
-![location](Images/mappingdata08_08.png)
+![location](Images/05_06_buffered.png)
 
 * Next we will use the select by location tool to determine which schools fall within ¼ mile of a library. Navigate to `Vector`>`Research Tools`>`Select By Location`
   * Select features in  `Bronx_Schools` that intersect features in `BX_Library_QuarterMiBuffer`
