@@ -207,7 +207,7 @@ For our first approximation we will ask: how many people live in the census trac
 
 ![location](Images/05_14_basicStatistics.png)
 
-* Click to open the Results Viewer link that appears in the panel to the right.
+* Look at the log readout in the "Log" tab, or click to open the Results Viewer HTML link that appears in the panel to the right.
 * We see from the `Sum:` field that the total population of all of the census tracts that intersect a ¼ mile buffer around a Bronx library is 983,821. Make a note of this total we will compare it to the result we get in the next portion of the exercise.
 
 Now we will refine our estimate of the population near libraries. We will estimate the population that lives precisely within our ¼ mile buffers using using a method called *proportional split estimation*. A proportional split is a way to estimate the proportion of a quantitative attribute that falls within a portion of a polygon’s area. A proportional split is calculated in a few fairly simple steps.
@@ -234,7 +234,7 @@ Note: that proportional split estimation assumes that the attribute you are esti
 * Next we will use the `clip` tool to clip the Bronx census tracts with the ¼ mile buffers around the Bronx libraries.
 * Navigate to `Vector`>`Geoprocessing Tools`>`Clip`
 
-![location](Images/mappingdata08_19.png)
+![location](Images/05_16_clipTracts.png)
 
 * The input vector layer is the layer you will clip (in our case the Bronx census tracts)
 * The Clip layer is the layer you will use to clip the input layer (in our case the ¼ mile buffers around the libraries).
@@ -243,28 +243,32 @@ Note: that proportional split estimation assumes that the attribute you are esti
 * A new layer containing the census tracts clipped to the ¼ mile buffers around the libraries was added to your map.
 * Toggle the visibility of all of of the layers on your map off except for `BXTracts_LibraryQuartMiClip`.
 * Use the select tool to click on some of the individual clipped census tract polygons to familiarize yourself with this new layer.
- ![location](Images/mappingdata08_20.png)
 
-**Calculating the area of the clipped census tracts**  
+ ![location](Images/05_17_clippedTracts.png)
+
+**Calculating the area of the clipped census tracts** 
+
 * Now we will calculate the area of these new polygons.
 * Open the attribute table for the clipped Bronx census tracts layer: `BXTracts_LibraryQuartMiClip`.
 * Open the field calculator and again create a new field to calculate the new area of each polygon.
 * Set the Output field name as `AreaClip`,
 * Select `Decimal number (real)` as the output field type, Set the output field width as 10 and the precision as 2. Under the geometry menu select `$area`. Click `OK`.
 * Notice the new field that has been added to the far right of the attribute table called `AreaClip`
-![location](Images/mappingdata08_21.png)  
+
+![location](Images/05_18_areaClip.png)  
 
 **Dividing the the area of the clipped census tracts by their original area**
 * Again open the field calculator and calculate a new field.
 * Set the Output field name as `Proportion`,
 * Select `Decimal number (real)` as the output field type, Set the output field width as 10 and the precision as 2.
-* Calculate `”AreaClip” / “Area”` -- i.e. the proportion of the original area that remained after the clip
+* Calculate `"AreaClip" / "Area"` -- i.e. the proportion of the original area that remained after the clip
 * Click `OK`
 
 **Multiplying the population by the proportion**
 
 * Now we will calculate one final field where we’ll multiply the attributes (for us, population in 2014) we wish to estimate by the proportion in order to estimate the proportion of the attribute that falls within the study area.
-* Set the Output field name as `Pop2014_est`
+* Again open the field calculator and calculate a new field.
+* Set the Output field name as `Pop2014est`
 * Select `Decimal number (real)` as the output field type, Set the output field width as 10 and the precision as 2.
 * Calculate `"Proportion" * "Pop2014"`
 * Click `OK`
@@ -272,12 +276,12 @@ Note: that proportional split estimation assumes that the attribute you are esti
 
 Now we will compare the total estimated population within the buffers to the original rough population estimate we made at the beginning of this exercise using the select by location tool.
 
-* Navigate to `Vector`>`Analysis Tools`>`Basic statistics for numeric fields`.
-* Select Pop2014_es as the Target field and note the Sum
+* Navigate to `Vector` > `Analysis Tools` > `Basic Statistics for Fields`.
+* Select Pop2014est as the Target field and note the Sum
 * Repeat for the population field for the entire census tract Pop2014 and note the difference
 
 #### What to Submit
-Please send an image (can be a simple screenshot) of the clipped buffers (the stage where it is just circles, and what number you got for the proportional split population estimate.
+Please send an image (can be a simple screenshot) of the clipped buffers (the stage where it is just circles), and what number you got for the proportional split population estimate.
 
 
 ______________________________________________________________________________________________________________
