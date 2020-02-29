@@ -18,38 +18,37 @@ If you haven't already, download the GitHub repository for this course. Using th
 
 Open QGIS:
 
-![blank](Images/GeoRef1_.png)
+![blank](Images/07_00_newProject.png)
 
-You are going to use OSM data as the reference data for the georeferencing process. You can view the OSM basemap service is QGIS through the OpenLayers plugin.  This plugin does not come pre-installed with QGIS, so you will probably need to add it.  Under the plugins menu, select “Manage and Install Plugins…” 
-![blank](Images/GeoRef2_.png)
+You are going to use OSM data as the reference data for the georeferencing process. You can view the OSM basemap service in QGIS by adding it through the "Browser" panel. To view these options, select `View > Panels > Browser`.
 
-The plugins dialog will open.  Search for “Openlayers Plugin.”  Highlight it, and click “Install plugin”:
+![blank](Images/07_01_panelsBrowser.png)
 
-![blank](Images/GeoRef3_.png)
+Open up the `XYZ Tiles` section, and drag `OpenStreetMap` onto the blank canvas of your workspace. 
 
-It may take a few seconds to install.  Close the plugins menu when finished.  The OpenLayers tools should now appear under the Web menu: 
+![blank](Images/07_02_dragOSM.png)
 
-![blank](Images/GeoRef4_.png)
+Use the magnifying glass tool ![blank](Images/GeoRef6_.png) to zoom into Mumbai, India:
 
-This plugin will allow you to view a number of basemap services and steam them directly into your QGIS workspace.  Choose the OpenStreetMap>OpenStreetMap option.
-Since you are working in a new QGIS project, the map should show the entire earth as the default: 
-![blank](Images/GeoRef5_.png)
-Use the zoom in tool ![blank](Images/GeoRef6_.png) and zoom into Mumbai, India:
-![blank](Images/georef07.png)
+![blank](Images/07_03_mumbaiZoom.png)
+
 Now you will access the georeferencing tools and match the scanned map to the OSM map.  
 
-Under the Raster menu, select Georeferencer>Georeferencer:
-![blank](Images/georef24.png)
+Under the Raster menu, select `Georeferencer...`.
 
-(If the Georeferencer menu is missing, you may need to activate the plugin. Go to Plugins>Manage and install plugins and click on the "Installed" tab. Make sure Georeferencer GDAL is checked.)
+![blank](Images/07_04_georeferencer.png)
+
+(If the Georeferencer option is missing, you may need to activate the plugin. Go to `Plugins > Manage`, click on the "Installed" tab. Make sure Georeferencer GDAL is checked.)
 
 The Georeferencer screen will open:
-![blank](Images/GeoRef9_.png)
 
-Click on the Add Raster button ![blank](Images/GeoRef10a_.png) and navigate to the JPEG image "bombay-india-historical-map-1909.jpg" from 7_Georeferencing/img.  
+![blank](Images/07_05_georeferencerWindow.png)
+
+Click on the Add Raster button ![blank](Images/GeoRef10a_.png) and navigate to the JPEG image `bombay-india-historical-map-1909.jpg` from 7_Georeferencing/img.  
 
 It will appear in the georeferencer window:
-![blank](Images/georef10.png)
+
+![blank](Images/07_06_importedMap.png)
 
 This map is from the years just after the 1896 plague, and while the infrastructure (and even some of the land) have changed, we an still navigate our way around using the docks, bays, and some major roads.
 
@@ -57,33 +56,37 @@ Historical maps can be difficult to georeference, and this sheet poses a number 
 
 ### Adding a Point
 The QGIS georeferencer does not allow you to view both the scanned map and the workspace at the same time, so you will have to inspect both maps in turn and choose carefully to select locations to add georeferencing control points. 
-One candidate is the Prince's Dock in Bombay Harbor which continues to exist largely its original configuration.  Use the georeferencer zoom tools ![blank](Images/GeoRef11_.png) to zoom to the south-oriented dock: ![blank](Images/georef11.png)
+One candidate is the Prince's Dock in Bombay Harbor which continues to exist largely its original configuration. Use the georeferencer zoom tools ![blank](Images/GeoRef11_.png) to zoom to the south-oriented dock. On the OSM map, it may look slightly different: 
+
+![blank](Images/07_07_zoomToDock.png)
  
 Identify as precise a location as possible (a corner of the dock will work nicely) and click on it in the georeferencing window using the add point tool ![blank](Images/GeoRef17_.png) When you do so, the Enter map coordinates window appears:
-![blank](Images/GeoRef14_.png)
 
-If we knew the coordinates of this location, we could now add them manually, but since we do not, we must select them from the OSM data in the main QGIS window.  Click on the ![blank](Images/GeoRef15_.png) button to see the QGIS workspace.  
-You may want to use the QGIS zoom tools to zoom in very close to the dock.
-![blank](Images/georef12.png)
+![blank](Images/07_08_enterCoordinates.png)
+
+If we knew the coordinates of this location, we could now add them manually, but since we do not, we must select them from the OSM data in the main QGIS window.  Click on the ![blank](Images/GeoRef15_.png) button to see the QGIS workspace. You may want to use the QGIS zoom tools to zoom in very close to the dock.
+
+![blank](Images/07_09_fromMapCanvas.png)
 
 (You may need to reactivate the add button tool ![blank](Images/GeoRef17_.png) by maximizing the georeferencing window and clicking the ![blank](Images/GeoRef18_.png) button again).  
 
-Once you select the same location on the main workspace window (the OSM window), you will automatically be brought back to the georeferencing window where the assigned coordinates will be imputed (you will have different numbers).  
-![blank](Images/GeoRef19_.png)
+Once you select the same location on the main workspace window (the OSM window), you will automatically be brought back to the georeferencing window where the assigned coordinates will be imputed (you will have different numbers). 
 
-At this point, if you are dissatisfied, you can move the assigned control points with the move GCP point tool ![blank](Images/GeoRef20_.png) or delete it entirely and start over with the delete point tool ![blank](Images/GeoRef21_.png) 
-If satisfied, click the OK button and the point will be assigned and appear on the map.  Also, a link table entry will be generated on the bottom of the window:
-![blank](Images/georef13.png)
+![blank](Images/07_10_imputedCoordinates.png)
+
+At this point, if you are dissatisfied, you can move the assigned control points with the move GCP point tool ![blank](Images/GeoRef20_.png) or delete it entirely and start over with the delete point tool ![blank](Images/GeoRef21_.png). If you are satisfied, click the OK button and the point will be assigned and appear on the map. Also, a link table entry will be generated on the bottom of the window:
+
+![blank](Images/07_11_pointMatch.png)
 
 ### More points
 
-To add a second point, repeat the same process.  It is a good idea to choose another point in a different portion of the map. Landmarks and major intersections work well for this in order to space out the pins.  
-Here, I have zoomed to Jacob's Circle - an intersection where 7 roads (3 major) come together.
-![blank](Images/georef15.png)
+To add a second point, repeat the same process.  It is a good idea to choose another point in a different portion of the map. Landmarks and major intersections work well for this in order to space out the pins. Here, I have zoomed to Jacob Circle - an intersection where 7 roads (3 major) come together.
 
+![blank](Images/07_12_jacobCircle.png)
 
 Repeat the same steps as used before to select the center of the same intersection from the OSM map and add the locations to the link table:
-![blank](Images/georef14.png)
+
+![blank](Images/07_13_secondPoint.png)
 
 You will need to add a minimum of five points to complete the georeferencing (although more is generally better).  Generate at least three more points of your own choosing in different parts of the map and add them to the link table.
 
@@ -91,31 +94,35 @@ Be careful to make sure that the control points you add do in fact match.  This 
 
 Normally it is a good idea to choose control points from throughout the map.  However, in this case this will be difficult as there are few features in the eastern sections of the map that can be reliably associated with contemporary locations.
 In this example, I have selected six control points:
-![blank](Images/georef16.png)
 
-![blank](Images/georef17.png)
+![blank](Images/07_14_sixPoints.png)
+
+![blank](Images/07_15_sixPointsOSM.png)
 
 It is good practice to save the table of control points that you are building.  To do this, choose “Save GCP points as” under the file menu and save it in the .points format in the same location as the image. This will allow you to later recreate the work you have done:
 
-![blank](Images/georef21.png)
+![blank](Images/07_16_saveGCP.png)
 
 Next, you will “transform” the image and create a georeferenced version of the scanned map image. In the georeferencer window, select transformation settings under the settings window:
 
-![blank](Images/georef20.png)
+![blank](Images/07_17_transformationSettings.png)
 
 Here you can select the transformation type (Polynomial 1 should be appropriate here), resampling method (Cubic is often used for resampled images and photos), output location and name, and the spatial reference system (here I have selected EPSG:3857, the pseudo Mercator projection used in the OSM data).  You can also opt to have the georeferenced layer added to QGIS when finished: 
 
-![blank](Images/georef19.png)
+![blank](Images/07_18_transformaionSettingsModal.png)
 
 Close the settings options and click on the start georeferencing button ![blank](Images/GeoRef29_.png).
 
 After the transformation finishes, you should see the map appear in the QGIS workspace:
-![blank](Images/georef17.png)
+
+![blank](Images/07_19_georeferenced.png)
 
 You can make the scanned map layer partially transparent in the layer properties.  Right click on the map in the layer panel and select properties. On the left panel in the properties dialog, select Transparency, here you can adjust the global transparency with a slider: 
-![blank](Images/georef22.png)
+
+![blank](Images/07_20_adjustTransparency.png)
 
 Compare the georeferenced map with the Open Street Map layer.  Make sure that features appear to match up closely:
+
 ![blank](Images/georef23.png)
 
 In the next section, you will be using the sheet you georeferenced here and digitizing some of the features from it. 
