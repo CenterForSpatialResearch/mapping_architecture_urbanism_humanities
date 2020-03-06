@@ -138,7 +138,7 @@ However, in your browser open `View > Developer > JavaScript Console` <!--(Chrom
 
 One more setup step: register a [Mapbox](https://www.mapbox.com/signup/) account. Then find your "[Default public token](https://www.mapbox.com/account/)" under the "Tokens" tab, which you will use in your code.
 
-![Default Token](Images/08_00_tokens.png)
+![Default Token][TOKEN]
 
 To begin, replace the "Hello, world!" statement in your map.js file with the following (minus the comments, which in js are designated by a leading `//`):
 
@@ -165,7 +165,7 @@ let map = new mapboxgl.Map({
 
 Now we're cooking with gas. If you reload, you should see a satellite image of the world (Web Mercator Projection). Have some fun zooming around.
 
-![World map](Images/08_01_worldMap.png)
+![World map][WORLDMAP]
 
 If you don't see a map, make sure you've followed the syntax exactly, and check for errors in your console. When programming, one misplaced character can break the whole thing (watch your commas and brackets!). The _block_ of code we just added creates a new _variable_ `map` which is a new _instance_ of the `Map` _object_ provided by the Mapbox javascript file we loaded in our HTML. "map" is actually an arbitrary name—you can choose whatever you want. A `Map` object has several attributes that we can change: `container` lets it know the HTML element that will become the map (in this case also called map), `style` defines a data source for the base map, and `center` and `zoom` define the starting coordinates for the map. Change these for `map` and see what happens.
 
@@ -199,7 +199,7 @@ let map = new mapboxgl.Map({
 })
 ```
 
-![3D view](Images/08_02_3Dmap.png)
+![3D view][3DMAP]
 
 Now we're going to add some additional elements to the screen by calling the _method_ `addControl` of `map`. And we're _passing_ `addControl`  instances of more Mapbox objects—a [`NavigationControl`](https://www.mapbox.com/mapbox-gl-js/api/#navigationcontrol) and [`ScaleControl`](https://www.mapbox.com/mapbox-gl-js/api/#scalecontrol), each with their own modifiable parameters. Your javascript should look something like this:
 
@@ -235,11 +235,11 @@ let scale = new mapboxgl.ScaleControl({
 map.addControl(scale, 'bottom-right')
 ```
 
-![Map controls](Images/08_03_mapControls.png)
+![Map controls][CONTROLS]
 
 ## Geolocation
 
-A particularly interesting control object to add is [`GeolocateControl`](https://www.mapbox.com/mapbox-gl-js/api/#geolocatecontrol). This uses the capabilities of the browser to track its physical location (_Question for discussion: how does this work?_). You can just add this to the bottom of your code.
+A particularly interesting control object to add is [`GeolocateControl`](https://www.mapbox.com/mapbox-gl-js/api/#geolocatecontrol). This uses the capabilities of the browser to track its physical location. You can just add this to the bottom of your code.
 
 ```javascript
 let geolocate = new mapboxgl.GeolocateControl({
@@ -270,18 +270,18 @@ We added something else here. The `GeolocateControl` has an _event handler_, whi
 ![Coordinates in console][COORDINATES]
 
 ```javascript
-Coordinates {latitude: 40.8087666, longitude: -73.9603058, altitude: null, accuracy: 35, altitudeAccuracy: null, …}
-accuracy: 35
+GeolocationCoordinates {latitude: 40.7304701, longitude: -73.95150319999999, altitude: null, accuracy: 5972, altitudeAccuracy: null, …}
+latitude: 40.7304701
+longitude: -73.95150319999999
 altitude: null
+accuracy: 5972
 altitudeAccuracy: null
 heading: null
-latitude: 40.8087666
-longitude: -73.9603058
 speed: null
-__proto__: Coordinates
+__proto__: GeolocationCoordinates
 ```
 
-We can see that the event contains the geocoordinates of the user (in this case, me, in the Engineering Commons). Let's make use of that "info" element we defined in our HTML. Modify that last block of code (starting with `geolocate.on`) so that it looks like this:
+We can see that the event contains the geocoordinates of the user (in this case, me, at my apartment in Greenpoint). Let's make use of that "info" element we defined in our HTML. Modify that last block of code (starting with `geolocate.on`) so that it looks like this:
 
 ```javascript
 geolocate.on('geolocate', function(event) {
@@ -408,21 +408,20 @@ Make a customized webmap with a set of at least five markers that tells a story 
 
 ______________________________________________________________________________________________________________
 
-
-Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)).
+Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)). Edited by Emily Fuhrman for Spring 2020.
 
 
 
 
 [DIRECTORY]: Images/webmap_1_01.png
 [HELLOWORLD]: Images/webmap_1_02.png
-[WORLDMAP]: Images/webmap_1_03.png
-[3DMAP]: Images/webmap_1_04.png
-[CONTROLS]: Images/webmap_1_05.png
-[GEOLOCATE]: Images/webmap_1_06.png
-[COORDINATES]: Images/webmap_1_07.png
-[INFO]: Images/webmap_1_08.png
-[MARKER]: Images/webmap_1_09.png
-[IMAGE]: Images/webmap_1_10.png
-[MULTI]: Images/webmap_1_11.png
-[TOKEN]: Images/webmap_1_2-1.png
+[WORLDMAP]: Images/08_01_worldMap.png
+[3DMAP]: Images/08_02_3Dmap.png
+[CONTROLS]: Images/08_03_mapControls.png
+[GEOLOCATE]: Images/08_04_geolocate.png
+[COORDINATES]: Images/08_05_coords.png
+[INFO]: Images/08_06_periodicGeolocation.png
+[MARKER]: Images/08_07_mapMarker.png
+[IMAGE]: Images/08_08_markerWithImage.png
+[MULTI]: Images/08_09_multipleMarkers.png
+[TOKEN]: Images/08_00_tokens.png
