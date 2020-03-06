@@ -7,7 +7,7 @@ This tutorial will introduce you to the basic setup and what it feels like to de
 
 ## Setup
 
-First, we need to set up a development environment. We will be working with [GitHub](https://github.com), which supports software development through nuanced version control. To get set up to create a web page
+First, we need to set up a development environment. We will be working with [GitHub](https://github.com), which supports software development through nuanced version control. To start, do the following:
 
 - Create a [GitHub](https://github.com) account
 - Create a new repository on GitHub, called `webmap_1`
