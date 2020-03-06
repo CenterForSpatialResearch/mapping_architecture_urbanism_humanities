@@ -414,14 +414,14 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 
 
 [DIRECTORY]: Images/webmap_1_01.png
-[HELLOWORLD]: Images/webmap_1_02.png
-[WORLDMAP]: Images/08_01_worldMap.png
-[3DMAP]: Images/08_02_3Dmap.png
-[CONTROLS]: Images/08_03_mapControls.png
-[GEOLOCATE]: Images/08_04_geolocate.png
-[COORDINATES]: Images/08_05_coords.png
-[INFO]: Images/08_06_periodicGeolocation.png
-[MARKER]: Images/08_07_mapMarker.png
-[IMAGE]: Images/08_08_markerWithImage.png
-[MULTI]: Images/08_09_multipleMarkers.png
 [TOKEN]: Images/08_00_tokens.png
+[HELLOWORLD]: Images/08_01_helloWorld.png
+[WORLDMAP]: Images/08_02_worldMap.png
+[3DMAP]: Images/08_03_3Dmap.png
+[CONTROLS]: Images/08_04_mapControls.png
+[GEOLOCATE]: Images/08_05_geolocate.png
+[COORDINATES]: Images/08_06_coords.png
+[INFO]: Images/08_07_periodicGeolocation.png
+[MARKER]: Images/08_08_mapMarker.png
+[IMAGE]: Images/08_09_markerWithImage.png
+[MULTI]: Images/08_10_multipleMarkers.png
