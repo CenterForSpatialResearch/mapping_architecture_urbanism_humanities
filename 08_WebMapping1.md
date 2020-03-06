@@ -128,7 +128,7 @@ Unlike HTML and CSS, javascript is a programming language. HTML and CSS give imp
 
 `console.log` is a debug statement. It lets you write to the javascript console to keep track of what you're doing, which is a very helpful tool.
 
-At this point, open `index.html` in your browser (we will use Chrome for this exercise — other browsers have similar tools but Chrome is the most straightforward for our purposes). We will look at it with your github web address later, but for now you are just looking at your site "locally." Your browser should show an address that is something like "`file:///Users/emilyf/Desktop/webmap_1/index.html`" On the page itself you should see ... nothing.
+At this point, open `index.html` in your browser (we will use Chrome for this exercise — other browsers have similar tools but Chrome is the most straightforward for our purposes). We will look at it with your github web address later, but for now you are just looking at your site "locally." Your browser should show an address that is something like "`file:///Users/emilyfuhrman/Desktop/webmap_1/index.html`" On the page itself you should see ... nothing.
 
 However, in your browser open `View > Developer > JavaScript Console` <!--(Chrome) or `Develop > Show JavaScript Console` (Safari, with "Show Develop menu in menu bar" turned on in the Preferences under advanced) -->. You should see "[Hello, world!](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)" printed. This means that your `map.js` file has been successfully loaded and you are ready to start programming. If you see any error messages, check the format of your HTML and that the script tag which loads the Mapbox Javascript are formatted correctly.
 
@@ -136,11 +136,11 @@ However, in your browser open `View > Developer > JavaScript Console` <!--(Chrom
 
 ## Basic Mapbox GL JavaScript
 
-One more setup step: register a [Mapbox](https://www.mapbox.com/signup/) account. Then find your "[Default public token](https://www.mapbox.com/account/)" under the "Access Tokens" tab, which you will use in your code.
+One more setup step: register a [Mapbox](https://www.mapbox.com/signup/) account. Then find your "[Default public token](https://www.mapbox.com/account/)" under the "Tokens" tab, which you will use in your code.
 
-![Default Token][TOKEN]
+![Default Token](Images/08_00_tokens.png)
 
-To begin, replace the debug statement in your map.js file with the following (minus the comments, which in js are designated by a leading `//`):
+To begin, replace the "Hello, world!" statement in your map.js file with the following (minus the comments, which in js are designated by a leading `//`):
 
 ```javascript
 'use strict'        // let the browser know we're serious
@@ -165,7 +165,7 @@ let map = new mapboxgl.Map({
 
 Now we're cooking with gas. If you reload, you should see a satellite image of the world (Web Mercator Projection). Have some fun zooming around.
 
-![World map][WORLDMAP]
+![World map](Images/08_01_worldMap.png)
 
 If you don't see a map, make sure you've followed the syntax exactly, and check for errors in your console. When programming, one misplaced character can break the whole thing (watch your commas and brackets!). The _block_ of code we just added creates a new _variable_ `map` which is a new _instance_ of the `Map` _object_ provided by the Mapbox javascript file we loaded in our HTML. "map" is actually an arbitrary name—you can choose whatever you want. A `Map` object has several attributes that we can change: `container` lets it know the HTML element that will become the map (in this case also called map), `style` defines a data source for the base map, and `center` and `zoom` define the starting coordinates for the map. Change these for `map` and see what happens.
 
@@ -199,7 +199,7 @@ let map = new mapboxgl.Map({
 })
 ```
 
-![3D view][3DMAP]
+![3D view](Images/08_02_3Dmap.png)
 
 Now we're going to add some additional elements to the screen by calling the _method_ `addControl` of `map`. And we're _passing_ `addControl`  instances of more Mapbox objects—a [`NavigationControl`](https://www.mapbox.com/mapbox-gl-js/api/#navigationcontrol) and [`ScaleControl`](https://www.mapbox.com/mapbox-gl-js/api/#scalecontrol), each with their own modifiable parameters. Your javascript should look something like this:
 
@@ -235,7 +235,7 @@ let scale = new mapboxgl.ScaleControl({
 map.addControl(scale, 'bottom-right')
 ```
 
-![Map controls][CONTROLS]
+![Map controls](Images/08_03_mapControls.png)
 
 ## Geolocation
 
