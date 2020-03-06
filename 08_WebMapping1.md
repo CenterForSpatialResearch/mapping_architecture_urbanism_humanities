@@ -2,35 +2,35 @@
 
 We are going to be making webmaps using [Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/api/). This is a recent javascript library that uses [WebGL](https://en.wikipedia.org/wiki/WebGL) to render interactive maps from vector tiles (as opposed to raster tiles) created with [Mapbox Studio](https://www.mapbox.com/mapbox-studio/). Data for these maps comes from [OpenStreetMap](https://www.openstreetmap.org).
 
-This tutorial will introduce you to the basic setup and what it feels like to develop for a web browser. This will be a very different approach than our experience with QGIS, and it is much more prone to error given the number of new concepts and syntaxes involved. Brackets, commas, quotes, and colons... stay with it—it's ok if you dont understand what everything is doing at first.
+This tutorial will introduce you to the basic setup and what it feels like to develop for a web browser. This will be a very different approach than our experience with QGIS, and it is much more prone to error given the number of new concepts and syntaxes involved. Brackets, commas, quotes, and colons... stay with it — it's ok if you dont understand what everything is doing at first.
 
 
-## Setup Prerequisites
+## Setup
 
-At this stage, you should have:
-- created a [GitHub](https://github.com) account
-- created a new repository on GitHub, called `webmap_1`
-- set up your repository as a [GitHub page](https://pages.github.com/) (a project site from scratch)
-- installed [git](https://git-scm.com/downloads)
-- opened your terminal (Applications > Utilities > Terminal.app) and learned how to [navigate](https://www.macworld.com/article/2042378/master-the-command-line-navigating-files-and-folders.html)
-- set up git, ie:  
+First, we need to set up a development environment. We will be working with [GitHub](https://github.com), which supports software development through nuanced version control. To get set up to create a web page
+
+- Create a [GitHub](https://github.com) account
+- Create a new repository on GitHub, called `webmap_1`
+- Set up your repository as a [GitHub page](https://pages.github.com/) (Choose "Project Site" and "Start from scratch")
+- Install [git](https://git-scm.com/downloads)
+- Open your Terminal (Applications > Utilities > Terminal.app) and learned how to [navigate](https://www.macworld.com/article/2042378/master-the-command-line-navigating-files-and-folders.html)
+- Set up git. In the Terminal, that means you type:  
 `git config --global user.name 'My Name'`  
 `git config --global user.email 'email@wherever.com'`  
-...and added [colors](https://nathanhoad.net/how-to-colours-in-git)
-- cloned a local copy of your repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/):  
+...and add [colors](https://nathanhoad.net/how-to-colours-in-git)
+- Clone a local copy of your repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/):  
 `git clone https://github.com/yourusername/webmap_1`
-- downloaded a text editor like [Sublime Text](https://www.sublimetext.com/)
-- created the empty files `index.html`, `style.css`, and `map.js` with your editor and added them to your repository:  
+- Download a text editor like [Sublime Text](https://www.sublimetext.com/)
+- Create the empty files `index.html`, `style.css`, and `map.js` with your editor and added them to your repository:  
 `git add index.html style.css map.js`
-- commited and pushed your changes:  
+- Commit and pushed your changes, by typing the following in the Terminal:  
 `git commit -m 'initial import'`  
 `git push`  
-- viewed the result on your github page
-
+- View the result on your Github page (http://_username_.github.io/_repositoryName_).
 
 ## A web page
 
-HTML is the structure of a web page, css is the style, and javascript is the functionality or the interaction. Each of these are contained in text files with the appropriate extension—and they each have entirely different syntax. When you are creating a website you are creating a series of linked files that your browser downloads and uses to construct the display. These files can also come from remote resources, such as in the case of javascript libraries or map tiles.
+HTML is the structure of a web page, CSS is the style, and Javascript is the functionality or the interaction. Each of these are contained in text files with the appropriate extension—and they each have entirely different syntax. When you are creating a website you are creating a series of linked files that your browser downloads and uses to construct the display. These files can also come from remote resources, such as in the case of javascript libraries or map tiles.
 
 ![Directory Structure][DIRECTORY]
 
@@ -79,7 +79,7 @@ HTML is defined by a series of tags, which are either in the form `<tag />` or `
 </html>
 ```
 
-Notice that we are loading several files within this page (these are in the `<link>` and `<script>` tags). These include a css and javascript file from Mapbox, and our own css and javascript files. Some files need to be loaded in a particular order — the reason `map.js` is loaded within the body and not the head is that it must be loaded _after_ the `map` and `info` elements have been created.
+Notice that we are loading several files within this page (these are in the `<link>` and `<script>` tags). These include a CSS and javascript file from Mapbox, and our own CSS and javascript files. Some files need to be loaded in a particular order — the reason `map.js` is loaded within the body and not the head is that it must be loaded _after_ the `map` and `info` elements have been created.
 
 Likewise, put this into your `style.css` file:
 
@@ -116,7 +116,7 @@ img {
 }
 ```
 
-CSS, which stands for Cascading Style Sheets, defines the display properties for each HTML element — that is, how the page _looks_. At the moment, our page only has two elements, which you see defined here as `#map` and `#info`. We also have defined a default width for images. Note that a comment in css is designated like `/* comment */`.
+CSS, which stands for Cascading Style Sheets, defines the display properties for each HTML element — that is, how the page _looks_. At the moment, our page only has two elements, which you see defined here as `#map` and `#info`. We also have defined a default width for images. Note that a comment in CSS is designated like `/* comment */`.
 
 Next, copy the following text into your `map.js`:
 
@@ -124,23 +124,23 @@ Next, copy the following text into your `map.js`:
 console.log("Hello, world!")
 ```
 
-Unlike HTML and css, javascript is a programming language. HTML and css give important information to the browser, but they are like blueprints, whereas javascript is more like a recipe. Javascript will be our focus for the webmapping exercises. We are going to stop short of covering all general programming fundamentals, but you will learn how the various elements function and how to modify code to suit your purposes.
+Unlike HTML and CSS, javascript is a programming language. HTML and CSS give important information to the browser, but they are like blueprints, whereas javascript is more like a recipe. Javascript will be our focus for the webmapping exercises. We are going to stop short of covering all general programming fundamentals, but you will learn how the various elements function and how to modify code to suit your purposes.
 
-`console.log` is a debug statement—it lets you write to the javascript console to keep track of what you're doing, which is a very helpful tool.
+`console.log` is a debug statement. It lets you write to the javascript console to keep track of what you're doing, which is a very helpful tool.
 
-At this point, open `index.html` in your browser (we will use Chrome for this exercise — other browsers have similar tools but Chrome is the most straightforward for our purposes). We will look at it with your github web address later, but for now you are just looking at your site "locally." Your browser should show an address that is something like "`file:///Users/bjh18/Desktop/webmap_1/index.html`" On the page itself you should see ... nothing.
+At this point, open `index.html` in your browser (we will use Chrome for this exercise — other browsers have similar tools but Chrome is the most straightforward for our purposes). We will look at it with your github web address later, but for now you are just looking at your site "locally." Your browser should show an address that is something like "`file:///Users/emilyfuhrman/Desktop/webmap_1/index.html`" On the page itself you should see ... nothing.
 
-However, in your browser open `View > Developer > JavaScript Console` <!--(Chrome) or `Develop > Show JavaScript Console` (Safari, with "Show Develop menu in menu bar" turned on in the Preferences under advanced) -->. You should see "[Hello, world!](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)" printed. This means that your `map.js` file has been successfully loaded and you are ready to start programming. If you see any error messages, check the format of your HTML and that the script tag which loads the Mapbox javascript are formatted correctly.
+However, in your browser open `View > Developer > JavaScript Console` <!--(Chrome) or `Develop > Show JavaScript Console` (Safari, with "Show Develop menu in menu bar" turned on in the Preferences under advanced) -->. You should see "[Hello, world!](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)" printed. This means that your `map.js` file has been successfully loaded and you are ready to start programming. If you see any error messages, check the format of your HTML and that the script tag which loads the Mapbox Javascript are formatted correctly.
 
 ![Hello world][HELLOWORLD]
 
 ## Basic Mapbox GL JavaScript
 
-One more setup step: register a [Mapbox](https://www.mapbox.com/signup/) account. Then find your "[Default public token](https://www.mapbox.com/account/)" under the "Access Tokens" tab, which you will use in your code.
+One more setup step: register a [Mapbox](https://www.mapbox.com/signup/) account. Then find your "[Default public token](https://www.mapbox.com/account/)" under the "Tokens" tab, which you will use in your code.
 
 ![Default Token][TOKEN]
 
-To begin, replace the debug statement in your map.js file with the following (minus the comments, which in js are designated by a leading `//`):
+To begin, replace the "Hello, world!" statement in your map.js file with the following (minus the comments, which in js are designated by a leading `//`):
 
 ```javascript
 'use strict'        // let the browser know we're serious
@@ -239,7 +239,7 @@ map.addControl(scale, 'bottom-right')
 
 ## Geolocation
 
-A particularly interesting control object to add is [`GeolocateControl`](https://www.mapbox.com/mapbox-gl-js/api/#geolocatecontrol). This uses the capabilities of the browser to track its physical location (_Question for discussion: how does this work?_). You can just add this to the bottom of your code.
+A particularly interesting control object to add is [`GeolocateControl`](https://www.mapbox.com/mapbox-gl-js/api/#geolocatecontrol). This uses the capabilities of the browser to track its physical location. You can just add this to the bottom of your code.
 
 ```javascript
 let geolocate = new mapboxgl.GeolocateControl({
@@ -270,18 +270,18 @@ We added something else here. The `GeolocateControl` has an _event handler_, whi
 ![Coordinates in console][COORDINATES]
 
 ```javascript
-Coordinates {latitude: 40.8087666, longitude: -73.9603058, altitude: null, accuracy: 35, altitudeAccuracy: null, …}
-accuracy: 35
+GeolocationCoordinates {latitude: 40.7304701, longitude: -73.95150319999999, altitude: null, accuracy: 5972, altitudeAccuracy: null, …}
+latitude: 40.7304701
+longitude: -73.95150319999999
 altitude: null
+accuracy: 5972
 altitudeAccuracy: null
 heading: null
-latitude: 40.8087666
-longitude: -73.9603058
 speed: null
-__proto__: Coordinates
+__proto__: GeolocationCoordinates
 ```
 
-We can see that the event contains the geocoordinates of the user (in this case, me, in the Engineering Commons). Let's make use of that "info" element we defined in our HTML. Modify that last block of code (starting with `geolocate.on`) so that it looks like this:
+We can see that the event contains the geocoordinates of the user (in this case, me, at my apartment in Greenpoint). Let's make use of that "info" element we defined in our HTML. Modify that last block of code (starting with `geolocate.on`) so that it looks like this:
 
 ```javascript
 geolocate.on('geolocate', function(event) {
@@ -408,21 +408,20 @@ Make a customized webmap with a set of at least five markers that tells a story 
 
 ______________________________________________________________________________________________________________
 
-
-Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)).
+Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)). Edited by Emily Fuhrman for Spring 2020.
 
 
 
 
 [DIRECTORY]: Images/webmap_1_01.png
 [HELLOWORLD]: Images/webmap_1_02.png
-[WORLDMAP]: Images/webmap_1_03.png
-[3DMAP]: Images/webmap_1_04.png
-[CONTROLS]: Images/webmap_1_05.png
-[GEOLOCATE]: Images/webmap_1_06.png
-[COORDINATES]: Images/webmap_1_07.png
-[INFO]: Images/webmap_1_08.png
-[MARKER]: Images/webmap_1_09.png
-[IMAGE]: Images/webmap_1_10.png
-[MULTI]: Images/webmap_1_11.png
-[TOKEN]: Images/webmap_1_2-1.png
+[WORLDMAP]: Images/08_01_worldMap.png
+[3DMAP]: Images/08_02_3Dmap.png
+[CONTROLS]: Images/08_03_mapControls.png
+[GEOLOCATE]: Images/08_04_geolocate.png
+[COORDINATES]: Images/08_05_coords.png
+[INFO]: Images/08_06_periodicGeolocation.png
+[MARKER]: Images/08_07_mapMarker.png
+[IMAGE]: Images/08_08_markerWithImage.png
+[MULTI]: Images/08_09_multipleMarkers.png
+[TOKEN]: Images/08_00_tokens.png
