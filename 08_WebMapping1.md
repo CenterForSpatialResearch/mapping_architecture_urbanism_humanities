@@ -2,35 +2,35 @@
 
 We are going to be making webmaps using [Mapbox GL JS](https://www.mapbox.com/mapbox-gl-js/api/). This is a recent javascript library that uses [WebGL](https://en.wikipedia.org/wiki/WebGL) to render interactive maps from vector tiles (as opposed to raster tiles) created with [Mapbox Studio](https://www.mapbox.com/mapbox-studio/). Data for these maps comes from [OpenStreetMap](https://www.openstreetmap.org).
 
-This tutorial will introduce you to the basic setup and what it feels like to develop for a web browser. This will be a very different approach than our experience with QGIS, and it is much more prone to error given the number of new concepts and syntaxes involved. Brackets, commas, quotes, and colons... stay with it—it's ok if you dont understand what everything is doing at first.
+This tutorial will introduce you to the basic setup and what it feels like to develop for a web browser. This will be a very different approach than our experience with QGIS, and it is much more prone to error given the number of new concepts and syntaxes involved. Brackets, commas, quotes, and colons... stay with it — it's ok if you dont understand what everything is doing at first.
 
 
-## Setup Prerequisites
+## Setup
 
-At this stage, you should have:
-- created a [GitHub](https://github.com) account
-- created a new repository on GitHub, called `webmap_1`
-- set up your repository as a [GitHub page](https://pages.github.com/) (a project site from scratch)
-- installed [git](https://git-scm.com/downloads)
-- opened your terminal (Applications > Utilities > Terminal.app) and learned how to [navigate](https://www.macworld.com/article/2042378/master-the-command-line-navigating-files-and-folders.html)
-- set up git, ie:  
+First, we need to set up a development environment. We will be working with [GitHub](https://github.com), which supports software development through nuanced version control. To get set up to create a web page
+
+- Create a [GitHub](https://github.com) account
+- Create a new repository on GitHub, called `webmap_1`
+- Set up your repository as a [GitHub page](https://pages.github.com/) (Choose "Project Site" and "Start from scratch")
+- Install [git](https://git-scm.com/downloads)
+- Open your Terminal (Applications > Utilities > Terminal.app) and learned how to [navigate](https://www.macworld.com/article/2042378/master-the-command-line-navigating-files-and-folders.html)
+- Set up git. In the Terminal, that means you type:  
 `git config --global user.name 'My Name'`  
 `git config --global user.email 'email@wherever.com'`  
-...and added [colors](https://nathanhoad.net/how-to-colours-in-git)
-- cloned a local copy of your repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/):  
+...and add [colors](https://nathanhoad.net/how-to-colours-in-git)
+- Clone a local copy of your repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/):  
 `git clone https://github.com/yourusername/webmap_1`
-- downloaded a text editor like [Sublime Text](https://www.sublimetext.com/)
-- created the empty files `index.html`, `style.css`, and `map.js` with your editor and added them to your repository:  
+- Download a text editor like [Sublime Text](https://www.sublimetext.com/)
+- Create the empty files `index.html`, `style.css`, and `map.js` with your editor and added them to your repository:  
 `git add index.html style.css map.js`
-- commited and pushed your changes:  
+- Commit and pushed your changes, by typing the following in the Terminal:  
 `git commit -m 'initial import'`  
 `git push`  
-- viewed the result on your github page
-
+- View the result on your Github page (http://_username_.github.io/_repositoryName_).
 
 ## A web page
 
-HTML is the structure of a web page, css is the style, and javascript is the functionality or the interaction. Each of these are contained in text files with the appropriate extension—and they each have entirely different syntax. When you are creating a website you are creating a series of linked files that your browser downloads and uses to construct the display. These files can also come from remote resources, such as in the case of javascript libraries or map tiles.
+HTML is the structure of a web page, CSS is the style, and Javascript is the functionality or the interaction. Each of these are contained in text files with the appropriate extension—and they each have entirely different syntax. When you are creating a website you are creating a series of linked files that your browser downloads and uses to construct the display. These files can also come from remote resources, such as in the case of javascript libraries or map tiles.
 
 ![Directory Structure][DIRECTORY]
 
@@ -79,7 +79,7 @@ HTML is defined by a series of tags, which are either in the form `<tag />` or `
 </html>
 ```
 
-Notice that we are loading several files within this page (these are in the `<link>` and `<script>` tags). These include a css and javascript file from Mapbox, and our own css and javascript files. Some files need to be loaded in a particular order — the reason `map.js` is loaded within the body and not the head is that it must be loaded _after_ the `map` and `info` elements have been created.
+Notice that we are loading several files within this page (these are in the `<link>` and `<script>` tags). These include a CSS and javascript file from Mapbox, and our own CSS and javascript files. Some files need to be loaded in a particular order — the reason `map.js` is loaded within the body and not the head is that it must be loaded _after_ the `map` and `info` elements have been created.
 
 Likewise, put this into your `style.css` file:
 
@@ -116,7 +116,7 @@ img {
 }
 ```
 
-CSS, which stands for Cascading Style Sheets, defines the display properties for each HTML element — that is, how the page _looks_. At the moment, our page only has two elements, which you see defined here as `#map` and `#info`. We also have defined a default width for images. Note that a comment in css is designated like `/* comment */`.
+CSS, which stands for Cascading Style Sheets, defines the display properties for each HTML element — that is, how the page _looks_. At the moment, our page only has two elements, which you see defined here as `#map` and `#info`. We also have defined a default width for images. Note that a comment in CSS is designated like `/* comment */`.
 
 Next, copy the following text into your `map.js`:
 
@@ -124,13 +124,13 @@ Next, copy the following text into your `map.js`:
 console.log("Hello, world!")
 ```
 
-Unlike HTML and css, javascript is a programming language. HTML and css give important information to the browser, but they are like blueprints, whereas javascript is more like a recipe. Javascript will be our focus for the webmapping exercises. We are going to stop short of covering all general programming fundamentals, but you will learn how the various elements function and how to modify code to suit your purposes.
+Unlike HTML and CSS, javascript is a programming language. HTML and CSS give important information to the browser, but they are like blueprints, whereas javascript is more like a recipe. Javascript will be our focus for the webmapping exercises. We are going to stop short of covering all general programming fundamentals, but you will learn how the various elements function and how to modify code to suit your purposes.
 
-`console.log` is a debug statement—it lets you write to the javascript console to keep track of what you're doing, which is a very helpful tool.
+`console.log` is a debug statement. It lets you write to the javascript console to keep track of what you're doing, which is a very helpful tool.
 
-At this point, open `index.html` in your browser (we will use Chrome for this exercise — other browsers have similar tools but Chrome is the most straightforward for our purposes). We will look at it with your github web address later, but for now you are just looking at your site "locally." Your browser should show an address that is something like "`file:///Users/bjh18/Desktop/webmap_1/index.html`" On the page itself you should see ... nothing.
+At this point, open `index.html` in your browser (we will use Chrome for this exercise — other browsers have similar tools but Chrome is the most straightforward for our purposes). We will look at it with your github web address later, but for now you are just looking at your site "locally." Your browser should show an address that is something like "`file:///Users/emilyf/Desktop/webmap_1/index.html`" On the page itself you should see ... nothing.
 
-However, in your browser open `View > Developer > JavaScript Console` <!--(Chrome) or `Develop > Show JavaScript Console` (Safari, with "Show Develop menu in menu bar" turned on in the Preferences under advanced) -->. You should see "[Hello, world!](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)" printed. This means that your `map.js` file has been successfully loaded and you are ready to start programming. If you see any error messages, check the format of your HTML and that the script tag which loads the Mapbox javascript are formatted correctly.
+However, in your browser open `View > Developer > JavaScript Console` <!--(Chrome) or `Develop > Show JavaScript Console` (Safari, with "Show Develop menu in menu bar" turned on in the Preferences under advanced) -->. You should see "[Hello, world!](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)" printed. This means that your `map.js` file has been successfully loaded and you are ready to start programming. If you see any error messages, check the format of your HTML and that the script tag which loads the Mapbox Javascript are formatted correctly.
 
 ![Hello world][HELLOWORLD]
 
