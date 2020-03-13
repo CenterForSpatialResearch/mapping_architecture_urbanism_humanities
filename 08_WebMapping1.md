@@ -13,11 +13,10 @@ First, we need to set up a development environment. We will be working with [Git
 - Create a new repository on GitHub, called `webmap_1`
 - Set up your repository as a [GitHub page](https://pages.github.com/) (Choose "Project Site" and "Start from scratch")
 - Install [git](https://git-scm.com/downloads)
-- Open your Terminal (Applications > Utilities > Terminal.app) and learned how to [navigate](https://www.macworld.com/article/2042378/master-the-command-line-navigating-files-and-folders.html)
+- Open your Terminal (Applications > Utilities > Terminal.app) and learn how to [navigate](https://www.macworld.com/article/2042378/master-the-command-line-navigating-files-and-folders.html)
 - Set up git. In the Terminal, that means you type:  
 `git config --global user.name 'My Name'`  
-`git config --global user.email 'email@wherever.com'`  
-...and add [colors](https://nathanhoad.net/how-to-colours-in-git)
+`git config --global user.email 'email@wherever.com'`
 - Clone a local copy of your repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/):  
 `git clone https://github.com/yourusername/webmap_1`
 - Download a text editor like [Sublime Text](https://www.sublimetext.com/)
