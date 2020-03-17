@@ -14,7 +14,7 @@ ___
 ![311 Service Requests]
 ___
 
-View the data, and filter it by `Descriptor: Rat Sightings` and `Created Date is after 09/01/2018`. This will give us rat sightings in NYC since the beginning of the semester, around 2,631 of them (and counting...). Export the data as a CSV file, and call it `rat_sightings.csv`.
+View the data, and filter it by `Descriptor: Rat Sightings` and `Created Date is after 01/01/2020`. This will give us rat sightings in NYC since the beginning of the semester, around 2,609 of them (and counting...). Export the data as a CSV file, and call it `rat_sightings.csv`.
 
 ___
 ![Rat filter]
@@ -50,27 +50,27 @@ ___
 
 On its own, a vector tile does not contain any information about how it should be displayed. This is different than a raster tile, which is an image. Just like HTML needs CSS to tell the browser how to make the elements appear, vector tiles need style information to accompany them.
 
-We're going to create our own Mapbox style. Click on the `Styles` tab in the top right of the page. Choose the option to `Pick a template or upload a style`, and create a map based on the `Dark` template.
+We're going to create our own Mapbox style. Click on the `Styles` tab in the top right of the page. Under `Choose a template`, select `Monochrome`. Under `Choose a variation`, select `Dark`.
 
 ___
 ![Mapbox style chooser]
 ___
 
-The first thing we'll want to do is manually pan the map so that it centers on New York City. Once we've done that, click on `Map position` in the hovering toolbar on the right side. Lock the default position to the current view, so we don't need to scroll every time.
+Click `Customize Monochrome`. The first thing we'll want to do is manually pan the map so that it centers on New York City. Once we've done that, click on `Settings` in the top toolbar. Lock the default position to the current view, so we don't need to scroll every time.
 
 ___
 ![Position lock]
 ___
 
-On the left side of the screen is list of all the layers currently used by this map style. These are, first, tilesets. But they are also embedded style information. We'll see how this works by creating our own layer.
+On the left side of the screen in the `Layers` tab is a list of all the layers currently used by this map style. These are, first, tilesets. But they are also embedded style information. We'll see how this works by creating our own layer.
 
-In the upper left corner, there is a button `Add layer`. When you click it, you'll see a list of tilesets. `Mapbox streets v7` and `Mapbox terrain v2` are active, because these are used by the `Dark` template. If you click one, it will expand to show multiple types of data, including polygons, lines, and points, any of which can be incorporated into layers on a map. However, we're going to scroll down and look at the unused sources, where you should see the `rat_sightings` (with a random extension) tileset created earlier. If you click it, you'll see just one kind of data, which is points, and if you click _that_, it will add the data to the map.
+In the upper left corner of the panel, there is a `+` button that says `Add new layer` on hover. When you click it, you'll see a list of tilesets. `Mapbox streets v7` and `Mapbox terrain v2` are active, because these are used by the `Dark` template. If you click one, it will expand to show multiple types of data, including polygons, lines, and points, any of which can be incorporated into layers on a map. However, we're going to scroll down and look at the unused sources, where you should see the `rat_sightings` (with a random extension) tileset created earlier. If you click it, you'll see just one kind of data, which is points, and if you click _that_, it will add the data to the map.
 
 ___
 ![Choosing rat_sightings]
 ___
 
-At the top of this pane, there is the title of the layer. Rename name this to remove the random extension, so it's just `rat-sightings`—this will make things easier later on.
+At the top of this pane, there is the title of the layer. Rename name this to remove the random extension, so it's just `rat-sightings`—this will make things easier later on. 
 
 On the left side of this panel, there are four tabs that allow you to make adjustments the layer. If you click on the `Type` tab, you'll see options to display the data as several different types. It should have defaulted to `circle`. You'll see this displayed on the map, but with random styling. In the upper right corner, next to the layer tab, you'll see that the `Select data` tab is currently selected—choose `Style` instead. Here we can adjust the look of the circle marker. Go ahead and experiment with the different options.
 
@@ -78,10 +78,14 @@ ___
 ![Circle style]
 ___
 
-We now have all the rat sightings called into 311 indicated on the map. At this point, we'll want to save our map style. First, let's rename it. Click on the name of the style, currently `Dark`, and call it `NYC Rats`. On the other side of the interface, there is a button, `Publish`. Do this, and you'll see a dialogue box come up where you can find your `Style URL`. Go ahead and copy this, we'll use it later in our javascript.
+We now have all the rat sightings called into 311 indicated on the map. At this point, we'll want to save our map style. First, let's rename it. Click on the name of the style, currently `Dark`, and call it `NYC Rats`. 
 
 ___
 ![Mapbox rename]
+___
+
+On the other side of the interface, there is a button, `Publish`. Click this button. Now, if you click the `Share` button, you'll see a dialogue box come up where you can find your `Style URL`. Go ahead and copy this, we'll use it later in our javascript.
+
 ___
 ![Mapbox publish]
 ___
@@ -94,11 +98,7 @@ ___
 ![Rat activity]
 ___
 
-You'll be in the style tab, but click over to `Select data`. Now modify the Type (currently `Circle`) by choosing `Heatmap`. Mapbox will warn us that we'll lose our previous customizations to the layer—but that's ok, because this is a duplicate layer. You might want to zoom in at this point to get a good idea of how it might look when being used on a mobile device. You should see heatmap, once again with a random style:
-
-___
-![Heatmap]
-___
+You'll be in the style tab, but click over to `Select data`. Now modify the Type (currently `Circle`) by choosing `Heatmap`. Mapbox will warn us that we'll lose our previous customizations to the layer—but that's ok, because this is a duplicate layer. Navigate to the `Style` tab to see this selection applied.
 
 Mapbox automatically computes heatmap values based on the points in our sightings—play with the heatmap parameters to fine-tune it. The algorithm's default is a bit over-zealous—you might want to set the `radius` value to 20px.
 
@@ -114,11 +114,11 @@ The heatmap should occlude the sightings markers in the previous layer. That wil
 
 Follow the same steps as in the [previous tutorial](8_WebMapping1.md):
 
-- create a new repository on your GitHub account, called `nyc_rats`, and make sure you initialize it with a README
-- go into the repository settings and make the master branch of your repository a Github page
-- clone a local copy of this repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/) in the terminal:  
+- Create a new repository on your GitHub account, called `nyc_rats`, and make sure you initialize it with a README
+- Go into the repository settings and make the master branch of your repository a Github page
+- Clone a local copy of this repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/) in the terminal:  
 `git clone https://github.com/yourusername/nyc_rats`
-- create the empty files `index.html`, `style.css`, and `map.js` with your editor (Sublime Text)
+- Create the empty files `index.html`, `style.css`, and `map.js` with your editor (Sublime Text)
 
 Put this in your `index.html` file:
 
@@ -172,7 +172,7 @@ mapboxgl.accessToken = 'YOUR TOKEN HERE'
 
 let map = new mapboxgl.Map({
     container: 'map',
-    style: 'YOUR STYLE HERE',
+    style: 'YOUR STYLE URL HERE',
     center: [-73.96216,40.80779],
     zoom: 16
 })
@@ -422,25 +422,24 @@ Curious about rat communication? I was too. Check out the "New York" section of 
 ______________________________________________________________________________________________________________
 
 
-Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)).
+Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)). Edited by Emily Fuhrman for Spring 2020.
 
 
 
 
-[311 Service Requests]: Images/webmap2_311_requests.png
-[Rat filter]: Images/webmap2_rat_filter.png
-[Converting to GeoJSON]: Images/webmap2_converting_geojson.png
-[Mapbox tilesets]: Images/webmap2_mapbox_tilesets.png
-[Mapbox upload]: Images/webmap2_mapbox_upload.png
-[Mapbox style chooser]: Images/webmap2_style_chooser.png
-[Position lock]: Images/webmap2_position_lock.png
-[Choosing rat_sightings]: Images/webmap2_choosing_layer.png
-[Circle style]: Images/webmap2_circle_style.png
-[Mapbox rename]: Images/webmap2_rename.png
-[Mapbox publish]: Images/webmap2_mapbox_publish.png
-[Rat activity]: Images/webmap2_rat_activity.png
-[Heatmap]: Images/webmap2_heatmap.png
-[Heatmap style]: Images/webmap2_heatmap_style.png
-[Console display]: Images/webmap2_console_display.png
-[Closest feature]: Images/webmap2_closest_feature.png
-[Flyto]: Images/webmap2_flyto.png
+[311 Service Requests]: Images/09_00_nycOpenData.png
+[Rat filter]: Images/09_01_filterData.png
+[Converting to GeoJSON]: Images/09_02_csvToGeojson.png
+[Mapbox tilesets]: Images/09_03_mapboxTilesets.png
+[Mapbox upload]: Images/09_04_uploadSuccess.png
+[Mapbox style chooser]: Images/09_05_newTemplate.png
+[Position lock]: Images/09_06_lockPosition.png
+[Choosing rat_sightings]: Images/09_07_ratSightingsLayer.png
+[Circle style]: Images/09_08_stylePanel.png
+[Mapbox rename]: Images/09_09_editStyleName.png
+[Mapbox publish]: Images/09_10_styleURL.png
+[Rat activity]: Images/09_11_ratActivity.png
+[Heatmap style]: Images/09_12_heatmap.png
+[Console display]: Images/09_13_console.png
+[Closest feature]: Images/09_14_closestFeature.png
+[Flyto]: Images/09_15_flyTo.png
