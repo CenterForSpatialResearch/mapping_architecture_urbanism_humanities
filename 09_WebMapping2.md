@@ -416,13 +416,13 @@ Extra credit: repurpose this code with a different dataset.
 
 ### About those rats...
 
-Curious about rat communication? I was too. Check out the "New York" section of this _New York Times Magazine_ feature from a while back: [http://nytimes.com/voyages](http://nytimes.com/voyages)
+Curious about rat communication? I was too. Check out the "New York" section of this _New York Times Magazine_ feature from awhile back: [http://nytimes.com/voyages](http://nytimes.com/voyages)
 
 
 ______________________________________________________________________________________________________________
 
 
-Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)).
+Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)). Edited by Emily Fuhrman for Spring 2020.
 
 
 
