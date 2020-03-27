@@ -19,7 +19,6 @@ After creating your account and logging in, select the "Starter Clusters" free t
 
 Mongo DB is a type of database that stores javascript-style objects such as the GeoJSON format we have previously discussed, so it will be ideal for our purposes. mLab manages the deployment of the database, and it gives us several options of where to host it in the "cloud" (aka massive datacenters owned and operated by Amazon, Google, and Microsoft). We'll use Amazon Web Services, with a free sandbox plan, and host it in the `us-east-1` region. Call it `drawing-db`.
 
-![mLab sandbox]
 ![mLab create]
 
 Click the green button in the bottom right corner that says "Create Cluster", and you should be up and running. Creating the cluster will take 1-3 minutes.
@@ -539,22 +538,16 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 
 [mLab account]: Images/10_00_mlabLanding.png
 [mLab tiers]: Images/10_01_mlabTiers.png
-[mLab sandbox]: Images/10_02_mlabCluster.png
 [mLab create]: Images/10_03_createNew.png
 [mLab success]: Images/10_04_mlabSuccess.png
 [mLab new key]: Images/10_05_addAPIkey.png
 [mLab copy key]: Images/10_06_copyKey.png
-
-[mLab confirmation]: Images/webmap_3_mlab_confirmation.png
-[mLab db user]: Images/webmap_3_mlab_db_user.png
-[mLab API Key]: Images/webmap_3_mlab_api_key.png
-[mLab API Enable]: Images/webmap_3_mlab_api_enable.png
-[Clicked map]: Images/webmap_3_clicked_map.png
-[Made button]: Images/webmap_3_made_button.png
-[Clicked button]: Images/webmap_3_clicked_button.png
-[Button indicator]: Images/webmap_3_button_indicator.png
-[Test coordinates]: Images/webmap_3_test_coordinates.png
-[Drawing]: Images/webmap_3_drawing.png
+[Clicked map]: Images/10_07_clickedCoords.png
+[Made button]: Images/10_08_startButton.png
+[Clicked button]: Images/10_09_clickedButton.png
+[Button indicator]: Images/10_10_buttonColorChange.png
+[Test coordinates]: Images/10_11_storingCoords.png
+[Drawing]: Images/10_12_drawingPath.png
 [Stop and save]: Images/webmap_3_save.png
 [mLab collections]: Images/webmap_3_mlab_collections.png
 [mLab data]: Images/webmap_3_mlab_data.png
