@@ -13,18 +13,26 @@ Our web-based maps run via javascript in the browser. For them to interact with 
 
 ![mLab account]
 
-After creating your account and logging in, create a new Mongo DB Deployment. Mongo DB is a type of database that stores javascript-style objects such as the GeoJSON format we have previously discussed, so it will be ideal for our purposes. mLab manages the deployment of the database, and it gives us several options of where to host it in the "cloud" (aka massive datacenters owned and operated by Amazon, Google, and Microsoft). We'll use Amazon Web Services, with a free sandbox plan, and host it in the `US East` region. Call it `drawing-db`.
+After creating your account and logging in, select the "Starter Clusters" free tier. Click `Create a Cluster` to create a new Mongo DB Deployment.
+
+![mLab tiers]
+
+Mongo DB is a type of database that stores javascript-style objects such as the GeoJSON format we have previously discussed, so it will be ideal for our purposes. mLab manages the deployment of the database, and it gives us several options of where to host it in the "cloud" (aka massive datacenters owned and operated by Amazon, Google, and Microsoft). We'll use Amazon Web Services, with a free sandbox plan, and host it in the `us-east-1` region. Call it `drawing-db`.
 
 ![mLab sandbox]
+![mLab create]
 
-![mLab confirmation]
+Click the green button in the bottom right corner that says "Create Cluster", and you should be up and running. Creating the cluster will take 1-3 minutes.
 
-Click the blue button in the bottom right corner that says "Submit Order", and you should be up and running.
+![mLab success]
 
-Once you've created and deployed your database, you'll need to get your API key. You'll find this under your "user" settings. Click the blue link that has your username in the upper right corner, and scroll down to the section that says "API Key." Copy your key (paste it into another document or note application if you need to). You'll also need to `Enable Data API Access`.
+Once you've created and deployed your database, you'll need to get your API key. You'll find this in the left panel under "Project > Access Management." Click the tab that says "API Keys." Click "Create API Key." Write a short description for the key, and select all permissions.
 
-![mLab db user]
-![mLab API Enable]
+![mLab new key]
+
+Click "Next." Copy your key (paste it into another document or note application if you need to). 
+
+![mLab copy key]
 
 
 ## Setting up our template
@@ -529,8 +537,14 @@ Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the 
 
 
 
-[mLab account]: Images/webmap_3_mlab_account.png
-[mLab sandbox]: Images/webmap_3_mlab_sandbox.png
+[mLab account]: Images/10_00_mlabLanding.png
+[mLab tiers]: Images/10_01_mlabTiers.png
+[mLab sandbox]: Images/10_02_mlabCluster.png
+[mLab create]: Images/10_03_createNew.png
+[mLab success]: Images/10_04_mlabSuccess.png
+[mLab new key]: Images/10_05_addAPIkey.png
+[mLab copy key]: Images/10_06_copyKey.png
+
 [mLab confirmation]: Images/webmap_3_mlab_confirmation.png
 [mLab db user]: Images/webmap_3_mlab_db_user.png
 [mLab API Key]: Images/webmap_3_mlab_api_key.png

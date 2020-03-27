@@ -416,7 +416,8 @@ Extra credit: repurpose this code with a different dataset.
 
 ### About those rats...
 
-Curious about rat communication? Brian House was too. Check out the "New York" section of this _New York Times Magazine_ feature from a few weeks back: [http://nytimes.com/voyages](http://nytimes.com/voyages)
+Curious about rat communication? Brian House was too. Check out the "New York" section of this _New York Times Magazine_ feature from awhile back: [http://nytimes.com/voyages](http://nytimes.com/voyages)
+
 
 
 ______________________________________________________________________________________________________________
