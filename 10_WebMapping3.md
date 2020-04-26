@@ -7,6 +7,26 @@ So far, we've treated datasets as complete—they are datapoints in files of var
 In this tutorial, we will use the sensing capacity of our devices to make GPS drawings, an activity with a rich precedent including [You Are Here](https://www.macba.cat/en/exhibition-laura-kurgan) by C4SR's Laura Kurgan, [Amsterdam Realtime](https://waag.org/en/project/amsterdam-realtime) by Esther Polak and Jeroen Kee, and drawings by [Jeremy Wood](http://www.gpsdrawing.com/gallery.html). Contemporary devices and Mapbox's API make it straightforward for us to get similar results to what was technically very challenging at the time these works were made.
 
 
+## Databases
+
+Our web-based maps run via javascript in the browser. For them to interact with a database, the database also has to be accessible online. For many projects, you'll want to set up your own database server. That's beyond the scope of our exercise now, however, so we are going to make use of a service, [mLab](https://mlab.com/), that will host a database that we can use (yet another account to create!).
+
+![mLab account]
+
+After creating your account and logging in, create a new Mongo DB Deployment. Mongo DB is a type of database that stores javascript-style objects such as the GeoJSON format we have previously discussed, so it will be ideal for our purposes. mLab manages the deployment of the database, and it gives us several options of where to host it in the "cloud" (aka massive datacenters owned and operated by Amazon, Google, and Microsoft). We'll use Amazon Web Services, with a free sandbox plan, and host it in the `US East` region. Call it `drawing-db`.
+
+![mLab sandbox]
+
+![mLab confirmation]
+
+Click the blue button in the bottom right corner that says "Submit Order", and you should be up and running.
+
+Once you've created and deployed your database, you'll need to get your API key. You'll find this under your "user" settings. Click the blue link that has your username in the upper right corner, and scroll down to the section that says "API Key." Copy your key (paste it into another document or note application if you need to). You'll also need to `Enable Data API Access`.
+
+![mLab db user]
+![mLab API Enable]
+
+
 ## Setting up our template
 
 Just like for the [previous web mapping tutorials](9_WebMapping2.md#start-a-web-project), you'll need to set up a new github project. Call this repository "gps_drawing". The `index.html`, `style.css`, and `map.js` can be the same as what we used in the previous tutorial — refer to those tutorials to get your initial files set up. This is a good practice to get familiar with: most programming projects begin in this way, by assembling relevant pieces from past projects. One advantage of using Github is that you'll have all those projects organized and accessible to reference when you need them.
@@ -14,6 +34,85 @@ Just like for the [previous web mapping tutorials](9_WebMapping2.md#start-a-web-
 Once you've created the initial files (`index.html`, `style.css`, and `map.js`), we'll need to make a few small changes. In this case, the first customization we'll do is to change the title in the `<title></title>` tags of our `index.html` file: change it to "GPS Drawing".
 
 Additionally, you'll also want to create a new Mapbox style for this project, so that you can customize it without altering your previous maps. Go over to your Mapbox account, click on "Studio" in the upper right corner. Under "Styles," create a new style (refer to the steps in the [previous tutorial](9_WebMapping2.md#mapbox-styles) if you need a reminder how to do this). Once you've created a style, you can rename it by opening it (click "Menu>Details"), and then on the next page, "Edit this style". Once you've renamed the style (you can call it whatever you want, or "GPS_Drawing" for consistency), make sure you copy the new "Style URL", and put that style URL into your code in your `map.js` file. You can edit this style to adjust the aesthetics however you want at a later point if you wish.
+
+<!--![Mapbox Duplicate]
+
+Under "Your Styles," choose one of your existing styles (we can use "Rats_NYC" from our previous tutorial), click the "Menu" to the right and select "Duplicate". Once the style is duplicated, you can rename it by opening it (click "Menu>Details"), and then on the next page, "Edit this style". Once you've renamed the style (you can call it whatever you want, or "GPS_Drawing" consistency), make sure you copy the new "Style URL", and put that style URL into your code in your `map.js` file.-->
+
+
+## Interfacing with the database
+
+We're going to use some prewritten code to interface with the mLab API. This consists of two functions—inserting data, and recalling data. Save this code in a new file, `db.js`, and put in your API key from mLab.
+
+```javascript
+let base = "https://api.mlab.com/api/1/databases/"
+let apiKey = "YOURKEYHERE"
+let database = "drawing-db"
+
+class DB {
+
+    get(f) {
+        console.log('GET')
+        let url = base + database + "/collections/paths?apiKey=" + apiKey
+        let request = new XMLHttpRequest()
+        request.open('GET', url)
+        request.onload = function() {
+          if (this.status >= 200 && this.status < 400) {
+            f(JSON.parse(this.response))
+          } else {
+            console.log(this.status)
+            console.log(this.response)
+          }
+        }
+        request.onerror = function() {
+            console.log(this.status)
+            console.log(this.response)
+        }
+        request.send()
+    }
+
+    insert(path) {
+        console.log("INSERT")
+        let url = base + database + "/collections/paths?apiKey=" + apiKey
+        let request = new XMLHttpRequest()
+        request.open('POST', url)
+        request.setRequestHeader('Content-Type', 'application/json')
+        request.onload = function() {
+          if (this.status >= 200 && this.status < 400) {
+            console.log(this.response)
+          } else {
+            console.log(this.status)
+            console.log(this.response)
+          }
+        }
+        request.onerror = function() {
+            console.log(this.status)
+            console.log(this.response)
+        }
+        let encoded = JSON.stringify({path: path})
+        console.log(encoded)
+        request.send(encoded)
+    }
+
+}
+
+let db = new DB()
+```
+
+To use this in your map code, you'll also need to load `db.js` within your HTML. You can do this by adding a script tag within the `<head>` portion of your HTML.
+
+```html
+<head>
+
+...
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+    <script src='db.js'></script>    
+</head>
+<body>
+
+...
+
+```
 
 
 ### Map programming
@@ -322,7 +421,74 @@ Now would be a good time to save, reload, and try out the map. If all has gone w
 
 ![Drawing]
 
-And that's it! Play around with your map and create some paths. 
+
+### Database functions
+
+One thing that our code doesn't yet do, however, is save paths in the database. If you reload the page, the paths will disappear. We've already included `db.js` in our setup—now we just have to make the appropriate calls.
+
+We want to save a path every time the `stopDrawing` function is called, so we'll add that to the function. We'll also make sure to reset our path variable:
+
+```javascript
+function stopDrawing() {
+
+    active = false
+
+    draw_btn.style['background-color'] = "white"  
+    draw_btn.style['color'] = "black"             
+    draw_btn.value = 'Start'                      
+
+    db.insert(path)                         // insert the path into the database
+    path = []                               // reset the path
+
+}
+```
+
+Now, when you complete a path by clicking "Stop and save" on your map, it really is saving, and you'll see that in your console:
+
+![Stop and save]
+
+
+We're now saving the paths that we create. However, they're still not showing up when we reload the page. To do that, we'll need to query the database right away and draw those paths from the get-go. We'll modify the same `load` event handler that we used to create our layer, which will ensure that everything happens in the correct order.
+
+```javascript
+map.on('load', function() {
+    map.addLayer({
+        'id': 'drawing',
+        'type': 'line',
+        'source': {
+            'type': 'geojson',
+            'data': null
+        },
+        'layout': {
+            'line-cap': 'round',
+            'line-join': 'round'
+        },
+        'paint': {
+            'line-color': '#50C3DF',
+            'line-width': 5,
+            'line-opacity': .8
+        }
+    })
+
+    // get the previously created paths from the database and add them as features
+    db.get(function(data) {
+        for (let item of data) {
+            if (!item.path) continue
+            geojson.features.push({
+                "type": "Feature",
+                "geometry": {
+                    "type": "LineString",
+                    "coordinates": item.path
+                }
+            })
+            map.getSource('drawing').setData(geojson)
+        }
+    })
+
+})
+```
+
+Phew. That's it! Play around with your map and create some paths. When you reload the page, they should show up again. You're live!
 
 The intent here is that we'll use this app on our mobile devices, not via the web. So we can delete our `click` handler at this point. Better yet, we can "comment it out" so that it will be disabled, but we can still restore it if we need to experiment more. To do this, just add the comment slashes `//` before each line:
 
@@ -342,9 +508,14 @@ The intent here is that we'll use this app on our mobile devices, not via the we
 
 Now you'll see that clicking on the map has no effect. But geolocating tracking still does.
 
+One last thing: we didn't add any functionality to _delete_ paths, but you can do this through your mLab account. If you click on your database, you'll see your "Collections". One of those will be "paths", and if you click on that, you can see the coordinate data in GeoJSON format, as well as edit it directly.
+
+![mLab collections]
+![mLab data]
+
 ## Deliverables
 
-Use the interface on your mobile device to draw a picture for the class, and submit a screenshot of what you draw. Yes, you could do this by clicking. But it will be so much more interesting to see it produced on the street, _or_ within your own apartment if you are practicing social distancing.
+Use the interface on your mobile device to draw a picture for the class, and submit the url to your map. Yes, you could do this by clicking. But it will be so much more interesting to see it produced on the street.
 
 One caveat to keep in mind—we've built this in javascript, so it's not quite the same as an app you would download from the app store, for example. One big  difference is that it does not run in the background. So as you move around, you'll need to have the browser on your device open for it to be recording your path.
 
@@ -353,25 +524,23 @@ Happy drawing!
 ______________________________________________________________________________________________________________
 
 
-Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)). Edited by Emily Fuhrman for Spring 2020.
+Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)).
 
 
 
 
-[mLab account]: Images/10_00_mlabLanding.png
-[mLab tiers]: Images/10_01_mlabTiers.png
-[mLab create]: Images/10_03_createNew.png
-[mLab success]: Images/10_04_mlabSuccess.png
-[mLab user setup]: Images/10_04_mlabSuccess_userSetup.png
-[mLab user credentials]: Images/10_04_mlabSuccess_userCredentials.png
-[mLab new key]: Images/10_05_addAPIkey.png
-[mLab copy key]: Images/10_06_copyKey.png
-[Clicked map]: Images/10_07_clickedCoords.png
-[Made button]: Images/10_08_startButton.png
-[Clicked button]: Images/10_09_clickedButton.png
-[Button indicator]: Images/10_10_buttonColorChange.png
-[Test coordinates]: Images/10_11_storingCoords.png
-[Drawing]: Images/10_12_drawingPath.png
+[mLab account]: Images/webmap_3_mlab_account.png
+[mLab sandbox]: Images/webmap_3_mlab_sandbox.png
+[mLab confirmation]: Images/webmap_3_mlab_confirmation.png
+[mLab db user]: Images/webmap_3_mlab_db_user.png
+[mLab API Key]: Images/webmap_3_mlab_api_key.png
+[mLab API Enable]: Images/webmap_3_mlab_api_enable.png
+[Clicked map]: Images/webmap_3_clicked_map.png
+[Made button]: Images/webmap_3_made_button.png
+[Clicked button]: Images/webmap_3_clicked_button.png
+[Button indicator]: Images/webmap_3_button_indicator.png
+[Test coordinates]: Images/webmap_3_test_coordinates.png
+[Drawing]: Images/webmap_3_drawing.png
 [Stop and save]: Images/webmap_3_save.png
 [mLab collections]: Images/webmap_3_mlab_collections.png
 [mLab data]: Images/webmap_3_mlab_data.png
