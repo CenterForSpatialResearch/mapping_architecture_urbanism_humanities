@@ -105,7 +105,7 @@ To use this in your map code, you'll also need to load `db.js` within your HTML.
 <head>
 
 ...
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
     <script src='db.js'></script>    
 </head>
 <body>
