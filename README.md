@@ -1,5 +1,5 @@
 # Mapping for Architecture, Urbanism, and the Humanities
-Class resources for the Spring 2020 seminar Mapping for Architecture, Urbanism, and the Humanities
+Class resources for the Spring 2021 seminar Mapping for Architecture, Urbanism, and the Humanities
 
 The following tutorials are designed to introduce students to techniques of spatial research and critical cartographic practices. Through a combination of in class instruction and tutorial exercises completed at home students will develop basic fluencies with open source mapping tools. With support from module instructors, students will apply these newly acquired skills to topics and questions of interest through their final projects for the seminar. 
 
