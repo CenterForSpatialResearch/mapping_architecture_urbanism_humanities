@@ -40,20 +40,20 @@ The U.S. Census has two main surveys, the Decennial Census and the American Comm
 
 The second main survey is called the [American Community Survey (ACS)](https://www.census.gov/history/www/programs/demographic/american_community_survey.html) and happens continuously. Its questionnaire is sent to 295,000 addresses monthly and it gathers data on topics such as ancestry, educational attainment, income, language proficiency, migration, disability, employment, and housing characteristics. Its results come in 3 forms: 1-year estimates, 3-year estimates and 5-year estimates. The 1-year estimates are the most current but the least reliable. The 5-year estimates are not as current but are much more reliable. For this exercise we will be using the 2017 ACS 5-year estimate data.
 
-In the left hand side of the `ADVANCED SEARCH` window, expand the `Topics` tab, and expand the `Dataset` option. Here, choose the `2017 ACS 5-year estimates`. You should see that dataset move to the top right-hand panel called `Your Selections`.
+Both datasets are available through [The Census Bureau], so we will start here. From the main screen, scroll down and click `View Tables`.
 
-![ACS 2016 5-year estimates](Images/04_00_ACS2017.png)
+![View Census Tables](Images/04_00_censusBureauACS.png)
 
-Next, let's select the geography. Click on the `Geographies` tab and set the following parameters:
-* Geographic type: Census Tract - 140
-* State: New York
-Once you've done this you will have the option to select the county. Select 'Bronx' and once the window below populates, highlight 'All Census Tracts Within Bronx County, New York' and click `ADD TO YOUR SELECTIONS`. Again, you should see this item added to your selections window. Do the same thing for all the census tracts in the rest of the counties in the city: New York (Manhattan), Kings (Brooklyn), Queens and Richmond (Staten Island).
+In the left column of the next page, click `FILTER`.
+* Under `Years`, select `2017`.
+* Under `Surveys`, select `ACS 5-Year Estimates Detailed Tables`
+* Under `Geography`, select `Tract > New York > `Bronx County, New York`. select 'All Census Tracts Within Bronx County, New York'. Do the same thing for all the census tracts in the rest of the counties in the city: New York (Manhattan), Kings (Brooklyn), Queens and Richmond (Staten Island).
 
-![Geographies](Images/04_01_addGeographies.png)
+![Geographies](Images/04_01_counties.png)
 
-Finally, we need to select the tables that we will be exporting. In this tutorial we will be using the table for 'PLACE OF BIRTH BY NATIVITY AND CITIZENSHIP STATUS (B05002)'. To select this table click on the 'Topics' tab again, and expand 'People' and 'Origins' and click on 'Citizenship'. Once it's been added to your selections you can close that little window. Now you should see a list of all the tables that match your selection criteria. Click on the 'PLACE OF BIRTH BY NATIVITY AND CITIZENSHIP STATUS (B05002)' table. You should now see the selected table with the data for the selected census tracts.
+Finally, we need to select the tables that we will be exporting. In this tutorial we will be using the table for 'PLACE OF BIRTH BY NATIVITY AND CITIZENSHIP STATUS (B05002)'. To select this table click on the 'Topics' tab again, and expand 'Populations and People' and 'Native and Foreign Born' and click on 'Citizenship'. Now you should see a list of all the tables that match your selection criteria. Click on the 'PLACE OF BIRTH BY NATIVITY AND CITIZENSHIP STATUS (B05002)' table. You should now see the selected table with the data for the selected census tracts. 
 
-As you can see this table has data on where everyone was born and it comes in the following form:
+Though the table is too large to load in the browser, it has data on where everyone was born and it comes in the following form:
 * Total
   * Native
     * Born in state of residence
@@ -70,13 +70,11 @@ As you can see this table has data on where everyone was born and it comes in th
     * Naturalized U.S. citizen
     * Not a US citizen
 
-On the top, we have every census tract with the corresponding value and a margin of error. It is important to note that these are not exact values, they are estimates based on the statistical methods the census is using. That's why they include the margin of error. These estimates give us a good idea of what is happening on the ground. To learn more about the margin of error in the ACS take a look at [this](http://www.esri.com/~/media/Files/Pdfs/library/whitepapers/pdfs/the-american-community-survey.pdf#page=6) explanation by ESRI.
+It includes every census tract with the corresponding value and a margin of error. It is important to note that these are not exact values, they are estimates based on the statistical methods the census is using. That's why they include the margin of error. These estimates give us a good idea of what is happening on the ground. To learn more about the margin of error in the ACS take a look at [this](http://www.esri.com/~/media/Files/Pdfs/library/whitepapers/pdfs/the-american-community-survey.pdf#page=6) explanation by ESRI.
 
-The last thing we need to do is modify the table so it fits the way data is organized in QGIS. If you remember when we opened attribute tables in QGIS, every row represented a feature and every column represented an attribute. Here, it's the other way around, so we need to 'transpose' the table to make it match QGIS. To do this click on `Modify Table` at the top left and then on `Transpose Rows/Columns`. Now you should see the table with the census tracts on the left-hand column and the fields on the first row.
+Finally, click on `Download` and make sure that `2017` and `CSV` are checked. Click `OK` and then once your files are ready `Download` again.
 
-![Final table](Images/04_02_transposeRowsColumns.png)
-
-Finally, click on `Download` and make sure you are selecting 'Use the data' as a comma-delimited (.csv) format with the 'single file' and 'Include descriptive data element names' options selected. Click `OK` and then once your files are ready `Download` again.
+![ACS Download](Images/04_01_pobDownload.png)
 
 ### Formatting Census Data
 To bring census data into QGIS, we need to re-format the table, so that we can join it to its geographic boundaries. This is a two step process: first, we will format the actual table in Excel, Google Sheets or a simple text editor. Second, we will create a .csvt file, which will tell QGIS the exact format for each of the fields in the table.
@@ -91,18 +89,21 @@ Another great advantage of using Excel is that if you need to delete multiple fi
   * First, open a new file in Excel.
   * Once you've opened it, click on `File`, `Open...` and navigate to the folder where you saved your downloaded census tables.
   * Make sure you are able to open `All Files` not just `All Readable Files`. In my Mac, that option is called `Enable` and in Windows you should select the option `All Files (*.*)` instead of `All Excel Files (...)`.
-  * Once you've done this you will be able to select the file called 'ACS_17_5YR_B05002_with_ann.csv' and open it.
+  * Once you've done this you will be able to open your download folder, select the file called 'ACSDT5Y2017.B05002_data_with_overlays_2021-01-25T133347.csv', and open it.
   * Here's a preview of the raw file:
 
-  ![Excel Table](Images/04_03_ACSinExcel.png)
+  ![Excel Table](Images/04_03_ACSinExcel_2021.png)
 
   * We need to do two things: One, to rename the field names (header) and get rid of the second row (also a kind of header). And two, delete all the margin of error fields since we are not going to use them.
   * QGIS has certain requirements for field names: maximum 10 characters, no spaces, no punctuation (except - and _ ) and they must start with a letter, not a number.
   * First, delete the margin of error columns. Just right-click / control-click on the column and select `Delete`.
   * Now, rename the header fields in the following way:
     * GeoID
-    * GeoID2
     * GeoDisplay
+    * FrgNonCAf
+    * FrgNonCOc
+    * FrgNonCLA
+    * (NotAm)
     * TotalPop
     * Native
     * InState
@@ -126,36 +127,18 @@ Another great advantage of using Excel is that if you need to delete multiple fi
     * FrgNonC
     * FrgNonCE
     * FrgNonCAs
-    * FrgNonCAf
-    * FrgNonCOc
-    * FrgNonCLA
-    * FrgNonCNA
-
 
   * The names don't need to be the same, but this is how I will refer to them. There's no standard way of naming these fields. In general, choose names that you can read and understand, so that you and other people who use these files can easily understand what they mean. The metadata is there to tell you exactly what each of the fields means, but you should be able to figure it out when possible.
+  * Add another column next to the `GeoID` field and name it `GeoID2`. Here, we will create a filtered version of `GeoID` that will match the Census tract shapefiles we work with in QGIS.
+  * In cell `B2`, enter the following: `=RIGHT(A2,11)`. This will take only the right 11 characters of the ID string in the left column. Double click the bottom right corner of the cell to automatically apply this formula to the entire column.
   * Once you've renamed your fields, delete the second row. Now you are left with only one header field and the actual data.
 
   ![Excel Final Table](Images/04_04_modifiedCSV.png)
 
   * Finally, save your file as a new .csv file. I am saving my file as `B05002.csv`.
 
-#### Re-formatting in a text editor:
-  * If you don't have Excel, or you don't want to use it, you can also re-format your file in a simple text editor. Here, I'll use the default Mac TextEdit application. You can also use your Windows Notepad or Sublime Text. As a side note, I highly recommend [Sublime Text](https://www.sublimetext.com/) as a text editor, we will use it later in the semester.
-  * First, open the original census table ('ACS_17_5YR_B05002_with_ann.csv') with your text editor.
-
-  ![Text Edit Table](Images/04_05_textEdit.png)
-
-  * Next, before you modify the file, *make a copy, so you don't overwrite the original*. I will save it as B05002_Text_Edit. TextEdit or Notepad will automatically save it as a .txt file, which is fine, though you may change it to .csv.
-  * Next, replace the first line (the one that goes from 'GEO.id' to 'HD02_VD27') with the right headers. However, since we are not deleting the columns for the margins of error we need to add those headers. The new first line should be something like this:
-    * `GeoID,GeoID2,GeoDisplay,TotalPop,MOTotalPop,Native,MO_Native,InState,MO_InState,OtherSt,MO_OtherSt,OtherNE,MO_OtherNE,OtherMW,MO_OtherMW,OtherS,MO_OtherS,OtherW,MO_OtherW,N_Out,MO_N_Out,PuertoR,MO_PuertoR,USIsland,MO_USIsland,AbroadAP,MO_AbroadAP,Foreign,MO_Foreign,FrgNat,MO_FrgNat,FrgNatE,MO_FrgNatE,FrgNatAs,MO_FrgNatAs,FrgNatAf,MO_FrgNatAf,FrgNatOc,MO_FrgNatOc,FrgNatLA,MO_FrgNatLA,FrgNatNA,MO_FrgNatNA,FrgNonC,MO_FrgNonC,FrgNonCE,MO_FrgNonCE,FrgNonCAs,MO_FrgNonCAs,FrgNonCAf,MO_FrgNonCAf,FrgNonCOc,MO_FrgNonCOc,FrgNonCLA,MO_FrgNonCLA,FrgNonCNA,MO_FrgNonCNA`
-    * Notice all the MO (margin of error) and the commas separating all the headers. These are very important.
-  * Now delete the second line, the one that goes from 'Id' to 'Not a U.S. citizen'.
-  * Your new file should look something like this:
-
-  ![Text Edit Final Table](Images/04_06_textEditmodified.png)
-
 #### Creating the .csvt file:
-  * In both cases you need to create also a .csvt file. This file will tell QGIS exactly what type of data each of the fields is in. The different types of data your fields can take are:
+  * You also need to create also a .csvt file, which will tell QGIS exactly what type of data each of the fields is in. The different types of data your fields can take are:
     * String - Represents text
     * Integer - Represents whole numbers
     * Real - Represents both negative and positive numbers, with decimal points
@@ -168,8 +151,6 @@ Another great advantage of using Excel is that if you need to delete multiple fi
   * If you are working on Mac's TextEdit you need to format your file as 'Plain Text'. To do this click on `Format` and then `Make Plain Text`. This will change your file from an .rtf to a simple .txt.
   * Save your file with the same name as the table but with a different extension. It is important to do this so that QGIS understands that this .csvt file corresponds to the other .csv or .txt file. In both Windows Notepad and in Mac TextEdit you need to manually type the extension (.csvt) and in TextEdit you need to un-check the option that says 'If no extension is provided, use .txt'.
   * If you are using the table we modified with Excel your .csvt file would be named `B05002.csvt`
-  * If you were using the table we modified with TextEdit or Notepad you would name your file `B05002_Text_Edit.csvt`
-
   * Your final file should look something like this:
 
   ![CSVT File](Images/04_07_CSVT.png)
@@ -240,9 +221,9 @@ First, just so you can see the difference between the different classification m
   * You will notice that most census tracts fall within the first or second class and that there are only a handful of them in the third, fourth or fifth.
   * With this classification method we see the effect an extreme value can have on the graphic representation of data: the census tract in the Bronx that represents Co-Op City is skewing the data towards the top so that there are too few census tracts in the intermediate classes.
 
-* Quantile (Equal Count)
+* Equal Count (Quantile)
   * Now return to the classification option in the style properties of the dataset.
-  * Choose `Quantile (Equal Count)` as the classification mode.
+  * Choose `Equal Count (Quantile)` as the classification mode.
   * This classification method gets the total number of features and divides it by the number of classes, so that each class has an equal number of features. The problem with this method is that features that might be very far apart in terms of their values might end up in the same class.
   * Go to the `Histogram` tab and click on `Load values` to see how this classification method splits the data.
   * Click `OK` and take a look at the map:
@@ -264,6 +245,7 @@ First, just so you can see the difference between the different classification m
 
 * Standard Deviation
   * Finally, change the classification method to `Standard Deviation`.
+  * (If you do not see multiple classes form by default, try increasing the number of classes in the `Classes` selector.)
   * With this classification method it's always good to also change the color scale to a 'diverging' color scheme, something that starts with one color, goes through a neutral (or white) color and ends up in another color. This type of color scale makes it clear that there are some 'neutral' values and that there are some other values that are higher or lower than those.
   * However, there's a problem with how QGIS classifies values here. The problem that QGIS has here is that it doesn't make the 'neutral' color correspond to the values around the mean or within 1 standard deviation of the mean. In this case, if you click `OK` you will see that the 'neutral' color actually corresponds to the values between 2 and 4 standard deviations away from the mean, which is pretty misleading; with our current dataset, you may not even see more than one class defined. This classification method would only actually work well with a normally distributed dataset, which doesn't always happen. 
   * Take a look at these two maps: they are based on the same dataset. The only difference is that the left one was made with QGIS and the other one with ArcMap. The ArcMap one correctly makes the 'neutral' color correspond to the values that are between -0.5 and +0.5 standard deviations away from the mean, so the most 'normal' values.
@@ -287,7 +269,7 @@ Finally, to create the last version of our map we need to normalize our data by 
 * In my case, my value ranges are:
   * 0 - 0.20
   * 0.20 - 0.35
-  * 0.34 - 0.45
+  * 0.35 - 0.45
   * 0.45 - 0.60
   * 0.60 - 0.85
 * Once you've classified correctly your data, click `OK` and make sure your map makes sense.
@@ -324,4 +306,4 @@ Upload your (PDF) map to Canvas. Your map should include a legend, scale bar, ti
 
 ______________________________________________________________________________________________________________
 
-Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the Mapping for Architecture, Urbanism and the Humanities class at Columbia University. Edited by Michelle McSweeney for Fall 2017, Brian House for Fall 2018, and Emily Fuhrman for Spring 2020.
+Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the Mapping for Architecture, Urbanism and the Humanities class at Columbia University. Edited by Michelle McSweeney for Fall 2017, Brian House for Fall 2018, and Emily Fuhrman for Spring 2021.
