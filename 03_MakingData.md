@@ -64,7 +64,7 @@ You should now see the data only for 'Noise' complaints created between the star
 ![311 Filters](Images/03_01_openDataFilters.png)
 
 * Finally, click on the 'Export' button at the top right-hand corner of the site and choose the 'CSV' format. Your file should start downloading then.
-* If you open your .csv file in Excel you will see that there are about 215,657 records and that they have both X and Y coordinates and Latitude and Longitude. In the next steps we will use these fields to add the 311 data to a QGIS map.
+* If you open your .csv file in Excel you will see that there are about 32,665 records and that they have both X and Y coordinates and Latitude and Longitude. In the next steps we will use these fields to add the 311 data to a QGIS map.
 
 #### Adding CSV data to QGIS
 * First, open QGIS and add the following layers (as vector layers):
@@ -105,7 +105,7 @@ You should now see the data only for 'Noise' complaints created between the star
   ![Select Null](Images/03_06_latitudeIsNull.png)
 
   * Now click on the `Select` button at the bottom right corner.
-  * Once you've selected the `Null` records, close the 'Select by expression' window (click the `Close` button). At the top of the attribute table you should read that there are around 161 features selected.
+  * Once you've selected the `Null` records, close the 'Select by expression' window (click the `Close` button). At the top of the attribute table you should read that there are around 544 features selected.
   * Now, switch the selection, so that we only select the records that have correct geographic data. To do this press the `Invert Selection` button at the top:
 
   ![Invert Selection](Images/03_07_invertSelection.png)
@@ -122,7 +122,7 @@ You should now see the data only for 'Noise' complaints created between the star
 #### Symbolizing the Data
 The last step in creating a qualitative map of the 311 data is a simple one: we need to symbolize each complaint using its subcategory.
 * Right-click on the 311_Data layer and choose `Properties`.
-* In the `Style` tab, change the drop-down menu that says `Single Symbol` to `Categorized` and then in the `Column` menu select `Descriptor` (this is the field we will symbolize).
+* In the `Symbology` tab, change the drop-down menu that says `Single Symbol` to `Categorized` and then in the `Value` menu select `Descriptor` (this is the field we will symbolize).
 * Now click on the `Classify` button at the bottom and you will get all the different sub-categories.
 * Lastly, you should change the appearance of the dots by clicking the `Change...` button next to `Symbol`: adjust their size (make them smaller), stroke and fill color (if you wish).
 * Once it is to your liking, click 'OK'.
@@ -214,4 +214,4 @@ Upload your two (PDF) 311 data maps to canvas. Your map should include proper le
 
 ______________________________________________________________________________________________________________
 
-Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the Mapping for Architecture, Urbanism and the Humanities class at Columbia University. Edited by Michelle McSweeney for Fall 2017, Brian House for Fall 2018, and Emily Fuhrman for Spring 2020.
+Tutorial created by Juan Francisco Saldarriaga (jfs2118@columbia.edu) for the Mapping for Architecture, Urbanism and the Humanities class at Columbia University. Edited by Michelle McSweeney for Fall 2017, Brian House for Fall 2018, and Emily Fuhrman for Spring 2021.
