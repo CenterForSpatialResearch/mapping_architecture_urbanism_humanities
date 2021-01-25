@@ -40,7 +40,7 @@ The U.S. Census has two main surveys, the Decennial Census and the American Comm
 
 The second main survey is called the [American Community Survey (ACS)](https://www.census.gov/history/www/programs/demographic/american_community_survey.html) and happens continuously. Its questionnaire is sent to 295,000 addresses monthly and it gathers data on topics such as ancestry, educational attainment, income, language proficiency, migration, disability, employment, and housing characteristics. Its results come in 3 forms: 1-year estimates, 3-year estimates and 5-year estimates. The 1-year estimates are the most current but the least reliable. The 5-year estimates are not as current but are much more reliable. For this exercise we will be using the 2017 ACS 5-year estimate data.
 
-Both datasets are available through [The Census Bureau], so we will start here. From the main screen, scroll down and click `View Tables`.
+Both datasets are available through [The Census Bureau](https://data.census.gov/cedsci/?q=United%20States), so we will start here. From the main screen, scroll down and click `View Tables`.
 
 ![View Census Tables](Images/04_00_censusBureauACS.png)
 
