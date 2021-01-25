@@ -47,7 +47,7 @@ Both datasets are available through [The Census Bureau](https://data.census.gov/
 In the left column of the next page, click `FILTER`.
 * Under `Years`, select `2017`.
 * Under `Surveys`, select `ACS 5-Year Estimates Detailed Tables`
-* Under `Geography`, select `Tract > New York > `Bronx County, New York`. select 'All Census Tracts Within Bronx County, New York'. Do the same thing for all the census tracts in the rest of the counties in the city: New York (Manhattan), Kings (Brooklyn), Queens and Richmond (Staten Island).
+* Under `Geography`, select `Tract > New York > Bronx County, New York`. select 'All Census Tracts Within Bronx County, New York'. Do the same thing for all the census tracts in the rest of the counties in the city: New York (Manhattan), Kings (Brooklyn), Queens and Richmond (Staten Island).
 
 ![Geographies](Images/04_01_counties.png)
 
@@ -94,7 +94,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
 
   ![Excel Table](Images/04_03_ACSinExcel_2021.png)
 
-  * We need to do two things: One, to rename the field names (header) and get rid of the second row (also a kind of header). And two, delete all the margin of error fields since we are not going to use them.
+  * We need to do three things: One, to rename the field names (header) and get rid of the second row (also a kind of header). Two, delete all the margin of error fields since we are not going to use them. Three, add an additional ID column that will enable us to join this data to shapefiles in QGIS.
   * QGIS has certain requirements for field names: maximum 10 characters, no spaces, no punctuation (except - and _ ) and they must start with a letter, not a number.
   * First, delete the margin of error columns. Just right-click / control-click on the column and select `Delete`.
   * Now, rename the header fields in the following way:
@@ -103,7 +103,7 @@ Another great advantage of using Excel is that if you need to delete multiple fi
     * FrgNonCAf
     * FrgNonCOc
     * FrgNonCLA
-    * (NotAm)
+    * FrgNonCNA
     * TotalPop
     * Native
     * InState
