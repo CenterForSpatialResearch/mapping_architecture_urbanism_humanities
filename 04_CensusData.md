@@ -29,7 +29,7 @@ The two images below show census block groups in orange and census tracts in blu
 
 To download the census tracts boundaries for New York State go [here](https://www.census.gov/cgi-bin/geo/shapefiles/index.php) and choose `2019` and `Census Tracts` and then `New York` and download.
 
-Once we have the 'empty' geography boundaries for the census tracts we need to download the actual data. For this we will use the [American FactFinder](http://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) which is one of the portals where you can download census data. We will search for the data at multiple levels:
+Once we have the 'empty' geography boundaries for the census tracts we need to download the actual data. We will search for the data at multiple levels:
 * Geography: census tracts for New York City counties
 * Dataset: American Community Survey (ACS) 2016 5-year estimates
 * Topic: Place of birth by nativity and citizenship status
