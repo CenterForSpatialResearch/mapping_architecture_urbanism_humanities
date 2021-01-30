@@ -96,7 +96,7 @@ We want to determine which libraries are located within census tracts where more
 
 * Open the attribute table of the `Bronx_Libraries` layer in order to note which libraries were selected. Four libraries were selected, what are their names?
 
-![location](Images/05_03_selectedLibraries.png.png)
+![location](Images/05_03_selectedLibraries.png)
 
 This analysis give us a very rough sense of which libraries might already serve a large number of Spanish speakers however we have only selected libraries which are located exactly within census tracts with a large proportion of Spanish speakers. What if there is a library in an adjacent census tract? Our analysis will not have picked up on this.
 
@@ -118,13 +118,15 @@ To answer the first question, we will create a ¼ mile buffer around the librari
 
 ![buffer](Images/05_05_bufferMenu.png)
 
-* Your menu may read `Vector > Geoprocessing Tools > Fixed distance buffer`. `Variable Distance Buffer` is another possible tool, but for now we will use Fixed Distance.
+* Your menu may read `Vector > Geoprocessing Tools > Fixed distance buffer`. `Variable Distance Buffer` is another possible tool, but for now we will use Fixed Distance. (Ignore this if you see `Buffer` as a selection.)
 
 ![buffer2](Images/mappingdata08_06-1.png)
 
-  * Choose Bronx_Libraries as your input vector layer – this sets which layer the buffers are drawn around.
+  * Choose `Bronx_Libraries` as your input vector layer – this sets which layer the buffers are drawn around.
 
-  * Set the buffer distance to 1320. The values in this field have the same units as the projection of your input datalayer and map project. Our map is projected in the NAD83 New York State Plane (Long Island) projection system whose units are in feet. To confirm this you can open the layer properties and inspect the coordinate reference system for the layer. Thus we choose 1320 feet because this is equivalent to ¼ mile.
+  * Set the buffer distance to 1320 feet. The values in this field have the same units as the projection of your input datalayer and map project. Our map is projected in the NAD83 New York State Plane (Long Island) projection system whose units are in feet. To confirm this you can open the layer properties and inspect the coordinate reference system for the layer. Thus we choose 1320 feet because this is equivalent to ¼ mile.
+
+  * Click `Run`.
 
   * Save the output layer as `BX_Library_QuarterMiBuffer`.
 
@@ -144,7 +146,7 @@ To answer the first question, we will create a ¼ mile buffer around the librari
 
 *  Now we want to answer our second question:  Which five libraries serve the greatest number of school children? To answer this, we will perform a *spatial join*.
 
-  * A spatial join is a new tool for us which allows us to summarize the attributes from one layer within the attribute table of another based on the spatial relationship between them.
+  * A spatial join allows us to summarize the attributes from one layer within the attribute table of another based on the spatial relationship between them.
 
   * Navigate to `Vector`>`Data Management Tools`>`Join attributes by location`.
 
@@ -196,7 +198,7 @@ For our first approximation we will ask: how many people live in the census trac
 
 ![location](Images/05_12_selectByLocation.png)
 
-* Select ‘OK’ and then `Close`.
+* Select `Run` and then `Close`.
 * Your selections should look something like this:
 
 ![location](Images/05_13_selectResults.png)
@@ -239,7 +241,7 @@ Note: that proportional split estimation assumes that the attribute you are esti
 * The input vector layer is the layer you will clip (in our case the Bronx census tracts)
 * The Clip layer is the layer you will use to clip the input layer (in our case the ¼ mile buffers around the libraries).
 * Save the Output shapefile as `BXTracts_LibraryQuartMiClip`.
-* Click `OK` and then `Close`
+* Click `Run` and then `Close`
 * A new layer containing the census tracts clipped to the ¼ mile buffers around the libraries was added to your map.
 * Toggle the visibility of all of of the layers on your map off except for `BXTracts_LibraryQuartMiClip`.
 * Use the select tool to click on some of the individual clipped census tract polygons to familiarize yourself with this new layer.
@@ -286,4 +288,4 @@ Please send an image (can be a simple screenshot) of the clipped buffers (the st
 
 ______________________________________________________________________________________________________________
 
-Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2016 by the [Center for Spatial Research](http://c4sr.columbia.edu). Edited by Brian House for Fall 2018 and Emily Fuhrman for Spring 2020.
+Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2016 by the [Center for Spatial Research](http://c4sr.columbia.edu). Edited by Brian House for Fall 2018 and Emily Fuhrman for Spring 2021.
