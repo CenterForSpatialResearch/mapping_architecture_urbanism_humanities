@@ -25,38 +25,48 @@ A projection, or Coordinate Reference System (CRS), is used to describe geograph
 #### Downloading Census state population data
 The Natural Earth state boundaries will serve as the 'empty' geography files for this project, to which we will join both U.S. Census state area measurements and U.S. Census population counts. We will be mapping the population density for each U.S. state, and will therefore need the area of each state, as well as the number of people who live in each state.
 
-To download the data for this project, we will be returning again to the [American Fact Finder](http://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) data portal. Navigate to the portal and click the `Advanced Search` option. Here we will select the following parameters within the `Topics` and `Geographies` levels:
+To download the data for this project, we will be returning again to the [Census Data Portal](https://data.census.gov/cedsci/). Navigate to the portal and click the `Advanced Search` option. Here we will select the following parameters within the `Topics` and `Geography` levels:
 
-* `Geographies` > `State - 040` > `All States within United States and Puerto Rico`
-* `Topics` > `Dataset` > `2018 Population Estimates`
-* `Topics` > `People` > `Basic Count/Estimate` > `Population Total`
+* `Topics` > `Populations and People` > `Populations and People`
+* `Geography` > `State` > `All States in United States`
+* `Surveys` > `PEP Population Estimates`
+* `Years` > `2019`
 
-On the left side of the `Advanced Search` window, and open up the `Topics` tab. Click the `Dataset` section, and select `2018 Population Estimates`. 
+To filter the available datasets, do the following:
+* On the left side of the `Advanced Search` window, and open up the `Topics` tab. Click the `Populations and People` section, and select `Populations and People`.
+* Next, open up the `Geography` tab, and select `State` from the dropdown menu. Select `All States in United States`.
+* Next, open up the `Surveys` tab. Select `PEP Population Estimates`.
+* Finally, open up the `Years` tab. Select `2019`.
 
-![U.S. Census Data 2018 Population Estimates](Images/06_01_popEstimates.png)
+![U.S. Census Data Population Estimates Search](Images/06_01_advancedSearch.png)
 
-Next, open up the `Geographies` tab, and select `State - 040` from the dropdown menu. Select `All States within United States and Puerto Rico` from the window that pops up below, then click `ADD TO YOUR SELECTIONS`.
+Once you have selected each of the above parameters, click `Search`.
 
-![U.S. Census Data State Geography](Images/06_02_selectGeographies.png)
+![U.S. Census Data Population Estimates Table](Images/06_02_searchResult.png) 
 
-Finally, open up the `Topics` tab again. Click on the `People` section, open `Basic Count/Estimate`, and select `Population Total`. Select the dataset listed as `PEPANNRES` in the search results window, entitled `Annual Estimates of the Resident Population: April 1, 2010 to July 1, 2018.`
+Click the link to navigate to the table. This view should include a column listing the full name of every U.S. state, and entries for each state containing population estimates for 2012, 2013, 2014, 2015, 2016, 2017, 2018, and 2019. Before downloading, we will filter this view to make sure we only pull the values we need (2019 population estimates).
 
-![U.S. Census Data Population Estimates Table](Images/06_03_selectDataset.png)
+In the table view, click `Filter` to open a right panel. First, go to the `Columns` tab and make sure that both `Geography` and `Estimate Date` is checked.
 
-Click the link to navigate to the table. This view should include a column listing the full name of every U.S. state, as well as subsequent columns containing population estimates for 2012, 2013, 2014, 2015, 2016, and 2017. To download the data in CSV format, click the `Download` button in the `Actions` bar. Select the "Use" option and keep both checkboxes checked.
+![U.S. Census Data Population Estimates Table](Images/06_03_columns.png) 
+
+Next, go to the `Filters` tab. Select `Estimate Date`. Choose `Greater than or equals`, and set the value to `11`. This will filter out all population estimate years except for the one we want, 2019. 
+
+To download the data in CSV format, click the `Excel` button in the top bar. 
 
 ![U.S. Census Data Population Estimates Download](Images/06_04_downloadFullTable.png)
 
-Click `OK` when prompted to download the data, and then click the `Download` button once the popup window says the file is complete. The downloaded file will be named `PEP_2018_PEPANNRES`.
+Click `Export to CSV`. The downloaded file will be named something like `PEPPOP2019.PEPANNRES-2021-02-04T174743` (note that the metadata after the `.` includes the date and time downloaded).
 
 #### Transforming Census state population data
 As always, there are many possible ways to transform data to fit the needs of your project. For this tutorial we will be working in Excel, or Google Sheets, to make the original file more manageable. We will reduce the dataset down to only the values we need, and then create a new column that will enable us to join the data to the Natural Earth shapefile.
-* Unzip the `PEP_2018_PEPANNRES` file, and open up the CSV called `PEP_2018_PEPANNRES_with_ann.csv`. The file should look something like this:
+
+* Open up the CSV (`PEPPOP2019.PEPANNRES-2021-02-04T174743.csv`). The file should look something like this:
 
 ![U.S. Census Data Population Estimates Excel](Images/06_05_fullTableExcel.png)
 
 * In order to create our map, the only data we need is state name, state ID, and population count. 
-	* To narrow the dataset down to only these values, delete every column *except* for `GEO.id`, `GEO.display-label`, and the last column on the right, `respop72018`.
+	* To narrow the dataset down to only these values, delete every column *except* for `Geography (GEO_ID)`, `Geographic Area Name (NAME)`, and the last column on the right, `Population (POP)`.
 	* Next, delete the second row of the spreadsheet, which contains descriptions for the columns. 
 
 	![Editing Population Estimates](Images/06_06_editTable.png)
