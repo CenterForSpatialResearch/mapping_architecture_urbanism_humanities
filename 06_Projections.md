@@ -44,7 +44,7 @@ Once you have selected each of the above parameters, click `Search`.
 
 ![U.S. Census Data Population Estimates Table](Images/06_02_searchResult.png) 
 
-Click the link to navigate to the table. This view should include a column listing the full name of every U.S. state, and entries for each state containing population estimates for 2012, 2013, 2014, 2015, 2016, 2017, 2018, and 2019. Before downloading, we will filter this view to make sure we only pull the values we need (2019 population estimates).
+Click the first entry to navigate to the table. This view should include a column listing the full name of every U.S. state, and entries for each state containing population estimates for 2012, 2013, 2014, 2015, 2016, 2017, 2018, and 2019. Before downloading, we will filter this view to make sure we only pull the values we need (2019 population estimates).
 
 In the table view, click `Filter` to open a right panel. First, go to the `Columns` tab and make sure that both `Geography` and `Estimate Date` is checked.
 
@@ -67,7 +67,6 @@ As always, there are many possible ways to transform data to fit the needs of yo
 
 * In order to create our map, the only data we need is state name, state ID, and population count. 
 	* To narrow the dataset down to only these values, delete every column *except* for `Geography (GEO_ID)`, `Geographic Area Name (NAME)`, and the last column on the right, `Population (POP)`.
-	* Next, delete the second row of the spreadsheet, which contains descriptions for the columns. 
 
 	![Editing Population Estimates](Images/06_06_editTable.png)
 
@@ -116,11 +115,12 @@ We will begin by importing the Natural Earth boundary data into a new QGIS proje
 ![Set CRS to Albers Projection](Images/06_14_albers.png)
 
 * Name the file `US_States_Albers`. Make sure to check the `Save only selected features` option, and hit `OK`.
-* When added to your current project, the new layer will automatically adopt the current project projection, WGS84. 
-* Go ahead and close this QGIS project and open a brand new one that contains only the re-projected Albers layer. This will prevent unexpected re-projection behavior from QGIS as you continue to create your map. If your project CRS does not automatically update to `North_America_Albers_Equal_Area_Conic (ESPG:102008)`, or if it interprets the saved projection as a `USER` string, click the button in the bottom left corner to set it manually. 
+* When added to your current project, the new layer will keep its current project. As a result of this, you probably see the new layer fill up the whole screen.  
+* Click the button in the bottom left corner to manually update your project CRS to the same projection as the new layer, `North_America_Albers_Equal_Area_Conic (ESPG:102008)`.
+* Hide or delete the states and provinces layer.  
 * Open up the layer properties for `US_States_Albers` and navigate to the `Information` tab. You should see either `ESPG:102008` or `USER:#` as the projection associated with this layer. (If you see a `USER` string, QGIS interpreted this as a custom, user-added projection. It should be equivalent to the one you selected.)
 
-![Check Projection](Images/06_15_albersNewProject.png)
+![Check Projection](Images/06_15_albersNewLayer.png)
 
 #### Preparing the U.S. Albers layer for joins
 
@@ -159,7 +159,7 @@ Now that the `US_States_Albers` layer is ready, we can import the CSV file and j
 * Click the top `Layer` menu, navigate to `Add Layer`, and select `Add Delimited Text Layer...`.
 * Select the previously-saved `StatePopulations.csv` file.
 * Click the `No geometry (attribute only table)` option.
-* Ensure the data looks correctly formatted, and click `OK`.
+* Ensure the data looks correctly formatted, and click `Add`.
 
 ![Import Populations CSV](Images/06_18_addDelimitedText.png)
 
@@ -175,7 +175,7 @@ Now that the `US_States_Albers` layer is ready, we can import the CSV file and j
 
 * Click `OK`.
 * Exit the `Layer Properties` panel, and open up the attribute table for the `US_States_Albers` layer. Confirm that three additional fields were added to the end.
-* We now need to save the `US_States_Albers` layer as a new shapefile in order to retain the join. Right-click on the layer, choose `Save as...`, and name it `US_States_Albers_JOINED`. Make sure the selected CRS is still `North_America_Albers_Equal_Area_Conic (ESPG:102008)`, and keep `Add saved file to map` checked. Click `OK`. 
+* We now need to save the `US_States_Albers` layer as a new shapefile in order to retain the join. Right-click on the layer, choose `Export > Save Features As...`, and name it `US_States_Albers_JOINED`. Make sure the selected CRS is still `North_America_Albers_Equal_Area_Conic (ESPG:102008)`, and keep `Add saved file to map` checked. Click `OK`. 
 
 #### Representing population data
 For our final print export, we will be creating a choropleth map that represents population density for each state. Now that we have joined the `US_States_Albers` layer to the Census data, we need to derive one more column that represents the population per km<sup>2</sup> for the land area of each polygon.
@@ -199,11 +199,11 @@ Before visualizing our data, we need to filter out Washington D.C. so as not to 
 
 ![Filter Out Washington D.C.](Images/06_21_filterDC.png)
 
-Now, we are ready to apply a color scale to this column. Navigate to the `US_States_Albers_JOINED` `Layer Properties` panel, and selecting a graduated color scale for your new `PopDensity` column. Set your number of classes to `8`, and choose the `Quantile (Equal Count)` option. Your map should look something like this:
+Now, we are ready to apply a color scale to this column. Navigate to the `US_States_Albers_JOINED` `Layer Properties` panel, and selecting a graduated color scale for your new `PopDensity` column. Set your number of classes to `8`. Try a few different classification methods, and notice how they differ in output. Coose the `Natural Breaks (Jenks)` option. Your map should look something like this:
 
 ![Population Map](Images/06_22_colorPopDensity.png)
 
-Once you are finished with this step, adjust colors and strokes as needed. Finally, create a new print composer. Add a legend, title, explanation, source, and scale bar. Add new layers for Alaska and Hawaii to approach a more traditional Albers view, and make sure to include a scale bar for each one so as to be transparent about any distortion. Export your map as a PDF file. Your final map should look something like this:
+Once you are finished with this step, adjust colors and strokes as needed. Finally, create a new print composer. Add a legend, title, explanation, source, and scale bar. Manipulate the `Scale` field for the map to only show the contiguous U.S. Add new layers for Alaska and Hawaii to approach a more traditional Albers view, and make sure to include a scale bar for each one so as to be transparent about any distortion. Export your map as a PDF file. Your final map should look something like this:
 
 ![Final Map Example](Images/06_23_Final_Map.png)
 
@@ -216,6 +216,6 @@ Upload your final (PDF) map to Canvas.
 
 ______________________________________________________________________________________________________________
 
-Tutorial created by Emily Fuhrman for the Mapping for Architecture, Urbanism and the Humanities class at Columbia University. Edited by Brian House for Fall 2018 and Emily Fuhrman for Spring 2020.
+Tutorial created by Emily Fuhrman for the Mapping for Architecture, Urbanism and the Humanities class at Columbia University. Edited by Brian House for Fall 2018 and Emily Fuhrman for Spring 2021.
 
 
