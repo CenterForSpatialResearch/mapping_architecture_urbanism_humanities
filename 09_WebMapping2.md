@@ -14,7 +14,7 @@ ___
 ![311 Service Requests]
 ___
 
-View the data, and filter it by `Descriptor: Rat Sightings` and `Created Date is after 01/01/2020`. This will give us rat sightings in NYC since the beginning of the semester, around 2,609 of them (and counting...). Export the data as a CSV file, and call it `rat_sightings.csv`.
+View the data, and filter it by `Descriptor: Rat Sightings` and `Created Date is after 01/01/2021`. This will give us rat sightings in NYC since the beginning of the semester, around 2,609 of them (and counting...). Export the data as a CSV file, and call it `rat_sightings.csv`.
 
 ___
 ![Rat filter]
@@ -64,7 +64,7 @@ ___
 
 On the left side of the screen in the `Layers` tab is a list of all the layers currently used by this map style. These are, first, tilesets. But they are also embedded style information. We'll see how this works by creating our own layer.
 
-In the upper left corner of the panel, there is a `+` button that says `Add new layer` on hover. When you click it, you'll see a list of tilesets. `Mapbox streets v7` and `Mapbox terrain v2` are active, because these are used by the `Dark` template. If you click one, it will expand to show multiple types of data, including polygons, lines, and points, any of which can be incorporated into layers on a map. However, we're going to scroll down and look at the unused sources, where you should see the `rat_sightings` (with a random extension) tileset created earlier. If you click it, you'll see just one kind of data, which is points, and if you click _that_, it will add the data to the map.
+In the upper left corner of the panel, there is a `+` button that says `Add new layer` on hover. When you click it, and select `Source`, you'll see a list of tilesets. `Mapbox streets v7` and `Mapbox terrain v2` are active, because these are used by the `Dark` template. If you click one, it will expand to show multiple types of data, including polygons, lines, and points, any of which can be incorporated into layers on a map. However, we're going to scroll down and look at the unused sources, where you should see the `rat_sightings` (with a random extension) tileset created earlier. If you click it, you'll see just one kind of data, which is points, and if you click _that_, it will add the data to the map.
 
 ___
 ![Choosing rat_sightings]
@@ -112,12 +112,8 @@ The heatmap should occlude the sightings markers in the previous layer. That wil
 
 ## Start a web project
 
-Follow the same steps as in the [previous tutorial](8_WebMapping1.md):
+Follow the same steps as in the [previous tutorial](8_WebMapping1.md): 
 
-- Create a new repository on your GitHub account, called `nyc_rats`, and make sure you initialize it with a README
-- Go into the repository settings and make the master branch of your repository a Github page
-- Clone a local copy of this repository to your computer using [git](https://thenewstack.io/tutorial-git-for-absolutely-everyone/) in the terminal:  
-`git clone https://github.com/yourusername/nyc_rats`
 - Create the empty files `index.html`, `style.css`, and `map.js` with your editor (Sublime Text)
 
 Put this in your `index.html` file:
@@ -132,9 +128,9 @@ Put this in your `index.html` file:
     <meta http-equiv='Pragma' content='no-cache' />
     <meta http-equiv='Expires' content='0' />    
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet' />     
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />     
     <link href='style.css' rel='stylesheet' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
 </head>
 <body>
     <div id='map'></div>
@@ -206,19 +202,9 @@ geolocate.on('geolocate', function(event) {
 
 Open `index.html` with your browser, and you should see the map style you created in Mapbox Studio. If not, check the javascript console for errors.
 
-Now add them to your repository, commit, and push your changes:  
-`git add index.html style.css map.js`  
-`git commit -m 'initial import'`  
-`git push`  
-
-And view the map online at http://YOURUSERNAME.github.io/nyc_rats
-
-(Note: if you are getting a 404, or your page is otherwise not showing up, make sure your repository is set to be viewable as a Github Pages website. In the `Settings` of your repository, scroll down to the `Github Pages` section, and if the source reads `None`, then select `master branch` and click `Save`. Your site should now be viewable)
-
-
 ## Place-based interactivity
 
-This map functions well as a reference when viewed on the computer. However, when you view it on a mobile device with your geolocated position it opens up additional possibilities. When you're walking in the streets of NYC, you might not only want to see the heatmap, but a locator that points to the nearest location of a rat sighting. By building this, we will learn how to do map calculations on the fly.
+This map functions well as a reference when viewed on the computer. However, when you view it on a mobile device with your geolocated position it opens up additional possibilities. If you were walking in the streets of NYC, for instance, you might not only want to see the heatmap, but a locator that points to the nearest location of a rat sighting. By building this, we will learn how to do map calculations on the fly.
 
 Using Mapbox Studio, we created two layers—one that is our heat map, and a hidden layer that's just markers for individual rat sightings. In javascript, our `map` object has a function, `queryRenderedFeatures`, through which we can retrieve information about those individual sightings. For now, we'll put this inside of a `click` handler like the one we used in the previous tutorial. Add this to the bottom of your javascript:
 
@@ -256,7 +242,7 @@ To find the closest feature to the clicked location, we will cycle through all t
 
 ```html
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.5/turf.min.js'></script>
+<script src='https://unpkg.com/@turf/turf/turf.min.js'></script>
 
 ```
 
@@ -402,14 +388,14 @@ geolocate.on('geolocate', function(event) {
     let current_location = [event.coords.longitude, event.coords.latitude]
 ```
 
-Now the map will center on the user's position and point to the nearest rat sighting, assuming there is one nearby. Try this out on your mobile device.
+Now the map will center on the user's position and point to the nearest rat sighting, assuming there is one nearby. 
 
 This is as far as we'll go in this tutorial. But from here, we might want to make the arrow disappear if there are no rat sightings nearby, display the distance to the sighting, add alerts, or other functionality. Additional layers that we create through Mapbox studio might overlay other types of information to help us contextualize what we're seeing, and these layers could be toggled on and off by the user. Think about what might be needed, both in terms of rat sightings and for ways in which you might repurpose this model, and we will discuss in class.
 
 
 ## Deliverables
 
-Submit the github URL to your working rat map.
+Submit a zipped folder containing the files for your working webmap (HTML, CSS, JS) to Canvas.
 
 Extra credit: repurpose this code with a different dataset.
 
@@ -422,7 +408,7 @@ Curious about rat communication? Brian House was too. Check out the "New York" s
 ______________________________________________________________________________________________________________
 
 
-Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)). Edited by Emily Fuhrman for Spring 2020.
+Tutorial written by Brian House for Mapping for Architecture, Urbanism, and the Humanities ([Fall 2018](https://github.com/brianhouse/mapping-architecture-urbanism-humanities)). Edited by Emily Fuhrman for Spring 2021.
 
 
 
