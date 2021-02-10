@@ -20,7 +20,7 @@ Open QGIS:
 
 ![blank](Images/07_00_newProject.png)
 
-You are going to use OSM data as the reference data for the georeferencing process. You can view the OSM basemap service in QGIS by adding it through the "Browser" panel. To view these options, select `View > Panels > Browser`.
+You are going to use OSM data as the reference data for the georeferencing process. You can view the OSM basemap service in QGIS by adding it through the "Browser" panel. To view these options, make sure that `View > Panels > Browser` is checked.
 
 ![blank](Images/07_01_panelsBrowser.png)
 
@@ -50,13 +50,13 @@ It will appear in the georeferencer window:
 
 ![blank](Images/07_06_importedMap.png)
 
-This map is from the years just after the 1896 plague, and while the infrastructure (and even some of the land) have changed, we an still navigate our way around using the docks, bays, and some major roads.
+This map is from the years just after the 1896 plague, and while the infrastructure (and even some of the land) have changed, we can still navigate our way around using the docks, bays, and some major roads.
 
-Historical maps can be difficult to georeference, and this sheet poses a number of complications. The map projection is unclear and there are no ground control points or coordinates specified. Because of this, you will georeference by matching physical features represented on the map with their current counterparts (and their known coordinates). However, most of the features in this map have changed or no longer exist (or were never actually built in the first place). Thus, you will need to be very careful to choose locations that you are confident match up well with their contemporary counterparts. Fortunately, some things (such as docks in the East, and some structures have not changes). 
+Historical maps can be difficult to georeference, and this sheet poses a number of complications. The map projection is unclear and there are no ground control points or coordinates specified. Because of this, you will georeference by matching physical features represented on the map with their current counterparts (and their known coordinates). However, most of the features in this map have changed or no longer exist (or were never actually built in the first place). Thus, you will need to be very careful to choose locations that you are confident match up well with their contemporary counterparts. Fortunately, some things (such as docks in the East, and some structures) have not changed.
 
 ### Adding a Point
 The QGIS georeferencer does not allow you to view both the scanned map and the workspace at the same time, so you will have to inspect both maps in turn and choose carefully to select locations to add georeferencing control points. 
-One candidate is the Prince's Dock in Bombay Harbor which continues to exist largely its original configuration. Use the georeferencer zoom tools ![blank](Images/GeoRef11_.png) to zoom to the south-oriented dock. On the OSM map, it may look slightly different: 
+One candidate is the Prince's Dock in Bombay Harbor which continues to exist largely its original configuration. Use the georeferencer zoom tools ![blank](Images/GeoRef11_.png) to zoom to the south-oriented dock. On the OSM map, it may look slightly different, even filled in (see location _above_ "Mumbai Port Trust"): 
 
 ![blank](Images/07_07_zoomToDock.png)
  
@@ -159,7 +159,7 @@ Next you will create a new point layer.  Under the layer menu, choose create new
 
 ![blank](Images/07_25_newShapefileLayer.png)
 
- In the new vector dialog layer, choose type “Point”.  You can also create additional attribute fields for your dataset, if applicable Here, I have added a building “type” attribute and made it a text field with a maximum length of 80.  Select OK:
+ In the new vector dialog layer, choose type “Point”.  You can also create additional attribute fields for your dataset, if applicable. Here, I have added a building “type” attribute and made it a text field with a maximum length of 80.  Select OK:
  
 ![blank](Images/07_26_mumbaiBuildingsFiles.png)
 
@@ -179,16 +179,15 @@ Continue to digitize buildings in this corner of Bombay:
 
 ![blank](Images/07_29_digitizeSpace.png)
 
-If you want to move one of the point features you can use the move feature tool ![DigitizingExercise](Images/Digitize13.png) if you want to delete a feature, you can select it with the select features tool ![DigitizingExercise](Images/Digitize14.png) at use the delete key on the keyboard.  It is a good idea to regularly use the “save for selected laters” function to save your work as you digitize:  
+If you want to move one of the point features you can use the move feature tool ![DigitizingExercise](Images/Digitize13.png) if you want to delete a feature, you can select it with the select features tool ![DigitizingExercise](Images/Digitize14.png) at use the delete key on the keyboard.  It is a good idea to regularly use the “Save for Selected Layer(s)” function to save your work as you digitize:  
 
 ![DigitizingExercise](Images/07_30_saveEditing.png)
 
-When finished, depress the toggle editing tool ![DigitizingExercise](Images/Digitize16.png) to close the editing session
-Next you will digitize the railways.  Create another new shapefile layer as above, but this time choose “Line” as the vector type and MumbaiRailways1909 as the file name:
+When finished, depress the toggle editing tool ![DigitizingExercise](Images/Digitize16.png) to close the editing session. Next you will digitize the railways. Create another new shapefile layer as above, but this time choose “Line” as the vector type and MumbaiRailways1909 as the file name:
 
 ![blank](Images/07_31_mumbaiRailways.png)
 
-Now when you toggle on editing and select the add features tool ![DigitizingExercise](Images/Digitize19.png). You will be digitizing line features. As you click with the add features tool you can continue to add as many vertices to the line as you wish. To complete the line segment, use the right mouse button. 
+Now, toggle on editing and select the add features tool ![DigitizingExercise](Images/Digitize19.png). This time, you will be digitizing line features. As you click with the add features tool you can continue to add as many vertices to the line as you wish. To complete the line segment, use the right mouse button. 
 
 Line features are more complex than the point features you made earlier and a few more considerations need to be made. One issue regards the shape of the railways (or streets). You are going to digitize the ‘centerline,’ using a single line feature to represent the center of the path feature.  
 
@@ -204,11 +203,11 @@ Set the snapping options for the current layer to be within 10 meters (current m
 
 Now the add feature tool will automatically snap to another feature’s vertex whenever the cursor comes within 10 meters.
 
-Digitize the first feature using the add features tool ![DigitizingExercise](Images/Digitize22.png). Be careful to keep each vertex as close to the railway as possible.  The more vertices you add the smoother the railroad can be. Right click at the first station to end the line (if this does not work on Mac, check your trackpad in "Settings" and use the gesture set for "Secondary click"). 
+Digitize the first feature using the add features tool ![DigitizingExercise](Images/Digitize19.png). Be careful to keep each vertex as close to the railway as possible.  The more vertices you add the smoother the railroad can be. Right click at the first station to end the line (if this does not work on Mac, check your trackpad in "Settings" and use the gesture set for "Secondary click"). 
 
 ![blank](Images/georef34.png)
 
-Begin the next feature at the endpoint of the first and continue to digitize the railroads. This method can be used to digitize the roads as well, but because of time constraints, we will stop here for this tutorial. If you want or need to digitize the southern section of Bombay, you will need to use the polygon tool to represent the blocks that are filled in, which functions similarly to the points and lines. 
+Begin the next feature at the endpoint of the first and continue to digitize the railroads. This method can be used to digitize the roads as well. If you want or need to digitize the southern section of Bombay, you will need to use the polygon tool to represent the blocks that are filled in, which functions similarly to the points and lines. 
 
 
 #### Deliverables
@@ -216,6 +215,6 @@ To complete Part II, upload your MumbaiBuildings1909 and your MumbaiRailways1909
 ______________________________________________________________________________________________________________
 
 
-Tutorial adapted by Michelle McSweeney for *Conflict Urbanism: InfraPolitics* a seminar course taught at Columbia University in Fall 2017 by the [Center for Spatial Research](http://c4sr.columbia.edu/). Originally written by Eric Glass, for *Mapping for the Urban Humanities*. Edited by Brian House for Fall 2018 and Emily Fuhrman for Spring 2020.
+Tutorial adapted by Michelle McSweeney for *Conflict Urbanism: InfraPolitics* a seminar course taught at Columbia University in Fall 2017 by the [Center for Spatial Research](http://c4sr.columbia.edu/). Originally written by Eric Glass, for *Mapping for the Urban Humanities*. Edited by Brian House for Fall 2018 and Emily Fuhrman for Spring 2021.
 
 
