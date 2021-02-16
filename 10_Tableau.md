@@ -113,6 +113,8 @@ Next, click the same arrows for each field and select `Discrete` instead of `Con
 
 That's more like it!
 
+![Map Grid]
+
 ## Symbolizing our multiples field
 
 At this point, you can play around with the custom columns you added to your dataset to symbolize different dimensions in different ways. Play with the `Marks` palette to tweak size, color, and symbol type. Try one of the following:
