@@ -32,5 +32,7 @@ This module will introduce webmaps using Mapbox GL JS. This tutorial will intro
 **[Web Mapping 02](09_WebMapping2.md)**  
 In this tutorial, you will create a tileset using external data (rat sightings in NYC) and produce a location-aware heatmap.
 
-**[Web Mapping 03](10_WebMapping2.md)**  
-In this tutorial, you will use the sensing capacity of your mobile phone to make GPS drawings.
+----
+
+**[Tableau](10_Tableau.md)**  
+In this tutorial, you will explore how to create a small multiples geovisualization in Tableau using your own custom dataset.
