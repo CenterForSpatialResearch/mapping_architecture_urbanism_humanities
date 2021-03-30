@@ -37,5 +37,5 @@ In this tutorial, you will use the sensing capacity of your mobile phone to make
 
 ----
 
-**[Tableau Public](11_Tableau.md)**  
+**[Tableau Public](11_TableauPublic.md)**  
 In this tutorial, you will explore how to create a small multiples geovisualization in Tableau Public using your own custom dataset.
