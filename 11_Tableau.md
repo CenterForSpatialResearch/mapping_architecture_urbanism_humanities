@@ -1,4 +1,4 @@
-# Tutorial 10: Tableau
+# Tutorial 11: Tableau
 
 In this tutorial, we will leverage the personal spatial dataset you have been constructing up until this week to create a ["small multiples"](https://en.wikipedia.org/wiki/Small_multiple) visualization in Tableau. The small multiples technique is great for showing subtle differences in the same region across different dimensions, including time. Outlets like the [NYT](https://www.nytimes.com/interactive/2014/09/08/us/climate-change-could-push-birds-north-shrink-their-ranges.html?_r=0) and [FT](http://www.ft.com/cms/s/0/e789b666-4b44-11e5-b558-8a9722977189.html) have put this technique to good use. (For more inspiration, you can also check out the gallery [here](https://www.pinterest.com/emilyfuhrman__/small-multiples-maps/)). During a period in which many of us are staying at home, what better way to represent the subtle, day-to-day differences that follow the passage of time?
 
