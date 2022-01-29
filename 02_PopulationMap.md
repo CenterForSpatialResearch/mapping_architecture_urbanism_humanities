@@ -89,7 +89,7 @@ The data we are using about populated places is aggregated by [Natural Earth v. 
 Country-level population data was published by the [United Nations Population Division](http://esa.un.org/unpd/wpp/Download/Standard/Population/) in 2010. All figures are reported in thousands, i.e., if the population field says 7,000 in the dataset this equals 7,000,000 inhabitants. We have provided a cleaned version of this dataset but the original can be downloaded [here](http://esa.un.org/unpd/wpp/Download/Standard/Population/).
 
 #### Downloads
-In addition to the data files you have downloaded already you will need to download the Gridded Population of the World raster dataset [here](https://drive.google.com/file/d/0B5KywkNXsT4JYlZGd1lReUVyYVk/view?usp=sharing). Please create a new folder in your `Data/2_MappingData` directory called `Raster` and save the `GriddedPop.zip` file there. Once it has downloaded unzip the file so that we can use its contents.
+In addition to the data files you have downloaded already you will need to download the Gridded Population of the World raster dataset [here](https://drive.google.com/file/d/14nahaDYtWfClZ-uuMP30Ow0T3C2yjYaj/view?usp=sharing). Please create a new folder in your `Data/2_MappingData` directory called `Raster` and save the `gpw-v4-population-count-2010.zip` file there. Once it has downloaded unzip the file so that we can use its contents.
 
 #### Setting up QGIS
 Open your MappingData_Population.qgs file.
