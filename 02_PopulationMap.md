@@ -230,14 +230,14 @@ In the bottom left hand corner of your QGIS window you will see that five popula
 Now use select by attributes and select by location to answer the following question:
 * How many countries contain cities with greater than 7 million inhabitants?
 
-Include the answer as part of your map composition that we will review on Tuesday.   
+Include the answer as part of your map composition that we will review on Friday.   
 
 #### Symbolizing World Populations
 
 Now that we have these three different layers we can begin to create maps that highlight the differences between these different ways to measure population. We will compose a map that symbolizes each of our three data layers differently. We will use graduated symbols to express city population, a choropleth map for population by country and a classified color ramp for the gridded population. We will then go over cartographic conventions adding a legend and scale bar to the map and exporting as a PDF.
 
 
-**Proportional  symbols**
+**Proportional symbols**
 
 We will symbolize the cities layer with symbols that are sized proportionally to their population -- a city with a larger population will have a larger circle and visa versa.
 To do this open the layer properties menu for the `populated_places` layer and navigate to the Style tab.
@@ -280,7 +280,7 @@ Now change the `Render type` to `Singleband pseudocolor` to get something simila
 
 **Choropleth**
 
-Create a choropleth map for population by country, where each country is  colored according to its population size.
+Create a choropleth map for population by country, where each country is colored according to its population size.
 
 **Open** the properties for the admin_0_countriesUNPop layer and navigate to the Style tab. Select Graduated Symbols from the dropdown at the top left, and select Pop_2010 as the Column on which we will color the map. Then in order to change the color of the entire country polygon we will need to change the symbol from an outline to a filled polygon by clicking the Change button next to Symbol and selecting “simple fill.” Next we will break up our data into classes, or ranges of values, and classify the colors for our choropleth map according to these.
 
