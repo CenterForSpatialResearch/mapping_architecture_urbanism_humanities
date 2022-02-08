@@ -39,12 +39,12 @@ Other datasets we will be using are:
 **Most** Are available in the [Data/3_MakingData folder](Data/3_MakingData). If you don't have it already from the last tutorial, you can download the [entire repository](https://github.com/CenterForSpatialResearch/mapping_architecture_urbanism_humanities/) and navigate to the folder, or  with the command line, [download the folder](https://stackoverflow.com/questions/9159894/download-specific-files-from-github-in-command-line-not-clone-the-entire-repo).
 
 This contains:
-* nybb - New York City boroughs ([original](http://www.nyc.gov/html/dcp/html/bytes/districts_download_metadata.shtml))
-* HYDRO - New York hydrography ([original](https://data.cityofnewyork.us/Environment/Hydrography/drh3-e2fd))
+* nybb - New York City boroughs ([original](https://www1.nyc.gov/assets/planning/download/zip/data-maps/open-data/nybb_21d.zip))
+* HYDRO - New York hydrography ([original](https://data.cityofnewyork.us/api/geospatial/drh3-e2fd?method=export&format=Original))
 * tl_2017_36_bg - New York State census block groups ([original](https://www.census.gov/cgi-bin/geo/shapefiles/index.php), census block groups for New York state for 2017)
 
 In addition, you **must** download the roadbeds data (it is too big to host on GitHub)
-* [Roadbed - New York roadbed](https://data.cityofnewyork.us/api/geospatial/xgwd-7vhd?method=export&format=Shapefile)
+* [Roadbed - New York roadbed](https://data.cityofnewyork.us/api/geospatial/xgwd-7vhd?method=export&format=Original)
 
 ### Creating Noise Maps of 311 Data in New York City
 #### Downloading 311 Data
