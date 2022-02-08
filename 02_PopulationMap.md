@@ -339,4 +339,4 @@ Include your answer to the following question you answered on your own:
 
 ______________________________________________________________________________________________________________
 
-Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2017 by the [Center for Spatial Research](http://c4sr.columbia.edu). Edited by Emily Fuhrman for Spring 2021. 
+Tutorial written by Dare Brawley, for *Mapping for the Urban Humanities*, a intensive workshop for Columbia University faculty taught in Summer 2017 by the [Center for Spatial Research](http://c4sr.columbia.edu). Edited by Emily Fuhrman for Spring 2021 and Juan Sebastián Moreno for Spring 2022. 
